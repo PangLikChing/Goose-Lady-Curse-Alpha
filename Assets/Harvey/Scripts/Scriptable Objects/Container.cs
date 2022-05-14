@@ -46,4 +46,25 @@ public class Container : ScriptableObject
             heldItems = temp;
         }
     }
+
+    // Debug
+    public void DisplayItems()
+    {
+        // For every element in heldItems
+        for (int i = 0; i < heldItems.Length; i++)
+        {
+            // If an item exists in heldItems[i]
+            if (heldItems[i] != null)
+            {
+                // Throw a debug message with that item's name
+                Debug.Log($"{heldItems[i].name}\t");
+            }
+            // Else
+            else
+            {
+                // Throw a debug message with null
+                Debug.Log("Null\t");
+            }
+        }
+    }
 }

@@ -342,5 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2466a0bb78189fc4bb4ca8c5e3e7ed95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testConsumable: {fileID: 11400000, guid: aed0a0f9d037b5c4aada2b7a193e4602, type: 2}
+  testConsumable: {fileID: 11400000, guid: 35c5de94629d8f543b5470677e3a8847, type: 2}
+  testContainer: {fileID: 11400000, guid: 321b247fff567be47916b5dc0b6acd3b, type: 2}
+  testInventory: {fileID: 11400000, guid: 5be47b3261ce71646ab3fbb0e0e36209, type: 2}
   testTimer: 0

@@ -10,16 +10,16 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
     // itemID is the ID of that item
-    [SerializeField] protected int itemID = -1;
+    public int itemID = -1;
 
     // itemDisplayName is the display name of that item on the screen
-    [SerializeField] protected string itemDisplayName = "";
+    public string itemDisplayName = "";
 
     // itemIcon is the 2D item icon appears in the inventory or amour slots
-    [SerializeField] protected Sprite itemIcon = null;
+    public Sprite itemIcon = null;
 
     // item3DModelPrefeb is the 3D Prefeb asset that will show up on the screen outside of the inventory
-    [SerializeField] protected Transform item3DModelPrefeb = null;
+    public Transform item3DModelPrefeb = null;
 
     // stackNumber is the number of item that is currently in the stack
     public int stackNumber = -1;

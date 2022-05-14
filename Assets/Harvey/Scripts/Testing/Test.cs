@@ -10,13 +10,19 @@ public class Test : MonoBehaviour
 {
     [SerializeField] Consumable testConsumable;
 
+    [SerializeField] Container testContainer;
+
+    [SerializeField] Inventory testInventory;
+
     [SerializeField] float testTimer = 0.0f;
 
     void Update()
     {
         if (testTimer >= 2.0f)
         {
-            testConsumable.Consume();
+            //testConsumable.Consume();
+            //testContainer.DisplayItems();
+            testInventory.DisplayContainers();
             testTimer = 0.0f;
         }
         else

@@ -11,4 +11,25 @@ public class Inventory : ScriptableObject
 {
     // bagSlots is the bags that the player is holding
     [SerializeField] private List<Container> bagSlots = new List<Container>();
+
+    // Debug
+    public void DisplayContainers()
+    {
+        // For every element in bagSlots
+        for (int i = 0; i < bagSlots.Count; i++)
+        {
+            // If an item exists in bagSlots[i]
+            if (bagSlots[i] != null)
+            {
+                // Ask that container to display all items it holds
+                bagSlots[i].DisplayItems();
+            }
+            // Else
+            else
+            {
+                // Throw a debug message with null
+                Debug.Log("Null\t");
+            }
+        }
+    }
 }
