@@ -12,7 +12,7 @@ public class Container : ScriptableObject
     // volume is the number of items that the container can hold;
     [SerializeField] protected int volume = 1;
 
-    // helpItems is the items that the container is currently holding
+    // heldItems is the items that the container is currently holding
     [SerializeField] public Item[] heldItems = new Item[1];
 
     // If a value is changed

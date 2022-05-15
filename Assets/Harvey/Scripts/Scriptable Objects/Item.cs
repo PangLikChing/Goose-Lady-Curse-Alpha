@@ -21,9 +21,9 @@ public class Item : ScriptableObject
     // item3DModelPrefeb is the 3D Prefeb asset that will show up on the screen outside of the inventory
     public Transform item3DModelPrefeb = null;
 
-    // stackNumber is the number of item that is currently in the stack
+    // stackNumber is the number of items that is currently in the stack
     public int stackNumber = -1;
 
-    // maxStackNumber is the maximum number of item that a stack can hold
+    // maxStackNumber is the maximum number of items that a stack can hold
     [SerializeField] protected int maxStackNumber = 99;
 }
