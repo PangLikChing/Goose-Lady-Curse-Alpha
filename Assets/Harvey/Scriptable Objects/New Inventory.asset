@@ -14,5 +14,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bagSlots:
   - {fileID: 11400000, guid: 321b247fff567be47916b5dc0b6acd3b, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 321b247fff567be47916b5dc0b6acd3b, type: 2}

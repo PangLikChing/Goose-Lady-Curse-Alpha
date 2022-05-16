@@ -10,7 +10,7 @@ using UnityEngine;
 public class Inventory : ScriptableObject
 {
     // bagSlots is the bags that the player is holding
-    [SerializeField] private List<Container> bagSlots = new List<Container>();
+    [SerializeField] public List<Container> bagSlots = new List<Container>();
 
     // Debug
     public void DisplayContainers()
