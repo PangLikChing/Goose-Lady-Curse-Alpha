@@ -116,6 +116,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Zoom Camera"",
+                    ""type"": ""Value"",
+                    ""id"": ""cf40c54b-1316-43e3-bb02-45578cfacf11"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -228,6 +237,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""439e8165-dd8c-4d18-85de-510a38dd07b1"",
+                    ""path"": ""<Mouse>/scroll/y"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Zoom Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -263,6 +283,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_OpenHelpMenu = m_Player.FindAction("Open Help Menu", throwIfNotFound: true);
         m_Player_OpenPauseMenu = m_Player.FindAction("Open Pause Menu", throwIfNotFound: true);
         m_Player_OpenBuildMenu = m_Player.FindAction("Open Build Menu", throwIfNotFound: true);
+        m_Player_ZoomCamera = m_Player.FindAction("Zoom Camera", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -332,6 +353,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_OpenHelpMenu;
     private readonly InputAction m_Player_OpenPauseMenu;
     private readonly InputAction m_Player_OpenBuildMenu;
+    private readonly InputAction m_Player_ZoomCamera;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -346,6 +368,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @OpenHelpMenu => m_Wrapper.m_Player_OpenHelpMenu;
         public InputAction @OpenPauseMenu => m_Wrapper.m_Player_OpenPauseMenu;
         public InputAction @OpenBuildMenu => m_Wrapper.m_Player_OpenBuildMenu;
+        public InputAction @ZoomCamera => m_Wrapper.m_Player_ZoomCamera;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -385,6 +408,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @OpenBuildMenu.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenBuildMenu;
                 @OpenBuildMenu.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenBuildMenu;
                 @OpenBuildMenu.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOpenBuildMenu;
+                @ZoomCamera.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnZoomCamera;
+                @ZoomCamera.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnZoomCamera;
+                @ZoomCamera.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnZoomCamera;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -419,6 +445,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @OpenBuildMenu.started += instance.OnOpenBuildMenu;
                 @OpenBuildMenu.performed += instance.OnOpenBuildMenu;
                 @OpenBuildMenu.canceled += instance.OnOpenBuildMenu;
+                @ZoomCamera.started += instance.OnZoomCamera;
+                @ZoomCamera.performed += instance.OnZoomCamera;
+                @ZoomCamera.canceled += instance.OnZoomCamera;
             }
         }
     }
@@ -444,5 +473,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnOpenHelpMenu(InputAction.CallbackContext context);
         void OnOpenPauseMenu(InputAction.CallbackContext context);
         void OnOpenBuildMenu(InputAction.CallbackContext context);
+        void OnZoomCamera(InputAction.CallbackContext context);
     }
 }

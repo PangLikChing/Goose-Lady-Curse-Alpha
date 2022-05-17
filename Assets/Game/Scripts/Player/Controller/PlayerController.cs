@@ -66,4 +66,10 @@ public class PlayerController : Singleton<PlayerController>
     public void OnOpenBuildMenu()
     { 
     }
+
+    //callback for zoom camera action
+    public void OnZoomCamera(InputValue value)
+    {
+        
+    }
 }
