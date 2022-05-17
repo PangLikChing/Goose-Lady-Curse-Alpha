@@ -6,10 +6,11 @@ public class PlayerBaseState : FSMBaseState<PlayerFSM>
 {
     protected PlayerController controller;
     protected AvatarLocomotion motion;
+    protected AvatarActions actions;
     public override void Init(GameObject _owner, FSM _fsm)
     {
         base.Init(_owner, _fsm);
         controller = PlayerController.Instance;
-        motion = fsm.avatar.GetComponent<AvatarLocomotion>();
+        motion = controller.avatar.GetComponent<AvatarLocomotion>();
     }
 }

@@ -5,18 +5,13 @@ using UnityEngine.InputSystem;
 using UnityEngine.Events;
 public class PlayerController : Singleton<PlayerController>
 {
-    private Ray ray;
-    private RaycastHit hit;
-
-    public LayerMask movementLayerMask;
+    public GameObject avatar;
     [HideInInspector]
-    public Camera mainCam;
-    [HideInInspector]
-    public UnityEvent<Vector3> MoveCmd;
+    public UnityEvent MoveCmd;
     // Start is called before the first frame update
     void Start()
     {
-        mainCam = Camera.main;
+        
     }
 
     // Update is called once per frame
@@ -28,11 +23,7 @@ public class PlayerController : Singleton<PlayerController>
     //callback for movement action
     public void OnMovements() 
     {
-        ray = mainCam.ScreenPointToRay(Mouse.current.position.ReadValue());
-        if (Physics.Raycast(ray, out hit, 500f, movementLayerMask))
-        {
-            MoveCmd.Invoke(hit.point);
-        }
+        MoveCmd.Invoke();
     }
 
     //callback for attack action
