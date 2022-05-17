@@ -5,28 +5,24 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     //Variable declaration
-    //public GameObject objPrefab;
     private GameObject spawnableObject;
     private float timer;
     public ItemToSpawn itemScirtableObject;
-    //private string prefabName;
     public float timeToWait;
     private GameObject ObjectToSpawn;
     private int randomNum;
-    //public int numOfItems;
-    //public string scriptableObjectName;
 
     // Start is called before the first frame update
     void Start()
     {
-        // itemScirtableObject = (ItemToSpawn)Resources.Load("Scriptable Objects/" + scriptableObjectName, typeof(ItemToSpawn));
+       
     }
 
     //spawn the object 
     public void SpawnObject()
     {
-        //GameObject ObjectToSpawn = (GameObject)Resources.Load("Prefabs/" + prefabName, typeof(GameObject));
-        if(itemScirtableObject.SpawnableItems.Count == -1)
+        
+        if(itemScirtableObject.SpawnableItems.Count <= 0)
         {
             Debug.Log("No Items are in the spawn list, please add at least one item in the scriptable object.");
         }

@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0207e2be270b7247bccd2b05b91199b, type: 3}
-  m_Name: SpawnableItem
+  m_Name: Test3
   m_EditorClassIdentifier: 
-  SpawnableItems: []
+  SpawnableItems:
+  - {fileID: 5087734551854911508, guid: 73b02c079e0df744e88d1b7714a8458b, type: 3}
