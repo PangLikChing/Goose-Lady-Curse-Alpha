@@ -52,6 +52,9 @@ public class PlayerInverntory : MonoBehaviour
                 // Cache the current inventory slot
                 Transform currentSlot = inventoryBackground.GetChild(j).GetChild(0);
 
+                // Assign container to the inventory slots
+                currentSlot.parent.GetComponent<InventorySlot>().heldItem = bags[i].heldItems[j];
+
                 // If there is an item in that slot
                 if (bags[i].heldItems[j].slottedItem != null)
                 {

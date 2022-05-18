@@ -13,6 +13,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Canvas canvas;
+    public InventorySlot originalInventorySlot;
 
     void Start()
     {
@@ -28,6 +29,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         // Make it so that it is not interactable with raycast when dragging
         canvasGroup.blocksRaycasts = false;
+
+        // Set the originalInventorySlot to the one that is holding the Item
+        originalInventorySlot = transform.parent.GetComponent<InventorySlot>();
 
         // Change the parent to the canvas so that it will not be blocked by other slots
         transform.parent = canvas.transform;
