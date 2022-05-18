@@ -13,7 +13,7 @@ public class Container : ScriptableObject
     [SerializeField] protected int volume = 1;
 
     // heldItems is the items that the container is currently holding
-    [SerializeField] public Item[] heldItems = new Item[1];
+    [HideInInspector] public ItemSlot[] heldItems = new ItemSlot[1];
 
     // If a value is changed
     private void OnValidate()
@@ -25,7 +25,7 @@ public class Container : ScriptableObject
             int newSize = volume;
 
             // Initialize a temp Item array
-            Item[] temp = new Item[newSize];
+            ItemSlot[] temp = new ItemSlot[newSize];
 
             // For the length of the temp Item array
             for (int i = 0; i < temp.Length; i++)
@@ -57,7 +57,7 @@ public class Container : ScriptableObject
         //    if (heldItems[i] != null)
         //    {
         //        // Throw a debug message with that item's name
-        //        Debug.Log($"{heldItems[i].name}\t");
+        //        Debug.Log($"{heldItems[i].itemSlot.slottedItem.name}\t");
         //    }
         //    // Else
         //    else

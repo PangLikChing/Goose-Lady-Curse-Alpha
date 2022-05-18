@@ -1138,6 +1138,15 @@ MonoBehaviour:
   testConsumable: {fileID: 11400000, guid: 35c5de94629d8f543b5470677e3a8847, type: 2}
   testContainer: {fileID: 11400000, guid: 321b247fff567be47916b5dc0b6acd3b, type: 2}
   testInventory: {fileID: 11400000, guid: 5be47b3261ce71646ab3fbb0e0e36209, type: 2}
+  itemSlots:
+  - {fileID: 11400000, guid: 8a00d79bc51c9934f88a0c241f01796f, type: 2}
+  - {fileID: 11400000, guid: 2d53d2e9a6db6554590220b7ee57f0fa, type: 2}
+  - {fileID: 11400000, guid: e1980e0f44924d545afaac624a81b308, type: 2}
+  - {fileID: 11400000, guid: 8711f4ede5c6b254cb0b37d072a27a06, type: 2}
+  - {fileID: 11400000, guid: 33a4b436f366db8439d9cec8cbde79d5, type: 2}
+  - {fileID: 11400000, guid: 8ed4e746ce91ad34081150eceaa77f05, type: 2}
+  - {fileID: 11400000, guid: fcb88f8b949be104ba343e45af46688c, type: 2}
+  - {fileID: 11400000, guid: 7a1e43e321660a348a9c56f3ffaf74cb, type: 2}
   testTimer: 0
 --- !u!114 &1544008954
 MonoBehaviour:
@@ -1153,6 +1162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myInventory: {fileID: 11400000, guid: 5be47b3261ce71646ab3fbb0e0e36209, type: 2}
   inventoryBackground: {fileID: 738228470}
+  test: {fileID: 1544008953}
   Open:
     m_PersistentCalls:
       m_Calls:

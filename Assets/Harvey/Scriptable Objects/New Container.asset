@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f74e51e00062df4288e4c13c1721de3, type: 3}
   m_Name: New Container
   m_EditorClassIdentifier: 
-  volume: 6
+  volume: 8
   heldItems:
-  - {fileID: 11400000, guid: ee57829ae76056f419d2f7492e2c3a8a, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 4ef1d14ff40ada84eaeeaa92d1ac7a74, type: 2}
-  - {fileID: 11400000, guid: ee57829ae76056f419d2f7492e2c3a8a, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: 4ef1d14ff40ada84eaeeaa92d1ac7a74, type: 2}
+  - {fileID: 11400000, guid: 8a00d79bc51c9934f88a0c241f01796f, type: 2}
+  - {fileID: 11400000, guid: 2d53d2e9a6db6554590220b7ee57f0fa, type: 2}
+  - {fileID: 11400000, guid: e1980e0f44924d545afaac624a81b308, type: 2}
+  - {fileID: 11400000, guid: 8711f4ede5c6b254cb0b37d072a27a06, type: 2}
+  - {fileID: 11400000, guid: 33a4b436f366db8439d9cec8cbde79d5, type: 2}
+  - {fileID: 11400000, guid: 8ed4e746ce91ad34081150eceaa77f05, type: 2}
+  - {fileID: 11400000, guid: fcb88f8b949be104ba343e45af46688c, type: 2}
+  - {fileID: 11400000, guid: 7a1e43e321660a348a9c56f3ffaf74cb, type: 2}

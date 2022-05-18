@@ -16,6 +16,8 @@ public class Test : MonoBehaviour
 
     [SerializeField] Inventory testInventory;
 
+    public List<ItemSlot> itemSlots = new List<ItemSlot>();
+
     [SerializeField] float testTimer = 0.0f;
 
     void Update()

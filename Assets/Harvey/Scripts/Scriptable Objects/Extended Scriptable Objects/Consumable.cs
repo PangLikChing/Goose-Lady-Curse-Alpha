@@ -22,11 +22,11 @@ public class Consumable : Item
         }
 
         // Decrease the number of item in the stack by 1
-        stackNumber -= 1;
+        //stackNumber -= 1;
 
         // Should delete the item if stackNumber is 0
 
         // Throw a debug message
-        Debug.Log($"{this.name}'s current stack number: {stackNumber}");
+        //Debug.Log($"{this.name}'s current stack number: {stackNumber}");
     }
 }
