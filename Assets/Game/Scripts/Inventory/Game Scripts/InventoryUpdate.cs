@@ -42,9 +42,6 @@ public class InventoryUpdate : MonoBehaviour
                     // If there is an item in that slot
                     if (bags[i].heldItems[j].slottedItem != null)
                     {
-                        // Change the sprite of that itemslot into the one of the item
-                        currentSlot.GetComponent<Image>().sprite = bags[i].heldItems[j].slottedItem.itemIcon;
-
                         // If the stack number of the item in that inventory slot is larger than or equals to 2
                         if (bags[i].heldItems[j].stackNumber >= 2)
                         {
