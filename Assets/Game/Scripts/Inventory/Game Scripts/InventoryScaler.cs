@@ -13,9 +13,14 @@ public class InventoryScaler : MonoBehaviour
 {
     RectTransform rect;
     GridLayoutGroup gridLayoutGroup;
+
+    // Change this to bags at some point please
     [SerializeField] Container myContainer;
+
+    // inventorySlot is the inventory slot prefeb
     [SerializeField] GameObject inventorySlot;
 
+    // playerInventory is the playerInventory script on the player
     [SerializeField] PlayerInverntory playerInverntory;
 
     void OnEnable()

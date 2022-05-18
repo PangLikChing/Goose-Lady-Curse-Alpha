@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 /// <summary>
 /// This script is responsible for handling the drop event for the inventory slots
@@ -10,7 +13,7 @@ using UnityEngine.EventSystems;
 public class InventorySlot : MonoBehaviour, IDropHandler
 {
     // This is the heldItem that the inventory slot is resposible for
-    public ItemSlot heldItem;
+    [HideInInspector] public ItemSlot heldItem;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -27,7 +30,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             InventorySlot originalInventorySlot = eventData.pointerDrag.GetComponent<DragDrop>().originalInventorySlot;
 
             // Swap position for the 2 items
-            transform.GetChild(0).parent = originalInventorySlot.transform;
+            transform.GetChild(0).SetParent(originalInventorySlot.transform);
             originalInventorySlot.transform.GetChild(0).localPosition = new Vector2(0, 0);
 
             // Initialize a temp Item to store the slotted item in the dropped inventory slot

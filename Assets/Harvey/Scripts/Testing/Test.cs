@@ -16,22 +16,29 @@ public class Test : MonoBehaviour
 
     [SerializeField] Inventory testInventory;
 
+    [SerializeField] InventorySlot testInventorySlot;
+
     public List<ItemSlot> itemSlots = new List<ItemSlot>();
 
     [SerializeField] float testTimer = 0.0f;
 
     void Update()
     {
-        //if (testTimer >= 2.0f)
-        //{
-        //    //testConsumable.Consume();
-        //    //testContainer.DisplayItems();
-        //    testInventory.DisplayContainers();
-        //    testTimer = 0.0f;
-        //}
-        //else
-        //{
-        //    testTimer += Time.deltaTime;
-        //}
+        if (testTimer >= 2.0f)
+        {
+            //testConsumable.heldItem = testInventorySlot.heldItem;
+            //testConsumable.Consume();
+            //testConsumable.heldItem = null;
+
+            //testContainer.DisplayItems();
+
+            //testInventory.DisplayContainers();
+
+            testTimer = 0.0f;
+        }
+        else
+        {
+            testTimer += Time.deltaTime;
+        }
     }
 }

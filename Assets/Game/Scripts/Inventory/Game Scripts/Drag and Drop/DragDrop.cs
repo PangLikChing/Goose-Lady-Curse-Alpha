@@ -13,7 +13,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Canvas canvas;
-    public InventorySlot originalInventorySlot;
+    
+    [HideInInspector] public InventorySlot originalInventorySlot;
 
     void Start()
     {
@@ -34,7 +35,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         originalInventorySlot = transform.parent.GetComponent<InventorySlot>();
 
         // Change the parent to the canvas so that it will not be blocked by other slots
-        transform.parent = canvas.transform;
+        transform.SetParent(canvas.transform);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -57,6 +58,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
             // Reset item's position
             transform.localPosition = new Vector2(0, 0);
         }
+
+        // Reset originalInventorySlot
+        originalInventorySlot = null;
     }
 
     public void OnPointerDown(PointerEventData eventData)

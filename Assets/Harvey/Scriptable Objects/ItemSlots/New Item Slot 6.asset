@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: New Item Slot 6
   m_EditorClassIdentifier: 
   slottedItem: {fileID: 0}
-  stackNumber: 0
+  stackNumber: -1

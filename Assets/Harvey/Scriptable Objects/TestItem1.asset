@@ -14,7 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: -1
   itemDisplayName: 
-  itemIcon: {fileID: 21300000, guid: cb00fc637b8fbf94ab96b572042616cd, type: 3}
+  itemIcon: {fileID: 21300000, guid: de985a1d898a3cd42bb07eedd29aae6f, type: 3}
   item3DModelPrefeb: {fileID: 0}
-  stackNumber: -1
   maxStackNumber: 99
