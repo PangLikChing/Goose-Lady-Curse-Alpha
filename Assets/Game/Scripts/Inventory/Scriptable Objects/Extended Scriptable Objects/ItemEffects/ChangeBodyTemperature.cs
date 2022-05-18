@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable Objects/Item Effects/Change Body Temperature")]
+[CreateAssetMenu(menuName = "Item/Consumable/Consumable Effect/Change Body Temperature")]
 public class ChangeBodyTemperature : ItemEffect
 {
     [SerializeField] float changeBodyTemperature = 0;

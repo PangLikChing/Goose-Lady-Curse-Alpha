@@ -6,7 +6,7 @@ using UnityEngine;
 /// This scriptable object stores the data of an equipment
 /// </summary>
 
-[CreateAssetMenu(menuName = "Scriptable Objects/Equipment")]
+[CreateAssetMenu(menuName = "Item/Equipment")]
 public class Equipment : Item
 {
     // When this scriptable object is created

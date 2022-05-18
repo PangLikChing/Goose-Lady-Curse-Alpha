@@ -7,7 +7,7 @@ using UnityEngine.Events;
 /// This scriptable object stores the data of a consumable
 /// </summary>
 
-[CreateAssetMenu(menuName = "Scriptable Objects/Consumable")]
+[CreateAssetMenu(menuName = "Item/Consumable/Consumable")]
 public class Consumable : Item
 {
     // A list of item effects for that consumable

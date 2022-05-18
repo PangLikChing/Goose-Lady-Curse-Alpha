@@ -6,7 +6,7 @@ using UnityEngine;
 /// This scriptable object stores the data of a container
 /// </summary>
 
-[CreateAssetMenu(menuName = "Scriptable Objects/Container")]
+[CreateAssetMenu(menuName = "Inventory/Container")]
 public class Container : ScriptableObject
 {
     // volume is the number of items that the container can hold;

@@ -6,7 +6,7 @@ using UnityEngine;
 /// This scriptable object stores the data of a player inventory
 /// </summary>
 
-[CreateAssetMenu(menuName = "Scriptable Objects/Inventory")]
+[CreateAssetMenu(menuName = "Inventory/Inventory")]
 public class Inventory : ScriptableObject
 {
     // bagSlots is the bags that the player is holding

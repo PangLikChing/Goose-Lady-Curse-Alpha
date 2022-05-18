@@ -6,7 +6,7 @@ using UnityEngine;
 /// This scriptable object stores the data of an item stack
 /// </summary>
 
-[CreateAssetMenu(menuName = "Scriptable Objects/Item")]
+[CreateAssetMenu(menuName = "Item/Item")]
 public class Item : ScriptableObject
 {
     // itemID is the ID of that item

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Scriptable Objects/Item Effects/Change Thirst Rate")]
+[CreateAssetMenu(menuName = "Item/Consumable/Consumable Effect/Change Thirst Rate")]
 public class ChangeThirstRate : ItemEffect
 {
     [SerializeField] float changeThirstRate = 0;
