@@ -47,6 +47,16 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
     {
         // Reset blockRaycasts
         canvasGroup.blocksRaycasts = true;
+
+        // If the item's parent is not an inventory slot at the end of drag
+        if (transform.parent.GetComponent<InventorySlot>() == null)
+        {
+            // Reset item's parent
+            transform.parent = originalInventorySlot.transform;
+
+            // Reset item's position
+            transform.localPosition = new Vector2(0, 0);
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
