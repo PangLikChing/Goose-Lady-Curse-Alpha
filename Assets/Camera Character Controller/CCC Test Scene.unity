@@ -226,8 +226,8 @@ GameObject:
   m_Component:
   - component: {fileID: 501894537}
   - component: {fileID: 501894540}
-  - component: {fileID: 501894539}
   - component: {fileID: 501894538}
+  - component: {fileID: 501894539}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -387,7 +387,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155663454}
-  m_LocalRotation: {x: 0.38268346, y: -0.000000015896623, z: 0.0000000065845964, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: 0.000000015896623, z: -0.0000000065845964, w: 0.92387956}
   m_LocalPosition: {x: 10, y: 14, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -438,6 +438,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1216080742}
   - component: {fileID: 1216080741}
+  - component: {fileID: 1216080743}
   m_Layer: 0
   m_Name: Player Roaming  Camera
   m_TagString: Untagged
@@ -487,7 +488,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216080740}
-  m_LocalRotation: {x: 0.38268346, y: -0.000000015896623, z: 0.0000000065845964, w: 0.92387956}
+  m_LocalRotation: {x: 0.38268346, y: 0.000000015896623, z: -0.0000000065845964, w: 0.92387956}
   m_LocalPosition: {x: 10, y: 14, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -495,6 +496,23 @@ Transform:
   m_Father: {fileID: 1306906794}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1216080743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216080740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae3489e785866e64f8b6b4ad9b6dd9dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomSensitivity: -0.01
+  zoomSpeed: 10
+  maxFov: 30
+  minFov: 10
+  deadZone: 0.001
 --- !u!1 &1306906793
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,6 +584,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   mainCam: {fileID: 0}
+  playerCameraController: {fileID: 0}
 --- !u!114 &1306906797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,6 +631,9 @@ MonoBehaviour:
   MoveCmd:
     m_PersistentCalls:
       m_Calls: []
+  ZoomCameraCmd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1306906799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -638,7 +660,7 @@ MonoBehaviour:
   m_ChildCameras:
   - {fileID: 1216080741}
   m_Instructions:
-  - m_FullHash: -209028110
+  - m_FullHash: 1038256821
     m_VirtualCamera: {fileID: 1216080741}
     m_ActivateAfter: 0
     m_MinDuration: 0
@@ -653,7 +675,7 @@ MonoBehaviour:
       m_RotationOrder: 4
   m_CustomBlends: {fileID: 0}
   m_ParentHash:
-  - m_Hash: -209028110
+  - m_Hash: 1038256821
     m_ParentHash: 756556552
 --- !u!1 &1427830982
 GameObject:

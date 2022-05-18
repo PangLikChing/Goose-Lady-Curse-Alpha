@@ -3,11 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+
 public class PlayerController : Singleton<PlayerController>
 {
+    
     public GameObject avatar;
     [HideInInspector]
     public UnityEvent MoveCmd;
+    [HideInInspector]
+    public UnityEvent<float> ZoomCameraCmd;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -70,6 +75,6 @@ public class PlayerController : Singleton<PlayerController>
     //callback for zoom camera action
     public void OnZoomCamera(InputValue value)
     {
-        
+        ZoomCameraCmd.Invoke(value.Get<float>());
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Cinemachine;
 public class PlayerFSM: FSM
 { 
     [HideInInspector]
@@ -10,11 +10,13 @@ public class PlayerFSM: FSM
     public Camera mainCam;
     [HideInInspector]
     public readonly int RoamingStateName = Animator.StringToHash("Roaming");
-
+    [HideInInspector]
+    public CinemachineStateDrivenCamera playerCameraController;
     protected override void Awake()
     {
-        base.Awake();
         mainCam = Camera.main;
         movementLayerMask = LayerMask.GetMask("Terrain");
+        playerCameraController = GetComponent<CinemachineStateDrivenCamera>();
+        base.Awake();
     }
 }
