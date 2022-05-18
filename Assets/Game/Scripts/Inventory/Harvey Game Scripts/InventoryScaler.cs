@@ -58,4 +58,13 @@ public class InventoryScaler : MonoBehaviour
         // Invoke the open event
         playerInverntory.Open.Invoke();
     }
+
+    void OnDisable()
+    {
+        // Delete all children
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+    }
 }
