@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// This scriptable object stores the data of an item slot
+/// This scriptable object stores the data of a held item in the inventory
 /// </summary>
 
 [CreateAssetMenu(menuName = "Scriptable Objects/Item Slot")]
