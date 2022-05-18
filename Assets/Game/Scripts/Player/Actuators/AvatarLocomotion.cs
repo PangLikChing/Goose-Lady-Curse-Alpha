@@ -5,23 +5,73 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class AvatarLocomotion : MonoBehaviour
 {
-    Transform target;
-    NavMeshAgent agent;
+    public Transform target;
+    public float angularDampeningTime = 5.0f;
+    public float deadZone = 10.0f;
+
+    private readonly int SpeedParameter = Animator.StringToHash("speed");
+    private AnimationListener animationListener;
+    private NavMeshAgent agent;
+    private Animator avatarAnimator;
+    private bool hasAnimationListner;
+    private bool hasAnimator;
+
+
+
+    private void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        hasAnimationListner = TryGetComponent<AnimationListener>(out animationListener);
+        hasAnimator = TryGetComponent<Animator>(out avatarAnimator);
+    }
     // Start is called before the first frame update
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
+        if (hasAnimationListner)
+        {
+            //animationListener.OnAnimatorMoveEvent += OnAnimatorMove;
+        }
+        
     }
 
+    //private void OnAnimatorMove()
+    //{
+    //    agent.velocity = avatarAnimator.deltaPosition / Time.deltaTime;
+    //}
 
     // Update is called once per frame
     void Update()
     {
-        if (target != null)
+        if (hasAnimator)
         {
-            MoveToPoint(target.position);
-            FaceTarget();
+            if (agent.desiredVelocity != Vector3.zero)
+            {
+                //float speed = Vector3.Project(agent.desiredVelocity, transform.forward).magnitude * agent.speed;
+                float speed = agent.desiredVelocity.magnitude;
+                avatarAnimator.SetFloat(SpeedParameter, speed);
+
+                float angle = Vector3.Angle(transform.forward, agent.desiredVelocity);
+                if (Mathf.Abs(angle) <= deadZone)
+                {
+                    transform.LookAt(transform.position + agent.desiredVelocity);
+                }
+                else
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation,
+                                                         Quaternion.LookRotation(agent.desiredVelocity),
+                                                         Time.deltaTime * angularDampeningTime);
+                }
+            }
+            else
+            {
+                avatarAnimator.SetFloat(SpeedParameter, 0.0f);
+            }
         }
+        //if (target != null)
+        //{
+        //    MoveToPoint(target.position);
+        //    FaceTarget();
+        //}
     }
 
     void FaceTarget()
