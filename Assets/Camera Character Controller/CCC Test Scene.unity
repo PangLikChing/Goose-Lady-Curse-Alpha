@@ -263,9 +263,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_BindingMode: 4
   m_FollowOffset: {x: 0, y: 13, z: -13}
-  m_XDamping: 1
+  m_XDamping: 2
   m_YDamping: 0
-  m_ZDamping: 1
+  m_ZDamping: 2
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -287,14 +287,14 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
-  m_HorizontalDamping: 0.5
-  m_VerticalDamping: 0.5
+  m_HorizontalDamping: 0
+  m_VerticalDamping: 0
   m_ScreenX: 0.5
-  m_ScreenY: 0.4853556
-  m_DeadZoneWidth: 0
-  m_DeadZoneHeight: 0
-  m_SoftZoneWidth: 0.8
-  m_SoftZoneHeight: 0.8
+  m_ScreenY: 0.5
+  m_DeadZoneWidth: 2
+  m_DeadZoneHeight: 2
+  m_SoftZoneWidth: 2
+  m_SoftZoneHeight: 2
   m_BiasX: 0
   m_BiasY: 0
   m_CenterOnActivate: 1
@@ -373,6 +373,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: f144e5f5aa806a649b431b860b8dc76e, type: 2}
+    - target: {fileID: 5866666021909216657, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
 --- !u!1 &1119293553 stripped
@@ -380,18 +384,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
   m_PrefabInstance: {fileID: 906326499}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1119293554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1119293553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 550e0514589914446bbb2c42e2d8732b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1119293555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,8 +397,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  speedDampeningTime: 6
+  speedDeadZone: 0.01
   angularDampeningTime: 5
-  deadZone: 10
+  angularDeadZone: 10
+  stoppingDistance: 0.5
+  useRootMotion: 1
 --- !u!195 &1119293556
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -417,8 +413,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
-  m_Acceleration: 8
+  m_Speed: 2.2
+  m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0
@@ -541,7 +537,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155663454}
-  m_LocalRotation: {x: 0.36779213, y: -3e-45, z: 1e-45, w: 0.92990804}
+  m_LocalRotation: {x: 0.36414045, y: -0.000000026086623, z: 0.000000010199448, w: 0.93134403}
   m_LocalPosition: {x: 5.54, y: 13, z: -6.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -642,7 +638,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216080740}
-  m_LocalRotation: {x: 0.36779213, y: -3e-45, z: 1e-45, w: 0.92990804}
+  m_LocalRotation: {x: 0.36414045, y: -0.000000026086623, z: 0.000000010199448, w: 0.93134403}
   m_LocalPosition: {x: 5.54, y: 13, z: -6.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1037,8 +1033,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  speedDampeningTime: 3
+  speedDeadZone: 0.001
   angularDampeningTime: 5
-  deadZone: 10
+  angularDeadZone: 10
+  stoppingDistance: 0.2
+  useRootMotion: 0
 --- !u!195 &1648747490961482194
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1049,7 +1049,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
+  m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 360

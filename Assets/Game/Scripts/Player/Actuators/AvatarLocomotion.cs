@@ -2,17 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+
+//Root motion still need a lot of work
+
 [RequireComponent(typeof(NavMeshAgent))]
 public class AvatarLocomotion : MonoBehaviour
 {
     public Transform target;
+    public float speedDampeningTime = 3;
+    public float speedDeadZone = 0.001f;
     public float angularDampeningTime = 5.0f;
-    public float deadZone = 10.0f;
+    public float angularDeadZone = 10.0f;
+    public float stoppingDistance = 0.2f;
+    public bool useRootMotion;
+
 
     private readonly int SpeedParameter = Animator.StringToHash("speed");
     private AnimationListener animationListener;
     private NavMeshAgent agent;
     private Animator avatarAnimator;
+    private float targetSpeed;
+    private float currentSpeed;
     private bool hasAnimationListner;
     private bool hasAnimator;
 
@@ -29,42 +39,59 @@ public class AvatarLocomotion : MonoBehaviour
     {
         if (hasAnimationListner)
         {
-            //animationListener.OnAnimatorMoveEvent += OnAnimatorMove;
+            animationListener.OnAnimatorMoveEvent += OnAnimatorMove;
         }
-        
     }
 
-    //private void OnAnimatorMove()
-    //{
-    //    agent.velocity = avatarAnimator.deltaPosition / Time.deltaTime;
-    //}
+    private void OnAnimatorMove()
+    {
+        if (useRootMotion)
+        {
+            agent.velocity = avatarAnimator.deltaPosition / Time.deltaTime;
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (hasAnimator)
         {
-            if (agent.desiredVelocity != Vector3.zero)
+            if (useRootMotion)
             {
-                //float speed = Vector3.Project(agent.desiredVelocity, transform.forward).magnitude * agent.speed;
-                float speed = agent.desiredVelocity.magnitude;
-                avatarAnimator.SetFloat(SpeedParameter, speed);
-
-                float angle = Vector3.Angle(transform.forward, agent.desiredVelocity);
-                if (Mathf.Abs(angle) <= deadZone)
+                if (Vector3.Distance(transform.position, agent.destination) < stoppingDistance)
                 {
-                    transform.LookAt(transform.position + agent.desiredVelocity);
+                    targetSpeed = 0;
                 }
                 else
                 {
-                    transform.rotation = Quaternion.Lerp(transform.rotation,
-                                                         Quaternion.LookRotation(agent.desiredVelocity),
-                                                         Time.deltaTime * angularDampeningTime);
+                    targetSpeed = agent.desiredVelocity.magnitude;
                 }
+
+                if (Mathf.Abs(currentSpeed - targetSpeed) > speedDeadZone)
+                {
+                    currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, speedDampeningTime * Time.deltaTime);
+                }
+                else
+                {
+                    currentSpeed = targetSpeed;
+                }
+                avatarAnimator.SetFloat(SpeedParameter, currentSpeed);
+            }
+            else 
+            {
+                avatarAnimator.SetFloat(SpeedParameter, agent.velocity.magnitude);
+            }
+            
+            float angle = Vector3.Angle(transform.forward, agent.desiredVelocity);
+            if (Mathf.Abs(angle) <= angularDeadZone)
+            {
+                transform.LookAt(transform.position + agent.desiredVelocity);
             }
             else
             {
-                avatarAnimator.SetFloat(SpeedParameter, 0.0f);
+                transform.rotation = Quaternion.Lerp(transform.rotation,
+                                                     Quaternion.LookRotation(agent.desiredVelocity),
+                                                     Time.deltaTime * angularDampeningTime);
             }
         }
         //if (target != null)
