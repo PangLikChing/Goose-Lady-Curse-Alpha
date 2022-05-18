@@ -15,6 +15,7 @@ public class PlayerInverntory : MonoBehaviour
 
     [SerializeField] Transform inventoryBackground;
 
+    // test should hold a reference to all the item slots, aka a game manager
     //test
     [SerializeField] Test test;
     //test
