@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-//Root motion still need a lot of work
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class AvatarLocomotion : MonoBehaviour
@@ -58,7 +57,7 @@ public class AvatarLocomotion : MonoBehaviour
         {
             if (useRootMotion)
             {
-                if (Vector3.Distance(transform.position, agent.destination) < stoppingDistance)
+                if (agent.remainingDistance < agent.radius)
                 {
                     targetSpeed = 0;
                 }
@@ -70,6 +69,7 @@ public class AvatarLocomotion : MonoBehaviour
                 if (Mathf.Abs(currentSpeed - targetSpeed) > speedDeadZone)
                 {
                     currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, speedDampeningTime * Time.deltaTime);
+                    //currentSpeed = Vector3.Lerp(agent.velocity,agent.desiredVelocity, speedDampeningTime * Time.deltaTime).magnitude;
                 }
                 else
                 {
@@ -81,17 +81,20 @@ public class AvatarLocomotion : MonoBehaviour
             {
                 avatarAnimator.SetFloat(SpeedParameter, agent.velocity.magnitude);
             }
-            
-            float angle = Vector3.Angle(transform.forward, agent.desiredVelocity);
-            if (Mathf.Abs(angle) <= angularDeadZone)
+
+            if (agent.remainingDistance > agent.radius)
             {
-                transform.LookAt(transform.position + agent.desiredVelocity);
-            }
-            else
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation,
-                                                     Quaternion.LookRotation(agent.desiredVelocity),
-                                                     Time.deltaTime * angularDampeningTime);
+                float angle = Vector3.Angle(transform.forward, agent.desiredVelocity);
+                if (Mathf.Abs(angle) <= angularDeadZone)
+                {
+                    transform.LookAt(transform.position + agent.desiredVelocity);
+                }
+                else
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation,
+                                                         Quaternion.LookRotation(agent.desiredVelocity),
+                                                         Time.deltaTime * angularDampeningTime);
+                }
             }
         }
         //if (target != null)

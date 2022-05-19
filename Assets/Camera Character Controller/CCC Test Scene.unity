@@ -397,8 +397,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  speedDampeningTime: 6
-  speedDeadZone: 0.01
+  speedDampeningTime: 4
+  speedDeadZone: 0.05
   angularDampeningTime: 5
   angularDeadZone: 10
   stoppingDistance: 0.5
@@ -537,7 +537,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155663454}
-  m_LocalRotation: {x: 0.36414045, y: -0.000000026086623, z: 0.000000010199448, w: 0.93134403}
+  m_LocalRotation: {x: 0.36414045, y: 0.000000013994667, z: -0.000000005471686, w: 0.93134403}
   m_LocalPosition: {x: 5.54, y: 13, z: -6.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -638,7 +638,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216080740}
-  m_LocalRotation: {x: 0.36414045, y: -0.000000026086623, z: 0.000000010199448, w: 0.93134403}
+  m_LocalRotation: {x: 0.36414045, y: 0.000000013994667, z: -0.000000005471686, w: 0.93134403}
   m_LocalPosition: {x: 5.54, y: 13, z: -6.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
