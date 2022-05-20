@@ -327,7 +327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
       propertyPath: m_LocalPosition.z
@@ -396,13 +396,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06eeda175628a9044a6d373c5c57919b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   speedDampeningTime: 4
   speedDeadZone: 0.05
   angularDampeningTime: 5
   angularDeadZone: 10
-  stoppingDistance: 0.5
-  useRootMotion: 1
+  speedMultiplier: 2
+  brakingDistance: 5
+  agentSpeed: 0
 --- !u!195 &1119293556
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -413,11 +413,11 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2.2
-  m_Acceleration: 15
+  m_Speed: 1.1
+  m_Acceleration: 0
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -537,7 +537,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155663454}
-  m_LocalRotation: {x: 0.36414045, y: 0.000000013994667, z: -0.000000005471686, w: 0.93134403}
+  m_LocalRotation: {x: 0.36219814, y: 0, z: 0, w: 0.93210113}
   m_LocalPosition: {x: 5.54, y: 13, z: -6.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -589,6 +589,7 @@ GameObject:
   - component: {fileID: 1216080742}
   - component: {fileID: 1216080741}
   - component: {fileID: 1216080743}
+  - component: {fileID: 1216080744}
   m_Layer: 0
   m_Name: Player Roaming  Camera
   m_TagString: Untagged
@@ -638,7 +639,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216080740}
-  m_LocalRotation: {x: 0.36414045, y: 0.000000013994667, z: -0.000000005471686, w: 0.93134403}
+  m_LocalRotation: {x: 0.36219814, y: -0, z: -0, w: 0.93210113}
   m_LocalPosition: {x: 5.54, y: 13, z: -6.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -663,6 +664,19 @@ MonoBehaviour:
   maxFov: 30
   minFov: 10
   deadZone: 0.001
+--- !u!114 &1216080744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216080740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d0fea3ab0bcde149a33766a2786895a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraHeight: 13
 --- !u!1 &1306906793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1032,13 +1046,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06eeda175628a9044a6d373c5c57919b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   speedDampeningTime: 3
   speedDeadZone: 0.001
   angularDampeningTime: 5
   angularDeadZone: 10
-  stoppingDistance: 0.2
-  useRootMotion: 0
+  speedMultiplier: 1
+  brakingDistance: 0
+  agentSpeed: 0
 --- !u!195 &1648747490961482194
 NavMeshAgent:
   m_ObjectHideFlags: 0
