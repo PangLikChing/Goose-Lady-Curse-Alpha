@@ -23,8 +23,8 @@ public class AvatarLocomotion : MonoBehaviour
     private AnimationListener animationListener;
     private NavMeshAgent agent;
     private Animator avatarAnimator;
-    private float targetSpeed;
-    private float currentSpeed;
+    private float targetDriveSignal;
+    private float currentDriveSignal;
     private bool hasAnimationListner;
     private bool hasAnimator;
 
@@ -71,26 +71,31 @@ public class AvatarLocomotion : MonoBehaviour
         {
             if (agent.remainingDistance < agent.stoppingDistance && agent.pathStatus == NavMeshPathStatus.PathComplete)
             {
-                
-                targetSpeed = 0;
+
+                targetDriveSignal = 0;
                 //agent.velocity = Vector3.zero;
             }
-            else
+            else if (agent.remainingDistance>=agent.stoppingDistance&&agent.remainingDistance<brakingDistance)
             {
-                targetSpeed = agent.desiredVelocity.magnitude;
-            }
-
-            if (Mathf.Abs(currentSpeed - targetSpeed) > speedDeadZone)
-            {
-                currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, speedDampeningTime * Time.deltaTime);
+                //targetSpeed -= agent.remainingDistance*Time.deltaTime / (2f * brakingDistance * avatarAnimator.deltaPosition.magnitude * avatarAnimator.deltaPosition.magnitude);
+                targetDriveSignal = Mathf.Lerp(targetDriveSignal, 0, (agent.remainingDistance*0.5f*speedMultiplier/(brakingDistance*brakingDistance))*Time.deltaTime);
             }
             else
             {
-                currentSpeed = targetSpeed;
+                targetDriveSignal = agent.desiredVelocity.magnitude;
             }
-            avatarAnimator.SetFloat(SpeedParameter, currentSpeed);
 
-            if (agent.remainingDistance > agent.radius)
+            if (Mathf.Abs(currentDriveSignal - targetDriveSignal) > speedDeadZone)
+            {
+                currentDriveSignal = Mathf.Lerp(currentDriveSignal, targetDriveSignal, speedDampeningTime * Time.deltaTime);
+            }
+            else
+            {
+                currentDriveSignal = targetDriveSignal;
+            }
+            avatarAnimator.SetFloat(SpeedParameter, currentDriveSignal);
+
+            if (agent.remainingDistance > agent.stoppingDistance)
             {
                 float angle = Vector3.Angle(transform.forward, agent.desiredVelocity);
                 if (Mathf.Abs(angle) <= angularDeadZone)

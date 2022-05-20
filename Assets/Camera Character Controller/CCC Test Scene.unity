@@ -400,8 +400,8 @@ MonoBehaviour:
   speedDeadZone: 0.05
   angularDampeningTime: 5
   angularDeadZone: 10
-  speedMultiplier: 2
-  brakingDistance: 5
+  speedMultiplier: 1
+  brakingDistance: 2
   agentSpeed: 0
 --- !u!195 &1119293556
 NavMeshAgent:
@@ -417,7 +417,7 @@ NavMeshAgent:
   m_Acceleration: 0
   avoidancePriority: 50
   m_AngularSpeed: 0
-  m_StoppingDistance: 1
+  m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -1051,7 +1051,7 @@ MonoBehaviour:
   angularDampeningTime: 5
   angularDeadZone: 10
   speedMultiplier: 1
-  brakingDistance: 0
+  brakingDistance: 2
   agentSpeed: 0
 --- !u!195 &1648747490961482194
 NavMeshAgent:
