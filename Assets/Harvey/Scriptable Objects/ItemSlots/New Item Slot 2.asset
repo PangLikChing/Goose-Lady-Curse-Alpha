@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: New Item Slot 2
   m_EditorClassIdentifier: 
   slottedItem: {fileID: 11400000, guid: 35c5de94629d8f543b5470677e3a8847, type: 2}
-  stackNumber: 99
+  stackNumber: 1

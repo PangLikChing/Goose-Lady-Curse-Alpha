@@ -1515,6 +1515,10 @@ MonoBehaviour:
   testContainer: {fileID: 11400000, guid: 321b247fff567be47916b5dc0b6acd3b, type: 2}
   testInventory: {fileID: 11400000, guid: 5be47b3261ce71646ab3fbb0e0e36209, type: 2}
   testInventorySlot: {fileID: 0}
+  testItem: {fileID: 11400000, guid: ee57829ae76056f419d2f7492e2c3a8a, type: 2}
+  playerInverntory: {fileID: 1544008954}
+  testStackNumber: 2
+  testTimer: 0
   itemSlots:
   - {fileID: 11400000, guid: 8a00d79bc51c9934f88a0c241f01796f, type: 2}
   - {fileID: 11400000, guid: 2d53d2e9a6db6554590220b7ee57f0fa, type: 2}
@@ -1524,7 +1528,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8ed4e746ce91ad34081150eceaa77f05, type: 2}
   - {fileID: 11400000, guid: fcb88f8b949be104ba343e45af46688c, type: 2}
   - {fileID: 11400000, guid: 7a1e43e321660a348a9c56f3ffaf74cb, type: 2}
-  testTimer: 0
 --- !u!114 &1544008954
 MonoBehaviour:
   m_ObjectHideFlags: 0

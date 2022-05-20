@@ -47,6 +47,9 @@ public class InventoryUpdate : MonoBehaviour
                         {
                             // Change the stack number text to the stackNumber of the item in the inventory slot
                             currentSlot.GetChild(0).GetComponent<TMP_Text>().text = bags[i].heldItems[j].stackNumber.ToString();
+
+                            // Enable the stack number text
+                            currentSlot.GetChild(0).gameObject.SetActive(true);
                         }
                         // If the stack number of the item in that inventory slot is less than 2
                         else

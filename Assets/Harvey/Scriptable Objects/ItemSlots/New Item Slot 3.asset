@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a230cb060efd0b34ab031f320f698802, type: 3}
   m_Name: New Item Slot 3
   m_EditorClassIdentifier: 
-  slottedItem: {fileID: 11400000, guid: 4ef1d14ff40ada84eaeeaa92d1ac7a74, type: 2}
-  stackNumber: 22
+  slottedItem: {fileID: 11400000, guid: 35c5de94629d8f543b5470677e3a8847, type: 2}
+  stackNumber: 1
