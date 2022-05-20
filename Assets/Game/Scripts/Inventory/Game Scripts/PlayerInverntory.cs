@@ -22,11 +22,164 @@ public class PlayerInverntory : MonoBehaviour
 
     public UnityEvent Open;
 
+    public void AddItem(Item item, int stackNumber)
+    {
+        // Throw a debug message
+        Debug.Log($"Adding {item.name} to {this.name}'s inventory.");
+
+        // Cache the bags
+        List<Container> bags = myInventory.bagSlots;
+
+        // Initialize a temp item slot
+        ItemSlot targetItemSlot = null;
+
+        // Search for slot
+        // For every bag
+        for (int i = 0; i < bags.Count; i++)
+        {
+            // If I have found an item slot with the same item as the item that is going to be added
+            if (targetItemSlot != null)
+            {
+                // Stop the search
+                break;
+            }
+
+            // For eveny item in the bag
+            for (int j = 0; j < bags[i].heldItems.Length; j++)
+            {
+                // If I have found an item slot with the same item as the item that is going to be added
+                if (targetItemSlot != null)
+                {
+                    // Stop the search
+                    break;
+                }
+
+                // If the heldItem is the same with the item that is going to be added
+                if (bags[i].heldItems[j].slottedItem == item)
+                {
+                    // Assign targetItemSlot to that item slot
+                    targetItemSlot = bags[i].heldItems[j];
+
+                    // If the stack number after adding is larger than the max stack number of that item
+                    if (targetItemSlot.stackNumber + stackNumber > targetItemSlot.slottedItem.maxStackNumber)
+                    {
+                        // Reset targetItemSlot to search for another one
+                        targetItemSlot = null;
+                    }
+                }
+            }
+        }
+
+        // If a suitable item slot cannot be found yet
+        if (targetItemSlot == null)
+        {
+            // Assign it to the closest empty item slot
+            // For every bag
+            for (int i = 0; i < bags.Count; i++)
+            {
+                // If I have found an item slot with the same item as the item that is going to be added
+                if (targetItemSlot != null)
+                {
+                    // Stop the search
+                    break;
+                }
+
+                // For eveny item in the bag
+                for (int j = 0; j < bags[i].heldItems.Length; j++)
+                {
+                    // If the item slot is empty
+                    if (bags[i].heldItems[j].slottedItem == null)
+                    {
+                        // Assign targetItemSlot to that item slot
+                        targetItemSlot = bags[i].heldItems[j];
+
+                        // Put the item in the slottedItem of that item slot
+                        targetItemSlot.slottedItem = item;
+
+                        // Change the sprite of that itemslot into the one of the item
+                        inventoryBackground.GetChild(j).GetChild(0).GetComponent<Image>().sprite = bags[i].heldItems[j].slottedItem.itemIcon;
+
+                        // Stop the search
+                        break;
+                    }
+                }
+            }
+        }
+
+        // Throw a debug message
+        Debug.Log($"Adding {item.name} to {targetItemSlot}.");
+
+        // Add the item
+        targetItemSlot.slottedItem.Add(targetItemSlot, stackNumber);
+    }
+
+    public void ConsumeItem(Item item, int stackNumber)
+    {
+        // Throw a debug message
+        Debug.Log($"Consuming {item.name} to {this.name}'s inventory.");
+
+        // Cache the bags
+        List<Container> bags = myInventory.bagSlots;
+
+        // Initialize a temp item slot
+        ItemSlot targetItemSlot = null;
+
+        // Search for slot
+        // For every bag
+        for (int i = 0; i < bags.Count; i++)
+        {
+            // If I have found an item slot with the same item as the item that is going to be added
+            if (targetItemSlot != null)
+            {
+                // Stop the search
+                break;
+            }
+
+            // For eveny item in the bag
+            for (int j = 0; j < bags[i].heldItems.Length; j++)
+            {
+                // If I have found an item slot with the same item as the item that is going to be added
+                if (targetItemSlot != null)
+                {
+                    // Stop the search
+                    break;
+                }
+
+                // If the heldItem is the same with the item that is going to be added
+                if (bags[i].heldItems[j].slottedItem == item)
+                {
+                    // Assign targetItemSlot to that item slot
+                    targetItemSlot = bags[i].heldItems[j];
+
+                    // If the stack number after adding is less than 0
+                    if (targetItemSlot.stackNumber - stackNumber < 0)
+                    {
+                        // Reset targetItemSlot to search for another one
+                        targetItemSlot = null;
+                    }
+                }
+            }
+        }
+
+        // If a suitable item slot cannot be found yet
+        if (targetItemSlot == null)
+        {
+            // Throw an error message
+            Debug.LogError("There is no such Item");
+        }
+
+        // Throw a debug message
+        Debug.Log($"Consuming {item.name} in {targetItemSlot}.");
+
+        // Add the item
+        targetItemSlot.slottedItem.Consume(targetItemSlot, stackNumber);
+    }
+
     // Method to display player's inventory
     public void OpenInventory()
     {
         // Throw a debug message
-        Debug.Log($"Opening {this.name} 's inventory.");
+        Debug.Log($"Opening {this.name}'s inventory.");
 
         // Cache the bags
         List<Container> bags = myInventory.bagSlots;
