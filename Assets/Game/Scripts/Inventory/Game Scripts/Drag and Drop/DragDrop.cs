@@ -53,7 +53,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         if (transform.parent.GetComponent<InventorySlot>() == null)
         {
             // Reset item's parent
-            transform.parent = originalInventorySlot.transform;
+            transform.SetParent(originalInventorySlot.transform);
 
             // Reset item's position
             transform.localPosition = new Vector2(0, 0);

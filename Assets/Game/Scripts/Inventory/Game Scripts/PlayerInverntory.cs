@@ -175,6 +175,61 @@ public class PlayerInverntory : MonoBehaviour
         targetItemSlot.slottedItem.Consume(targetItemSlot, stackNumber);
     }
 
+    // Method to spilt item
+    public void SpiltItem(InventorySlot targetInventorySlot, int spiltStackNumber)
+    {
+        // Throw a debug message
+        Debug.Log($"Spilting {targetInventorySlot.name} by {spiltStackNumber} in {this.name}'s inventory.");
+
+        // Cache the bags
+        List<Container> bags = myInventory.bagSlots;
+
+        // Initialize a temp ItemSlot for the upcoming empty ItemSlot
+        ItemSlot emptyItemSlot = null;
+
+        // Search for closest empty item slot
+        // Assign it to the closest empty item slot
+        // For every bag
+        for (int i = 0; i < bags.Count; i++)
+        {
+            // If I have found an item slot with the same item as the item that is going to be added
+            if (emptyItemSlot != null)
+            {
+                // Stop the search
+                break;
+            }
+
+            // For eveny item in the bag
+            for (int j = 0; j < bags[i].heldItems.Length; j++)
+            {
+                // If the item slot is empty
+                if (bags[i].heldItems[j].slottedItem == null)
+                {
+                    // Assign the emptyItemSlot to the slot found
+                    emptyItemSlot = bags[i].heldItems[j];
+
+                    // Stop the search
+                    break;
+                }
+            }
+        }
+
+        // If I find an empty ItemSlot
+        if (emptyItemSlot != null)
+        {
+            // Spilt the stack
+            emptyItemSlot.slottedItem = targetInventorySlot.heldItem.slottedItem;
+            targetInventorySlot.heldItem.stackNumber -= spiltStackNumber;
+            emptyItemSlot.stackNumber = spiltStackNumber;
+        }
+        // If I do not find an empty ItemSlot
+        else
+        {
+            // Throw a debug message
+            Debug.Log("The bag is full");
+        }
+    }
+
     // Method to display player's inventory
     public void OpenInventory()
     {
