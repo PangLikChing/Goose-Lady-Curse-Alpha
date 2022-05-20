@@ -1126,8 +1126,7 @@ MonoBehaviour:
   testConsumable: {fileID: 11400000, guid: 35c5de94629d8f543b5470677e3a8847, type: 2}
   testContainer: {fileID: 11400000, guid: 321b247fff567be47916b5dc0b6acd3b, type: 2}
   testInventory: {fileID: 11400000, guid: 5be47b3261ce71646ab3fbb0e0e36209, type: 2}
-  testInventorySlot: {fileID: 0}
-  testItem: {fileID: 11400000, guid: ee57829ae76056f419d2f7492e2c3a8a, type: 2}
+  testItem: {fileID: 11400000, guid: 35c5de94629d8f543b5470677e3a8847, type: 2}
   playerInverntory: {fileID: 1544008954}
   testStackNumber: 2
   testTimer: 0
