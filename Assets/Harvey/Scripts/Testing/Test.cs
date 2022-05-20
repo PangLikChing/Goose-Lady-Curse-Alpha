@@ -35,9 +35,9 @@ public class Test : MonoBehaviour
 
             //testInventory.DisplayContainers();
 
-            //playerInverntory.AddItem(testItem, testStackNumber);
+            playerInverntory.AddItem(testItem, testStackNumber);
 
-            playerInverntory.ConsumeItem(testItem, testStackNumber);
+            //playerInverntory.ConsumeItem(testItem, testStackNumber);
 
             testTimer = 0.0f;
         }
