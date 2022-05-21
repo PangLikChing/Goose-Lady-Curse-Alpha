@@ -37,16 +37,20 @@ public class InventoryUpdate : MonoBehaviour
                     Transform currentSlot = transform.GetChild(j).GetChild(0);
 
                     // Assign container to the inventory slots
-                    currentSlot.parent.GetComponent<InventorySlot>().heldItem = bags[i].heldItems[j];
+                    currentSlot.parent.GetComponent<InventorySlot>().slottedItem = bags[i].heldItems[j].slottedItem;
+                    currentSlot.parent.GetComponent<InventorySlot>().stackNumber = bags[i].heldItems[j].stackNumber;
+                    bags[i].heldItems[j].slottedItem = currentSlot.parent.GetComponent<InventorySlot>().slottedItem;
+                    bags[i].heldItems[j].stackNumber = currentSlot.parent.GetComponent<InventorySlot>().stackNumber;
 
                     // If there is an item in that slot
-                    if (bags[i].heldItems[j].slottedItem != null)
+                    if (bags[i].heldItems[j] != null)
                     {
                         // If the stack number of the item in that inventory slot is larger than or equals to 2
                         if (bags[i].heldItems[j].stackNumber >= 2)
                         {
                             // Change the stack number text to the stackNumber of the item in the inventory slot
-                            currentSlot.GetChild(0).GetComponent<TMP_Text>().text = bags[i].heldItems[j].stackNumber.ToString();
+                            //currentSlot.GetChild(0).GetComponent<TMP_Text>().text = bags[i].heldItems[j].stackNumber.ToString();
+                            currentSlot.GetChild(0).GetComponent<TMP_Text>().text = currentSlot.parent.GetComponent<InventorySlot>().stackNumber.ToString();
 
                             // Enable the stack number text
                             currentSlot.GetChild(0).gameObject.SetActive(true);

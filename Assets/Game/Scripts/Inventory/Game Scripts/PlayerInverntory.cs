@@ -15,12 +15,24 @@ public class PlayerInverntory : MonoBehaviour
 
     [SerializeField] Transform inventoryBackground;
 
-    // test should hold a reference to all the item slots, aka a game manager
-    //test
-    [SerializeField] Test test;
-    //test
-
     public UnityEvent Open;
+
+    void Start()
+    {
+        // For every bag of the player
+        for (int i = 0; i < myInventory.bagSlots.Count; i++)
+        {
+            // For every itemSlot in the bag
+            for (int j = 0; j < myInventory.bagSlots[i].heldItems.Length; j++)
+            {
+                Debug.Log(myInventory.bagSlots[i].heldItems.Length);
+                // Create an enpty ItemSlot
+                myInventory.bagSlots[i].heldItems[j] = new ItemSlot();
+
+                // Load the data
+            }
+        }
+    }
 
     public void AddItem(Item item, int stackNumber)
     {
@@ -30,7 +42,7 @@ public class PlayerInverntory : MonoBehaviour
         // Cache the bags
         List<Container> bags = myInventory.bagSlots;
 
-        // Initialize a temp item slot
+        // Initialize a temp itemSlot
         ItemSlot targetItemSlot = null;
 
         // Search for slot
@@ -57,11 +69,11 @@ public class PlayerInverntory : MonoBehaviour
                 // If the heldItem is the same with the item that is going to be added
                 if (bags[i].heldItems[j].slottedItem == item)
                 {
-                    // Assign targetItemSlot to that item slot
+                    // Assign targetItemSlot to that inventory slot
                     targetItemSlot = bags[i].heldItems[j];
 
                     // If the stack number after adding is larger than the max stack number of that item
-                    if (targetItemSlot.stackNumber + stackNumber > targetItemSlot.slottedItem.maxStackNumber)
+                    if (bags[i].heldItems[j].stackNumber + stackNumber > bags[i].heldItems[j].slottedItem.maxStackNumber)
                     {
                         // Reset targetItemSlot to search for another one
                         targetItemSlot = null;
@@ -218,8 +230,8 @@ public class PlayerInverntory : MonoBehaviour
         if (emptyItemSlot != null)
         {
             // Spilt the stack
-            emptyItemSlot.slottedItem = targetInventorySlot.heldItem.slottedItem;
-            targetInventorySlot.heldItem.stackNumber -= spiltStackNumber;
+            emptyItemSlot.slottedItem = targetInventorySlot.slottedItem;
+            targetInventorySlot.stackNumber -= spiltStackNumber;
             emptyItemSlot.stackNumber = spiltStackNumber;
         }
         // If I do not find an empty ItemSlot
@@ -239,18 +251,6 @@ public class PlayerInverntory : MonoBehaviour
         // Cache the bags
         List<Container> bags = myInventory.bagSlots;
 
-        //// Assign inventory slots
-        // For every bag
-        for (int i = 0; i < bags.Count; i++)
-        {
-            // For eveny item in the bag
-            for (int j = 0; j < bags[i].heldItems.Length; j++)
-            {
-                // Assign the ItemSlot Scriptable Object
-                bags[i].heldItems[j] = test.itemSlots[j];
-            }
-        }
-
         // Read Data
         // For every bag
         for (int i = 0; i < bags.Count; i++)
@@ -258,39 +258,44 @@ public class PlayerInverntory : MonoBehaviour
             // For eveny item in the bag
             for (int j = 0; j < bags[i].heldItems.Length; j++)
             {
-                // Cache the current inventory slot
-                Transform currentSlot = inventoryBackground.GetChild(j).GetChild(0);
-
-                // Assign container to the inventory slots
-                currentSlot.parent.GetComponent<InventorySlot>().heldItem = bags[i].heldItems[j];
-
-                // If there is an item in that slot
-                if (bags[i].heldItems[j].slottedItem != null)
+                // If there is an item
+                if (bags[i].heldItems[j] != null)
                 {
-                    // Change the sprite of that itemslot into the one of the item
-                    currentSlot.GetComponent<Image>().sprite = bags[i].heldItems[j].slottedItem.itemIcon;
+                    // Cache the current inventory slot
+                    Transform currentSlot = inventoryBackground.GetChild(j).GetChild(0);
 
-                    // If the stack number of the item in that inventory slot is larger than or equals to 2
-                    if (bags[i].heldItems[j].stackNumber >= 2)
+                    // Assign container to the inventory slots
+                    currentSlot.parent.GetComponent<InventorySlot>().slottedItem = bags[i].heldItems[j].slottedItem;
+                    currentSlot.parent.GetComponent<InventorySlot>().stackNumber = bags[i].heldItems[j].stackNumber;
+
+                    // If there is an item in that slot
+                    if (bags[i].heldItems[j].slottedItem != null)
                     {
-                        // Change the stack number text to the stackNumber of the item in the inventory slot
-                        currentSlot.GetChild(0).GetComponent<TMP_Text>().text = bags[i].heldItems[j].stackNumber.ToString();
+                        // Change the sprite of that itemslot into the one of the item
+                        currentSlot.GetComponent<Image>().sprite = bags[i].heldItems[j].slottedItem.itemIcon;
+
+                        // If the stack number of the item in that inventory slot is larger than or equals to 2
+                        if (bags[i].heldItems[j].stackNumber >= 2)
+                        {
+                            // Change the stack number text to the stackNumber of the item in the inventory slot
+                            currentSlot.GetChild(0).GetComponent<TMP_Text>().text = bags[i].heldItems[j].stackNumber.ToString();
+                        }
+                        // If the stack number of the item in that inventory slot is less than 2
+                        else
+                        {
+                            // Disable the stack number text
+                            currentSlot.GetChild(0).gameObject.SetActive(false);
+                        }
                     }
-                    // If the stack number of the item in that inventory slot is less than 2
+                    // Else
                     else
                     {
+                        // Remove the sprite
+                        currentSlot.GetComponent<Image>().sprite = null;
+
                         // Disable the stack number text
                         currentSlot.GetChild(0).gameObject.SetActive(false);
                     }
-                }
-                // Else
-                else
-                {
-                    // Remove the sprite
-                    currentSlot.GetComponent<Image>().sprite = null;
-
-                    // Disable the stack number text
-                    currentSlot.GetChild(0).gameObject.SetActive(false);
                 }
             }
         }

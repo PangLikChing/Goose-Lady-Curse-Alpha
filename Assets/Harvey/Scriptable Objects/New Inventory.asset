@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: New Inventory
   m_EditorClassIdentifier: 
   bagSlots:
-  - {fileID: 11400000, guid: 321b247fff567be47916b5dc0b6acd3b, type: 2}
+  - {fileID: 11400000, guid: c539509a1e832094bb0eacd32dcd7229, type: 2}

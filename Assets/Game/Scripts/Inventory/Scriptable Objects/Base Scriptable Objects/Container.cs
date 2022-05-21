@@ -7,13 +7,13 @@ using UnityEngine;
 /// </summary>
 
 [CreateAssetMenu(menuName = "Inventory/Container")]
-public class Container : ScriptableObject
+public class Container : Equipment
 {
     // volume is the number of items that the container can hold;
     [SerializeField] protected int volume = 1;
 
     // heldItems is the items that the container is currently holding
-    [HideInInspector] public ItemSlot[] heldItems = new ItemSlot[1];
+    public ItemSlot[] heldItems = new ItemSlot[1];
 
     // If a value is changed
     private void OnValidate()
@@ -24,16 +24,16 @@ public class Container : ScriptableObject
             // Get the new size of the container
             int newSize = volume;
 
-            // Initialize a temp Item array
-            ItemSlot[] temp = new ItemSlot[newSize];
+            // Initialize a temp ItemSlot array
+            ItemSlot[] tempItemSlotArray = new ItemSlot[newSize];
 
-            // For the length of the temp Item array
-            for (int i = 0; i < temp.Length; i++)
+            // For the length of the temp ItemSlot array
+            for (int i = 0; i < tempItemSlotArray.Length; i++)
             {
                 try
                 {
-                    // Copy the item from heldItems to temp
-                    temp[i] = heldItems[i];
+                    // Copy the item from heldItems to temp ItemSlot Array
+                    tempItemSlotArray[i] = heldItems[i];
                 }
                 catch
                 {
@@ -42,29 +42,29 @@ public class Container : ScriptableObject
                 }
             }
 
-            // Change heldItems to temp
-            heldItems = temp;
+            // Change heldItems to temp ItemSlot Array
+            heldItems = tempItemSlotArray;
         }
     }
 
     // Debug
     public void DisplayItems()
     {
-        // For every element in heldItems
-        for (int i = 0; i < heldItems.Length; i++)
-        {
-            // If an item exists in heldItems[i]
-            if (heldItems[i] != null)
-            {
-                // Throw a debug message with that item's name
-                Debug.Log($"{heldItems[i].slottedItem.name}\t");
-            }
-            // Else
-            else
-            {
-                // Throw a debug message with null
-                Debug.Log("Null\t");
-            }
-        }
+        //// For every element in heldItems
+        //for (int i = 0; i < heldItems.Length; i++)
+        //{
+        //    // If an item exists in heldItems[i]
+        //    if (heldItems[i] != null)
+        //    {
+        //        // Throw a debug message with that item's name
+        //        Debug.Log($"{heldItems[i].slottedItem.name}\t");
+        //    }
+        //    // Else
+        //    else
+        //    {
+        //        // Throw a debug message with null
+        //        Debug.Log("Null\t");
+        //    }
+        //}
     }
 }

@@ -23,6 +23,15 @@ public class InventoryScaler : MonoBehaviour
     // playerInventory is the playerInventory script on the player
     [SerializeField] PlayerInverntory playerInverntory;
 
+    //void Start()
+    //{
+    //    // Instanstate the number of slots needed for the inventory
+    //    for (int i = 0; i < myContainer.heldItems.Length; i++)
+    //    {
+    //        Instantiate(inventorySlot, transform);
+    //    }
+    //}
+
     void OnEnable()
     {
         // Initialize

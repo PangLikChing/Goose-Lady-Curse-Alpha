@@ -24,9 +24,6 @@ public class Test : MonoBehaviour
 
     [SerializeField] float testTimer = 0.0f;
 
-    // This should keep
-    public List<ItemSlot> itemSlots = new List<ItemSlot>();
-
     void Update()
     {
         if (testTimer >= 2.0f)
