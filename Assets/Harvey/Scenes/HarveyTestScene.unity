@@ -407,8 +407,6 @@ GameObject:
   - component: {fileID: 738228471}
   - component: {fileID: 738228474}
   - component: {fileID: 738228473}
-  - component: {fileID: 738228475}
-  - component: {fileID: 738228476}
   m_Layer: 5
   m_Name: Inventory Background
   m_TagString: Untagged
@@ -509,34 +507,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &738228475
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738228469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00b226a2e48e16649be4112cecca3ccb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myContainer: {fileID: 11400000, guid: c539509a1e832094bb0eacd32dcd7229, type: 2}
-  inventorySlot: {fileID: 5137926028077824671, guid: 106e1b716da6f2f4d9a424b0ea162b81, type: 3}
-  playerInverntory: {fileID: 1544008954}
---- !u!114 &738228476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738228469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20a9530f04bc814459405e245878d012, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bags: []
 --- !u!1 &790760814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,11 +1093,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2466a0bb78189fc4bb4ca8c5e3e7ed95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testConsumable: {fileID: 11400000, guid: 35c5de94629d8f543b5470677e3a8847, type: 2}
-  testContainer: {fileID: 11400000, guid: c539509a1e832094bb0eacd32dcd7229, type: 2}
-  testItem: {fileID: 11400000, guid: 35c5de94629d8f543b5470677e3a8847, type: 2}
-  playerInverntory: {fileID: 1544008954}
-  testStackNumber: 2
+  testItem: {fileID: 11400000, guid: aac2334623587c5458b6012181c48a68, type: 2}
+  testStackNumber: 1
+  testInverntory: {fileID: 0}
   testTimer: 0
 --- !u!114 &1544008954
 MonoBehaviour:
@@ -1143,19 +1111,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bags:
   - {fileID: 11400000, guid: c539509a1e832094bb0eacd32dcd7229, type: 2}
-  inventoryBackground: {fileID: 738228470}
-  Open:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1544008954}
-        m_TargetAssemblyTypeName: PlayerInverntory, Assembly-CSharp
-        m_MethodName: OpenInventory
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  - {fileID: 11400000, guid: e2c3a6577b125614c98af7dcf7d8ff7c, type: 2}
+  - {fileID: 11400000, guid: ccd7905d7c321ee4b967d2090e069cf4, type: 2}
+  - {fileID: 11400000, guid: 3e988c81f850639479464976d14d51e8, type: 2}
+  - {fileID: 0}
+  - {fileID: 11400000, guid: 400c3ba663c81f24d9758cf64141474c, type: 2}

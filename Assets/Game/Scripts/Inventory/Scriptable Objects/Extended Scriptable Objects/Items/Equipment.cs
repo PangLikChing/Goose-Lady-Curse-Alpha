@@ -6,7 +6,6 @@ using UnityEngine;
 /// This scriptable object stores the data of an equipment
 /// </summary>
 
-[CreateAssetMenu(menuName = "Item/Equipment")]
 public class Equipment : Item
 {
     // When this scriptable object is created
@@ -14,6 +13,17 @@ public class Equipment : Item
     {
         // Set the maximum stack number to 1
         maxStackNumber = 1;
+    }
+
+    // If the value changed for the scriptable object
+    void OnValidate()
+    {
+        // If max stack number is not 1
+        if (maxStackNumber != 1)
+        {
+            // Set the maximum stack number to 1
+            maxStackNumber = 1;
+        }
     }
 
     public override void Add(ItemSlot heldItem, int stackNumber)
