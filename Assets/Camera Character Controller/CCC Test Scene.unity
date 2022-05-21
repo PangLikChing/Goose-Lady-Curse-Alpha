@@ -162,14 +162,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06eeda175628a9044a6d373c5c57919b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedDampeningTime: 5
-  speedDeadZone: 0.05
   angularDampeningTime: 5
   angularDeadZone: 10
+  agentSpeed: 0
+  speedDampeningTime: 5
+  speedDeadZone: 0.05
   speedMultiplier: 1
   brakingDistance: 2
   brakingCoefficient: 0.5
-  agentSpeed: 0
 --- !u!136 &78538753
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -404,7 +404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
       propertyPath: m_LocalPosition.z
@@ -444,7 +444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
       propertyPath: m_Controller
@@ -473,7 +473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.1
+      value: 0.09
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
       propertyPath: m_LocalPosition.z
@@ -513,7 +513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
       propertyPath: m_Controller
@@ -542,14 +542,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06eeda175628a9044a6d373c5c57919b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedDampeningTime: 5
-  speedDeadZone: 0.05
   angularDampeningTime: 5
   angularDeadZone: 10
+  agentSpeed: 0
+  speedDampeningTime: 5
+  speedDeadZone: 0.05
   speedMultiplier: 1
   brakingDistance: 2
   brakingCoefficient: 0.5
-  agentSpeed: 0
 --- !u!195 &1119293556
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -566,7 +566,7 @@ NavMeshAgent:
   m_AngularSpeed: 0
   m_StoppingDistance: 0.5
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
+  m_AutoBraking: 0
   m_AutoRepath: 1
   m_Height: 2
   m_BaseOffset: 0
@@ -596,12 +596,17 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1119293553}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!4 &1119293560 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
+  m_PrefabInstance: {fileID: 906326499}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1155663454
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,8 +684,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1155663454}
-  m_LocalRotation: {x: 0.36414045, y: 1.2885268e-15, z: -1.6991953e-15, w: 0.93134403}
-  m_LocalPosition: {x: 5.54, y: 13.1, z: -6.96}
+  m_LocalRotation: {x: 0.36414045, y: -0.000000027756217, z: 0.000000010852232, w: 0.93134403}
+  m_LocalPosition: {x: 5.54, y: 13.09, z: -6.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -756,8 +761,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 1542958773}
-  m_Follow: {fileID: 1542958773}
+  m_LookAt: {fileID: 1119293560}
+  m_Follow: {fileID: 1119293560}
   m_Lens:
     FieldOfView: 30
     OrthographicSize: 5
@@ -780,8 +785,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216080740}
-  m_LocalRotation: {x: 0.36414045, y: 1.2885268e-15, z: -1.6991953e-15, w: 0.93134403}
-  m_LocalPosition: {x: 5.54, y: 13.1, z: -6.96}
+  m_LocalRotation: {x: 0.36414045, y: -0.000000027756217, z: 0.000000010852232, w: 0.93134403}
+  m_LocalPosition: {x: 5.54, y: 13.09, z: -6.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 501894537}
@@ -919,7 +924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba47e340882cdcb48b6cba4ba23c4984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  avatar: {fileID: 1542958767}
+  avatar: {fileID: 1119293553}
   MoveCmd:
     m_PersistentCalls:
       m_Calls: []
@@ -1182,15 +1187,10 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!4 &1542958773 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
-  m_PrefabInstance: {fileID: 564262770}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2021306659
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,14 +1320,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06eeda175628a9044a6d373c5c57919b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedDampeningTime: 3
-  speedDeadZone: 0.001
   angularDampeningTime: 5
   angularDeadZone: 10
+  agentSpeed: 0
+  speedDampeningTime: 3
+  speedDeadZone: 0.001
   speedMultiplier: 1
   brakingDistance: 2
   brakingCoefficient: 0.5
-  agentSpeed: 0
 --- !u!195 &1648747490961482194
 NavMeshAgent:
   m_ObjectHideFlags: 0

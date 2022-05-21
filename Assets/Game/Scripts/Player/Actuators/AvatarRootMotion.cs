@@ -25,24 +25,14 @@ public class AvatarRootMotion : AvatarLocomotion
     // speed actuating variable
     private float currentDriveSignal;
     
-
-    private new void Awake()
-    {
-        base.Awake();
-        hasAnimationListner = TryGetComponent<AnimationListener>(out animationListener);
-    }
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         //Disable navmesh agent's steering functionality 
         agent.speed = 1.1f;
         agent.angularSpeed = 0;
         agent.acceleration = 0;
 
-        if (hasAnimationListner)
-        {
-            animationListener.OnAnimatorMoveEvent += OnAnimatorMove;
-        }
         if (hasAnimator)
         {
             avatarAnimator.SetFloat(SpeedMultiplierParameter, speedMultiplier);

@@ -19,7 +19,7 @@ public class AvatarLocomotion : MonoBehaviour
     protected Animator avatarAnimator;
     protected bool hasAnimator;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         hasAnimator = TryGetComponent<Animator>(out avatarAnimator);
@@ -45,7 +45,6 @@ public class AvatarLocomotion : MonoBehaviour
             if (Mathf.Abs(angle) <= angularDeadZone)
             {
                 transform.LookAt(transform.position + agent.desiredVelocity);
-
             }
             else
             {

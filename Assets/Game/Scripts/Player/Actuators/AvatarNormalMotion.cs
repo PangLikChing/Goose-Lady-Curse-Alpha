@@ -12,7 +12,9 @@ public class AvatarNormalMotion : AvatarLocomotion
     {
         if (hasAnimator)
         {
+            //Set animation in the blend tree
             avatarAnimator.SetFloat(SpeedParameter, agent.velocity.magnitude/agent.speed);
+            //Set animation playback speed
             avatarAnimator.SetFloat(SpeedMultiplierParameter, agent.speed);
         }
 
