@@ -51,7 +51,6 @@ public class AvatarLocomotion : MonoBehaviour
                 transform.rotation = Quaternion.Lerp(transform.rotation,
                                                      Quaternion.LookRotation(agent.desiredVelocity),
                                                      Time.deltaTime * angularDampeningTime);
-
             }
 
         }
