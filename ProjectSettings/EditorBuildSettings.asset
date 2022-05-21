@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Game/Scenes/Core/Core.unity
+    guid: 1eccae4a0fc75374dbba81b4f953aa8f
+  - enabled: 1
+    path: Assets/Game/Scenes/Core/UI.unity
+    guid: 8296010c97b95384788f13e61bda59a5
+  - enabled: 1
+    path: Assets/Harvey/Scenes/HarveyTestScene.unity
+    guid: ce32164dd3d5e37438fa29c8b8fc0dff
   m_configObjects: {}
