@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 8128345760687638067}
   - component: {fileID: 1855826093293431655}
   m_Layer: 5
-  m_Name: Slotted Item
+  m_Name: Slotted Item Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -172,7 +172,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 40, y: 40}
+  m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5137926027634397070
 CanvasRenderer:
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 5137926028077824670}
   - component: {fileID: 5137926028077824643}
   - component: {fileID: 5137926028077824640}
-  - component: {fileID: 4642001717369335800}
+  - component: {fileID: 4223414073557330770}
   m_Layer: 5
   m_Name: Inventory Slot
   m_TagString: Untagged
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4642001717369335800
+--- !u!114 &4223414073557330770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -323,22 +323,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 5137926028077824671}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b97ee5a11fd67d744b93f24524805735, type: 3}
+  m_Script: {fileID: 11500000, guid: a13143d22e9a3a74b82b267106ad13d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  heldItem: {fileID: 0}
-  RefreshSlot:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4642001717369335800}
-        m_TargetAssemblyTypeName: InventorySlot, Assembly-CSharp
-        m_MethodName: UpdateSlot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  slottedItem: {fileID: 0}
+  stackNumber: 0
+  myInventory: {fileID: 0}
+  myBagIndex: 0
+  mySlotIndex: 0
+  slottedItemImage: {fileID: 5137926027634397071}
+  stackNumberText: {fileID: 1220912656218497463}

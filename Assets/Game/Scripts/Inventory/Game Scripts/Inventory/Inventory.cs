@@ -10,7 +10,8 @@ public class Inventory : MonoBehaviour
     // This is the items that the player is holding and its location
     public List<ItemSlot[]> itemList = new List<ItemSlot[]>();
 
-    void Start()
+    // This should happen on start and on bag update, probaly should use an event for this
+    void Awake()
     {
         // Initialize
         // For every bag that the player is carrying
@@ -26,7 +27,7 @@ public class Inventory : MonoBehaviour
                 itemList.Add(itemSlots);
 
                 // For every element in itemSlots
-                for (int j = 0; j < itemSlots.Length; i++)
+                for (int j = 0; j < itemSlots.Length; j++)
                 {
                     // Initialize a temp ItemSlot
                     ItemSlot itemSlot = new ItemSlot();
@@ -72,7 +73,7 @@ public class Inventory : MonoBehaviour
             for (int j = 0; j < itemList[i].Length; j++)
             {
                 // If there is an item in that ItemSlot
-                if (itemList[i][j] != null)
+                if (itemList[i][j].slottedItem != null)
                 {
                     // If that slottedItem in that ItemSlot is the same as item getting added
                     // and will not exceed the stack's max stack number if we add those 2 together
@@ -80,10 +81,10 @@ public class Inventory : MonoBehaviour
                     {
                         // That item slot will be the item slot we need to find
                         targetItemSlot = itemList[i][j];
-                    }
 
-                    // Throw a debug message
-                    Debug.Log($"Adding {stackNumber} {item.name}(s) to bag {i} slot {j}");
+                        // Throw a debug message
+                        Debug.Log($"Adding {stackNumber} {item.name}(s) to bag {i} slot {j}");
+                    }
                 }
             }
         }
@@ -121,8 +122,71 @@ public class Inventory : MonoBehaviour
             }
         }
 
-        // Add the item to the inventory
-        targetItemSlot.slottedItem = item;
-        item.Add(targetItemSlot, stackNumber);
+        // If I cannot find a suitable item slot, aka the inventory is full
+        if (targetItemSlot == null)
+        {
+            // Throw a debug message
+            Debug.Log("Inventory is full.");
+        }
+        // If I can find a suitable item slot
+        else
+        {
+            // Add the item to the inventory
+            targetItemSlot.slottedItem = item;
+            item.Add(targetItemSlot, stackNumber);
+        }
+    }
+
+    public void ConsumeItem(Item item, int stackNumber)
+    {
+        // Throw a debug message
+        Debug.Log($"Consuming {stackNumber} {item.name}(s) to the inventory");
+
+        // Initialize a temp ItemSlot
+        ItemSlot targetItemSlot = null;
+
+        // Search for an existing same item
+        // For every bag in player's inventory
+        for (int i = 0; i < itemList.Count; i++)
+        {
+            // If we have found a suitable item slot
+            if (targetItemSlot != null)
+            {
+                // Stop the search
+                break;
+            }
+
+            // For every ItemSlot in that bag
+            for (int j = 0; j < itemList[i].Length; j++)
+            {
+                // If there is an item in that ItemSlot
+                if (itemList[i][j].slottedItem != null)
+                {
+                    // If that slottedItem in that ItemSlot is the same as item getting consumed
+                    // and will not become less than 0 after consumption
+                    if (itemList[i][j].slottedItem == item && itemList[i][j].stackNumber - stackNumber >= 0)
+                    {
+                        // That item slot will be the item slot we need to find
+                        targetItemSlot = itemList[i][j];
+
+                        // Throw a debug message
+                        Debug.Log($"Consuming {stackNumber} {item.name}(s) in bag {i} slot {j}");
+                    }
+                }
+            }
+        }
+
+        // If I can find a suitable item slot
+        if (targetItemSlot != null)
+        {
+            // Consume the item to the inventory
+            item.Consume(targetItemSlot, stackNumber);
+        }
+        // If I cannot find a suitable item slot, aka there is no such item in the inventory
+        else
+        {
+            // Throw a debug message
+            Debug.Log("There is no such item in the inventory.");
+        }
     }
 }

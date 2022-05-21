@@ -12,7 +12,7 @@ public class Test : MonoBehaviour
 {
     [SerializeField] Item testItem;
 
-    [SerializeField] int testStackNumber;
+    [SerializeField] int testStackNumber, initialStackNumber;
 
     [SerializeField] Inventory testInverntory;
 
@@ -22,13 +22,15 @@ public class Test : MonoBehaviour
     {
         // Initialize
         testInverntory = GetComponent<Inventory>();
+
+        testInverntory.AddItem(testItem, initialStackNumber);
     }
 
     void Update()
     {
         if (testTimer >= 2.0f)
         {
-            testInverntory.AddItem(testItem, testStackNumber);
+            testInverntory.ConsumeItem(testItem, testStackNumber);
 
             testTimer = 0.0f;
         }

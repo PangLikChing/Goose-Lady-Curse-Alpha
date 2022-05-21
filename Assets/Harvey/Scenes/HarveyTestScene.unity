@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 600014923}
   - component: {fileID: 600014922}
   m_Layer: 5
-  m_Name: Container Canvas
+  m_Name: Inventory Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -332,7 +332,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -367,6 +367,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 684681985}
+  - component: {fileID: 684681986}
+  - component: {fileID: 684681987}
   m_Layer: 5
   m_Name: Inventory Grouper
   m_TagString: Untagged
@@ -384,100 +386,22 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 738228470}
+  m_Children: []
   m_Father: {fileID: 600014925}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -79, y: 216}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &738228469
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 738228470}
-  - component: {fileID: 738228472}
-  - component: {fileID: 738228471}
-  - component: {fileID: 738228474}
-  - component: {fileID: 738228473}
-  m_Layer: 5
-  m_Name: Inventory Background
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &738228470
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738228469}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 684681985}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -282.3828, y: 50}
-  m_SizeDelta: {x: 232.38281, y: 261.4665}
-  m_Pivot: {x: 0, y: 0}
---- !u!114 &738228471
+--- !u!114 &684681986
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738228469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &738228472
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738228469}
-  m_CullTransparentMesh: 1
---- !u!114 &738228473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738228469}
+  m_GameObject: {fileID: 684681984}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
@@ -486,27 +410,30 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 25
+    m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 1
+  m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 50, y: 50}
-  m_Spacing: {x: 5, y: 5}
+  m_CellSize: {x: 125, y: 50}
+  m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
-  m_ConstraintCount: 4
---- !u!225 &738228474
-CanvasGroup:
+  m_ConstraintCount: 1
+--- !u!114 &684681987
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 738228469}
+  m_GameObject: {fileID: 684681984}
   m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e038a1006605b47b07c8bf26d35377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myInventory: {fileID: 1544008954}
+  bagTransform: {fileID: 660163039423052184, guid: 666d46024f767bf49afe6be4b44f2b94, type: 3}
+  inventorySlotTransform: {fileID: 5137926028077824670, guid: 106e1b716da6f2f4d9a424b0ea162b81, type: 3}
 --- !u!1 &790760814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,8 +1020,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2466a0bb78189fc4bb4ca8c5e3e7ed95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testItem: {fileID: 11400000, guid: aac2334623587c5458b6012181c48a68, type: 2}
+  testItem: {fileID: 11400000, guid: ee57829ae76056f419d2f7492e2c3a8a, type: 2}
   testStackNumber: 1
+  initialStackNumber: 5
   testInverntory: {fileID: 0}
   testTimer: 0
 --- !u!114 &1544008954
@@ -1110,9 +1038,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bags:
-  - {fileID: 11400000, guid: c539509a1e832094bb0eacd32dcd7229, type: 2}
   - {fileID: 11400000, guid: e2c3a6577b125614c98af7dcf7d8ff7c, type: 2}
-  - {fileID: 11400000, guid: ccd7905d7c321ee4b967d2090e069cf4, type: 2}
-  - {fileID: 11400000, guid: 3e988c81f850639479464976d14d51e8, type: 2}
   - {fileID: 0}
+  - {fileID: 11400000, guid: c539509a1e832094bb0eacd32dcd7229, type: 2}
+  - {fileID: 11400000, guid: 0b0576aa94d05fe419bb62dd366b5370, type: 2}
   - {fileID: 11400000, guid: 400c3ba663c81f24d9758cf64141474c, type: 2}
+  - {fileID: 11400000, guid: ccd7905d7c321ee4b967d2090e069cf4, type: 2}
