@@ -20,17 +20,22 @@ public class InventoryScaler : MonoBehaviour
     // inventorySlot is the inventory slot prefeb
     [SerializeField] GameObject inventorySlot;
 
-    // playerInventory is the playerInventory script on the player
-    [SerializeField] PlayerInverntory playerInverntory;
+    // inverntory is the Inventory script on the player
+    public Inventory inventory;
 
-    //void Start()
-    //{
-    //    // Instanstate the number of slots needed for the inventory
-    //    for (int i = 0; i < myContainer.heldItems.Length; i++)
-    //    {
-    //        Instantiate(inventorySlot, transform);
-    //    }
-    //}
+    void Awake()
+    {
+        //// Instanstate the number of slots needed for the inventory
+        //for (int i = 0; i < myContainer.heldItems.Length; i++)
+        //{
+        //    Instantiate(inventorySlot, transform);
+        //}
+
+        // INitialize
+        // This should be on every inventory item
+        // This won't work
+        inventory = FindObjectOfType<Inventory>();
+    }
 
     void OnEnable()
     {
@@ -70,7 +75,7 @@ public class InventoryScaler : MonoBehaviour
         rect.localPosition = new Vector3(-rect.sizeDelta.x, rect.position.y, 0);
 
         // Invoke the open event
-        playerInverntory.Open.Invoke();
+        inventory.Open.Invoke();
     }
 
     void OnDisable()

@@ -6,12 +6,12 @@ using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
-/// PlayerInventory is the bags that the player is carrying
+/// Inventory is the bags that the player is carrying
 /// </summary>
 
-public class PlayerInverntory : MonoBehaviour
+public class Inventory : MonoBehaviour
 {
-    [SerializeField] Inventory myInventory;
+    public List<Container> bags = new List<Container>();
 
     [SerializeField] Transform inventoryBackground;
 
@@ -20,14 +20,14 @@ public class PlayerInverntory : MonoBehaviour
     void Start()
     {
         // For every bag of the player
-        for (int i = 0; i < myInventory.bagSlots.Count; i++)
+        for (int i = 0; i < bags.Count; i++)
         {
             // For every itemSlot in the bag
-            for (int j = 0; j < myInventory.bagSlots[i].heldItems.Length; j++)
+            for (int j = 0; j < bags[i].heldItems.Length; j++)
             {
-                Debug.Log(myInventory.bagSlots[i].heldItems.Length);
+                Debug.Log(bags[i].heldItems.Length);
                 // Create an enpty ItemSlot
-                myInventory.bagSlots[i].heldItems[j] = new ItemSlot();
+                bags[i].heldItems[j] = new ItemSlot();
 
                 // Load the data
             }
@@ -38,9 +38,6 @@ public class PlayerInverntory : MonoBehaviour
     {
         // Throw a debug message
         Debug.Log($"Adding {item.name} to {this.name}'s inventory.");
-
-        // Cache the bags
-        List<Container> bags = myInventory.bagSlots;
 
         // Initialize a temp itemSlot
         ItemSlot targetItemSlot = null;
@@ -123,15 +120,14 @@ public class PlayerInverntory : MonoBehaviour
 
         // Add the item
         targetItemSlot.slottedItem.Add(targetItemSlot, stackNumber);
+
+        // event
     }
 
     public void ConsumeItem(Item item, int stackNumber)
     {
         // Throw a debug message
         Debug.Log($"Consuming {item.name} to {this.name}'s inventory.");
-
-        // Cache the bags
-        List<Container> bags = myInventory.bagSlots;
 
         // Initialize a temp item slot
         ItemSlot targetItemSlot = null;
@@ -193,9 +189,6 @@ public class PlayerInverntory : MonoBehaviour
         // Throw a debug message
         Debug.Log($"Spilting {targetInventorySlot.name} by {spiltStackNumber} in {this.name}'s inventory.");
 
-        // Cache the bags
-        List<Container> bags = myInventory.bagSlots;
-
         // Initialize a temp ItemSlot for the upcoming empty ItemSlot
         ItemSlot emptyItemSlot = null;
 
@@ -247,9 +240,6 @@ public class PlayerInverntory : MonoBehaviour
     {
         // Throw a debug message
         Debug.Log($"Opening {this.name}'s inventory.");
-
-        // Cache the bags
-        List<Container> bags = myInventory.bagSlots;
 
         // Read Data
         // For every bag

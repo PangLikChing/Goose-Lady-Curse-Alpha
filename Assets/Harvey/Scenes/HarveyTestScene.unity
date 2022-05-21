@@ -536,7 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a9530f04bc814459405e245878d012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myInventory: {fileID: 11400000, guid: 5be47b3261ce71646ab3fbb0e0e36209, type: 2}
+  bags: []
 --- !u!1 &790760814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,7 +1125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   testConsumable: {fileID: 11400000, guid: 35c5de94629d8f543b5470677e3a8847, type: 2}
   testContainer: {fileID: 11400000, guid: c539509a1e832094bb0eacd32dcd7229, type: 2}
-  testInventory: {fileID: 11400000, guid: 5be47b3261ce71646ab3fbb0e0e36209, type: 2}
   testItem: {fileID: 11400000, guid: 35c5de94629d8f543b5470677e3a8847, type: 2}
   playerInverntory: {fileID: 1544008954}
   testStackNumber: 2
@@ -1142,7 +1141,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6378a2428d25b214b965736b8ae52b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myInventory: {fileID: 11400000, guid: 5be47b3261ce71646ab3fbb0e0e36209, type: 2}
+  bags:
+  - {fileID: 11400000, guid: c539509a1e832094bb0eacd32dcd7229, type: 2}
   inventoryBackground: {fileID: 738228470}
   Open:
     m_PersistentCalls:

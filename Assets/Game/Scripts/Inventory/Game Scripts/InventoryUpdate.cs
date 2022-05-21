@@ -10,15 +10,12 @@ using UnityEngine.UI;
 
 public class InventoryUpdate : MonoBehaviour
 {
-    private List<Container> bags;
+    // myInventory is the all the bags in the inventory for the player
+    [SerializeField] List<Container> bags = new List<Container>();
 
-    // myInventory is the inventory scriptable object of the player
-    [SerializeField] Inventory myInventory;
-
-    void Start()
+    private void Start()
     {
-        // Cache the bags
-        bags = myInventory.bagSlots;
+        bags = GetComponent<InventoryScaler>().inventory.bags;
     }
 
     void LateUpdate()
@@ -39,8 +36,8 @@ public class InventoryUpdate : MonoBehaviour
                     // Assign container to the inventory slots
                     currentSlot.parent.GetComponent<InventorySlot>().slottedItem = bags[i].heldItems[j].slottedItem;
                     currentSlot.parent.GetComponent<InventorySlot>().stackNumber = bags[i].heldItems[j].stackNumber;
-                    bags[i].heldItems[j].slottedItem = currentSlot.parent.GetComponent<InventorySlot>().slottedItem;
-                    bags[i].heldItems[j].stackNumber = currentSlot.parent.GetComponent<InventorySlot>().stackNumber;
+                    //bags[i].heldItems[j].slottedItem = currentSlot.parent.GetComponent<InventorySlot>().slottedItem;
+                    //bags[i].heldItems[j].stackNumber = currentSlot.parent.GetComponent<InventorySlot>().stackNumber;
 
                     // If there is an item in that slot
                     if (bags[i].heldItems[j] != null)

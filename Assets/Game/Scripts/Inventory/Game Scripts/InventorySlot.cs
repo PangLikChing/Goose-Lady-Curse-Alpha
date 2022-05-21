@@ -36,28 +36,28 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             // Cache the original inventory slot for the item getting dropped
             InventorySlot originalInventorySlot = eventData.pointerDrag.GetComponent<DragDrop>().originalInventorySlot;
 
-            //int originalItemSlotIndex = -1, targetItemSlotIndex = -1;
+            int originalItemSlotIndex = -1, targetItemSlotIndex = -1;
 
-            //// Find out which slot originalInventorySlot is
-            //for (int i = 0; i < transform.parent.childCount; i++)
-            //{
-            //    // If the inventory slots are the same
-            //    if (originalInventorySlot.transform.parent.GetChild(i).GetComponent<InventorySlot>() == originalInventorySlot)
-            //    {
-            //        Debug.Log($"I am from {i}");
-            //        originalItemSlotIndex = i;
-            //    }
-            //}
+            // Find out which slot originalInventorySlot is
+            for (int i = 0; i < originalInventorySlot.transform.parent.childCount; i++)
+            {
+                // If the inventory slots are the same
+                if (originalInventorySlot.transform.parent.GetChild(i).GetComponent<InventorySlot>() == originalInventorySlot)
+                {
+                    Debug.Log($"I am from {i}");
+                    originalItemSlotIndex = i;
+                }
+            }
 
-            //for (int i = 0; i < transform.parent.childCount; i++)
-            //{
-            //    // If the transform are the same
-            //    if (transform.parent.GetChild(i).transform == transform)
-            //    {
-            //        Debug.Log($"Target at {i}");
-            //        targetItemSlotIndex = i;
-            //    }
-            //}
+            for (int i = 0; i < transform.parent.childCount; i++)
+            {
+                // If the transform are the same
+                if (transform.parent.GetChild(i).transform == transform)
+                {
+                    Debug.Log($"Target at {i}");
+                    targetItemSlotIndex = i;
+                }
+            }
 
             // Swap position for the 2 items
             transform.GetChild(0).SetParent(originalInventorySlot.transform);

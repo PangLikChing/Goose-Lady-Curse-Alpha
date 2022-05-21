@@ -10,15 +10,9 @@ using UnityEngine.UI;
 
 public class Test : MonoBehaviour
 {
-    [SerializeField] Consumable testConsumable;
-
-    [SerializeField] Container testContainer;
-
-    [SerializeField] Inventory testInventory;
-
     [SerializeField] Item testItem;
 
-    [SerializeField] PlayerInverntory playerInverntory;
+    [SerializeField] Inventory playerInverntory;
 
     [SerializeField] int testStackNumber;
 
@@ -28,10 +22,6 @@ public class Test : MonoBehaviour
     {
         if (testTimer >= 2.0f)
         {
-            //testContainer.DisplayItems();
-
-            //testInventory.DisplayContainers();
-
             playerInverntory.AddItem(testItem, testStackNumber);
 
             //playerInverntory.ConsumeItem(testItem, testStackNumber);
