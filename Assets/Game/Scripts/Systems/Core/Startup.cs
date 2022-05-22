@@ -54,8 +54,8 @@ public class Startup : MonoBehaviour
         {
             MenuManager.Instance.HideMenu(MainMenuClassifier);
         }
-    }
 #else
             MenuManager.Instance.ShowMenu(MainMenuClassifier);
 #endif
+    }
 }

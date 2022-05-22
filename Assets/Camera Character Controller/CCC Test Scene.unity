@@ -946,7 +946,51 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2206c472-6fc4-423d-985e-6848dff51ed7
+    m_ActionName: Player/Movements[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9986a283-af5c-44e7-a9a5-de006a574b6c
+    m_ActionName: Player/Attack[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d7ddb60f-c858-405c-9635-3b0741b10bf0
+    m_ActionName: Player/Pickup[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 05d0cef4-54fc-40ec-89ba-9df78c03fa7a
+    m_ActionName: Player/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cf40c54b-1316-43e3-bb02-45578cfacf11
+    m_ActionName: Player/Zoom Camera[/Mouse/scroll/y]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 00a3c4e9-8b08-411d-8b46-a3282e8a111a
+    m_ActionName: UI/Open Inventory[/Keyboard/i]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d7e6b28f-5030-465d-bd9b-5d10f716b7ce
+    m_ActionName: UI/Character Panel[/Keyboard/c]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3155186a-b457-4e4e-a763-c1e7d5fd6f1b
+    m_ActionName: UI/Open Crafting Menu[/Keyboard/n]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 48768046-c386-479c-b1d5-db009047eef3
+    m_ActionName: UI/Open Help Menu[/Keyboard/h]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e0cc387a-a799-47bb-80d5-49d01a1bea09
+    m_ActionName: UI/Open Pause Menu[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 39b08f54-95a7-46fe-8e34-2790fa66e215
+    m_ActionName: UI/Open Build Menu[/Keyboard/b]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Mouse and Keyboard
   m_DefaultActionMap: Player

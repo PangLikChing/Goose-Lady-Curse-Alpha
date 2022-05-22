@@ -75,7 +75,7 @@ public class SceneLoader : Singleton<SceneLoader>
             }
         }
 
-        if (raiseEvent)
+        if (raiseEvent&&OnSceneLoadedEvent!=null)
         {
             loadedScenes.Clear();
             loadedScenes.Add(scene);
