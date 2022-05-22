@@ -18,6 +18,8 @@ public class Test : MonoBehaviour
 
     [SerializeField] float testTimer = 0.0f;
 
+    public bool addTrigger = false;
+
     private void Start()
     {
         // Initialize
@@ -30,7 +32,14 @@ public class Test : MonoBehaviour
     {
         if (testTimer >= 2.0f)
         {
-            testInverntory.ConsumeItem(testItem, testStackNumber);
+            if (addTrigger == true)
+            {
+                testInverntory.AddItem(testItem, testStackNumber);
+            }
+            else
+            {
+                testInverntory.ConsumeItem(testItem, testStackNumber);
+            }
 
             testTimer = 0.0f;
         }

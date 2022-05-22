@@ -415,7 +415,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 125, y: 50}
+  m_CellSize: {x: 125, y: 80}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 1
@@ -1038,9 +1038,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bags:
-  - {fileID: 11400000, guid: e2c3a6577b125614c98af7dcf7d8ff7c, type: 2}
-  - {fileID: 0}
-  - {fileID: 11400000, guid: c539509a1e832094bb0eacd32dcd7229, type: 2}
-  - {fileID: 11400000, guid: 0b0576aa94d05fe419bb62dd366b5370, type: 2}
-  - {fileID: 11400000, guid: 400c3ba663c81f24d9758cf64141474c, type: 2}
-  - {fileID: 11400000, guid: ccd7905d7c321ee4b967d2090e069cf4, type: 2}
+  - {fileID: 11400000, guid: 899d1b01a36f97f49be48db58de9f8d4, type: 2}
+  - {fileID: 11400000, guid: 899d1b01a36f97f49be48db58de9f8d4, type: 2}
+  - {fileID: 11400000, guid: 899d1b01a36f97f49be48db58de9f8d4, type: 2}

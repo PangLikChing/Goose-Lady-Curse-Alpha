@@ -171,6 +171,9 @@ public class Inventory : MonoBehaviour
 
                         // Throw a debug message
                         Debug.Log($"Consuming {stackNumber} {item.name}(s) in bag {i} slot {j}");
+
+                        // Stop the search
+                        break;
                     }
                 }
             }
