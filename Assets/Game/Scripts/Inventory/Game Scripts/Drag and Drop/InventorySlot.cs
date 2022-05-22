@@ -16,9 +16,9 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 
     [SerializeField] int myBagIndex, mySlotIndex;
 
-    [SerializeField] Image slottedItemImage;
+    public Image slottedItemImage;
 
-    [SerializeField] TMP_Text stackNumberText;
+    public TMP_Text stackNumberText;
 
     void Start()
     {
@@ -43,48 +43,6 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             }
         }
     }
-
-    //test
-    void LateUpdate()
-    {
-        // If there is an item in the slot that I am responsible to display
-        if (myInventory.itemList[myBagIndex][mySlotIndex].slottedItem != null)
-        {
-            // Get my slotted item and stack number updated
-            slottedItem = myInventory.itemList[myBagIndex][mySlotIndex].slottedItem;
-            stackNumber = myInventory.itemList[myBagIndex][mySlotIndex].stackNumber;
-
-            // Update the UI
-            slottedItemImage.sprite = slottedItem.itemIcon;
-            stackNumberText.text = stackNumber.ToString();
-
-            // If stack number is larger than or equal to 2
-            if (stackNumber >= 2)
-            {
-                // Show the stack number text
-                stackNumberText.gameObject.SetActive(true);
-            }
-        }
-        // If there is no item in the slot that I am responsible to display
-        else
-        {
-            // Reset slottedItem and stackNumber
-            slottedItem = null;
-            stackNumber = 0;
-
-            // Update the UI
-            slottedItemImage.sprite = null;
-            stackNumberText.text = stackNumber.ToString();
-        }
-
-        // If stack number is less than or equal to 1
-        if (stackNumber <= 1)
-        {
-            // Hide the stack number text
-            stackNumberText.gameObject.SetActive(false);
-        }
-    }
-    //test
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -131,6 +89,72 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                 originalItemSlot.stackNumber = stackNumber;
                 myItemSlot.slottedItem = tempItemSlot.slottedItem;
                 myItemSlot.stackNumber = tempItemSlot.stackNumber;
+
+                // Refresh the inventory slots invovled in the swap / stack
+                originalInventorySlot.RefreshInventorySlot();
+                RefreshInventorySlot();
+            }
+        }
+    }
+
+    // Method to refresh a single inventory slot
+    public void RefreshInventorySlot()
+    {
+        // If there is an item in the slot that I am responsible to display
+        if (myInventory.itemList[myBagIndex][mySlotIndex].slottedItem != null)
+        {
+            // Get my slotted item and stack number updated
+            slottedItem = myInventory.itemList[myBagIndex][mySlotIndex].slottedItem;
+            stackNumber = myInventory.itemList[myBagIndex][mySlotIndex].stackNumber;
+
+            // Update the UI
+            slottedItemImage.sprite = slottedItem.itemIcon;
+            stackNumberText.text = stackNumber.ToString();
+
+            // If stack number is larger than or equal to 2
+            if (stackNumber >= 2)
+            {
+                // Show the stack number text
+                stackNumberText.gameObject.SetActive(true);
+            }
+        }
+        // If there is no item in the slot that I am responsible to display
+        else
+        {
+            // Reset slottedItem and stackNumber
+            slottedItem = null;
+            stackNumber = 0;
+
+            // Update the UI
+            slottedItemImage.sprite = null;
+            stackNumberText.text = stackNumber.ToString();
+        }
+
+        // If stack number is less than or equal to 1
+        if (stackNumber <= 1)
+        {
+            // Hide the stack number text
+            stackNumberText.gameObject.SetActive(false);
+        }
+
+        // If this inventory slot doesn't have a slotted item
+        if (slottedItem == null)
+        {
+            // If I have at least a item UI as a child
+            if (transform.childCount != 0)
+            {
+                // Disable the raycast for the slotted item so that the player cannot drag it
+                transform.GetChild(0).GetComponent<Image>().raycastTarget = false;
+            }
+        }
+        // Else
+        else
+        {
+            // If I have at least a item UI as a child
+            if (transform.childCount != 0)
+            {
+                // Enable the raycast for the slotted item so that the player can drag it
+                transform.GetChild(0).GetComponent<Image>().raycastTarget = true;
             }
         }
     }

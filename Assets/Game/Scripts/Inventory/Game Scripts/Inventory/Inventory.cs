@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Inventory : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class Inventory : MonoBehaviour
 
     // This is the items that the player is holding and its location
     public List<ItemSlot[]> itemList = new List<ItemSlot[]>();
+
+    // RefreshInventorySlots is an event to refresh all Inventory slots
+    public UnityEvent RefreshInventorySlots;
 
     // This should happen on start and on bag update, probaly should use an event for this
     void Awake()
@@ -135,6 +139,9 @@ public class Inventory : MonoBehaviour
             targetItemSlot.slottedItem = item;
             item.Add(targetItemSlot, stackNumber);
         }
+
+        // Refresh Inventory slots
+        RefreshInventorySlots.Invoke();
     }
 
     public void ConsumeItem(Item item, int stackNumber)
@@ -191,5 +198,8 @@ public class Inventory : MonoBehaviour
             // Throw a debug message
             Debug.Log("There is no such item in the inventory.");
         }
+
+        // Refresh Inventory slots
+        RefreshInventorySlots.Invoke();
     }
 }
