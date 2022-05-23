@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Game/Scenes/Core/Core.unity
+    guid: 1eccae4a0fc75374dbba81b4f953aa8f
+  - enabled: 1
+    path: Assets/Game/Scenes/Core/UI.unity
+    guid: 8296010c97b95384788f13e61bda59a5
+  - enabled: 1
+    path: Assets/Harvey/Scenes/HarveyTestScene.unity
+    guid: ce32164dd3d5e37438fa29c8b8fc0dff
+  - enabled: 1
+    path: Assets/Camera Character Controller/CCC Test Scene.unity
+    guid: 16a8861ac3f1b1349a175ced31fd90c0
   m_configObjects: {}

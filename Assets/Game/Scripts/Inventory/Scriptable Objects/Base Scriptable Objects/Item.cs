@@ -22,5 +22,41 @@ public class Item : ScriptableObject
     public Transform item3DModelPrefeb = null;
 
     // maxStackNumber is the maximum number of items that a stack can hold
-    [SerializeField] protected int maxStackNumber = 99;
+    public int maxStackNumber = 99;
+
+    // Method to add stack number
+    public virtual void Add(ItemSlot heldItem, int stackNumber)
+    {
+        // Throw a debug message
+        Debug.Log("Item Add");
+
+        // If the stack number after adding is less than or equal to the max stack number of that item
+        if (heldItem.stackNumber + stackNumber <= heldItem.slottedItem.maxStackNumber)
+        {
+            // Increase the number of item in the stack by stackNumber
+            heldItem.stackNumber += stackNumber;
+        }
+
+        // Throw a debug message
+        Debug.Log($"{this.name}'s current stack number: {heldItem.stackNumber}");
+    }
+
+    public virtual void Consume(ItemSlot heldItem, int stackNumber)
+    {
+        // Throw a debug message
+        Debug.Log("Item Consume");
+
+        // Decrease the number of item in the stack by stackNumber
+        heldItem.stackNumber -= stackNumber;
+
+        // Should delete the item if stackNumber is 0 or less than 0
+        if (heldItem.stackNumber <= 0)
+        {
+            // Dereference the slottedItem
+            heldItem.slottedItem = null;
+        }
+
+        // Throw a debug message
+        Debug.Log($"{this.name}'s current stack number: {heldItem.stackNumber}");
+    }
 }
