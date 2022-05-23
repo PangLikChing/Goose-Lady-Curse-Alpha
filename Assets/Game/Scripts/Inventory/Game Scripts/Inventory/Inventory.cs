@@ -191,6 +191,9 @@ public class Inventory : MonoBehaviour
         {
             // Consume the item to the inventory
             item.Consume(targetItemSlot, stackNumber);
+
+            // Refresh Inventory slots
+            RefreshInventorySlots.Invoke();
         }
         // If I cannot find a suitable item slot, aka there is no such item in the inventory
         else
@@ -198,8 +201,5 @@ public class Inventory : MonoBehaviour
             // Throw a debug message
             Debug.Log("There is no such item in the inventory.");
         }
-
-        // Refresh Inventory slots
-        RefreshInventorySlots.Invoke();
     }
 }

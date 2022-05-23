@@ -16,13 +16,17 @@ public class InventoryGrouper : MonoBehaviour
     // bagGameObject is the UI prefeb for a bag
     public Transform bagTransform, inventorySlotTransform;
 
-    // gridLayoutGroup is the gridLayoutGroup that the grouper is holding
+    // gridLayoutGroup is the GridLayoutGroup that the grouper is holding
     GridLayoutGroup gridLayoutGroup;
 
-    void Start()
+    // rectTransform is the RectTransform that the grouper is holding
+    RectTransform rectTransform;
+
+    void Awake()
     {
         // Initialize
         gridLayoutGroup = GetComponent<GridLayoutGroup>();
+        rectTransform = GetComponent<RectTransform>();
     }
 
     // If the inventory is opened
@@ -66,11 +70,8 @@ public class InventoryGrouper : MonoBehaviour
         // Refresh all the inventory slots display for that inventory
         myInventory.RefreshInventorySlots.Invoke();
 
-        // Change the size of the grouper
-
-        //gridLayoutGroup.cellSize = new Vector2(0, 0);
-
-        // Change the position of the grouper
+        // Go to the right position and scale to the right size
+        ScaleInventoryGrouper();
     }
 
     void OnDisable()
@@ -81,6 +82,66 @@ public class InventoryGrouper : MonoBehaviour
             // Destory the child gameObject
             Destroy(transform.GetChild(i).gameObject);
         }
+    }
+
+    // Method to scale this gameObject
+    // This assume every bag has the same size in terms of UI
+    private void ScaleInventoryGrouper()
+    {
+        // Find out how many bag's UI gameObject is active
+        // and find the largest bag
+        // Initialize 2 temp ints
+        int numberOfBagActive = 0, largestBagIndex = 0;
+
+        // For every bag
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            // If that bag's UI gameObject is active
+            if (transform.GetChild(i).gameObject.activeSelf == true)
+            {
+                // Increment the temp int
+                numberOfBagActive++;
+
+                // If that bag's child count is larger than that of the current largest bag's child count
+                if (transform.GetChild(i).childCount > transform.GetChild(largestBagIndex).childCount)
+                {
+                    // Update the lagestBagIndex
+                    largestBagIndex = i;
+                }
+            }
+        }
+
+        // Cache the bag's GridLayoutGroup
+        GridLayoutGroup bagGridLayoutGroup = transform.GetChild(largestBagIndex).GetComponent<GridLayoutGroup>();
+
+        // Cache the number of columns for a bag
+        int bagNumberOfColumns = bagGridLayoutGroup.constraintCount;
+
+        // Calculate the number of rows that the grid for a bag currently has
+        int bagNumberOfRows = bagGridLayoutGroup.transform.childCount / bagNumberOfColumns;
+
+        // If the remainder is not 0
+        if (bagGridLayoutGroup.transform.childCount % bagGridLayoutGroup.constraintCount != 0)
+        {
+            // Increase the amount of rows by 1
+            bagNumberOfRows++;
+        }
+
+        // Calculate the cell size
+        gridLayoutGroup.cellSize = new Vector2(bagGridLayoutGroup.cellSize.x * bagGridLayoutGroup.constraintCount + bagGridLayoutGroup.spacing.x * bagGridLayoutGroup.constraintCount + bagGridLayoutGroup.padding.left - bagGridLayoutGroup.padding.right
+                                                , (bagGridLayoutGroup.cellSize.y + bagGridLayoutGroup.spacing.y) * bagNumberOfRows + bagGridLayoutGroup.padding.top - bagGridLayoutGroup.padding.bottom);
+
+        // Calculate the new x size value
+        float newSizeDeltaX = bagGridLayoutGroup.padding.left + (int)bagGridLayoutGroup.cellSize.x * bagNumberOfColumns + bagGridLayoutGroup.spacing.x * bagNumberOfColumns;
+
+        // Calculate the new y size value
+        float newSizeDeltaY = bagGridLayoutGroup.padding.top + (int)bagGridLayoutGroup.cellSize.y * bagNumberOfRows + (bagGridLayoutGroup.spacing.y + gridLayoutGroup.spacing.y) * bagNumberOfRows;
+
+        // Change the rect transform's sizeDelta
+        rectTransform.sizeDelta = new Vector2(newSizeDeltaX, newSizeDeltaY);
+
+        // Change the position of the grid
+        rectTransform.anchoredPosition = new Vector3(-newSizeDeltaX, newSizeDeltaY * numberOfBagActive, 0);
     }
 
     // This is a method to refresh all inventory slots
