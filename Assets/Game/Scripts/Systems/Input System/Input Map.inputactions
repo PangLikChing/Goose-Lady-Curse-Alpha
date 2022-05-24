@@ -2,7 +2,7 @@
     "name": "Input Map",
     "maps": [
         {
-            "name": "Player",
+            "name": "Gameplay",
             "id": "e55c5bde-0eda-4408-8f85-f15cde7656ae",
             "actions": [
                 {
@@ -60,7 +60,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Character Panel",
+                    "name": "Open Character Panel",
                     "type": "Button",
                     "id": "cdaf23b7-79b4-49db-8bfe-417051969e2e",
                     "expectedControlType": "Button",
@@ -179,7 +179,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Character Panel",
+                    "action": "Open Character Panel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
