@@ -10,34 +10,36 @@ using UnityEngine.UI;
 
 public class Test : MonoBehaviour
 {
-    [SerializeField] Consumable testConsumable;
-
-    [SerializeField] Container testContainer;
-
-    [SerializeField] Inventory testInventory;
-
     [SerializeField] Item testItem;
 
-    [SerializeField] PlayerInverntory playerInverntory;
+    [SerializeField] int testStackNumber, initialStackNumber;
 
-    [SerializeField] int testStackNumber;
+    [SerializeField] Inventory testInverntory;
 
     [SerializeField] float testTimer = 0.0f;
 
-    // This should keep
-    public List<ItemSlot> itemSlots = new List<ItemSlot>();
+    public bool addTrigger = false;
+
+    private void Start()
+    {
+        // Initialize
+        testInverntory = GetComponent<Inventory>();
+
+        testInverntory.AddItem(testItem, initialStackNumber);
+    }
 
     void Update()
     {
         if (testTimer >= 2.0f)
         {
-            //testContainer.DisplayItems();
-
-            //testInventory.DisplayContainers();
-
-            playerInverntory.AddItem(testItem, testStackNumber);
-
-            //playerInverntory.ConsumeItem(testItem, testStackNumber);
+            if (addTrigger == true)
+            {
+                testInverntory.AddItem(testItem, testStackNumber);
+            }
+            else
+            {
+                testInverntory.ConsumeItem(testItem, testStackNumber);
+            }
 
             testTimer = 0.0f;
         }
