@@ -7,9 +7,9 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour, IDropHandler
 {
-    public Item slottedItem = null;
+    [HideInInspector] public Item slottedItem = null;
 
-    public int stackNumber = 0;
+    [HideInInspector] public int stackNumber = 0;
 
     // myInventory is the inventory that the slot is in
     [SerializeField] Inventory myInventory;
