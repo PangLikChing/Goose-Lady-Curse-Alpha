@@ -9,7 +9,7 @@ public class CraftingRecipe : ScriptableObject
 
     public string recipeName = "";
 
-    public Sprite recipeIcon = null;
+    public Item item = null;
 
-    public List<Item> reagents = new List<Item>();
+    public Item[] reagents;
 }
