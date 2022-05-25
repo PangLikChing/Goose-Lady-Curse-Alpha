@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: 18 Slots Bag
   m_EditorClassIdentifier: 
   itemID: -1
-  itemDisplayName: 
-  itemIcon: {fileID: 0}
+  itemDisplayName: 18 Slots Bag
+  itemIcon: {fileID: 21300000, guid: fe025e83f69d0b54f8a4fe3c7c128fd7, type: 3}
   item3DModelPrefeb: {fileID: 0}
   maxStackNumber: 1
   volume: 18
