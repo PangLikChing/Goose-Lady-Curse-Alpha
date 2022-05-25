@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
-public class PlayerController : Singleton<PlayerController>
+public class PlayerController : MonoBehaviour
 {
     
     public GameObject avatar;
@@ -28,6 +28,7 @@ public class PlayerController : Singleton<PlayerController>
     //callback for movement action
     public void OnMovements() 
     {
+        Debug.Log("click");
         MoveCmd.Invoke();
     }
 

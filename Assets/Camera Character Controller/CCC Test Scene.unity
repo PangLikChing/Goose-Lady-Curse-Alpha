@@ -293,50 +293,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &275633441
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 275633442}
-  - component: {fileID: 275633443}
-  m_Layer: 0
-  m_Name: PlayerData
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &275633442
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 275633441}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1306906794}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &275633443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 275633441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b79338937b02cd04f90e9d9f57c6b6a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerStats: {fileID: 11400000, guid: d1e803c88df10d540a87188d57309eca, type: 2}
 --- !u!1 &501894536
 GameObject:
   m_ObjectHideFlags: 3
@@ -489,6 +445,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: fc4858affe3ef994f80d57d30c94a973, type: 3}
       propertyPath: m_Controller
@@ -858,10 +818,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1306906794}
-  - component: {fileID: 1306906797}
   - component: {fileID: 1306906795}
-  - component: {fileID: 1306906796}
   - component: {fileID: 1306906798}
+  - component: {fileID: 1306906796}
+  - component: {fileID: 1306906797}
   - component: {fileID: 1306906799}
   m_Layer: 0
   m_Name: Player Controller
@@ -882,7 +842,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1216080742}
-  - {fileID: 275633442}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -917,12 +876,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923cadd759a0d364a837581391179bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementLayerMask:
-    serializedVersion: 2
-    m_Bits: 8
-  mainCam: {fileID: 0}
+  inputHandler: {fileID: 1306906797}
   playerCameraController: {fileID: 0}
+  avatar: {fileID: 0}
 --- !u!114 &1306906797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306906793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5cd86374a9b3344bcbfc2a1ce3c7a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1306906798
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -946,75 +915,12 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 2206c472-6fc4-423d-985e-6848dff51ed7
-    m_ActionName: Player/Movements[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 9986a283-af5c-44e7-a9a5-de006a574b6c
-    m_ActionName: Player/Attack[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d7ddb60f-c858-405c-9635-3b0741b10bf0
-    m_ActionName: Player/Pickup[/Mouse/leftButton]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 05d0cef4-54fc-40ec-89ba-9df78c03fa7a
-    m_ActionName: Player/Interact[/Keyboard/e]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: cf40c54b-1316-43e3-bb02-45578cfacf11
-    m_ActionName: Player/Zoom Camera[/Mouse/scroll/y]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 00a3c4e9-8b08-411d-8b46-a3282e8a111a
-    m_ActionName: UI/Open Inventory[/Keyboard/i]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d7e6b28f-5030-465d-bd9b-5d10f716b7ce
-    m_ActionName: UI/Character Panel[/Keyboard/c]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 3155186a-b457-4e4e-a763-c1e7d5fd6f1b
-    m_ActionName: UI/Open Crafting Menu[/Keyboard/n]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 48768046-c386-479c-b1d5-db009047eef3
-    m_ActionName: UI/Open Help Menu[/Keyboard/h]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e0cc387a-a799-47bb-80d5-49d01a1bea09
-    m_ActionName: UI/Open Pause Menu[/Keyboard/escape]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 39b08f54-95a7-46fe-8e34-2790fa66e215
-    m_ActionName: UI/Open Build Menu[/Keyboard/b]
+  m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Mouse and Keyboard
-  m_DefaultActionMap: Player
+  m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1306906798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1306906793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba47e340882cdcb48b6cba4ba23c4984, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  avatar: {fileID: 1542958767}
-  MoveCmd:
-    m_PersistentCalls:
-      m_Calls: []
-  ZoomCameraCmd:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1306906799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1392,7 +1298,7 @@ GameObject:
   - component: {fileID: 1648747490961482193}
   m_Layer: 0
   m_Name: Player Avatar
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

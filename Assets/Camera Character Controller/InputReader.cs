@@ -4,11 +4,11 @@ using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "InputReader", menuName = "Game/Input Reader")]
 
-public class InputReader : ScriptableObject, InputMap.IGameplayActions
+public class InputReader : SerializableScriptableObject, InputMap.IGameplayActions
 {
-    public event UnityAction MovementEvent = delegate { };
-    public event UnityAction AttackEvent = delegate { };
-    public event UnityAction PickupEvent = delegate { };
+    public event UnityAction<Vector3> MovementEvent = delegate { };
+    public event UnityAction<GameObject> AttackEvent = delegate { };
+    public event UnityAction<GameObject> PickupEvent = delegate { };
     public event UnityAction InteractEvent = delegate { };
     public event UnityAction<float> ZoomEvent = delegate { };
     public event UnityAction OpenInventoryEvent = delegate { };
@@ -21,7 +21,9 @@ public class InputReader : ScriptableObject, InputMap.IGameplayActions
     private InputMap _gameInput;
     private Ray ray;
     private RaycastHit hit;
-
+    private LayerMask TerrainLayerMask;
+    private LayerMask AttackableLayerMask;
+    private LayerMask ItemLayerMask;
     private void OnEnable()
     {
         if (_gameInput == null)
@@ -29,31 +31,41 @@ public class InputReader : ScriptableObject, InputMap.IGameplayActions
             _gameInput = new InputMap();
             _gameInput.Gameplay.SetCallbacks(this);
         }
+        TerrainLayerMask = LayerMask.GetMask("Terrain");
+        AttackableLayerMask = LayerMask.GetMask("Attackable");
+        ItemLayerMask = LayerMask.GetMask("Item");
+    }
+
+    private void OnDisable()
+    {
+        DisableAllInput();
     }
 
     public void OnMovements(InputAction.CallbackContext context)
     {
-        if (context.phase == InputActionPhase.Performed)
+        Debug.Log("click");
+        ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        if (context.phase == InputActionPhase.Performed && Physics.Raycast(ray, out hit, 500f, TerrainLayerMask))
         {
-            MovementEvent.Invoke();
+            MovementEvent.Invoke(hit.point);
         }
     }
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        //TODO: raycast and check whos the target
-        if (context.phase == InputActionPhase.Performed)
+        ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        if (context.phase == InputActionPhase.Performed && Physics.Raycast(ray, out hit, 500f, AttackableLayerMask))
         {
-            AttackEvent.Invoke();
+            AttackEvent.Invoke(hit.collider.gameObject);
         }
     }
 
     public void OnPickup(InputAction.CallbackContext context)
     {
-        //TODO: raycast and check which item is it
-        if (context.phase == InputActionPhase.Performed)
+        ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        if (context.phase == InputActionPhase.Performed && Physics.Raycast(ray, out hit, 500f, ItemLayerMask))
         {
-            PickupEvent.Invoke();
+            PickupEvent.Invoke(hit.collider.gameObject);
         }
     }
 
@@ -121,4 +133,8 @@ public class InputReader : ScriptableObject, InputMap.IGameplayActions
         }
     }
 
+    public void DisableAllInput()
+    {
+        _gameInput.Gameplay.Disable();
+    }
 }

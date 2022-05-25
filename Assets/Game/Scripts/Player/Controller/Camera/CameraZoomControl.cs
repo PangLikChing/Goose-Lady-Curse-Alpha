@@ -16,7 +16,7 @@ public class CameraZoomControl : MonoBehaviour
     void Start()
     {
         currentCam = GetComponent<CinemachineVirtualCamera>();
-        PlayerController.Instance.ZoomCameraCmd.AddListener(ZoomCamera);
+        transform.parent.GetComponent<PlayerFSM>().inputHandler.ZoomEvent += ZoomCamera;
         targetFov = currentCam.m_Lens.FieldOfView;
     }
 
