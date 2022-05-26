@@ -13,19 +13,13 @@ using UnityEngine.UI;
 
 public class RecipeScrollView : MonoBehaviour
 {
-    [SerializeField] CraftingRecipe[] recipes;
+    CraftingRecipe[] recipes;
 
     public Transform recipeButton;
 
     [SerializeField] Transform recipeDisplayContent;
 
     [HideInInspector] public string recipesFolderPath = "";
-
-    void Start()
-    {
-        // Initialize
-        //recipesFolderPath = "Scriptable Objects/Recipes";
-    }
 
     public void ShowRecipes()
     {
@@ -46,7 +40,7 @@ public class RecipeScrollView : MonoBehaviour
             Transform button = Instantiate(recipeButton, recipeDisplayContent);
 
             // Assign item that the button is responsible for
-            button.GetComponent<RecipeButton>().item = recipes[i].item;
+            button.GetComponent<RecipeButton>().recipe = recipes[i];
 
             // Initialize button's UI elements
             button.GetChild(0).GetComponent<TMP_Text>().text = recipes[i].recipeName;

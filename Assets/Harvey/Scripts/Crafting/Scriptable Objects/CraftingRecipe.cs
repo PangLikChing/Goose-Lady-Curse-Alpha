@@ -11,5 +11,14 @@ public class CraftingRecipe : ScriptableObject
 
     public Item item = null;
 
-    public Item[] reagents;
+    [System.Serializable]
+    public struct Reagents
+    {
+        public Item item;
+        public int requiredAmount;
+    }
+
+    public Reagents[] reagents;
+
+    [TextArea(15, 20)] public string description = "";
 }

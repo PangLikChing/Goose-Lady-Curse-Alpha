@@ -6,20 +6,20 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class RecipeButton : MonoBehaviour
 {
-    [SerializeField] CraftButton craftButton;
+    [SerializeField] CraftingManager craftingManager;
 
-    [HideInInspector] public Item item;
+    [HideInInspector] public CraftingRecipe recipe;
 
     void Start()
     {
-        craftButton = FindObjectOfType<CraftButton>();
+        craftingManager = FindObjectOfType<CraftingManager>();
     }
 
     public void SetItem()
     {
-        // Set item
-        craftButton.item = item;
-        
+        // Set recipe
+        craftingManager.ChangeSelectedItem(recipe);
+
         // Show descriptions and reagents and stuff
     }
 }
