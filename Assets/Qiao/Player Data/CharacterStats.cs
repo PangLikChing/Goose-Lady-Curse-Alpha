@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "CharacterStats", menuName = "Character/CharacterStats")]
-public class CharacterStats : ScriptableObject
+public class CharacterStats : SerializableScriptableObject
 {
     [SerializeField]
     public List<NumericalStat> statsList;

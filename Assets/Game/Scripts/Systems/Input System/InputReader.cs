@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "InputReader", menuName = "Game/Input Reader")]
+[CreateAssetMenu(fileName = "InputReader", menuName = "Input/Input Reader")]
 
 public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap.IMenusActions, InputMap.IDialoguesActions
 {

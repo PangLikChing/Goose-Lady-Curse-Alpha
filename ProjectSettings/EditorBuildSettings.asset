@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/IntegrationTestScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Camera Character Controller/CCC Test Scene.unity
+    path: Assets/Qiao/CCC Test Scene.unity
     guid: 16a8861ac3f1b1349a175ced31fd90c0
   - enabled: 1
     path: Assets/Connors Work/Connors Scenes/DemoOfAllFeatures.unity
