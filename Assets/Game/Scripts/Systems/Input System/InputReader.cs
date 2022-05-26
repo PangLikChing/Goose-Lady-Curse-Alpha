@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "InputReader", menuName = "Game/Input Reader")]
 
-public class InputReader : SerializableScriptableObject, InputMap.IGameplayActions
+public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap.IMenusActions, InputMap.IDialoguesActions
 {
     public event UnityAction<Vector3> MovementEvent = delegate { };
     public event UnityAction<GameObject> AttackEvent = delegate { };
@@ -16,9 +16,10 @@ public class InputReader : SerializableScriptableObject, InputMap.IGameplayActio
     public event UnityAction OpenCraftingMenuEvent = delegate { };
     public event UnityAction OpenHelpMenuEvent = delegate { };
     public event UnityAction OpenPauseMenuEvent = delegate { };
+    public event UnityAction ClosePauseMenuEvent = delegate { };
     public event UnityAction OpenBuildMenuEvent = delegate { };
 
-    private InputMap _gameInput;
+    private InputMap gameInput;
     private Ray ray;
     private RaycastHit hit;
     private LayerMask TerrainLayerMask;
@@ -26,10 +27,11 @@ public class InputReader : SerializableScriptableObject, InputMap.IGameplayActio
     private LayerMask ItemLayerMask;
     private void OnEnable()
     {
-        if (_gameInput == null)
+        if (gameInput == null)
         {
-            _gameInput = new InputMap();
-            _gameInput.Gameplay.SetCallbacks(this);
+            gameInput = new InputMap();
+            gameInput.Gameplay.SetCallbacks(this);
+            gameInput.Menus.SetCallbacks(this);
         }
         TerrainLayerMask = LayerMask.GetMask("Terrain");
         AttackableLayerMask = LayerMask.GetMask("Attackable");
@@ -43,7 +45,6 @@ public class InputReader : SerializableScriptableObject, InputMap.IGameplayActio
 
     public void OnMovements(InputAction.CallbackContext context)
     {
-        Debug.Log("click");
         ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (context.phase == InputActionPhase.Performed && Physics.Raycast(ray, out hit, 500f, TerrainLayerMask))
         {
@@ -125,6 +126,14 @@ public class InputReader : SerializableScriptableObject, InputMap.IGameplayActio
         }
     }
 
+    public void OnClosePauseMenu(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            ClosePauseMenuEvent.Invoke();
+        }
+    }
+
     public void OnOpenBuildMenu(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
@@ -133,8 +142,21 @@ public class InputReader : SerializableScriptableObject, InputMap.IGameplayActio
         }
     }
 
+    public void EnableGameplayInput()
+    {
+        gameInput.Gameplay.Enable();
+        gameInput.Menus.Disable();
+    }
+
+    public void EnableMenuInput()
+    {
+        gameInput.Menus.Enable();
+        gameInput.Gameplay.Disable();
+    }
+
     public void DisableAllInput()
     {
-        _gameInput.Gameplay.Disable();
+        gameInput.Gameplay.Disable();
+        gameInput.Menus.Disable();
     }
 }

@@ -4,17 +4,24 @@ using UnityEngine;
 using Cinemachine;
 public class PlayerFSM: FSM
 {
-    public InputHandler inputHandler;
+    public InputReader inputReader;
+    public GameObject avatar;
+    public readonly int GameplayStateName = Animator.StringToHash("Gameplay");
 
-    public readonly int RoamingStateName = Animator.StringToHash("Roaming");
     [HideInInspector]
     public CinemachineStateDrivenCamera playerCameraController;
     [HideInInspector]
-    public GameObject avatar;
+    public AvatarLocomotion motion;
+    [HideInInspector]
+    public AvatarActions actions;
     protected override void Awake()
     {
-        avatar = GameObject.FindGameObjectWithTag("Player");
-        playerCameraController = GetComponent<CinemachineStateDrivenCamera>();
         base.Awake();
+    }
+
+    private void OnEnable()
+    {
+        playerCameraController = GetComponent<CinemachineStateDrivenCamera>();
+        motion = avatar.GetComponent<AvatarLocomotion>();
     }
 }

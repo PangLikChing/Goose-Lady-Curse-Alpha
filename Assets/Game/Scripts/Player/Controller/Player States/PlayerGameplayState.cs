@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class PlayerRoamingState : PlayerBaseState
+public class PlayerGameplayState : PlayerBaseState
 {
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        fsm.inputHandler.MovementEvent += MoveAvatar;   
+        fsm.motion.enabled = true;
+        fsm.inputReader.EnableGameplayInput();
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -19,13 +20,6 @@ public class PlayerRoamingState : PlayerBaseState
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        fsm.inputHandler.MovementEvent -= MoveAvatar;
-    }
-
-    public void MoveAvatar(Vector3 destination)
-    {
-        motion.MoveToPoint(destination);
-    }
-
-    
+        fsm.motion.enabled = false;
+    }   
 }

@@ -15,6 +15,7 @@ public class InputHandler : MonoBehaviour
     public event UnityAction OpenCraftingMenuEvent = delegate { };
     public event UnityAction OpenHelpMenuEvent = delegate { };
     public event UnityAction OpenPauseMenuEvent = delegate { };
+    public event UnityAction ClosePauseMenuEvent = delegate { };
     public event UnityAction OpenBuildMenuEvent = delegate { };
 
     private Ray ray;
@@ -97,8 +98,14 @@ public class InputHandler : MonoBehaviour
         OpenPauseMenuEvent.Invoke();
     }
 
+    public void OnClosePauseMenu()
+    {
+        ClosePauseMenuEvent.Invoke();
+    }
+
     public void OnOpenBuildMenu()
     {
         OpenBuildMenuEvent.Invoke();
     }
+
 }

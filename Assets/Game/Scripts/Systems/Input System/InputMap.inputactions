@@ -1,5 +1,5 @@
 {
-    "name": "Input Map",
+    "name": "InputMap",
     "maps": [
         {
             "name": "Gameplay",
@@ -78,6 +78,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Open Build Menu",
+                    "type": "Button",
+                    "id": "3c26e87f-31a6-47ab-a07c-f4c1a4a12c47",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Open Help Menu",
                     "type": "Button",
                     "id": "dbf4e4ed-bf02-4aa7-a0cc-fbf510f20eb8",
@@ -90,15 +99,6 @@
                     "name": "Open Pause Menu",
                     "type": "Button",
                     "id": "4e4c6f9c-6707-4c17-b8de-cafd6721e9f0",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Open Build Menu",
-                    "type": "Button",
-                    "id": "3c26e87f-31a6-47ab-a07c-f4c1a4a12c47",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -228,6 +228,40 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Menus",
+            "id": "96b8b93d-0c59-407e-b167-af9cad8e6792",
+            "actions": [
+                {
+                    "name": "Close Pause Menu",
+                    "type": "Button",
+                    "id": "10ed0b81-2a2f-4527-aca3-5c159b37a31a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "15c23046-80c6-4a91-807c-84379db2e7e3",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse and Keyboard",
+                    "action": "Close Pause Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Dialogues",
+            "id": "d4484669-ab58-4396-9000-f6ebb7a206cb",
+            "actions": [],
+            "bindings": []
         }
     ],
     "controlSchemes": [
