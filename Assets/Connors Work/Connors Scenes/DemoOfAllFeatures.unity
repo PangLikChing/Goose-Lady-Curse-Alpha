@@ -405,6 +405,55 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 352584465598647520, guid: 2e5ef36ae540cb643986d73eca7cacac, type: 3}
   m_PrefabInstance: {fileID: 1192143069}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &640790177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 640790179}
+  - component: {fileID: 640790178}
+  m_Layer: 0
+  m_Name: WeatherReporter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &640790178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640790177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aa68a93aec8c294ab2d8970b24dbe88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AdvancedDayNightCycle: {fileID: 771470898}
+  SimpleDayNightCycle: {fileID: 559211144}
+  Snow: {fileID: 1870425059}
+  Rain: {fileID: 847656166}
+  IsSnowing: 0
+  IsRaining: 0
+--- !u!4 &640790179
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 640790177}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &737224217
 GameObject:
   m_ObjectHideFlags: 0

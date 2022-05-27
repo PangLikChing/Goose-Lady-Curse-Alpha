@@ -15,6 +15,20 @@ public class OriginalLightingManager : MonoBehaviour
 
     private void Update()
     {
+
+        //if (TimeOfDay >= 6 && TimeOfDay <= 17)
+        //{
+        //    Debug.Log("morning");
+        //}
+        //else if (TimeOfDay >= 17 && TimeOfDay <= 19)
+        //{
+        //    Debug.Log("evening");
+        //}
+        //else
+        //{
+        //    Debug.Log("night");
+        //}
+
         if (Preset == null)
             return;
 
@@ -91,6 +105,22 @@ public class OriginalLightingManager : MonoBehaviour
                     return;
                 }
             }
+        }
+    }
+
+    public string GetAdvancedCycle()
+    {
+        if (TimeOfDay >= 6 && TimeOfDay <= 17)
+        {
+            return "Morning";
+        }
+        else if (TimeOfDay >= 17 && TimeOfDay <= 19)
+        {
+            return "Evening";
+        }
+        else
+        {
+            return "Night";
         }
     }
 
