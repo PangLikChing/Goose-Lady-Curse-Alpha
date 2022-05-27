@@ -12,7 +12,9 @@ public class AvatarActions : MonoBehaviour
     public float attackRange = 1.5f;
     public float rangeMargin = 0.1f;
     public AvatarLocomotion motion;
+    public ScriptableObjectEventChannel itemEventChannel;
     private Animator avatarAnimator;
+
     private void OnEnable()
     {
 
@@ -37,6 +39,10 @@ public class AvatarActions : MonoBehaviour
     public void PickUp(Transform target)
     {
         Debug.Log($"Pick up {target}");
+        //if (target.TryGetComponent<Item>(out Item item))
+        //{
+        //    itemEventChannel.Raise(item);
+        //}
     }
 
     public void CancelPickup()
