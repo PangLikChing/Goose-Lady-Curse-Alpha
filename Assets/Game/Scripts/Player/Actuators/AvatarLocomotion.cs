@@ -11,7 +11,7 @@ public class AvatarLocomotion : MonoBehaviour
     public float angularDampeningTime = 5.0f;
     [Tooltip("Angle Interpolation Threshold")]
     public float angularDeadZone = 10.0f;
-    [ReadOnly] 
+    [ReadOnly]
     public Transform target;
     public event UnityAction PathCompleted = delegate { };
 #if UNITY_EDITOR
@@ -39,34 +39,35 @@ public class AvatarLocomotion : MonoBehaviour
         agentSpeed = agent.velocity.magnitude;
 #endif
 
-        if (agent.remainingDistance==0 && agent.pathStatus == NavMeshPathStatus.PathComplete)
+        if (agent.remainingDistance == 0 && agent.pathStatus == NavMeshPathStatus.PathComplete)
         {
             PathCompleted.Invoke();
         }
 
+        if (target != null)
+        {
+            targetDirection = target.position - transform.position;
+            targetDirection.y = 0;
+        }
+
         if (hasAnimator)
         {
-            RotationControl(agent.desiredVelocity);
+            RotationControl(facingTarget ? targetDirection : agent.desiredVelocity);
         }
     }
 
     protected virtual void RotationControl(Vector3 facing)
     {
-
-        if (agent.remainingDistance > agent.stoppingDistance)
+        float angle = Vector3.Angle(transform.forward, facing);
+        if (Mathf.Abs(angle) <= angularDeadZone)
         {
-            float angle = Vector3.Angle(transform.forward, facing);
-            if (Mathf.Abs(angle) <= angularDeadZone)
-            {
-                transform.LookAt(transform.position + facing);
-            }
-            else
-            {
-                transform.rotation = Quaternion.Lerp(transform.rotation,
-                                                     Quaternion.LookRotation(facing),
-                                                     Time.deltaTime * angularDampeningTime);
-            }
-
+            transform.LookAt(transform.position + facing);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Lerp(transform.rotation,
+                                                 Quaternion.LookRotation(facing),
+                                                 Time.deltaTime * angularDampeningTime);
         }
     }
 
@@ -76,19 +77,19 @@ public class AvatarLocomotion : MonoBehaviour
         agent.SetDestination(point);
     }
 
-    public void FaceTarget()
+    public virtual void FaceTarget()
     {
         facingTarget = true;
     }
 
-    public void MoveToTarget(float interactionRange)
+    public virtual void MoveToTarget(float interactionRange)
     {
         Vector3 directionVector = (transform.position - target.position).normalized;
-        Vector3 destination = directionVector * (interactionRange + target.GetComponent<TargetRadius>().radius+agent.radius) + target.position; //Target Radius is a place holder class
-        agent.SetDestination(destination); 
+        Vector3 destination = directionVector * (interactionRange + target.GetComponent<TargetRadius>().radius + agent.radius) + target.position; //Target Radius is a place holder class
+        agent.SetDestination(destination);
     }
 
-    public bool IsInInteractionRange(float interactionRange)
+    public virtual bool IsInInteractionRange(float interactionRange)
     {
         float distance = Vector3.Distance(transform.position, target.transform.position);
         if (distance < target.GetComponent<TargetRadius>().radius + interactionRange + agent.radius) //Target Radius is a place holder class

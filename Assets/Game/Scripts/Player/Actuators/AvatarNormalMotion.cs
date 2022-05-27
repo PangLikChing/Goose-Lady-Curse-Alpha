@@ -20,4 +20,9 @@ public class AvatarNormalMotion : AvatarLocomotion
 
         base.Update();
     }
+
+    //public override void FaceTarget()
+    //{
+    //    transform.LookAt(targetDirection+transform.position);
+    //}
 }

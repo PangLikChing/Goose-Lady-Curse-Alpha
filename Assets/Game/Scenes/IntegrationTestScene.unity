@@ -128,7 +128,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 944229906149121804, guid: 0c67725f03cbd2c42972699d1b5d4653, type: 3}
   m_PrefabInstance: {fileID: 1387933825}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1978843701}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06eeda175628a9044a6d373c5c57919b, type: 3}
@@ -772,7 +772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3557729547639708624, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4185049668851958122, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
       propertyPath: m_RootOrder
@@ -852,7 +852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8184302584847728780, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
       propertyPath: rangeMargin
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8184302584847728780, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
       propertyPath: itemEventChannel
@@ -861,19 +861,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
---- !u!4 &1376075526 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4185049668851958122, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
-  m_PrefabInstance: {fileID: 1376075525}
-  m_PrefabAsset: {fileID: 0}
 --- !u!195 &1376075527 stripped
 NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 4440252352026558275, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
-  m_PrefabInstance: {fileID: 1376075525}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1376075528 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3557729547639708624, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
   m_PrefabInstance: {fileID: 1376075525}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1376075530 stripped
@@ -881,7 +871,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4440252352026558274, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
   m_PrefabInstance: {fileID: 1376075525}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1376075528}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab6df95a3ce0fa9479e24c841f805328, type: 3}
@@ -908,15 +898,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4925036275026645621, guid: 0c67725f03cbd2c42972699d1b5d4653, type: 3}
       propertyPath: rangeMargin
-      value: 0.3
+      value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: -4925036275026645621, guid: 0c67725f03cbd2c42972699d1b5d4653, type: 3}
+      propertyPath: itemEventChannel
+      value: 
+      objectReference: {fileID: 11400000, guid: 3d420d320722ed94d8a41d6045da379e, type: 2}
     - target: {fileID: 133979655260521421, guid: 0c67725f03cbd2c42972699d1b5d4653, type: 3}
       propertyPath: m_Name
       value: Avatar Root Motion
       objectReference: {fileID: 0}
     - target: {fileID: 133979655260521421, guid: 0c67725f03cbd2c42972699d1b5d4653, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 761158252135094647, guid: 0c67725f03cbd2c42972699d1b5d4653, type: 3}
       propertyPath: m_RootOrder
@@ -968,7 +962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 944229906149121804, guid: 0c67725f03cbd2c42972699d1b5d4653, type: 3}
       propertyPath: brakingDistance
-      value: 0.6
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 944229906149121804, guid: 0c67725f03cbd2c42972699d1b5d4653, type: 3}
       propertyPath: speedMultiplier
@@ -980,7 +974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 944229906149121804, guid: 0c67725f03cbd2c42972699d1b5d4653, type: 3}
       propertyPath: brakingCoefficient
-      value: 0.65
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 944229906149121804, guid: 0c67725f03cbd2c42972699d1b5d4653, type: 3}
       propertyPath: speedDampeningTime
@@ -1086,7 +1080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputReader: {fileID: 11400000, guid: 4fd610bd80c60024e89dee3ebc384516, type: 2}
-  avatar: {fileID: 1376075528}
+  avatar: {fileID: 1978843701}
   playerCameraController: {fileID: 0}
   motion: {fileID: 0}
   actions: {fileID: 0}
@@ -1161,8 +1155,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 1376075526}
-  m_Follow: {fileID: 1376075526}
+  m_LookAt: {fileID: 1978843706}
+  m_Follow: {fileID: 1978843706}
   m_Lens:
     FieldOfView: 30
     OrthographicSize: 5
@@ -1205,7 +1199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3489e785866e64f8b6b4ad9b6dd9dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  zoomSensitivity: -0.01
+  zoomSensitivity: 0.001
   zoomSpeed: 10
   maxFov: 30
   minFov: 10
@@ -1304,3 +1298,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1978843701 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 133979655260521421, guid: 0c67725f03cbd2c42972699d1b5d4653, type: 3}
+  m_PrefabInstance: {fileID: 1387933825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1978843706 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 761158252135094647, guid: 0c67725f03cbd2c42972699d1b5d4653, type: 3}
+  m_PrefabInstance: {fileID: 1387933825}
+  m_PrefabAsset: {fileID: 0}

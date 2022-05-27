@@ -58,7 +58,6 @@ public class AvatarActions : MonoBehaviour
 
     public void CancelAttack()
     {
-        //target = null;
         avatarAnimator.SetBool("attack", false);
     }
 
