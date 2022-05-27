@@ -11,40 +11,34 @@ public class ReworkedLightingManager : MonoBehaviour
     private float morning = 10.0f;
     private float evening = 18.1f;
     private float night = 23.0f;
-    //public bool DemoRun = false;
     public float WaitTimeBeforeChangeLight;
     private float Timer = 0;
-    //public float AmountToChangeLightBy;
 
     private void Start()
     {
-        // morning %= 24;
-        //evening %= 24;
-        //night %= 24;
-
-        //UpdateLighting(morning / 24f);
-        //UpdateLighting(TimeOfDay / 24f);
         TimeOfDay = morning;
     }
 
     private void Update()
     {
+        //if (TimeOfDay == evening)
+        //{
+        //    Debug.Log("morning");
+        //}
+        //else if (TimeOfDay == night)
+        //{
+        //    Debug.Log("evening");
+        //}
+        //else if (TimeOfDay == morning)
+        //{
+        //    Debug.Log("night");
+        //}
+
         if (Preset == null)
             return;
 
         if (Application.isPlaying)
-        {
-            //if(DemoRun == true)
-            //{
-                //(Replace with a reference to the game time)
-                //TimeOfDay += Time.deltaTime;
-                //TimeOfDay %= 24; //Modulus to ensure always between 0-24
-               // UpdateLighting(TimeOfDay / 24f);
-            //}
-            //else
-            //{
-           
-            
+        {   
             if(Timer >= WaitTimeBeforeChangeLight)
             {
                 Timer = 0;
@@ -123,6 +117,26 @@ public class ReworkedLightingManager : MonoBehaviour
                     return;
                 }
             }
+        }
+    }
+
+    public string GetSimpleCycle()
+    {
+        if(TimeOfDay == morning)
+        {
+            return "Morning";
+        }
+        else if(TimeOfDay == evening)
+        {
+            return "Evening";
+        }
+        else if(TimeOfDay == night)
+        {
+            return "Night";
+        }
+        else
+        {
+            return "Something went wrong in the reworked lighting";
         }
     }
 
