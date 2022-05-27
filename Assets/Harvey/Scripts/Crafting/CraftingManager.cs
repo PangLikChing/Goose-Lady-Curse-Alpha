@@ -8,6 +8,8 @@ public class CraftingManager : Singleton<CraftingManager>
 {
     Item selectedItem = null;
 
+    [HideInInspector] public CraftingRecipe craftingRecipe;
+
     [SerializeField] TMP_Text itemNameText, itemDescriptionText;
 
     [SerializeField] Transform reagentBlockPrefeb, reagentMenuContent;
@@ -16,6 +18,9 @@ public class CraftingManager : Singleton<CraftingManager>
 
     public void ChangeSelectedItem(CraftingRecipe recipe)
     {
+        // Assign recipe
+        craftingRecipe = recipe;
+
         // Set the item to be the selected item
         selectedItem = recipe.item;
 
@@ -45,6 +50,6 @@ public class CraftingManager : Singleton<CraftingManager>
         }
 
         // Check if the item is craftable or not
-        craftButton.CheckCraftable(recipe.item);
+        craftButton.CheckCraftable(recipe);
     }
 }
