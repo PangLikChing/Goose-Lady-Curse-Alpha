@@ -783,7 +783,6 @@ GameObject:
   m_Component:
   - component: {fileID: 382461607}
   - component: {fileID: 382461608}
-  - component: {fileID: 382461609}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -836,20 +835,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
---- !u!114 &382461609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 382461606}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ae62c99750895c4c897537a015ca352, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myInventory: {fileID: 1544008954}
-  craftingManager: {fileID: 1465926519}
 --- !u!1 &423956266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,7 +1241,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 10.056488}
+  m_AnchoredPosition: {x: 0, y: 10.765411}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &680519596
@@ -2414,10 +2399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279021f8f289e2646acf458cc1e28a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  recipe: {fileID: 0}
-  inputField: {fileID: 1050503815}
-  reagentMenuContent: {fileID: 382461607}
-  playerInventory: {fileID: 1544008954}
 --- !u!1 &1049668731
 GameObject:
   m_ObjectHideFlags: 0
@@ -3890,8 +3871,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1049668733}
   m_HandleRect: {fileID: 1049668732}
   m_Direction: 2
-  m_Value: 0.99999696
-  m_Size: 0.9664783
+  m_Value: -26.867102
+  m_Size: 0.9641153
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3982,6 +3963,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62fc05e7ee0ee7e44a95d05c5d942246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  craftingNumberInputField: {fileID: 1050503815}
+  playerInventory: {fileID: 1544008954}
   craftingRecipe: {fileID: 0}
   itemNameText: {fileID: 1532947716}
   itemDescriptionText: {fileID: 1256251461}
@@ -4676,8 +4659,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1467963188}
   m_HandleRect: {fileID: 1467963187}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 0.96647835
+  m_Value: -0.0000028347804
+  m_Size: 0.9641153
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5394,7 +5377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 300.00082}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2062710812
