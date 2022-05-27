@@ -23,7 +23,7 @@ public class CraftingNumberInputField : MonoBehaviour
     public void DecraseStackNumberByOne()
     {
         // If the stack number currently is larger than 1
-        if (int.Parse(inputField.text) >= 1)
+        if (int.Parse(inputField.text) > 1)
         {
             // Derease stack number by 1
             inputField.text = (int.Parse(inputField.text) - 1).ToString();

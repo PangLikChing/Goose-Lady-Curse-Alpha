@@ -57,7 +57,7 @@ public class CraftButton : MonoBehaviour
         }
 
         // If there is no item seclected or the input stack number is less than or equals to 0, or not all reagents are presented
-        if (recipe == null || int.Parse(inputField.text) <= 0 || !ReagentPresent())
+        if (recipe == null || int.Parse(inputField.text) <= 0 || !ReagentPresent(int.Parse(inputField.text)))
         {
             // Set the button to not interactable
             GetComponent<Button>().interactable = false;
@@ -84,7 +84,7 @@ public class CraftButton : MonoBehaviour
             for (int i = 0; i < recipe.reagents.Length; i++)
             {
                 // Consume that reagent
-                playerInventory.ConsumeItem(recipe.reagents[i].item, recipe.reagents[i].requiredAmount);
+                playerInventory.ConsumeItem(recipe.reagents[i].item, recipe.reagents[i].requiredAmount * stackNumber);
             }
 
             // Add that stackNumber amount of that item to the inventory
@@ -96,7 +96,7 @@ public class CraftButton : MonoBehaviour
     }
 
     // Method to check if all required reagents are presented
-    private bool ReagentPresent()
+    private bool ReagentPresent(int stackNumber)
     {
         // For every reagent
         for (int i = 0; i < reagentMenuContent.childCount; i++)
@@ -104,8 +104,8 @@ public class CraftButton : MonoBehaviour
             // Cache the current reagent block
             Transform currentReagentBlock = reagentMenuContent.GetChild(i).transform;
 
-            // If the accuried reagent is less than the required amount of reagent
-            if (int.Parse(currentReagentBlock.GetChild(1).GetComponent<TMP_Text>().text) < int.Parse(currentReagentBlock.GetChild(3).GetComponent<TMP_Text>().text))
+            // If the acquried reagent is less than the required amount of reagent
+            if (int.Parse(currentReagentBlock.GetChild(1).GetComponent<TMP_Text>().text) < int.Parse(currentReagentBlock.GetChild(3).GetComponent<TMP_Text>().text) * stackNumber)
             {
                 // Return false
                 return false;
