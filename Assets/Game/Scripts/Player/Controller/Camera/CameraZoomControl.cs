@@ -2,15 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+
+/// <summary>
+/// Controls the camera zoom by changing FOV
+/// </summary>
 public class CameraZoomControl : MonoBehaviour
 {
     private CinemachineVirtualCamera currentCam;
     private float targetFov;
-    public float zoomSensitivity = -0.01f;
+    [Tooltip("Amount of zoom per scroll")]
+    public float zoomSensitivity = 0.01f;
+    [Tooltip("Camera fov change rate")]
     public float zoomSpeed = 10f;
+    [Tooltip("Zoom out limit")]
     public float maxFov = 30;
+    [Tooltip("Zoom in limit")]
     public float minFov = 10;
+    [Tooltip("FOV snap on threshold")]
     public float deadZone = 0.001f;
+    [Tooltip("Input reader reference")]
     public InputReader inputReader;
     // Start is called before the first frame update
     void Start()
@@ -36,7 +46,6 @@ public class CameraZoomControl : MonoBehaviour
     {
         if (CinemachineCore.Instance.IsLive(currentCam))
         {
-
             targetFov += zoom*zoomSpeed;
             targetFov = Mathf.Clamp(targetFov, minFov, maxFov);
         }

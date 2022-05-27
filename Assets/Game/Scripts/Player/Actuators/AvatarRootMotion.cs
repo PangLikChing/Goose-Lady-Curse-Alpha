@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/// <summary>
+/// The Avatar Root Motion disables the steering of the navmesh agent and handles movement with root motion
+/// </summary>
 public class AvatarRootMotion : AvatarLocomotion
 {
-    //[Tooltip("position Change Rate when path is ending")]
-    //public float positionDampeningTime = 5.0f;
-    //[Tooltip("position Interpolation Threshold")]
-    //public float positionDeadZone = 0.001f;
     [Tooltip("Speed Change Rate")]
     public float speedDampeningTime = 5.0f;
     [Tooltip("Speed Interpolation Threshold")]
@@ -30,8 +29,10 @@ public class AvatarRootMotion : AvatarLocomotion
     // speed actuating variable
     private float currentDriveSignal;
     
-    // Start is called before the first frame update
-    public override void Start()
+    /// <summary>
+    /// Start disables navmesh agent's steering
+    /// </summary>
+    protected override void Start()
     {
         base.Start();
         //Disable navmesh agent's steering functionality 
@@ -45,13 +46,21 @@ public class AvatarRootMotion : AvatarLocomotion
         }
     }
 
+    /// <summary>
+    /// The call back for root motion
+    /// </summary>
     private void OnAnimatorMove()
     {
         //Root motion
         agent.velocity = avatarAnimator.deltaPosition / Time.deltaTime;
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// The root motion update handles:
+    ///     1) drive the avatar by supplying animator with drive signal
+    ///     2) handle deacceleration when closing in on destination
+    ///     3) scale the stopping distance braking strength, and turning speed with avatar speed
+    /// </summary>
     protected override void Update()
     {
         if (hasAnimator)
@@ -60,7 +69,7 @@ public class AvatarRootMotion : AvatarLocomotion
             avatarAnimator.SetFloat(SpeedMultiplierParameter, speedMultiplier);
 #endif
             //agent.stoppingDistance = stoppingDistanceCoefficient * speedMultiplier;
-            #region Navigation Control
+            #region Steering Control
             //Stop, Brake, Cruise
             if (agent.remainingDistance < agent.stoppingDistance && agent.pathStatus == NavMeshPathStatus.PathComplete)
             {

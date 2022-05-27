@@ -8,10 +8,15 @@ using UnityEngine.Events;
 /// </summary>
 public class AvatarActions : MonoBehaviour
 {
+    [Tooltip("Avatar can pickup item under this range")]
     public float pickUpRange = 1.5f;
+    [Tooltip("Avatar can attack enemy under this range")]
     public float attackRange = 1.5f;
+    [Tooltip("A margin to off the inaccuracy of avatar movement")]
     public float rangeMargin = 0.1f;
+    [Tooltip("Refence to avatar motion  script")]
     public AvatarLocomotion motion;
+    [Tooltip("This channel send item pickup event to inventory")]
     public ScriptableObjectEventChannel itemEventChannel;
     private Animator avatarAnimator;
 
@@ -35,10 +40,14 @@ public class AvatarActions : MonoBehaviour
     void Update()
     {
     }
-
-    public void PickUp(Transform target)
+    /// <summary>
+    /// Pickup the item
+    /// Send the item to inventory via event channel
+    /// </summary>
+    /// <param name="item">Item.</param>
+    public void PickUp(Transform item)
     {
-        Debug.Log($"Pick up {target}");
+        Debug.Log($"Pick up {item}");
         //if (target.TryGetComponent<Item>(out Item item))
         //{
         //    itemEventChannel.Raise(item);
@@ -50,9 +59,14 @@ public class AvatarActions : MonoBehaviour
         //target = null;
     }
 
-    public void Attack(Transform target)
+    /// <summary>
+    /// Attack the enemy.
+    /// Play the attack animation and deal damage
+    /// </summary>
+    /// <param name="enemy">Enemy</param>
+    public void Attack(Transform enemy)
     {
-        //Debug.Log($"Attack {target}");
+        //Debug.Log($"Attack {enemy}");
         avatarAnimator.SetBool("attack", true);
     }
 

@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-[CreateAssetMenu(fileName = "VoidEventChannel", menuName = "Event/Void EventChannel")]
+/// <summary>
+/// A channel that allows cross scene event that pass no parameters
+/// </summary>
+[CreateAssetMenu(fileName = "VoidEventChannel", menuName = "Event/Void Event Channel")]
 public class VoidEventChannel : ScriptableObject
 {
     private List<VoidEventListener> listeners = new List<VoidEventListener>();

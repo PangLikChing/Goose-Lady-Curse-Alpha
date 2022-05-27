@@ -2,8 +2,10 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 
+/// <summary>
+/// A scriptable object that can be attached to any class that need input
+/// </summary>
 [CreateAssetMenu(fileName = "InputReader", menuName = "Input/Input Reader")]
-
 public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap.IMenusActions, InputMap.IDialoguesActions
 {
     public event UnityAction<Vector3> MovementEvent = delegate { };

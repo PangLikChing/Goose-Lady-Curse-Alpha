@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// A channel that allows cross scene event that pass scriptable object parameters
+/// </summary>
 [CreateAssetMenu(fileName = "VoidEventChannel", menuName = "Event/Scriptable Object Event Channel")]
 public class ScriptableObjectEventChannel : ScriptableObject
 {

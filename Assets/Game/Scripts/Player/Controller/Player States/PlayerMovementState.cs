@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-
+/// <summary>
+/// Handles avatar move command
+/// </summary>
 public class PlayerMovementState : PlayerBaseState
 {
 

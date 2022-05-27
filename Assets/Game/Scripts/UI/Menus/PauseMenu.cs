@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PauseMenu : Menu
 {
+    [Tooltip("Reference to main menu")]
     public MenuClassifier mainMenu;
+    [Tooltip("Reference to hud menu")]
     public MenuClassifier hudMenu;
+    [Tooltip("Reference to the current gameplay scene")]
     public string currentGameScene;
-    public string gamePlayScene;
+    [Tooltip("Reference to the scene that storges player persistance data")]
+    public string playerDataScene;
+    [Tooltip("Reference to input reader")]
     public InputReader inputReader;
 
     private List<string> sceneToBeUnloaded = new List<string>();
@@ -23,16 +28,21 @@ public class PauseMenu : Menu
         //inputReader.DisableAllInput();
         inputReader.ClosePauseMenuEvent -= Resume;
     }
-
+    /// <summary>
+    /// Callback that return the to the main menu, unloads player data and current gameplay scene
+    /// </summary>
     public void ReturnToMainMenu()
     {
         OnHideMenu();
-        sceneToBeUnloaded.Add(gamePlayScene);
+        sceneToBeUnloaded.Add(playerDataScene);
         sceneToBeUnloaded.Add(currentGameScene);
         SceneLoader.Instance.OnSceneUnloadedEvent += OnReturnToMainMenu;
         SceneLoader.Instance.UnloadScenes(sceneToBeUnloaded);
     }
 
+    /// <summary>
+    /// Callback for show main menu
+    /// </summary>
     public void OnReturnToMainMenu()
     {
         sceneToBeUnloaded.Clear();
@@ -40,6 +50,9 @@ public class PauseMenu : Menu
         MenuManager.Instance.ShowMenu(mainMenu);
     }
 
+    /// <summary>
+    /// Unpause and return to game
+    /// </summary>
     public void Resume()
     {
         OnHideMenu();

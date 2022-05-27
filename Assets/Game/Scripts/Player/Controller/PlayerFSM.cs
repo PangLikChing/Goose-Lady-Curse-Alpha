@@ -4,10 +4,16 @@ using UnityEngine;
 using Cinemachine;
 /// <summary>
 /// The state machine is where the actual control takes place
+/// Each state corresponds to a player command which are
+///     1) Move
+///     2) Pickup
+///     3) Attack
 /// </summary>
 public class PlayerFSM: FSM
 {
+    [Tooltip("Reference to input reader")]
     public InputReader inputReader;
+    [Tooltip("Reference to the avatar player will be controlling")]
     public GameObject avatar;
     public readonly int MovementStateName = Animator.StringToHash("Movement");
     public readonly int IdleStateName = Animator.StringToHash("Idle");

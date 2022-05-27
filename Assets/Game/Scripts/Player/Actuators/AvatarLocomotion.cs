@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+
+/// <summary>
+/// This class handles the avatar's movement
+/// </summary>
 [RequireComponent(typeof(NavMeshAgent))]
 public class AvatarLocomotion : MonoBehaviour
 {
@@ -11,11 +15,11 @@ public class AvatarLocomotion : MonoBehaviour
     public float angularDampeningTime = 5.0f;
     [Tooltip("Angle Interpolation Threshold")]
     public float angularDeadZone = 10.0f;
-    [ReadOnly]
+    [ReadOnly,Tooltip("Avatar's current target")]
     public Transform target;
     public event UnityAction PathCompleted = delegate { };
 #if UNITY_EDITOR
-    [ReadOnly]
+    [ReadOnly, Tooltip("Avatar's current speed")]
     public float agentSpeed;
 #endif
 
@@ -25,14 +29,21 @@ public class AvatarLocomotion : MonoBehaviour
     protected bool facingTarget;
     protected Vector3 targetDirection;
 
-
-    public virtual void Start()
+    /// <summary>
+    /// initalize references
+    /// </summary>
+    protected virtual void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         hasAnimator = TryGetComponent<Animator>(out avatarAnimator);
     }
 
-    // Update is called once per frame
+    /// <summary>
+    /// The update method
+    ///     1) calculates the avatar's rotation
+    ///     2) calculates the avatar's target(item or enemy)'s direction
+    ///     3) send an event when path is complete
+    /// </summary>
     protected virtual void Update()
     {
 #if UNITY_EDITOR
@@ -55,7 +66,11 @@ public class AvatarLocomotion : MonoBehaviour
             RotationControl(facingTarget ? targetDirection : agent.desiredVelocity);
         }
     }
-
+    /// <summary>
+    /// This method controls the avatar's rotation
+    /// It will linear interpolate towards the desired direction which is specified by faceing
+    /// </summary>
+    /// <param name="facing">The desired direction</param>
     protected virtual void RotationControl(Vector3 facing)
     {
         float angle = Vector3.Angle(transform.forward, facing);
@@ -71,24 +86,39 @@ public class AvatarLocomotion : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// This method is called when the player clicks the ground
+    /// </summary>
+    /// <param name="point">The point being clicked</param>
     public virtual void MoveToPoint(Vector3 point)
     {
         facingTarget = false;
         agent.SetDestination(point);
     }
-
+    /// <summary>
+    /// Order avatar to track its target instead of facing the direction give by the navmesh agent
+    /// </summary>
     public virtual void FaceTarget()
     {
         facingTarget = true;
     }
-
-    public virtual void MoveToTarget(float interactionRange)
+    /// <summary>
+    /// Order the avatar to approach its target(enemy/item), and arrive at an offset location. 
+    /// </summary>
+    /// <param name="interactionRange">The offset distance</param>
+    public virtual void MoveToTarget(float offsetDistance)
     {
         Vector3 directionVector = (transform.position - target.position).normalized;
-        Vector3 destination = directionVector * (interactionRange + target.GetComponent<TargetRadius>().radius + agent.radius) + target.position; //Target Radius is a place holder class
+        Vector3 destination = directionVector * (offsetDistance + target.GetComponent<TargetRadius>().radius + agent.radius) + target.position; //Target Radius is a place holder class
+        facingTarget = false;
         agent.SetDestination(destination);
     }
 
+    /// <summary>
+    /// Check if avatar's target is within interaction range.
+    /// </summary>
+    /// <param name="interactionRange">The interaction range.</param>
+    /// <returns>Return true if target is in range, false otherwise.</returns>
     public virtual bool IsInInteractionRange(float interactionRange)
     {
         float distance = Vector3.Distance(transform.position, target.transform.position);
@@ -99,6 +129,10 @@ public class AvatarLocomotion : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// Draws the desired velocity of the avatar's navmesh agent 
+    /// Draws the targetDirection.
+    /// </summary>
     private void OnDrawGizmos()
     {
         if (agent != null)
