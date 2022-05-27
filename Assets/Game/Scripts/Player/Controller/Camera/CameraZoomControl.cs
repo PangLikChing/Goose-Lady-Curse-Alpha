@@ -11,12 +11,12 @@ public class CameraZoomControl : MonoBehaviour
     public float maxFov = 30;
     public float minFov = 10;
     public float deadZone = 0.001f;
-
+    public InputReader inputReader;
     // Start is called before the first frame update
     void Start()
     {
         currentCam = GetComponent<CinemachineVirtualCamera>();
-        PlayerController.Instance.ZoomCameraCmd.AddListener(ZoomCamera);
+        inputReader.ZoomEvent += ZoomCamera;
         targetFov = currentCam.m_Lens.FieldOfView;
     }
 

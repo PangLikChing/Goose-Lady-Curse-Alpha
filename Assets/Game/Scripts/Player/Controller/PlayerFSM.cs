@@ -3,20 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 public class PlayerFSM: FSM
-{ 
-    [HideInInspector]
-    public LayerMask movementLayerMask;
-    [HideInInspector]
-    public Camera mainCam;
-    [HideInInspector]
-    public readonly int RoamingStateName = Animator.StringToHash("Roaming");
+{
+    public InputReader inputReader;
+    public GameObject avatar;
+    public readonly int GameplayStateName = Animator.StringToHash("Gameplay");
+
     [HideInInspector]
     public CinemachineStateDrivenCamera playerCameraController;
+    [HideInInspector]
+    public AvatarLocomotion motion;
+    [HideInInspector]
+    public AvatarActions actions;
     protected override void Awake()
     {
-        mainCam = Camera.main;
-        movementLayerMask = LayerMask.GetMask("Terrain");
-        playerCameraController = GetComponent<CinemachineStateDrivenCamera>();
         base.Awake();
+    }
+
+    private void OnEnable()
+    {
+        playerCameraController = GetComponent<CinemachineStateDrivenCamera>();
+        motion = avatar.GetComponent<AvatarLocomotion>();
     }
 }

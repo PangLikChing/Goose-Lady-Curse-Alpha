@@ -10,6 +10,8 @@ public class AvatarLocomotion : MonoBehaviour
     public float angularDampeningTime = 5.0f;
     [Tooltip("Angle Interpolation Threshold")]
     public float angularDeadZone = 10.0f;
+    [Tooltip("Drop the input reader scriptable object here")]
+    public InputReader inputReader;
 #if UNITY_EDITOR
     [Tooltip("Avatar's actual speed")]
     public float agentSpeed;
@@ -19,10 +21,21 @@ public class AvatarLocomotion : MonoBehaviour
     protected Animator avatarAnimator;
     protected bool hasAnimator;
 
-    protected virtual void Awake()
+
+    private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         hasAnimator = TryGetComponent<Animator>(out avatarAnimator);
+    }
+
+    private void OnEnable()
+    {
+        inputReader.MovementEvent += MoveToPoint;
+    }
+
+    private void OnDisable()
+    {
+        inputReader.MovementEvent -= MoveToPoint;
     }
 
     // Update is called once per frame

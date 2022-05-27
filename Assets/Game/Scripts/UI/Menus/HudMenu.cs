@@ -5,10 +5,22 @@ using UnityEngine;
 public class HudMenu : Menu
 {
     public MenuClassifier pauseMenu;
-    
+    public InputReader inputReader;
+    private void OnEnable()
+    {
+        inputReader.EnableGameplayInput();
+        inputReader.OpenPauseMenuEvent += OpenPauseMenu;
+    }
+
+    private void OnDisable()
+    {
+        //inputReader.DisableAllInput();
+        inputReader.OpenPauseMenuEvent -= OpenPauseMenu;
+    }
+
     public void OpenPauseMenu()
     {
-        Time.timeScale = 0;//temporary pause implementation
         MenuManager.Instance.ShowMenu(pauseMenu);
+        this.OnHideMenu();
     }
 }
