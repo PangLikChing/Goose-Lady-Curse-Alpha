@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 761158252135094647}
   - component: {fileID: 6660825709694632717}
-  - component: {fileID: 944229906149121802}
   - component: {fileID: 944229906149121801}
   - component: {fileID: 944229906149121804}
   - component: {fileID: 944229906149121803}
+  - component: {fileID: -4925036275026645621}
   m_Layer: 0
   m_Name: Avatar Root Motion
   m_TagString: Untagged
@@ -57,22 +57,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!54 &944229906149121802
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 133979655260521421}
-  serializedVersion: 2
-  m_Mass: 60
-  m_Drag: 0
-  m_AngularDrag: 0
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!136 &944229906149121801
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -102,12 +86,11 @@ MonoBehaviour:
   angularDampeningTime: 5
   angularDeadZone: 10
   agentSpeed: 0
-  agent: {fileID: 0}
   speedDampeningTime: 5
   speedDeadZone: 0.05
   speedMultiplier: 1
-  brakingDistance: 2
-  brakingCoefficient: 0.5
+  brakingDistance: 0.5
+  brakingCoefficient: 0.6
 --- !u!195 &944229906149121803
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -130,6 +113,22 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-4925036275026645621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133979655260521421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63efa3fc7b837b44ba4ce4ff97a07897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpRange: 0.5
+  attackRange: 0.5
+  rangeMargin: 0.8
+  target: {fileID: 0}
 --- !u!1 &153004207053414550
 GameObject:
   m_ObjectHideFlags: 0

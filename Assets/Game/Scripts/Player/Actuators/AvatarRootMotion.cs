@@ -5,17 +5,22 @@ using UnityEngine.AI;
 
 public class AvatarRootMotion : AvatarLocomotion
 {
+    [Tooltip("position Change Rate when path is ending")]
+    public float positionDampeningTime = 5.0f;
+    [Tooltip("position Interpolation Threshold")]
+    public float positionDeadZone = 0.001f;
     [Tooltip("Speed Change Rate")]
     public float speedDampeningTime = 5.0f;
     [Tooltip("Speed Interpolation Threshold")]
     public float speedDeadZone = 0.001f;
-    [Tooltip("Changes the avatar max speed")]
+    [Tooltip("Changes the avatar max speed ranges from 1 to 2"),Range(1,2)]
     public float speedMultiplier = 1.0f;
     [Tooltip("Avatar will slowdown within this distance")]
     public float brakingDistance = 5.0f;
     [Tooltip("Braking strength of the avatar")]
     public float brakingCoefficient = 0.5f;
-
+    //[Tooltip("stopping distance scale with speed multiplier")]
+    //public float stoppingDistanceCoefficient = 0.2f;
     private readonly int SpeedParameter = Animator.StringToHash("speed");
     private readonly int SpeedMultiplierParameter = Animator.StringToHash("speed multiplier");
     private AnimationListener animationListener;
@@ -26,8 +31,9 @@ public class AvatarRootMotion : AvatarLocomotion
     private float currentDriveSignal;
     
     // Start is called before the first frame update
-    private void Start()
+    public override void Start()
     {
+        base.Start();
         //Disable navmesh agent's steering functionality 
         agent.speed = 1.1f;
         agent.angularSpeed = 0;
@@ -53,12 +59,16 @@ public class AvatarRootMotion : AvatarLocomotion
 #if UNITY_EDITOR
             avatarAnimator.SetFloat(SpeedMultiplierParameter, speedMultiplier);
 #endif
-
+            //agent.stoppingDistance = stoppingDistanceCoefficient * speedMultiplier;
             #region Navigation Control
             //Stop, Brake, Cruise
             if (agent.remainingDistance < agent.stoppingDistance && agent.pathStatus == NavMeshPathStatus.PathComplete)
             {
                 targetDriveSignal = 0;
+                if ((transform.position - agent.pathEndPosition).magnitude > positionDeadZone)
+                    transform.position = Vector3.Lerp(transform.position, agent.pathEndPosition, positionDampeningTime * Time.deltaTime);
+                else
+                    transform.position = agent.pathEndPosition;
             }
             else if (agent.remainingDistance >= agent.stoppingDistance && agent.remainingDistance < brakingDistance)
             {
@@ -86,4 +96,6 @@ public class AvatarRootMotion : AvatarLocomotion
 
         base.Update();
     }
+
+
 }

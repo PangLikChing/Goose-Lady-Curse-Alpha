@@ -7,8 +7,8 @@ using UnityEngine.Events;
 public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap.IMenusActions, InputMap.IDialoguesActions
 {
     public event UnityAction<Vector3> MovementEvent = delegate { };
-    public event UnityAction<GameObject> AttackEvent = delegate { };
-    public event UnityAction<GameObject> PickupEvent = delegate { };
+    public event UnityAction<Transform> AttackEvent = delegate { };
+    public event UnityAction<Transform> PickupEvent = delegate { };
     public event UnityAction InteractEvent = delegate { };
     public event UnityAction<float> ZoomEvent = delegate { };
     public event UnityAction OpenInventoryEvent = delegate { };
@@ -57,7 +57,8 @@ public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap
         ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (context.phase == InputActionPhase.Performed && Physics.Raycast(ray, out hit, 500f, AttackableLayerMask))
         {
-            AttackEvent.Invoke(hit.collider.gameObject);
+            AttackEvent.Invoke(hit.collider.transform);
+            
         }
     }
 
@@ -66,7 +67,8 @@ public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap
         ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (context.phase == InputActionPhase.Performed && Physics.Raycast(ray, out hit, 500f, ItemLayerMask))
         {
-            PickupEvent.Invoke(hit.collider.gameObject);
+            PickupEvent.Invoke(hit.collider.transform);
+
         }
     }
 

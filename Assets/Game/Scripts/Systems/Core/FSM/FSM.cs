@@ -31,4 +31,11 @@ public class FSM : MonoBehaviour
         fsmAnimator.CrossFade(_stateName, 0.0f);
         return hasState;
     }
+
+    public bool SetState(int _stateName)
+    {
+        bool hasState = true;
+        fsmAnimator.Play(_stateName,-1,0);
+        return hasState;
+    }
 }
