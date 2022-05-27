@@ -34,8 +34,14 @@ public class CraftButton : MonoBehaviour
                 CraftingManager.Instance.playerInventory.ConsumeItem(recipe.reagents[i].item, recipe.reagents[i].requiredAmount * stackNumber);
             }
 
-            // Add that stackNumber amount of that item to the inventory
-            CraftingManager.Instance.playerInventory.AddItem(recipe.item, stackNumber);
+            // temp
+            // For the amount of item that the player want to craft
+            for (int i = 0; i < stackNumber; i++)
+            {
+                // Add that 1 of that item to the inventory
+                CraftingManager.Instance.playerInventory.AddItem(recipe.item, 1);
+            }
+            // temp
         }
     }
 }
