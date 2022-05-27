@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
     public List<ItemSlot[]> itemList = new List<ItemSlot[]>();
 
     // RefreshInventorySlots is an event to refresh all Inventory slots
+    // Assign the responsible InventoryGrouper to this event and call RefreshInventorySlots()
     public UnityEvent RefreshInventorySlots;
 
     // This should happen on start and on bag update, probaly should use an event for this
@@ -189,8 +190,22 @@ public class Inventory : MonoBehaviour
         // If I can find a suitable item slot
         if (targetItemSlot != null)
         {
-            // Consume the item to the inventory
-            item.Consume(targetItemSlot, stackNumber);
+            if (targetItemSlot.stackNumber - stackNumber >= 0)
+            {
+                // Consume the item to the inventory
+                item.Consume(targetItemSlot, stackNumber);
+            }
+            else
+            {
+                // Initialize a temp int to save the stack number on the stack that doesn't have enough item stack number
+                int remainder = targetItemSlot.stackNumber;
+
+                // Consume the whole stack
+                item.Consume(targetItemSlot, targetItemSlot.stackNumber);
+
+                // Consume the other item stack
+                ConsumeItem(item, stackNumber - remainder);
+            }
 
             // Refresh Inventory slots
             RefreshInventorySlots.Invoke();

@@ -39,13 +39,6 @@ public class Consumable : Item
         // Throw a debug message
         Debug.Log("Consumable Consume");
 
-        // For every item effects in the itemEffect list
-        for (int i = 0; i < itemEffect.Count; i++)
-        {
-            // Conduct the effect
-            itemEffect[i].UseItem();
-        }
-
         // Decrease the number of item in the stack by stackNumber
         heldItem.stackNumber -= stackNumber;
 
@@ -58,5 +51,15 @@ public class Consumable : Item
 
         // Throw a debug message
         Debug.Log($"{this.name}'s current stack number: {heldItem.stackNumber}");
+    }
+
+    public void Use()
+    {
+        // For every item effects in the itemEffect list
+        for (int i = 0; i < itemEffect.Count; i++)
+        {
+            // Conduct the effect
+            itemEffect[i].UseItem();
+        }
     }
 }
