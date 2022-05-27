@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
     public List<ItemSlot[]> itemList = new List<ItemSlot[]>();
 
     // RefreshInventorySlots is an event to refresh all Inventory slots
+    // Assign the responsible InventoryGrouper to this event and call RefreshInventorySlots()
     public UnityEvent RefreshInventorySlots;
 
     // This should happen on start and on bag update, probaly should use an event for this

@@ -16,8 +16,12 @@ public class CraftingNumberInputField : MonoBehaviour
 
     public void IncraseStackNumberByOne()
     {
-        // Incrase stack number by 1
-        inputField.text = (int.Parse(inputField.text) + 1).ToString();
+        // If the stack number currently is smaller than 99
+        if (int.Parse(inputField.text) < 99)
+        {
+            // Incrase stack number by 1
+            inputField.text = (int.Parse(inputField.text) + 1).ToString();
+        }
     }
 
     public void DecraseStackNumberByOne()
