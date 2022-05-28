@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// A scriptable object that can be attached to any class that need input
@@ -47,6 +48,10 @@ public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap
 
     public void OnMovements(InputAction.CallbackContext context)
     {
+        //dont click through UI
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (context.phase == InputActionPhase.Performed && Physics.Raycast(ray, out hit, 500f, TerrainLayerMask))
         {
@@ -56,6 +61,10 @@ public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap
 
     public void OnAttack(InputAction.CallbackContext context)
     {
+        //dont click through UI
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (context.phase == InputActionPhase.Performed && Physics.Raycast(ray, out hit, 500f, AttackableLayerMask))
         {
@@ -66,6 +75,10 @@ public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap
 
     public void OnPickup(InputAction.CallbackContext context)
     {
+        //dont click through UI
+        if (EventSystem.current.IsPointerOverGameObject())
+            return;
+
         ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (context.phase == InputActionPhase.Performed && Physics.Raycast(ray, out hit, 500f, ItemLayerMask))
         {

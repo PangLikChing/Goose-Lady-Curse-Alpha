@@ -17,7 +17,7 @@ public class AvatarActions : MonoBehaviour
     [Tooltip("Refence to avatar motion  script")]
     public AvatarLocomotion motion;
     [Tooltip("This channel send item pickup event to inventory")]
-    public ScriptableObjectEventChannel itemEventChannel;
+    public UnityEvent<Item,int> ItemPickupEvent;
     private Animator avatarAnimator;
 
     private void OnEnable()
@@ -47,11 +47,11 @@ public class AvatarActions : MonoBehaviour
     /// <param name="item">Item.</param>
     public void PickUp(Transform item)
     {
-        Debug.Log($"Pick up {item}");
-        //if (target.TryGetComponent<Item>(out Item item))
-        //{
-        //    itemEventChannel.Raise(item);
-        //}
+        if (item.TryGetComponent<ItemWrapper>(out ItemWrapper itemWrapper))
+        {
+            ItemPickupEvent.Invoke(itemWrapper.item,1);
+            Destroy(item.gameObject);
+        }
     }
 
     public void CancelPickup()

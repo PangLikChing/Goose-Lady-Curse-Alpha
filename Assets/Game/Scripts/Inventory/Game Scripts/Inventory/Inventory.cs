@@ -55,6 +55,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
+
     public void AddItem(Item item, int stackNumber)
     {
         // Throw a debug message

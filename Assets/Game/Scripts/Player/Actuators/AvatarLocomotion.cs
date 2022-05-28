@@ -109,7 +109,7 @@ public class AvatarLocomotion : MonoBehaviour
     public virtual void MoveToTarget(float offsetDistance)
     {
         Vector3 directionVector = (transform.position - target.position).normalized;
-        Vector3 destination = directionVector * (offsetDistance + target.GetComponent<TargetRadius>().radius + agent.radius) + target.position; //Target Radius is a place holder class
+        Vector3 destination = directionVector * (offsetDistance + target.GetComponent<Interactable>().radius + agent.radius) + target.position; //Interactable is a place holder class
         facingTarget = false;
         agent.SetDestination(destination);
     }
@@ -122,7 +122,7 @@ public class AvatarLocomotion : MonoBehaviour
     public virtual bool IsInInteractionRange(float interactionRange)
     {
         float distance = Vector3.Distance(transform.position, target.transform.position);
-        if (distance < target.GetComponent<TargetRadius>().radius + interactionRange + agent.radius) //Target Radius is a place holder class
+        if (distance < target.GetComponent<Interactable>().radius + interactionRange + agent.radius) //Interactable is a place holder class
         {
             return true;
         }
