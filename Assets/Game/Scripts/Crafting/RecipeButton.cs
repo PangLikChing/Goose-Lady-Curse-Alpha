@@ -12,5 +12,10 @@ public class RecipeButton : MonoBehaviour
     {
         // Set recipe
         CraftingManager.Instance.ChangeSelectedItem(recipe);
+
+        // Reset stack number on player input
+        // This might cause bug
+        CraftingNumberInputField playerInputField = FindObjectOfType<CraftingNumberInputField>();
+        playerInputField.ResetStackNumber();
     }
 }

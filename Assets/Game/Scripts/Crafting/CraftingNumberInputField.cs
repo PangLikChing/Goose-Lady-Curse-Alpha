@@ -33,4 +33,10 @@ public class CraftingNumberInputField : MonoBehaviour
             inputField.text = (int.Parse(inputField.text) - 1).ToString();
         }
     }
+
+    public void ResetStackNumber()
+    {
+        // Reset stack number to 1
+        inputField.text = "1";
+    }
 }

@@ -147,8 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41fe3d93e9f55644eaacd1e1911cbc0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  craftButton: {fileID: 0}
-  item: {fileID: 0}
+  recipe: {fileID: 0}
 --- !u!1 &1914456786462977276
 GameObject:
   m_ObjectHideFlags: 0
