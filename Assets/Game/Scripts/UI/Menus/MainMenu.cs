@@ -10,8 +10,8 @@ public class MainMenu : Menu
     public MenuClassifier pauseMenu;
     [Tooltip("Reference to hud menu")]
     public MenuClassifier hudMenu;
-    [Tooltip("Reference to the scene that storges player persistance data")]
-    public string playerDataScene;
+    [Tooltip("Reference to the scene that storges gameplay persistance data")]
+    public string gameplayGlobalScene;
     [Tooltip("Reference to input reader")]
     public InputReader inputReader;
     private List<string> sceneToBeLoaded = new List<string>();
@@ -26,7 +26,7 @@ public class MainMenu : Menu
     /// <param name="sceneName">The name of the first gameplay scene</param>
     public void LoadGameScene(string sceneName)
     {
-        sceneToBeLoaded.Add(playerDataScene);
+        sceneToBeLoaded.Add(gameplayGlobalScene);
         sceneToBeLoaded.Add(sceneName);
         SceneLoader.Instance.OnSceneLoadedEvent += OnGameSceneLoaded;
         SceneLoader.Instance.LoadScenes(sceneToBeLoaded);

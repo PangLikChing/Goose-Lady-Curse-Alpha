@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Core/UI.unity
     guid: 8296010c97b95384788f13e61bda59a5
   - enabled: 1
-    path: Assets/Game/Scenes/Core/PlayerData.unity
+    path: Assets/Game/Scenes/Core/Gameplay Global.unity
     guid: faca8793dd284384f9b086d70b0d73d3
   - enabled: 1
     path: Assets/Game/Scenes/IntegrationTestScene.unity
