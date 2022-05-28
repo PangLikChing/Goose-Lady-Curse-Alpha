@@ -11,6 +11,8 @@ public class Inventory : MonoBehaviour
     // This is the items that the player is holding and its location
     public List<ItemSlot[]> itemList = new List<ItemSlot[]>();
 
+    //public InventoryGrouper inventoryGrouper;
+
     // RefreshInventorySlots is an event to refresh all Inventory slots
     // Assign the responsible InventoryGrouper to this event and call RefreshInventorySlots()
     public UnityEvent RefreshInventorySlots;
@@ -217,5 +219,8 @@ public class Inventory : MonoBehaviour
             // Throw a debug message
             Debug.Log("There is no such item in the inventory.");
         }
+
+        // Refresh Inventory slots
+        RefreshInventorySlots.Invoke();
     }
 }

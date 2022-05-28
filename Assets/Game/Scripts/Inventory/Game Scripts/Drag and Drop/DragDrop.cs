@@ -12,7 +12,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 {
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    private Canvas canvas;
+    [SerializeField] private Canvas canvas;
     
     [HideInInspector] public InventorySlot originalInventorySlot;
 
@@ -23,7 +23,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         canvasGroup = GetComponent<CanvasGroup>();
 
         // Hard code this one, fix later
-        canvas = transform.parent.parent.parent.parent.parent.GetComponent<Canvas>();
+        canvas = transform.parent.parent.parent.GetComponent<InventoryGrouper>().canvas;
     }
 
     public void OnBeginDrag(PointerEventData eventData)

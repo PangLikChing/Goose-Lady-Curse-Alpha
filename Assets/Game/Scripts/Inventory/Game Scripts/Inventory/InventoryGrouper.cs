@@ -16,6 +16,8 @@ public class InventoryGrouper : MonoBehaviour
     // bagGameObject is the UI prefeb for a bag
     public Transform bagTransform, inventorySlotTransform;
 
+    public Canvas canvas;
+
     // gridLayoutGroup is the GridLayoutGroup that the grouper is holding
     GridLayoutGroup gridLayoutGroup;
 
@@ -47,8 +49,11 @@ public class InventoryGrouper : MonoBehaviour
                 // For every element in the bag
                 for (int j = 0; j < myInventory.bags[i].volume; j++)
                 {
-                    // Instantiate a new inventory slot UI GameObject
-                    Instantiate(inventorySlotTransform, newBag);
+                    // Instantiate a new inventory slot transform
+                    Transform inventorySlot = Instantiate(inventorySlotTransform, newBag).transform;
+
+                    //// Turn off the block raycast
+                    //inventorySlot.GetChild(0).GetComponent<CanvasGroup>().blocksRaycasts = false;
                 }
 
                 // If the bag's size is larger than the largestBagSize temp int
@@ -66,9 +71,6 @@ public class InventoryGrouper : MonoBehaviour
                 newBag.gameObject.SetActive(false);
             }
         }
-
-        // Refresh all the inventory slots display for that inventory
-        myInventory.RefreshInventorySlots.Invoke();
 
         // Go to the right position and scale to the right size
         ScaleInventoryGrouper();
@@ -206,7 +208,7 @@ public class InventoryGrouper : MonoBehaviour
                         if (transform.childCount != 0)
                         {
                             // Disable the raycast for the slotted item so that the player cannot drag it
-                            transform.GetChild(0).GetComponent<Image>().raycastTarget = false;
+                            currentInventorySlot.transform.GetChild(0).GetComponent<CanvasGroup>().blocksRaycasts = false;
                         }
                     }
                     // Else
@@ -216,7 +218,7 @@ public class InventoryGrouper : MonoBehaviour
                         if (transform.childCount != 0)
                         {
                             // Enable the raycast for the slotted item so that the player can drag it
-                            transform.GetChild(0).GetComponent<Image>().raycastTarget = true;
+                            currentInventorySlot.transform.GetChild(0).GetComponent<CanvasGroup>().blocksRaycasts = true;
                         }
                     }
                 }

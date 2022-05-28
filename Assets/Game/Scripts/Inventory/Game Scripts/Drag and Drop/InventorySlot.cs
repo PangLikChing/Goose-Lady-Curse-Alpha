@@ -42,6 +42,9 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                 mySlotIndex = i;
             }
         }
+
+        // Refresh the inventory slot
+        RefreshInventorySlot();
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -117,6 +120,9 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                 // Show the stack number text
                 stackNumberText.gameObject.SetActive(true);
             }
+
+            // Turn on the block raycast
+            transform.GetChild(0).GetComponent<CanvasGroup>().blocksRaycasts = true;
         }
         // If there is no item in the slot that I am responsible to display
         else
@@ -128,6 +134,13 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             // Update the UI
             slottedItemImage.sprite = null;
             stackNumberText.text = stackNumber.ToString();
+
+            // If there is a child image item
+            if (transform.childCount != 0)
+            {
+                // Turn off the block raycast
+                transform.GetChild(0).GetComponent<CanvasGroup>().blocksRaycasts = false;
+            }
         }
 
         // If stack number is less than or equal to 1
@@ -144,7 +157,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             if (transform.childCount != 0)
             {
                 // Disable the raycast for the slotted item so that the player cannot drag it
-                transform.GetChild(0).GetComponent<Image>().raycastTarget = false;
+                transform.GetChild(0).GetComponent<CanvasGroup>().blocksRaycasts = false;
             }
         }
         // Else
@@ -154,7 +167,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             if (transform.childCount != 0)
             {
                 // Enable the raycast for the slotted item so that the player can drag it
-                transform.GetChild(0).GetComponent<Image>().raycastTarget = true;
+                transform.GetChild(0).GetComponent<CanvasGroup>().blocksRaycasts = true;
             }
         }
     }
