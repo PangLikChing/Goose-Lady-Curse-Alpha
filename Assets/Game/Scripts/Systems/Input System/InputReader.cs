@@ -49,7 +49,7 @@ public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap
     public void OnMovements(InputAction.CallbackContext context)
     {
         //dont click through UI
-        if (EventSystem.current.IsPointerOverGameObject())
+        if (EventSystem.current!=null&&EventSystem.current.IsPointerOverGameObject())
             return;
 
         ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
@@ -62,7 +62,7 @@ public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap
     public void OnAttack(InputAction.CallbackContext context)
     {
         //dont click through UI
-        if (EventSystem.current.IsPointerOverGameObject())
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
             return;
 
         ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
@@ -76,7 +76,7 @@ public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap
     public void OnPickup(InputAction.CallbackContext context)
     {
         //dont click through UI
-        if (EventSystem.current.IsPointerOverGameObject())
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
             return;
 
         ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
