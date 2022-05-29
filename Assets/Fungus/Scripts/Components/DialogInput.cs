@@ -27,7 +27,7 @@ namespace Fungus
     public class DialogInput : MonoBehaviour
     {
         [Tooltip("Click to advance story")]
-        [SerializeField] protected ClickMode clickMode;
+        [SerializeField] protected ClickMode clickMode = ClickMode.ClickOnButton;
 
         [Tooltip("Delay between consecutive clicks. Useful to prevent accidentally clicking through story.")]
         [SerializeField] protected float nextClickDelay = 0f;
@@ -79,30 +79,30 @@ namespace Fungus
                 return;
             }
 
-            if (currentStandaloneInputModule == null)
-            {
-                currentStandaloneInputModule = EventSystem.current.GetComponent<StandaloneInputModule>();
-            }
+            //if (currentStandaloneInputModule == null)
+            //{
+            //    currentStandaloneInputModule = EventSystem.current.GetComponent<StandaloneInputModule>();
+            //}
 
-            if (writer != null && writer.IsWriting)
-            {
-                if (Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
-                    (cancelEnabled && Input.GetButton(currentStandaloneInputModule.cancelButton)))
-                {
-                    SetNextLineFlag();
-                }
-            }
+            //if (writer != null && writer.IsWriting)
+            //{
+            //    if (Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
+            //        (cancelEnabled && Input.GetButton(currentStandaloneInputModule.cancelButton)))
+            //    {
+            //        SetNextLineFlag();
+            //    }
+            //}
 
             switch (clickMode)
             {
             case ClickMode.Disabled:
                 break;
-            case ClickMode.ClickAnywhere:
-                if (Input.GetMouseButtonDown(0))
-                {
-                    SetNextLineFlag();
-                }
-                break;
+            //case ClickMode.ClickAnywhere:
+            //    if (Input.GetMouseButtonDown(0))
+            //    {
+            //        SetNextLineFlag();
+            //    }
+            //    break;
             case ClickMode.ClickOnDialog:
                 if (dialogClickedFlag)
                 {
