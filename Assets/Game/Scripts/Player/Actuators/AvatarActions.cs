@@ -50,7 +50,7 @@ public class AvatarActions : MonoBehaviour
         if (item.TryGetComponent<ItemWrapper>(out ItemWrapper itemWrapper))
         {
             ItemPickupEvent.Invoke(itemWrapper.item,1);
-            Destroy(item.gameObject);
+            Destroy(item.gameObject,0.1f);
         }
     }
 
