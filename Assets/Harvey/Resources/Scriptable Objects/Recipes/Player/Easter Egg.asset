@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ed4a558f30bfac4cb8ae38300ac2c14, type: 3}
-  m_Name: Test
+  m_Name: Easter Egg
   m_EditorClassIdentifier: 
-  recipeID: -1
-  recipeName: gdfgd
-  item: {fileID: 11400000, guid: ccd7905d7c321ee4b967d2090e069cf4, type: 2}
+  recipeID: 999
+  recipeName: Easter Egg
+  item: {fileID: 11400000, guid: 1eb6957627371574f89f17978fe32590, type: 2}
   reagents: []
-  description: 
+  description: This is an easter egg.
