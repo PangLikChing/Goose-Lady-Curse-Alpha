@@ -10,8 +10,8 @@ public class PauseMenu : Menu
     public MenuClassifier hudMenu;
     [Tooltip("Reference to the current gameplay scene")]
     public string currentGameScene;
-    [Tooltip("Reference to the scene that storges player persistance data")]
-    public string playerDataScene;
+    [Tooltip("Reference to the scene that storges gameplay persistance data")]
+    public string gameplayGlobalScene;
     [Tooltip("Reference to input reader")]
     public InputReader inputReader;
 
@@ -28,13 +28,14 @@ public class PauseMenu : Menu
         //inputReader.DisableAllInput();
         inputReader.ClosePauseMenuEvent -= Resume;
     }
+
     /// <summary>
     /// Callback that return the to the main menu, unloads player data and current gameplay scene
     /// </summary>
     public void ReturnToMainMenu()
     {
         OnHideMenu();
-        sceneToBeUnloaded.Add(playerDataScene);
+        sceneToBeUnloaded.Add(gameplayGlobalScene);
         sceneToBeUnloaded.Add(currentGameScene);
         SceneLoader.Instance.OnSceneUnloadedEvent += OnReturnToMainMenu;
         SceneLoader.Instance.UnloadScenes(sceneToBeUnloaded);
@@ -70,6 +71,5 @@ public class PauseMenu : Menu
     {
         Time.timeScale = 1;
         base.OnHideMenu(options);
-        
     }
 }
