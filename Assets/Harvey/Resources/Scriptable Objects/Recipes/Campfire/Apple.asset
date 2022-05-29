@@ -15,5 +15,7 @@ MonoBehaviour:
   recipeID: -1
   recipeName: Apple
   item: {fileID: 11400000, guid: 7d3bcc37e7236b347ae2ca02ac20074e, type: 2}
-  reagents: []
+  reagents:
+  - item: {fileID: 11400000, guid: 9fb7813e8f5ff4a45b87e0f10cc08a72, type: 2}
+    requiredAmount: 1
   description: This is an apple.
