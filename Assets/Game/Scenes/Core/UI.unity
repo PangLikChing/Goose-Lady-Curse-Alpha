@@ -1041,6 +1041,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 279021f8f289e2646acf458cc1e28a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  craftEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: b593013012e00224a896307a0fd8adfe, type: 2}
+        m_TargetAssemblyTypeName: ItemIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  consumeReagentEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 3e7f7cc1debef8c4482675dd3addfb5f, type: 2}
+        m_TargetAssemblyTypeName: ItemIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &93862515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2765,6 +2795,7 @@ GameObject:
   - component: {fileID: 674721510}
   - component: {fileID: 674721511}
   - component: {fileID: 674721513}
+  - component: {fileID: 674721512}
   m_Layer: 0
   m_Name: Player Inventory
   m_TagString: Untagged
@@ -2821,6 +2852,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: InventoryGrouper, Assembly-CSharp
         m_MethodName: RefreshInventorySlots
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &674721512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674721509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7bd2812d0ae4c04099619019bfa637d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 3e7f7cc1debef8c4482675dd3addfb5f, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 674721511}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: ConsumeItem
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
