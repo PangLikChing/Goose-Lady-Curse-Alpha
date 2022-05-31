@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 /// A scriptable object that can be attached to any class that need input
 /// </summary>
 [CreateAssetMenu(fileName = "InputReader", menuName = "Input/Input Reader")]
-public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap.IMenusActions, InputMap.IDialoguesActions
+public class InputReader : ScriptableObject, InputMap.ICharacterControlsActions, InputMap.IGameplayMenusActions, InputMap.ISystemMenusActions, InputMap.IDialoguesActions
 {
     public event UnityAction<Vector3> MovementEvent = delegate { };
     public event UnityAction<Transform> AttackEvent = delegate { };
@@ -21,6 +21,7 @@ public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap
     public event UnityAction OpenPauseMenuEvent = delegate { };
     public event UnityAction ClosePauseMenuEvent = delegate { };
     public event UnityAction OpenBuildMenuEvent = delegate { };
+    public event UnityAction CloseAllMenusEvent = delegate { };
 
     private InputMap gameInput;
     private Ray ray;
@@ -33,8 +34,10 @@ public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap
         if (gameInput == null)
         {
             gameInput = new InputMap();
-            gameInput.Gameplay.SetCallbacks(this);
-            gameInput.Menus.SetCallbacks(this);
+            gameInput.CharacterControls.SetCallbacks(this);
+            gameInput.GameplayMenus.SetCallbacks(this);
+            gameInput.SystemMenus.SetCallbacks(this);
+            gameInput.Dialogues.SetCallbacks(this);
         }
         TerrainLayerMask = LayerMask.GetMask("Terrain");
         AttackableLayerMask = LayerMask.GetMask("Attackable");
@@ -49,7 +52,7 @@ public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap
     public void OnMovements(InputAction.CallbackContext context)
     {
         //dont click through UI
-        if (EventSystem.current!=null&&EventSystem.current.IsPointerOverGameObject())
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
             return;
 
         ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
@@ -69,7 +72,7 @@ public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap
         if (context.phase == InputActionPhase.Performed && Physics.Raycast(ray, out hit, 500f, AttackableLayerMask))
         {
             AttackEvent.Invoke(hit.collider.transform);
-            
+
         }
     }
 
@@ -159,21 +162,42 @@ public class InputReader : ScriptableObject, InputMap.IGameplayActions, InputMap
         }
     }
 
-    public void EnableGameplayInput()
+    public void OnCloseAllMenus(InputAction.CallbackContext context)
     {
-        gameInput.Gameplay.Enable();
-        gameInput.Menus.Disable();
+        if (context.phase == InputActionPhase.Performed)
+        {
+            CloseAllMenusEvent.Invoke();
+        }
     }
 
-    public void EnableMenuInput()
+    public void EnableGameplayInput()
     {
-        gameInput.Menus.Enable();
-        gameInput.Gameplay.Disable();
+        gameInput.CharacterControls.Enable();
+        gameInput.GameplayMenus.Enable();
+        gameInput.SystemMenus.Disable();
+    }
+
+    public void EnableSystemMenuInput()
+    {
+        gameInput.SystemMenus.Enable();
+        gameInput.CharacterControls.Disable();
+        gameInput.GameplayMenus.Disable();
+    }
+
+    public void EnableCharacterControl()
+    {
+        gameInput.CharacterControls.Enable();
+    }
+
+    public void DisableCharacterControl()
+    {
+        gameInput.CharacterControls.Disable();
     }
 
     public void DisableAllInput()
     {
-        gameInput.Gameplay.Disable();
-        gameInput.Menus.Disable();
+        gameInput.SystemMenus.Disable();
+        gameInput.CharacterControls.Disable();
+        gameInput.GameplayMenus.Disable();
     }
 }
