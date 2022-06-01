@@ -28,39 +28,55 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        // Make it so that it is not interactable with raycast when dragging
-        canvasGroup.blocksRaycasts = false;
+        // If I am dragging with my left mouse button down
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            // Make it so that it is not interactable with raycast when dragging
+            canvasGroup.blocksRaycasts = false;
 
-        // Set the originalInventorySlot to the one that is holding the Item
-        originalInventorySlot = transform.parent.GetComponent<InventorySlot>();
+            // Set the originalInventorySlot to the one that is holding the Item
+            originalInventorySlot = transform.parent.GetComponent<InventorySlot>();
 
-        // Change the parent to the canvas so that it will not be blocked by other slots
-        transform.SetParent(canvas.transform);
+            // Change the parent to the canvas so that it will not be blocked by other slots
+            transform.SetParent(canvas.transform);
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        // Move the dragged object with mouse
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        // If I am dragging with my left mouse button down
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            // Move the dragged object with mouse
+            rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        }
     }
-
+    
     public void OnEndDrag(PointerEventData eventData)
     {
-        // Reset blockRaycasts
-        canvasGroup.blocksRaycasts = true;
-
-        // If the item's parent is not an inventory slot at the end of drag
-        if (transform.parent.GetComponent<InventorySlot>() == null)
+        // If I am dropping with a left mouse button
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            // Reset item's parent
-            transform.SetParent(originalInventorySlot.transform);
+            // Reset blockRaycasts
+            canvasGroup.blocksRaycasts = true;
 
-            // Reset item's position
-            transform.localPosition = new Vector2(0, 0);
+            // If the item's parent is not an inventory slot at the end of drag
+            if (transform.parent.GetComponent<InventorySlot>() == null)
+            {
+                // If the slotted item was moved
+                if (originalInventorySlot != null)
+                {
+                    // Reset item's parent
+                    transform.SetParent(originalInventorySlot.transform);
+                }
+
+                // Reset item's position
+                transform.localPosition = new Vector2(0, 0);
+            }
+
+            // Reset originalInventorySlot
+            originalInventorySlot = null;
         }
-
-        // Reset originalInventorySlot
-        originalInventorySlot = null;
     }
 
     public void OnPointerDown(PointerEventData eventData)

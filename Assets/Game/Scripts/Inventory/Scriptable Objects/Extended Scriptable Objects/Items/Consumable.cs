@@ -53,7 +53,7 @@ public class Consumable : Item
         Debug.Log($"{this.name}'s current stack number: {heldItem.stackNumber}");
     }
 
-    public void Use()
+    public override void Use(ItemSlot itemSlot)
     {
         // For every item effects in the itemEffect list
         for (int i = 0; i < itemEffect.Count; i++)
@@ -61,5 +61,8 @@ public class Consumable : Item
             // Conduct the effect
             itemEffect[i].UseItem();
         }
+
+        // Consume a stack of the item
+        Consume(itemSlot, 1);
     }
 }

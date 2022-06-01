@@ -59,4 +59,10 @@ public class Item : ScriptableObject
         // Throw a debug message
         Debug.Log($"{this.name}'s current stack number: {heldItem.stackNumber}");
     }
+
+    public virtual void Use(ItemSlot itemSlot)
+    {
+        // Throw a debug message
+        Debug.Log("Item Use, do nothing");
+    }
 }

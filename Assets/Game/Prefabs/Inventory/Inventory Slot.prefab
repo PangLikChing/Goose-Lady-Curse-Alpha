@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 5137926027634397071}
   - component: {fileID: 8128345760687638067}
   - component: {fileID: 1855826093293431655}
+  - component: {fileID: 6164137638304356386}
   m_Layer: 5
   m_Name: Slotted Item Image
   m_TagString: Untagged
@@ -238,6 +239,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &6164137638304356386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5137926027634397069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9231c0c5b15fb304780f82ea97c728d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myInventory: {fileID: 0}
 --- !u!1 &5137926028077824671
 GameObject:
   m_ObjectHideFlags: 0
