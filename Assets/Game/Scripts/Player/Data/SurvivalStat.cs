@@ -10,38 +10,41 @@ public class SurvivalStat : ScriptableObject
     public float maxValue = 0;
     public float currentValue = 0;
     public float currentChangeRate = 0;
-    public List<float> maxValueModifiers = new List<float>();
-    public List<float> changeRateModifiers = new List<float>();
+    private List<float> maxValueModifiers = new List<float>();
+    private List<float> changeRateModifiers = new List<float>();
 
     public void Initialize()
     {
         maxValue = baseValue;
-        currentValue = baseValue;
     }
 
-    public int AddBaseValueModifier(float modifier)
+    public int AddMaxValueModifier(float modifier)
     {
         maxValueModifiers.Add(modifier);
+        CalculateMaxValue();
         return maxValueModifiers.Count - 1;
     }
 
-    public void RemoveBaseValueModifier(int modifierIndex)
+    public void RemoveMaxValueModifier(int modifierIndex)
     {
+        CalculateMaxValue();
         maxValueModifiers.RemoveAt(modifierIndex);
     }
 
     public int AddChangeRateModifier(float modifier)
     {
         changeRateModifiers.Add(modifier);
+        CalculateChangeRate();
         return changeRateModifiers.Count - 1;
     }
 
     public void RemoveChangeRateModifier(int modifierIndex)
     {
         changeRateModifiers.RemoveAt(modifierIndex);
+        CalculateChangeRate();
     }
 
-    public void StatUpdate()
+    private void CalculateMaxValue()
     {
         maxValue = baseValue;
         if (maxValueModifiers.Count != 0)
@@ -49,12 +52,20 @@ public class SurvivalStat : ScriptableObject
             foreach (float modifier in maxValueModifiers)
                 maxValue += modifier;
         }
+    }
+
+    private void CalculateChangeRate()
+    {
         currentChangeRate = baseChangeRate;
         {
             foreach (float modifier in changeRateModifiers)
                 currentChangeRate += modifier;
         }
-        currentValue += currentChangeRate;
+    }
+
+    public void StatUpdate()
+    {
+        currentValue += currentChangeRate*Time.deltaTime;
         currentValue = Mathf.Clamp(currentValue, minValue, maxValue);
     }
 }
