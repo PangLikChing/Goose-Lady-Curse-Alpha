@@ -1,13 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CharacterStats : MonoBehaviour
 {
-    public SurvivalStat health;
-    public SurvivalStat stamina;
-    public SurvivalStat thirst;
-    public SurvivalStat hunger;
-    public SurvivalStat temperature;
+    public List<Stat> statList;
+
 
     private void Start()
     {
@@ -16,19 +14,17 @@ public class CharacterStats : MonoBehaviour
 
     public void InitializeCharacterStats()
     {
-        health.Initialize();
-        stamina.Initialize();
-        thirst.Initialize();
-        hunger.Initialize();
-        temperature.Initialize();
+        foreach (Stat stat in statList)
+        {
+            stat.Initialize();
+        }
     }
 
     private void Update()
     {
-        health.StatUpdate();
-        stamina.StatUpdate();
-        thirst.StatUpdate();
-        hunger.StatUpdate();
-        temperature.StatUpdate();
+        foreach (Stat stat in statList)
+        {
+            stat.StatUpdate();
+        }
     }
 }

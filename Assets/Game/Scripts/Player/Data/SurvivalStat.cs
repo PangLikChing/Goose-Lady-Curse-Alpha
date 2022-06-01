@@ -1,71 +1,60 @@
+using Project.Build.Commands;
 using System.Collections.Generic;
 using UnityEngine;
-
-[CreateAssetMenu(fileName = "SurvivalStat", menuName = "Character/SurvivalStat")]
-public class SurvivalStat : ScriptableObject
+/// <summary>
+/// Stores the attributes that have dynamic runtime values
+/// </summary>
+[CreateAssetMenu(fileName = "Survival Stat", menuName = "Character/Survival Stat")]
+public class SurvivalStat : Stat
 {
-    public float baseValue = 0;
+    public float minValue = 0;
+    public float initialValue = 0;
     public float baseChangeRate = 0;
-    public float minValue = 0; 
-    public float maxValue = 0;
-    public float currentValue = 0;
-    public float currentChangeRate = 0;
-    private List<float> maxValueModifiers = new List<float>();
-    private List<float> changeRateModifiers = new List<float>();
+    [ReadOnly] public float actualChangeRate = 0;
+    [ReadOnly] public float currentValue = 0;
+    private List<Modifier> changeRateModifiers = new List<Modifier>();
 
-    public void Initialize()
+    public override void Initialize()
     {
-        maxValue = baseValue;
+        base.Initialize();
+        currentValue = initialValue;
+        actualChangeRate = baseChangeRate;
     }
 
-    public int AddMaxValueModifier(float modifier)
-    {
-        maxValueModifiers.Add(modifier);
-        CalculateMaxValue();
-        return maxValueModifiers.Count - 1;
-    }
-
-    public void RemoveMaxValueModifier(int modifierIndex)
-    {
-        CalculateMaxValue();
-        maxValueModifiers.RemoveAt(modifierIndex);
-    }
-
-    public int AddChangeRateModifier(float modifier)
+    public void AddChangeRateModifier(Modifier modifier)
     {
         changeRateModifiers.Add(modifier);
         CalculateChangeRate();
-        return changeRateModifiers.Count - 1;
     }
 
-    public void RemoveChangeRateModifier(int modifierIndex)
+    public void RemoveChangeRateModifier(Modifier modifier)
     {
-        changeRateModifiers.RemoveAt(modifierIndex);
+        changeRateModifiers.Remove(modifier);
         CalculateChangeRate();
-    }
-
-    private void CalculateMaxValue()
-    {
-        maxValue = baseValue;
-        if (maxValueModifiers.Count != 0)
-        {
-            foreach (float modifier in maxValueModifiers)
-                maxValue += modifier;
-        }
     }
 
     private void CalculateChangeRate()
     {
-        currentChangeRate = baseChangeRate;
-        {
-            foreach (float modifier in changeRateModifiers)
-                currentChangeRate += modifier;
-        }
+        actualChangeRate = baseChangeRate;
+        foreach (Modifier modifier in changeRateModifiers)
+            actualChangeRate += modifier.magnitude;
     }
 
-    public void StatUpdate()
+    public override void StatUpdate()
     {
-        currentValue += currentChangeRate*Time.deltaTime;
-        currentValue = Mathf.Clamp(currentValue, minValue, maxValue);
+        base.StatUpdate();
+        foreach (Modifier modifier in changeRateModifiers)
+        {
+            if (!modifier.isPersistent)
+            {
+                modifier.remainingTime -= Time.deltaTime;
+                if (modifier.remainingTime <= 0)
+                {
+                    RemoveChangeRateModifier(modifier);
+                }
+            }
+        }
+        currentValue += actualChangeRate * Time.deltaTime;
+        currentValue = Mathf.Clamp(currentValue, minValue, actualValue); //actual Value is the modified attribute value which serves as the upperlimit
     }
 }

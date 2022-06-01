@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Stamina
   m_EditorClassIdentifier: 
   baseValue: 100
+  actualValue: 0
+  initialValue: 100
   baseChangeRate: 1
+  actualChangeRate: 0
   minValue: 0
-  maxValue: 100
   currentValue: 0
-  currentChangeRate: 1

@@ -9,6 +9,7 @@ public class FungusMessage : MonoBehaviour
 
     public void OnDestroy()
     {
-        targetFlowChart.SendFungusMessage(message);
+        if(targetFlowChart!=null)
+            targetFlowChart.SendFungusMessage(message);
     }
 }

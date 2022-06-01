@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: Health
   m_EditorClassIdentifier: 
   baseValue: 100
+  actualValue: 0
+  initialValue: 100
   baseChangeRate: 0
+  actualChangeRate: 0
   minValue: 0
-  maxValue: 100
   currentValue: 100
-  currentChangeRate: 0
-  maxValueModifiers: []
-  changeRateModifiers: []
