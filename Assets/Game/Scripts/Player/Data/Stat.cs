@@ -45,7 +45,7 @@ public class Stat : ScriptableObject
 
     public virtual void StatUpdate()
     {
-        for (int i = baseValueModifiers.Count; i >=0; i-- )
+        for (int i = baseValueModifiers.Count-1; i >=0; i-- )
         {
             if (!baseValueModifiers[i].isPersistent)
             {

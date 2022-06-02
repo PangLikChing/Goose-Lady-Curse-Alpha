@@ -49,7 +49,7 @@ public class SurvivalStat : Stat
     {
         base.StatUpdate();
 
-        for (int i = changeRateModifiers.Count; i >= 0; i--)
+        for (int i = changeRateModifiers.Count-1; i >= 0; i--)
         {
             if (!changeRateModifiers[i].isPersistent)
             {
