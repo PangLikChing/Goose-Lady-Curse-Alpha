@@ -29,6 +29,8 @@ public class InventorySlotClickHandler : MonoBehaviour, IPointerClickHandler
 
             // Use that item / consumable / equipment in the item slot
             transform.parent.GetComponent<InventorySlot>().slottedItem.Use(myItemSlot);
+
+            myInventory.RefreshInventorySlots.Invoke();
         }
     }
 }

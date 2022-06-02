@@ -42,14 +42,14 @@ public class Stat : ScriptableObject
 
     public virtual void StatUpdate()
     {
-        foreach (Modifier modifier in baseValueModifiers)
+        for (int i = 0; i < baseValueModifiers.Count; i++)
         {
-            if (!modifier.isPersistent)
+            if (!baseValueModifiers[i].isPersistent)
             {
-                modifier.remainingTime -= Time.deltaTime;
-                if (modifier.remainingTime <= 0)
+                baseValueModifiers[i].remainingTime -= Time.deltaTime;
+                if (baseValueModifiers[i].remainingTime <= 0)
                 {
-                    RemoveBaseValueModifier(modifier);
+                    RemoveBaseValueModifier(baseValueModifiers[i]);
                 }
             }
         }

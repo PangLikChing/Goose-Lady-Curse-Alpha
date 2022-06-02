@@ -44,17 +44,19 @@ public class SurvivalStat : Stat
     public override void StatUpdate()
     {
         base.StatUpdate();
-        foreach (Modifier modifier in changeRateModifiers)
+
+        for (int i = 0; i < changeRateModifiers.Count; i++)
         {
-            if (!modifier.isPersistent)
+            if (!changeRateModifiers[i].isPersistent)
             {
-                modifier.remainingTime -= Time.deltaTime;
-                if (modifier.remainingTime <= 0)
+                changeRateModifiers[i].remainingTime -= Time.deltaTime;
+                if (changeRateModifiers[i].remainingTime <= 0)
                 {
-                    RemoveChangeRateModifier(modifier);
+                    RemoveChangeRateModifier(changeRateModifiers[i]);
                 }
             }
         }
+
         currentValue += actualChangeRate * Time.deltaTime;
         currentValue = Mathf.Clamp(currentValue, minValue, finalValue); //actual Value is the modified attribute value which serves as the upperlimit
     }

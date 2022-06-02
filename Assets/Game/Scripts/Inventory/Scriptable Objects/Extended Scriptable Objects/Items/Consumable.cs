@@ -11,7 +11,7 @@ using UnityEngine.Events;
 public class Consumable : Item
 {
     // A list of item effects for that consumable
-    public List<ItemEffect> itemEffect = new List<ItemEffect>();
+    public List<Modifier> modifier = new List<Modifier>();
 
     // heldItem is the item in the inventory that the player used
     // If the player used the item with a hotkey, we use the first stack found in the inventory.
@@ -56,10 +56,10 @@ public class Consumable : Item
     public override void Use(ItemSlot itemSlot)
     {
         // For every item effects in the itemEffect list
-        for (int i = 0; i < itemEffect.Count; i++)
+        for (int i = 0; i < modifier.Count; i++)
         {
             // Conduct the effect
-            itemEffect[i].UseItem();
+            modifier[i].Apply();
         }
 
         // Consume a stack of the item

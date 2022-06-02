@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ad01ec91868ed64e9a971115a230f32, type: 3}
-  m_Name: Health
+  m_Script: {fileID: 11500000, guid: 99801bf7714de8446997a07e26c7079f, type: 3}
+  m_Name: HealthPotionChangeRateModifier
   m_EditorClassIdentifier: 
-  baseValue: 100
-  finalValue: 100
-  minValue: 0
-  initialValue: 50
-  baseChangeRate: -1
-  actualChangeRate: 2
-  currentValue: 66.61099
+  magnitude: 100
+  remainingTime: 10
+  isPersistent: 0
+  targetStat: {fileID: 11400000, guid: 8bdeda9a5c8d1ff4a92c19cd3da7b1fa, type: 2}
