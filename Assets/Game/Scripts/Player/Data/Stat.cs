@@ -12,12 +12,13 @@ public class Stat : ScriptableObject
     //base value
     public float baseValue = 0;
     //after modification
-    [ReadOnly]public float actualValue = 0;
+    [ReadOnly]public float finalValue = 0;
     private List<Modifier> baseValueModifiers = new List<Modifier>();
 
     public virtual void Initialize()
     {
-        actualValue = baseValue;
+        finalValue = baseValue;
+        baseValueModifiers.Clear();
     }
 
     public void AddBaseValueModifier(Modifier modifier)
@@ -34,9 +35,9 @@ public class Stat : ScriptableObject
 
     public void CalculateBaseValue()
     {
-        actualValue = baseValue;
+        finalValue = baseValue;
         foreach (Modifier modifier in baseValueModifiers)
-            actualValue += modifier.magnitude;
+            finalValue += modifier.magnitude;
     }
 
     public virtual void StatUpdate()

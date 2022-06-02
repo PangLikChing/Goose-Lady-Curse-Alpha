@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e13a84221f6b3434a825d4fee7c470ae, type: 3}
-  m_Name: Head Slot
+  m_Name: Chest Slot
   m_EditorClassIdentifier: 
   equipment: {fileID: 0}
   isOccupied: 0

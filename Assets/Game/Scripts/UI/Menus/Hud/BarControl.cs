@@ -8,16 +8,19 @@ public class BarControl : MonoBehaviour
 
     private void Start()
     {
-        bar.maxValue = stat.actualValue;
+        bar.maxValue = stat.finalValue;
         bar.value = stat.currentValue;
         bar.minValue = stat.minValue;
     }
 
     private void Update()
     {
-        bar.maxValue = stat.actualValue;
-        bar.value = stat.currentValue;
-        bar.minValue = stat.minValue;
+        if (this.enabled)
+        {
+            bar.maxValue = stat.finalValue;
+            bar.value = stat.currentValue;
+            bar.minValue = stat.minValue;
+        }
     }
 
     public void SetMaxValue(float value)

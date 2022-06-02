@@ -17,6 +17,7 @@ public class SurvivalStat : Stat
     public override void Initialize()
     {
         base.Initialize();
+        changeRateModifiers.Clear();
         currentValue = initialValue;
         actualChangeRate = baseChangeRate;
     }
@@ -55,6 +56,6 @@ public class SurvivalStat : Stat
             }
         }
         currentValue += actualChangeRate * Time.deltaTime;
-        currentValue = Mathf.Clamp(currentValue, minValue, actualValue); //actual Value is the modified attribute value which serves as the upperlimit
+        currentValue = Mathf.Clamp(currentValue, minValue, finalValue); //actual Value is the modified attribute value which serves as the upperlimit
     }
 }
