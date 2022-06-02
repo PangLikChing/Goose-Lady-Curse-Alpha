@@ -17,6 +17,8 @@ public class Inventory : MonoBehaviour
     // Assign the responsible InventoryGrouper to this event and call RefreshInventorySlots()
     public UnityEvent RefreshInventorySlots;
 
+    public UnityEvent CheckCraftable;
+
     // This should happen on start and on bag update, probaly should use an event for this
     void Awake()
     {
@@ -146,6 +148,9 @@ public class Inventory : MonoBehaviour
 
         // Refresh Inventory slots
         RefreshInventorySlots.Invoke();
+
+        // Check if the item is craftable
+        CheckCraftable.Invoke();
     }
 
     public void ConsumeItem(Item item, int stackNumber)

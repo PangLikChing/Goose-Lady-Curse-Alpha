@@ -46,6 +46,9 @@ public class CraftButton : MonoBehaviour
                 }
             }
             // temp
+
+            // Updates the reagents
+            CraftingManager.Instance.CheckReagents();
         }
     }
 }
