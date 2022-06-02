@@ -79,9 +79,6 @@ public class AvatarActions : MonoBehaviour
     {
     }
 
-    public void OpenCharacterPanel()
-    {
-    }
 
     public bool IsInPickupRange()
     {
