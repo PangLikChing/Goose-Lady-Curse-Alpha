@@ -49,7 +49,7 @@ public class SurvivalStat : Stat
     {
         base.StatUpdate();
 
-        for (int i = 0; i < changeRateModifiers.Count; i++)
+        for (int i = changeRateModifiers.Count; i >= 0; i--)
         {
             if (!changeRateModifiers[i].isPersistent)
             {
@@ -62,6 +62,6 @@ public class SurvivalStat : Stat
         }
 
         currentValue += actualChangeRate * Time.deltaTime;
-        currentValue = Mathf.Clamp(currentValue, minValue, finalValue); //actual Value is the modified attribute value which serves as the upperlimit
+        currentValue = Mathf.Clamp(currentValue, minValue, finalValue); //final Value is the modified attribute value which serves as the upperlimit
     }
 }

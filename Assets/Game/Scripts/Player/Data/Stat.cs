@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Stores the attribute value of a character supports buffs
+/// Stores the attribute value of a character
 /// </summary>
 [CreateAssetMenu(fileName = "Stat", menuName = "Character/Stat")]
 public class Stat : ScriptableObject
@@ -45,7 +45,7 @@ public class Stat : ScriptableObject
 
     public virtual void StatUpdate()
     {
-        for (int i = 0; i < baseValueModifiers.Count; i++)
+        for (int i = baseValueModifiers.Count; i >=0; i-- )
         {
             if (!baseValueModifiers[i].isPersistent)
             {

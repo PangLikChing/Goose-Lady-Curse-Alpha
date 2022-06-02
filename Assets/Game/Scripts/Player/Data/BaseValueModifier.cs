@@ -5,13 +5,14 @@ using UnityEngine;
 public class BaseValueModifier : Modifier
 {
     public Stat targetStat;
+    private int index;
     public override void Apply()
     {
-        targetStat.AddBaseValueModifier(this);
+        index = targetStat.AddBaseValueModifier(this);
     }
 
     public override void Remove()
     {
-        targetStat.RemoveBaseValueModifier(this);
+        targetStat.RemoveBaseValueModifier(index);
     }
 }
