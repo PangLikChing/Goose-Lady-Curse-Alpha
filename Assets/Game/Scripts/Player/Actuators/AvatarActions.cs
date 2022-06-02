@@ -49,7 +49,7 @@ public class AvatarActions : MonoBehaviour
     {
         if (item.TryGetComponent<ItemWrapper>(out ItemWrapper itemWrapper))
         {
-            ItemPickupEvent.Invoke(itemWrapper.item,1);
+            ItemPickupEvent.Invoke(itemWrapper.item,1); //TODO: replace 1 with stack number from the item
             Destroy(item.gameObject,0.1f);
         }
     }
@@ -57,6 +57,10 @@ public class AvatarActions : MonoBehaviour
     public void CancelPickup()
     {
         //target = null;
+    }
+
+    public void DropOff()
+    { 
     }
 
     /// <summary>
@@ -77,6 +81,17 @@ public class AvatarActions : MonoBehaviour
 
     public void Interact()
     {
+    }
+
+    public void Die()
+    {
+        avatarAnimator.SetTrigger("die");
+    }
+
+    public void Spawn(Transform spawnPoint)
+    {
+        avatarAnimator.SetTrigger("spawn");
+        transform.position = spawnPoint.position;
     }
 
     public void OpenCharacterPanel()

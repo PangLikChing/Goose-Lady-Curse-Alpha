@@ -14,7 +14,7 @@ public class Stat : ScriptableObject
     //after modification
     [ReadOnly]public float finalValue = 0;
     private List<Modifier> baseValueModifiers = new List<Modifier>();
-    private List<float> remainingTimes = new List<float>();
+    private List<float> baseValueModifierRemainingTimes = new List<float>();
     public virtual void Initialize()
     {
         finalValue = baseValue;
@@ -24,7 +24,7 @@ public class Stat : ScriptableObject
     public int AddBaseValueModifier(Modifier modifier)
     {
         baseValueModifiers.Add(modifier);
-        remainingTimes.Add(modifier.duration);
+        baseValueModifierRemainingTimes.Add(modifier.duration);
         CalculateBaseValue();
         return baseValueModifiers.Count - 1;
     }
@@ -32,7 +32,7 @@ public class Stat : ScriptableObject
     public void RemoveBaseValueModifier(int modifierIndex)
     {
         baseValueModifiers.RemoveAt(modifierIndex);
-        remainingTimes.RemoveAt(modifierIndex);
+        baseValueModifierRemainingTimes.RemoveAt(modifierIndex);
         CalculateBaseValue();
     }
 
@@ -49,8 +49,8 @@ public class Stat : ScriptableObject
         {
             if (!baseValueModifiers[i].isPersistent)
             {
-                remainingTimes[i] -= Time.deltaTime;
-                if (remainingTimes[i] <= 0)
+                baseValueModifierRemainingTimes[i] -= Time.deltaTime;
+                if (baseValueModifierRemainingTimes[i] <= 0)
                 {
                     RemoveBaseValueModifier(i);
                 }

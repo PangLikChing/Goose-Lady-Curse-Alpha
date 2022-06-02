@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Events;
 /// <summary>
 /// The state machine is where the actual control takes place
 /// Each state corresponds to a player command which are
@@ -15,10 +16,14 @@ public class PlayerFSM: FSM
     public InputReader inputReader;
     [Tooltip("Reference to the avatar player will be controlling")]
     public GameObject avatar;
+
+    public Transform spawnPoint;
     public readonly int MovementStateName = Animator.StringToHash("Movement");
     public readonly int IdleStateName = Animator.StringToHash("Idle");
     public readonly int PickupStateName = Animator.StringToHash("Pickup");
     public readonly int AttackStateName = Animator.StringToHash("Attack");
+    public readonly int DeathStateName = Animator.StringToHash("Death");
+    public readonly int SpawnStateName = Animator.StringToHash("Spawn");
 
     [HideInInspector]
     public CinemachineStateDrivenCamera playerCameraController;
@@ -28,6 +33,9 @@ public class PlayerFSM: FSM
     public AvatarActions actions;
     [HideInInspector]
     public Vector3 destinationPoint;
+    [HideInInspector]
+    public bool isDead;
+
 
     protected override void Awake()
     {
@@ -68,5 +76,17 @@ public class PlayerFSM: FSM
     {
         motion.target = enemy;
         SetState(AttackStateName);
+    }
+
+    public void DeathState()
+    {
+        isDead = true;
+        SetState(DeathStateName);
+    }
+
+    public void SpawnState()
+    {
+        isDead = false;
+        SetState(SpawnStateName);
     }
 }
