@@ -13,6 +13,7 @@ public class SurvivalStat : Stat
     [ReadOnly] public float actualChangeRate = 0;
     [ReadOnly] public float currentValue = 0;
     private List<Modifier> changeRateModifiers = new List<Modifier>();
+    private List<float> remainingTimes = new List<float>();
 
     public override void Initialize()
     {
@@ -22,15 +23,18 @@ public class SurvivalStat : Stat
         actualChangeRate = baseChangeRate;
     }
 
-    public void AddChangeRateModifier(Modifier modifier)
+    public int AddChangeRateModifier(Modifier modifier)
     {
         changeRateModifiers.Add(modifier);
+        remainingTimes.Add(modifier.duration);
         CalculateChangeRate();
+        return changeRateModifiers.Count - 1;
     }
 
-    public void RemoveChangeRateModifier(Modifier modifier)
+    public void RemoveChangeRateModifier(int modifierIndex)
     {
-        changeRateModifiers.Remove(modifier);
+        changeRateModifiers.RemoveAt(modifierIndex);
+        remainingTimes.RemoveAt(modifierIndex);
         CalculateChangeRate();
     }
 
@@ -49,10 +53,10 @@ public class SurvivalStat : Stat
         {
             if (!changeRateModifiers[i].isPersistent)
             {
-                changeRateModifiers[i].remainingTime -= Time.deltaTime;
-                if (changeRateModifiers[i].remainingTime <= 0)
+                remainingTimes[i] -= Time.deltaTime;
+                if (remainingTimes[i] <= 0)
                 {
-                    RemoveChangeRateModifier(changeRateModifiers[i]);
+                    RemoveChangeRateModifier(i);
                 }
             }
         }
