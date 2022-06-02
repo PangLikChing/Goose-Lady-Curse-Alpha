@@ -80,9 +80,6 @@ public class CraftingManager : Singleton<CraftingManager>
         }
     }
 
-
-    //new 
-
     // If the player can pick up items during crafting, change this to fixed update
     public void CheckCraftable(CraftingRecipe recipe)
     {

@@ -12,7 +12,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     [HideInInspector] public int stackNumber = 0;
 
     // myInventory is the inventory that the slot is in
-    [SerializeField] Inventory myInventory;
+    public Inventory myInventory;
 
     [HideInInspector] public int myBagIndex, mySlotIndex;
 
