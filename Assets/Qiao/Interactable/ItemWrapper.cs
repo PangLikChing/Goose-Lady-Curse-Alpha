@@ -5,4 +5,6 @@ using UnityEngine;
 public class ItemWrapper : Interactable
 {
     public Item item;
+
+    public int stackNumber = 1;
 }
