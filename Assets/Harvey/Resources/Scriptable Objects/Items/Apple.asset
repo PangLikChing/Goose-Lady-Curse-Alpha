@@ -19,3 +19,4 @@ MonoBehaviour:
   maxStackNumber: 99
   modifier:
   - {fileID: 11400000, guid: 8ae99e277b1677145b7f1e01cadc620d, type: 2}
+  - {fileID: 11400000, guid: 192705eb8325a504d80d0c0b420392af, type: 2}
