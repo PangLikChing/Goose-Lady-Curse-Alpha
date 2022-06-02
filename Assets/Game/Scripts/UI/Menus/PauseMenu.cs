@@ -19,7 +19,7 @@ public class PauseMenu : Menu
 
     private void OnEnable()
     {
-        inputReader.EnableMenuInput();
+        inputReader.EnableSystemMenuInput();
         inputReader.ClosePauseMenuEvent += Resume;
     }
 

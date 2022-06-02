@@ -18,7 +18,7 @@ public class MainMenu : Menu
 
     private void OnEnable()
     {
-        inputReader.EnableMenuInput();
+        inputReader.EnableSystemMenuInput();
     }
     /// <summary>
     /// Callback for start button, load the first gameplay scene, player data scene and hide main menu

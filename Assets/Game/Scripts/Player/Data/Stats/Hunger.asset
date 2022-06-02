@@ -9,6 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 797c90e41976391439a8312b571480e9, type: 3}
-  m_Name: PickupItemEventChannel
+  m_Script: {fileID: 11500000, guid: 8ad01ec91868ed64e9a971115a230f32, type: 3}
+  m_Name: Hunger
   m_EditorClassIdentifier: 
+  baseValue: 100
+  actualValue: 0
+  initialValue: 0
+  baseChangeRate: 1
+  actualChangeRate: 1
+  minValue: 0
+  currentValue: 0
