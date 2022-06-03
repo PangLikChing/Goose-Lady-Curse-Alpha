@@ -7,15 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : Singleton<SceneLoader>
 {
-    public Action<List<string>> OnSceneLoadedEvent;
-    public Action OnSceneUnloadedEvent;
+    public Action<List<string>> OnSceneLoadedEvent = delegate { };
+    public Action OnSceneUnloadedEvent = delegate { };
 
     public float delayTime = 1.0f;
     private List<string> loadedScenes = new List<string>();
+    private Stack<string> sceneStack = new Stack<string>();
 
     // When loading just add a flag for persistence. If true don't add to the loadedScenes
     // Only remove the scenes when you unload
-
     public void LoadScene(string scene, bool showLoadingScreen = true)
     {
         StartCoroutine(loadScene(scene, showLoadingScreen, true));
@@ -48,8 +48,9 @@ public class SceneLoader : Singleton<SceneLoader>
             loadedScenes.Clear();
             loadedScenes.AddRange(scenes);
             OnSceneLoadedEvent(loadedScenes);
-        }
 
+        }
+        SceneManager.SetActiveScene(SceneManager.GetSceneByPath(sceneStack.Peek()));
     }
 
     IEnumerator loadScene(string scene, bool showLoadingScreen, bool raiseEvent)
@@ -71,6 +72,7 @@ public class SceneLoader : Singleton<SceneLoader>
             while (sync.isDone == false) { yield return null; }
 
             Application.backgroundLoadingPriority = ThreadPriority.Normal;
+            sceneStack.Push(scene);
 
             yield return new WaitForSeconds(delayTime);
 
@@ -85,7 +87,9 @@ public class SceneLoader : Singleton<SceneLoader>
             loadedScenes.Clear();
             loadedScenes.Add(scene);
             OnSceneLoadedEvent(loadedScenes);
+
         }
+        SceneManager.SetActiveScene(SceneManager.GetSceneByPath(sceneStack.Peek()));
     }
 
     // 4 Methods:
@@ -122,6 +126,7 @@ public class SceneLoader : Singleton<SceneLoader>
         {
             OnSceneUnloadedEvent();
         }
+        SceneManager.SetActiveScene(SceneManager.GetSceneByPath(sceneStack.Peek()));
     }
 
     IEnumerator unloadScene(string scene, bool showLoadingScreen, bool raiseEvent)
@@ -152,6 +157,8 @@ public class SceneLoader : Singleton<SceneLoader>
         sync = Resources.UnloadUnusedAssets();
         while (sync.isDone == false) { yield return null; }
 
+        sceneStack.Pop();
+
         yield return new WaitForSeconds(delayTime);
 
         if (showLoadingScreen)
@@ -161,7 +168,10 @@ public class SceneLoader : Singleton<SceneLoader>
 
         if (raiseEvent && OnSceneUnloadedEvent != null)
         {
-            OnSceneUnloadedEvent();
+            OnSceneUnloadedEvent(); 
         }
+        SceneManager.SetActiveScene(SceneManager.GetSceneByPath(sceneStack.Peek()));
     }
+
+
 }

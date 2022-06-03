@@ -1,10 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharacterStats : MonoBehaviour
 {
+    [Header("General Stats")]
     public List<Stat> statList;
+    [Header("Health Tracking")]
+    public SurvivalStat health;
+    public UnityEvent playerDied;
 
+    private bool isDead;
     private void Start()
     {
         InitializeCharacterStats();
@@ -12,6 +18,7 @@ public class CharacterStats : MonoBehaviour
 
     public void InitializeCharacterStats()
     {
+        isDead = false;
         foreach (Stat stat in statList)
         {
             stat.Initialize();
@@ -20,9 +27,17 @@ public class CharacterStats : MonoBehaviour
 
     private void Update()
     {
-        foreach (Stat stat in statList)
+        if (health.currentValue <= 0 && !isDead)
         {
-            stat.StatUpdate();
+            playerDied.Invoke();
+            isDead = true;
+        }
+        if (!isDead)
+        {
+            foreach (Stat stat in statList)
+            {
+                stat.StatUpdate();
+            }
         }
     }
 }

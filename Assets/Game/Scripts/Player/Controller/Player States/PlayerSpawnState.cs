@@ -5,24 +5,11 @@ using UnityEngine.Events;
 
 public class PlayerSpawnState : PlayerBaseState
 {
-    public float spawnCountDown = 5;
-    public UnityEvent playerSpawn;
+    public UnityEvent playerSpawning;
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        spawnCountDown = 5;
-        fsm.actions.Spawn(fsm.spawnPoint);
-        playerSpawn.Invoke();
-    }
-
-    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        if (spawnCountDown > 0)
-        {
-            spawnCountDown -= Time.deltaTime;
-        }
-        else
-        {
-            fsm.ChangeState(fsm.IdleStateName);
-        }
+        fsm.actions.Spawn();
+        playerSpawning.Invoke();
+        fsm.inputReader.DisableAllInput();
     }
 }

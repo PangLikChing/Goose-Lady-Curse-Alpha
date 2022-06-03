@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44300562, g: 0.49219626, b: 0.5719249, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &658547596
 RectTransform:
   m_ObjectHideFlags: 0
@@ -215,7 +215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &832310736
 RectTransform:
   m_ObjectHideFlags: 0
@@ -538,7 +538,8 @@ MonoBehaviour:
   deathMsg: {fileID: 832310737}
   image: {fileID: 658547597}
   backGround: {fileID: 1120983090}
-  fadeSpeed: 1
+  fadeSpeed: 1.5
+  fadeDeadZone: 0.01
 --- !u!1 &1277466968
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,7 +639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38824944b90ae82479b3c7d6a76dc6c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  channel: {fileID: 11400000, guid: 04e3ee0ebc20c2b4bb77fa3d79110618, type: 2}
+  channel: {fileID: 11400000, guid: a3a638e79794a234b94d730d2d5178da, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
@@ -899,8 +900,40 @@ PrefabInstance:
       value: Player Data
       objectReference: {fileID: 0}
     - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 11400000, guid: 8bdeda9a5c8d1ff4a92c19cd3da7b1fa, type: 2}
+    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
       propertyPath: healthBar
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: playerDied.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: playerDied.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: playerDied.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: 5bfbc923f3492ec4c8e264ee00ce4ac0, type: 2}
+    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: playerDied.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: playerDied.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: playerDied.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VoidEventChannel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: playerDied.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5424102413032636375, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
       propertyPath: m_RootOrder
@@ -953,34 +986,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5424102413032636372, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
   m_PrefabInstance: {fileID: 5424102413916240329}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5424102413916240331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5424102413916240330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b49379c71e7753c4a9d5e0b9ee2d4f3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: {fileID: 11400000, guid: 8bdeda9a5c8d1ff4a92c19cd3da7b1fa, type: 2}
-  playerDied:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 5bfbc923f3492ec4c8e264ee00ce4ac0, type: 2}
-        m_TargetAssemblyTypeName: VoidEventChannel, Assembly-CSharp
-        m_MethodName: Raise
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &5424102413916240332
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -997,18 +1002,6 @@ MonoBehaviour:
   response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5424102413916240331}
-        m_TargetAssemblyTypeName: PlayerHealthMonitor, Assembly-CSharp
-        m_MethodName: ResetState
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 5424102413916240333}
         m_TargetAssemblyTypeName: CharacterStats, Assembly-CSharp
         m_MethodName: InitializeCharacterStats

@@ -16,6 +16,8 @@ public class AvatarActions : MonoBehaviour
     public float rangeMargin = 0.1f;
     [Tooltip("Refence to avatar motion  script")]
     public AvatarLocomotion motion;
+    [Tooltip("Avatar's spawn location")]
+    public Transform spawnPoint;
     [Tooltip("This channel send item pickup event to inventory")]
     public UnityEvent<Item,int> ItemPickupEvent;
     private Animator avatarAnimator;
@@ -93,7 +95,7 @@ public class AvatarActions : MonoBehaviour
         avatarAnimator.SetTrigger("die");
     }
 
-    public void Spawn(Transform spawnPoint)
+    public void Spawn()
     {
         avatarAnimator.SetTrigger("spawn");
         transform.position = spawnPoint.position;

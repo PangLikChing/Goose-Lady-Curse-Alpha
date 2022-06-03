@@ -10,20 +10,11 @@ public class DeathScreen : Menu
     public Image image;
     public Image backGround;
     public float fadeSpeed;
-
+    public float fadeDeadZone = 0.1f;
     private bool isFadingIn;
-    private Color bgColorTransparent = Color.grey;
-    private Color imageColorTransparent = Color.white;
-    private Color deathMsgTransparent = Color.white;
     protected override void Awake()
     {
         base.Awake();
-        bgColorTransparent.a = 0;
-        backGround.color = bgColorTransparent; 
-        imageColorTransparent.a = 0;
-        image.color = imageColorTransparent;
-        deathMsgTransparent.a = 0;
-        deathMsg.color = deathMsgTransparent;
     }
 
     private void Update()
@@ -35,10 +26,6 @@ public class DeathScreen : Menu
         else
         {
             FadeOut();
-        }
-        if (IsTransparent() && !isFadingIn)
-        {
-            this.OnHideMenu();
         }
     }
 
@@ -52,28 +39,29 @@ public class DeathScreen : Menu
         backGround.color = Color.Lerp(backGround.color, Color.grey, fadeSpeed * Time.deltaTime);
         image.color = Color.Lerp(image.color, Color.white, fadeSpeed * Time.deltaTime);
         deathMsg.color = Color.Lerp(deathMsg.color, Color.white, fadeSpeed * Time.deltaTime);
+        if ((1-backGround.color.a) < fadeDeadZone && (1-image.color.a )< fadeDeadZone && (1-deathMsg.color.a )< fadeDeadZone)
+        {
+            backGround.color = Color.grey;
+            image.color = Color.white;
+            deathMsg.color = Color.white;
+        }
     }
 
     private void FadeOut()
     {
-        backGround.color = Color.Lerp(backGround.color, bgColorTransparent, fadeSpeed * Time.deltaTime);
-        image.color = Color.Lerp(image.color, imageColorTransparent, fadeSpeed * Time.deltaTime);
-        deathMsg.color = Color.Lerp(deathMsg.color, deathMsgTransparent, fadeSpeed * Time.deltaTime);
-    }
-
-    private bool IsTransparent()
-    {
-        if (backGround.color == bgColorTransparent && image.color == imageColorTransparent && deathMsg.color == deathMsgTransparent)
+        backGround.color = Color.Lerp(backGround.color, Color.clear, fadeSpeed * Time.deltaTime);
+        image.color = Color.Lerp(image.color, Color.clear, fadeSpeed * Time.deltaTime);
+        deathMsg.color = Color.Lerp(deathMsg.color, Color.clear, fadeSpeed * Time.deltaTime);
+        if (backGround.color.a < fadeDeadZone && image.color.a < fadeDeadZone && deathMsg.color.a < fadeDeadZone)
         {
-            return true;
+            this.OnHideMenu();
         }
-        return false;
     }
 
     private void OnDisable()
     {
-        backGround.color = bgColorTransparent;
-        image.color = imageColorTransparent;
-        deathMsg.color = deathMsgTransparent;
+        backGround.color = Color.clear;
+        image.color = Color.clear;
+        deathMsg.color = Color.clear;
     }
 }

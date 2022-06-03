@@ -16,8 +16,7 @@ public class PlayerFSM: FSM
     public InputReader inputReader;
     [Tooltip("Reference to the avatar player will be controlling")]
     public GameObject avatar;
-
-    public Transform spawnPoint;
+    
     public readonly int MovementStateName = Animator.StringToHash("Movement");
     public readonly int IdleStateName = Animator.StringToHash("Idle");
     public readonly int PickupStateName = Animator.StringToHash("Pickup");
@@ -42,7 +41,7 @@ public class PlayerFSM: FSM
 
     private void OnEnable()
     {
-        inputReader.EnableGameplayInput();
+        //inputReader.EnableGameplayInput();
         playerCameraController = GetComponent<CinemachineStateDrivenCamera>();
         motion = avatar.GetComponent<AvatarLocomotion>();
         actions = avatar.GetComponent<AvatarActions>();
@@ -56,6 +55,11 @@ public class PlayerFSM: FSM
         inputReader.MovementEvent -= MovementState;
         inputReader.PickupEvent -= PickupState;
         inputReader.AttackEvent -= AttackState;
+    }
+
+    public void IdleState()
+    {
+        SetState(IdleStateName);
     }
 
     public void MovementState(Vector3 point)

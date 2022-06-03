@@ -189,11 +189,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c83cac51a93f184b9443bb10328770a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCountDown: 1.35
-  playerSpawn:
+  playerSpawning:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 04e3ee0ebc20c2b4bb77fa3d79110618, type: 2}
+      - m_Target: {fileID: 11400000, guid: a3a638e79794a234b94d730d2d5178da, type: 2}
         m_TargetAssemblyTypeName: VoidEventChannel, Assembly-CSharp
         m_MethodName: Raise
         m_Mode: 1

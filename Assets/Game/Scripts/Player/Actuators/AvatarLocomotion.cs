@@ -36,10 +36,10 @@ public class AvatarLocomotion : MonoBehaviour
     public void ResetState()
     {
         target = null;
-        destinationPoint = transform.position;
-        agent.ResetPath();
+        destinationPoint = transform.position;     
         facingTarget = false;
-        agent.isStopped = false;
+        
+        //agent.ResetPath();
     }
 
     public void Halt()
@@ -70,6 +70,7 @@ public class AvatarLocomotion : MonoBehaviour
 
         if (agent.remainingDistance == 0 && agent.pathStatus == NavMeshPathStatus.PathComplete)
         {
+            agent.isStopped = true;
             PathCompleted.Invoke();
         }
 
@@ -110,6 +111,7 @@ public class AvatarLocomotion : MonoBehaviour
     /// <param name="point">The point being clicked</param>
     public virtual void MoveToPoint()
     {
+        agent.isStopped = false;
         facingTarget = false;
         agent.SetDestination(destinationPoint);
     }
@@ -130,6 +132,7 @@ public class AvatarLocomotion : MonoBehaviour
     {
         Vector3 directionVector = (transform.position - target.position).normalized;
         Vector3 destination = directionVector * (offsetDistance + target.GetComponent<Interactable>().radius + agent.radius) + target.position; //Interactable is a place holder class
+        agent.isStopped = false;
         facingTarget = false;
         agent.SetDestination(destination);
     }
@@ -161,6 +164,8 @@ public class AvatarLocomotion : MonoBehaviour
             Gizmos.DrawLine(transform.position, agent.desiredVelocity + transform.position);
             Gizmos.color = Color.red;
             Gizmos.DrawLine(transform.position, targetDirection + transform.position);
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(destinationPoint,1);
         }
     }
 }

@@ -9,6 +9,7 @@ public class PlayerDeathState : PlayerBaseState
     {
         deathCountDown = 5;
         fsm.actions.Die();
+        fsm.inputReader.DisableAllInput();
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
