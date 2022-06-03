@@ -17,6 +17,8 @@ public class Inventory : MonoBehaviour
     // Assign the responsible InventoryGrouper to this event and call RefreshInventorySlots()
     public UnityEvent RefreshInventorySlots;
 
+    public UnityEvent CheckCraftable;
+
     // This should happen on start and on bag update, probaly should use an event for this
     void Awake()
     {
@@ -55,6 +57,31 @@ public class Inventory : MonoBehaviour
             // Throw a debug message
             Debug.Log($"Added a itemslot array with the size of {itemList[i].Length}");
         }
+    }
+
+    // Method to search item in the player inventory
+    public int SearchItem(Item item)
+    {
+        // Initialize a temp int
+        int count = 0;
+
+        // For every bag
+        for (int i = 0; i < itemList.Count; i++)
+        {
+            // For every slot
+            for (int j = 0; j < itemList[i].Length; j++)
+            {
+                // If the slotted item in that slot is the same with the targeted item
+                if (itemList[i][j].slottedItem == item)
+                {
+                    // Add the stack number to the temp int
+                    count += itemList[i][j].stackNumber;
+                }
+            }
+        }
+
+        // Return the temp int
+        return count;
     }
 
 
@@ -146,6 +173,9 @@ public class Inventory : MonoBehaviour
 
         // Refresh Inventory slots
         RefreshInventorySlots.Invoke();
+
+        // Check if the item is craftable
+        CheckCraftable.Invoke();
     }
 
     public void ConsumeItem(Item item, int stackNumber)

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CraftingManager : Singleton<CraftingManager>
@@ -20,8 +21,7 @@ public class CraftingManager : Singleton<CraftingManager>
 
     [SerializeField] CraftButton craftButton;
 
-    //temp
-    void FixedUpdate()
+    public void CheckReagents()
     {
         // If there is a recipe
         if (craftingRecipe != null)
@@ -30,7 +30,6 @@ public class CraftingManager : Singleton<CraftingManager>
             CheckCraftable(craftingRecipe);
         }
     }
-    //temp
 
     public void ChangeSelectedItem(CraftingRecipe recipe)
     {
@@ -48,26 +47,26 @@ public class CraftingManager : Singleton<CraftingManager>
         // For every element in the reagent menu content
         for (int i = 0; i < reagentMenuContent.childCount; i++)
         {
-            // Destory that gameObject
-            Destroy(reagentMenuContent.GetChild(i).gameObject);
+            // Disable that gameObject
+            reagentMenuContent.GetChild(i).gameObject.SetActive(false);
         }
 
         // Display the required reagents
         for (int i = 0; i < recipe.reagents.Length; i++)
         {
-            // Instantiate a reagent block gameObject for that reagent
-            Transform reagentBlock = Instantiate(reagentBlockPrefeb, reagentMenuContent);
+            // Enable that gameObject
+            reagentMenuContent.GetChild(i).gameObject.SetActive(true);
 
             // Set the image for that reagent
-            reagentBlock.GetChild(0).GetComponent<Image>().sprite = recipe.reagents[i].item.itemIcon;
+            reagentMenuContent.GetChild(i).GetChild(0).GetComponent<Image>().sprite = recipe.reagents[i].item.itemIcon;
 
             // Set the required amount text to reflect that required amount of the reagent
-            reagentBlock.GetChild(3).GetComponent<TMP_Text>().text = recipe.reagents[i].requiredAmount.ToString();
+            reagentMenuContent.GetChild(i).GetChild(3).GetComponent<TMP_Text>().text = recipe.reagents[i].requiredAmount.ToString();
+
+            // Update the reagents
+            CheckReagents();
         }
     }
-
-
-    //new 
 
     // If the player can pick up items during crafting, change this to fixed update
     public void CheckCraftable(CraftingRecipe recipe)
@@ -89,7 +88,7 @@ public class CraftingManager : Singleton<CraftingManager>
         for (int i = 0; i < recipe.reagents.Length; i++)
         {
             // Check the amount of that reagent in the inventory
-            reagentMenuContent.GetChild(i).GetChild(1).GetComponent<TMP_Text>().text = SearchItem(recipe.reagents[i].item).ToString();
+            reagentMenuContent.GetChild(i).GetChild(1).GetComponent<TMP_Text>().text = playerInventory.SearchItem(recipe.reagents[i].item).ToString();
         }
 
         // If there is no item seclected or the input stack number is less than or equals to 0, or not all reagents are presented
@@ -114,40 +113,25 @@ public class CraftingManager : Singleton<CraftingManager>
             // Cache the current reagent block
             Transform currentReagentBlock = reagentMenuContent.GetChild(i).transform;
 
-            // If the acquried reagent is less than the required amount of reagent
-            if (int.Parse(currentReagentBlock.GetChild(1).GetComponent<TMP_Text>().text) < int.Parse(currentReagentBlock.GetChild(3).GetComponent<TMP_Text>().text) * stackNumber)
+            // If the reagent block is active aka a reagent is on the recipe
+            if (currentReagentBlock.gameObject.activeSelf == true)
             {
-                // Return false
-                return false;
+                // If the acquried reagent is less than the required amount of reagent
+                if (int.Parse(currentReagentBlock.GetChild(1).GetComponent<TMP_Text>().text) < int.Parse(currentReagentBlock.GetChild(3).GetComponent<TMP_Text>().text) * stackNumber)
+                {
+                    // Return false
+                    return false;
+                }
+            }
+            // Else if the reagent block is not responsible for the reagent on the recipe
+            else
+            {
+                // Stop the check
+                break;
             }
         }
 
         // Return true
         return true;
-    }
-
-    // Method to search item in the player inventory
-    int SearchItem(Item item)
-    {
-        // Initialize a temp int
-        int count = 0;
-
-        // For every bag
-        for (int i = 0; i < playerInventory.itemList.Count; i++)
-        {
-            // For every slot
-            for (int j = 0; j < playerInventory.itemList[i].Length; j++)
-            {
-                // If the slotted item in that slot is the same with the targeted item
-                if (playerInventory.itemList[i][j].slottedItem == item)
-                {
-                    // Add the stack number to the temp int
-                    count += playerInventory.itemList[i][j].stackNumber;
-                }
-            }
-        }
-
-        // Return the temp int
-        return count;
     }
 }

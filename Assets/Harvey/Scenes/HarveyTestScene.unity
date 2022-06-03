@@ -434,6 +434,7 @@ MonoBehaviour:
   myInventory: {fileID: 1544008954}
   bagTransform: {fileID: 660163039423052184, guid: 666d46024f767bf49afe6be4b44f2b94, type: 3}
   inventorySlotTransform: {fileID: 5137926028077824670, guid: 106e1b716da6f2f4d9a424b0ea162b81, type: 3}
+  canvas: {fileID: 0}
 --- !u!1 &790760814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,6 +1058,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  CheckCraftable:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2063255924
 GameObject:
   m_ObjectHideFlags: 0

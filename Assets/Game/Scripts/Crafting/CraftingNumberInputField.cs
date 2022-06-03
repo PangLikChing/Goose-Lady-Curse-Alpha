@@ -21,6 +21,9 @@ public class CraftingNumberInputField : MonoBehaviour
         {
             // Incrase stack number by 1
             inputField.text = (int.Parse(inputField.text) + 1).ToString();
+
+            // Update craftable
+            CraftingManager.Instance.CheckReagents();
         }
     }
 
@@ -31,6 +34,9 @@ public class CraftingNumberInputField : MonoBehaviour
         {
             // Derease stack number by 1
             inputField.text = (int.Parse(inputField.text) - 1).ToString();
+
+            // Update craftable
+            CraftingManager.Instance.CheckReagents();
         }
     }
 
@@ -38,5 +44,8 @@ public class CraftingNumberInputField : MonoBehaviour
     {
         // Reset stack number to 1
         inputField.text = "1";
+
+        // Update craftable
+        CraftingManager.Instance.CheckReagents();
     }
 }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AppleChangeRateModifier
   m_EditorClassIdentifier: 
   magnitude: 10
-  duration: 5
+  duration: 2
   isPersistent: 0
   targetStat: {fileID: 11400000, guid: 8bdeda9a5c8d1ff4a92c19cd3da7b1fa, type: 2}
