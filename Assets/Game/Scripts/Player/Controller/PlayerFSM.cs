@@ -57,9 +57,11 @@ public class PlayerFSM: FSM
         inputReader.AttackEvent -= AttackState;
     }
 
-    public void IdleState()
+    public void ResetState()
     {
         SetState(IdleStateName);
+        motion.ResetState();
+        actions.ResetState();
     }
 
     public void MovementState(Vector3 point)
@@ -91,7 +93,5 @@ public class PlayerFSM: FSM
     {
         isDead = false;
         SetState(SpawnStateName);
-        motion.ResetState();
-        actions.ResetState();
     }
 }

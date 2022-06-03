@@ -1078,7 +1078,7 @@ NavMeshAgent:
   m_Speed: 2.2
   m_Acceleration: 15
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 0
   m_StoppingDistance: 0.2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -1100,7 +1100,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   angularDampeningTime: 5
-  angularDeadZone: 10
+  angularDeadZone: 0.1
+  target: {fileID: 0}
+  destinationPoint: {x: 0, y: 0, z: 0}
   agentSpeed: 0
 --- !u!114 &8184302584847728780
 MonoBehaviour:
@@ -1114,10 +1116,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63efa3fc7b837b44ba4ce4ff97a07897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpRange: 1.5
-  attackRange: 1.5
-  rangeMargin: 0.1
-  target: {fileID: 0}
+  pickUpRange: 0.5
+  attackRange: 0.5
+  rangeMargin: 0.5
+  motion: {fileID: 4440252352026558274}
+  spawnPoint: {fileID: 0}
+  ItemPickupEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: b593013012e00224a896307a0fd8adfe, type: 2}
+        m_TargetAssemblyTypeName: ItemIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3646773725851302027
 GameObject:
   m_ObjectHideFlags: 0

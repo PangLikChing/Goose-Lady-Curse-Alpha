@@ -5135,34 +5135,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 940526359}
     m_Modifications:
-    - target: {fileID: 5362840236632304107, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5362840237342282112, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
-      propertyPath: gameWorldScene.sceneName
-      value: IntegrationTestScene
-      objectReference: {fileID: 0}
-    - target: {fileID: 5362840237342282112, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
-      propertyPath: gameWorldScene.scenePath
-      value: Assets/Game/Scenes/IntegrationTestScene.unity
-      objectReference: {fileID: 0}
-    - target: {fileID: 5362840237342282112, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
-      propertyPath: gameWorldScene.sceneAsset
-      value: 
-      objectReference: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
-    - target: {fileID: 5362840237342282112, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
-      propertyPath: gameplayGlobalScene.sceneName
-      value: Gameplay Global
-      objectReference: {fileID: 0}
-    - target: {fileID: 5362840237342282112, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
-      propertyPath: gameplayGlobalScene.scenePath
-      value: Assets/Game/Scenes/Core/Gameplay Global.unity
-      objectReference: {fileID: 0}
-    - target: {fileID: 5362840237342282112, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
-      propertyPath: gameplayGlobalScene.sceneAsset
-      value: 
-      objectReference: {fileID: 102900000, guid: faca8793dd284384f9b086d70b0d73d3, type: 3}
     - target: {fileID: 5362840237342282140, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
       propertyPath: m_Name
       value: Main Menu

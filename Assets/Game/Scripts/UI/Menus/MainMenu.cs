@@ -34,8 +34,6 @@ public class MainMenu : Menu
         SceneLoader.Instance.OnSceneLoadedEvent += OnGameSceneLoaded;
         SceneLoader.Instance.LoadScenes(sceneToBeLoaded);
         this.OnHideMenu();
-        MenuManager.Instance.GetMenu<PauseMenu>(pauseMenu).currentGameScene = gameWorldScene.SceneName;
-        
     }
 
     /// <summary>

@@ -9,10 +9,20 @@ public class SceneLoader : Singleton<SceneLoader>
 {
     public Action<List<string>> OnSceneLoadedEvent = delegate { };
     public Action OnSceneUnloadedEvent = delegate { };
-
+    public string currentActiveScene;
     public float delayTime = 1.0f;
     private List<string> loadedScenes = new List<string>();
     private Stack<string> sceneStack = new Stack<string>();
+
+    private void OnEnable()
+    {
+        sceneStack.Push(SceneManager.GetActiveScene().path);
+    }
+
+    private void OnDisable()
+    {
+        sceneStack.Pop();
+    }
 
     // When loading just add a flag for persistence. If true don't add to the loadedScenes
     // Only remove the scenes when you unload
@@ -50,7 +60,7 @@ public class SceneLoader : Singleton<SceneLoader>
             OnSceneLoadedEvent(loadedScenes);
 
         }
-        SceneManager.SetActiveScene(SceneManager.GetSceneByPath(sceneStack.Peek()));
+        SetCurrentSceneActive();
     }
 
     IEnumerator loadScene(string scene, bool showLoadingScreen, bool raiseEvent)
@@ -89,7 +99,7 @@ public class SceneLoader : Singleton<SceneLoader>
             OnSceneLoadedEvent(loadedScenes);
 
         }
-        SceneManager.SetActiveScene(SceneManager.GetSceneByPath(sceneStack.Peek()));
+        SetCurrentSceneActive();
     }
 
     // 4 Methods:
@@ -126,7 +136,7 @@ public class SceneLoader : Singleton<SceneLoader>
         {
             OnSceneUnloadedEvent();
         }
-        SceneManager.SetActiveScene(SceneManager.GetSceneByPath(sceneStack.Peek()));
+        SetCurrentSceneActive();
     }
 
     IEnumerator unloadScene(string scene, bool showLoadingScreen, bool raiseEvent)
@@ -168,10 +178,17 @@ public class SceneLoader : Singleton<SceneLoader>
 
         if (raiseEvent && OnSceneUnloadedEvent != null)
         {
-            OnSceneUnloadedEvent(); 
+            OnSceneUnloadedEvent();
+
         }
-        SceneManager.SetActiveScene(SceneManager.GetSceneByPath(sceneStack.Peek()));
+        SetCurrentSceneActive();
     }
 
-
+    private void SetCurrentSceneActive()
+    {
+        Scene topScene = SceneManager.GetSceneByPath(sceneStack.Peek());
+        if (topScene.IsValid())
+            SceneManager.SetActiveScene(topScene);
+        currentActiveScene = sceneStack.Peek();
+    }
 }

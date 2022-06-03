@@ -231,8 +231,10 @@ MonoBehaviour:
       m_Calls: []
   mainMenu: {fileID: 11400000, guid: 728095241e48a6d40946202348ea6a98, type: 2}
   hudMenu: {fileID: 11400000, guid: 35ed26da0c9952242979243f4438e022, type: 2}
-  currentGameScene: 
-  gameplayGlobalScene: Gameplay Global
+  gameplayGlobalScene:
+    sceneAsset: {fileID: 102900000, guid: faca8793dd284384f9b086d70b0d73d3, type: 3}
+    scenePath: Assets/Game/Scenes/Core/Gameplay Global.unity
+    sceneName: Gameplay Global
   inputReader: {fileID: 11400000, guid: 4fd610bd80c60024e89dee3ebc384516, type: 2}
 --- !u!1 &7076722856994257427
 GameObject:

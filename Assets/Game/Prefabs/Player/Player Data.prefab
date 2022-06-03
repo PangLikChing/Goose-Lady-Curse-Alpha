@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5424102413032636375}
   - component: {fileID: 5424102413032636374}
+  - component: {fileID: 5424102413916240332}
   m_Layer: 0
   m_Name: Player Data
   m_TagString: Untagged
@@ -52,3 +53,47 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 96795e426ecabda4989890b006020388, type: 2}
   - {fileID: 11400000, guid: 7fa6aed232293ae489ebcdc996f22ec9, type: 2}
   - {fileID: 11400000, guid: 3cba3d12b0814474c90a2a5923ccfe2b, type: 2}
+  health: {fileID: 11400000, guid: 8bdeda9a5c8d1ff4a92c19cd3da7b1fa, type: 2}
+  playerDied:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 5bfbc923f3492ec4c8e264ee00ce4ac0, type: 2}
+        m_TargetAssemblyTypeName: VoidEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5424102413916240332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5424102413032636372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38824944b90ae82479b3c7d6a76dc6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 04e3ee0ebc20c2b4bb77fa3d79110618, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5424102413032636374}
+        m_TargetAssemblyTypeName: CharacterStats, Assembly-CSharp
+        m_MethodName: InitializeCharacterStats
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
