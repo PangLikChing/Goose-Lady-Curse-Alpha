@@ -59,6 +59,31 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    // Method to search item in the player inventory
+    public int SearchItem(Item item)
+    {
+        // Initialize a temp int
+        int count = 0;
+
+        // For every bag
+        for (int i = 0; i < itemList.Count; i++)
+        {
+            // For every slot
+            for (int j = 0; j < itemList[i].Length; j++)
+            {
+                // If the slotted item in that slot is the same with the targeted item
+                if (itemList[i][j].slottedItem == item)
+                {
+                    // Add the stack number to the temp int
+                    count += itemList[i][j].stackNumber;
+                }
+            }
+        }
+
+        // Return the temp int
+        return count;
+    }
+
 
     public void AddItem(Item item, int stackNumber)
     {
