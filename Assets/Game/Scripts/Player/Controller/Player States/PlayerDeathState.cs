@@ -22,6 +22,4 @@ public class PlayerDeathState : PlayerBaseState
             fsm.ChangeState(fsm.SpawnStateName);
         }
     }
-
-
 }

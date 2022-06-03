@@ -30,6 +30,11 @@ public class AvatarActions : MonoBehaviour
 
     }
 
+    public void ResetState()
+    {
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {

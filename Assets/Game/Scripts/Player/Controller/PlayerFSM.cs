@@ -32,8 +32,6 @@ public class PlayerFSM: FSM
     [HideInInspector]
     public AvatarActions actions;
     [HideInInspector]
-    public Vector3 destinationPoint;
-    [HideInInspector]
     public bool isDead;
 
 
@@ -62,7 +60,7 @@ public class PlayerFSM: FSM
 
     public void MovementState(Vector3 point)
     {
-        destinationPoint = point;
+        motion.destinationPoint = point;
         SetState(MovementStateName);
     }
 
@@ -81,6 +79,7 @@ public class PlayerFSM: FSM
     public void DeathState()
     {
         isDead = true;
+        motion.Halt();
         SetState(DeathStateName);
     }
 
@@ -88,5 +87,7 @@ public class PlayerFSM: FSM
     {
         isDead = false;
         SetState(SpawnStateName);
+        motion.ResetState();
+        actions.ResetState();
     }
 }

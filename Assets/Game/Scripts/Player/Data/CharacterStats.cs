@@ -5,7 +5,6 @@ public class CharacterStats : MonoBehaviour
 {
     public List<Stat> statList;
 
-
     private void Start()
     {
         InitializeCharacterStats();

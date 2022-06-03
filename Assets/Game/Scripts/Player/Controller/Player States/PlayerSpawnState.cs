@@ -11,6 +11,7 @@ public class PlayerSpawnState : PlayerBaseState
     {
         spawnCountDown = 5;
         fsm.actions.Spawn(fsm.spawnPoint);
+        playerSpawn.Invoke();
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

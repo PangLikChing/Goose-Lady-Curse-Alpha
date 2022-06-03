@@ -189,7 +189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c83cac51a93f184b9443bb10328770a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnCountDown: 5
+  spawnCountDown: 1.35
   playerSpawn:
     m_PersistentCalls:
       m_Calls:

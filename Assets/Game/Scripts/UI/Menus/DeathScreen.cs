@@ -36,9 +36,9 @@ public class DeathScreen : Menu
         {
             FadeOut();
         }
-        if (IsTransparent())
+        if (IsTransparent() && !isFadingIn)
         {
-            gameObject.SetActive(false);
+            this.OnHideMenu();
         }
     }
 
