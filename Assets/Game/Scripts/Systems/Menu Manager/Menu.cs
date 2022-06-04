@@ -99,6 +99,7 @@ public abstract class Menu : MonoBehaviour
 
     protected virtual void OnDestroy()
     {
-        MenuManager.Instance.RemoveMenu(this);
+        if(MenuManager.IsValidSingleton())
+            MenuManager.Instance.RemoveMenu(this);
     }
 }

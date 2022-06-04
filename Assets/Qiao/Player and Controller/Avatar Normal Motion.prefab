@@ -1008,6 +1008,7 @@ GameObject:
   - component: {fileID: 4440252352026558275}
   - component: {fileID: 4440252352026558274}
   - component: {fileID: 8184302584847728780}
+  - component: {fileID: 4962337652546002406}
   m_Layer: 0
   m_Name: Avatar Normal Motion
   m_TagString: Player
@@ -1127,6 +1128,34 @@ MonoBehaviour:
       - m_Target: {fileID: 11400000, guid: b593013012e00224a896307a0fd8adfe, type: 2}
         m_TargetAssemblyTypeName: ItemIntEventChannel, Assembly-CSharp
         m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4962337652546002406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3557729547639708624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7bd2812d0ae4c04099619019bfa637d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 6c25a850810d33d4b8fb720c9290b127, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8184302584847728780}
+        m_TargetAssemblyTypeName: AvatarActions, Assembly-CSharp
+        m_MethodName: DropOff
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

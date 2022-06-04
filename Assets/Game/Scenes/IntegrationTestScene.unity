@@ -1188,10 +1188,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4962337652546002406, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962337652546002406, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DropOff
+      objectReference: {fileID: 0}
     - target: {fileID: 8184302584847728780, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 898290212}
+    - target: {fileID: 8184302584847728780, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
+      propertyPath: dropOffRange
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
 --- !u!4 &1376075526 stripped

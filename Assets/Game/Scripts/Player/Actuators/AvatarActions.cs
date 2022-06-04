@@ -10,6 +10,10 @@ public class AvatarActions : MonoBehaviour
 {
     [Tooltip("Avatar can pickup item under this range")]
     public float pickUpRange = 1.5f;
+    [Tooltip("Avatar will drop item at this distance in front of him")]
+    public float dropOffRange = 2f;
+    [Tooltip("Avatar will drop item at this height in front of him")]
+    public float dropOffHeight = 1f;
     [Tooltip("Avatar can attack enemy under this range")]
     public float attackRange = 1.5f;
     [Tooltip("A margin to off the inaccuracy of avatar movement")]
@@ -56,7 +60,7 @@ public class AvatarActions : MonoBehaviour
     {
         if (item.TryGetComponent<ItemWrapper>(out ItemWrapper itemWrapper))
         {
-            ItemPickupEvent.Invoke(itemWrapper.item,1); //TODO: replace 1 with stack number from the item
+            ItemPickupEvent.Invoke(itemWrapper.item,itemWrapper.stackNumber); 
             Destroy(item.gameObject,0.1f);
         }
     }
@@ -66,8 +70,11 @@ public class AvatarActions : MonoBehaviour
         //target = null;
     }
 
-    public void DropOff()
-    { 
+    public void DropOff(Item item, int stack)
+    {
+        Transform itemPrefab = item.item3DModelPrefeb;
+        GameObject spawnedItem = Instantiate(itemPrefab.gameObject,transform.position+transform.forward*dropOffRange+transform.up* dropOffHeight, transform.rotation);
+        spawnedItem.GetComponent<ItemWrapper>().stackNumber = stack;
     }
 
     /// <summary>
@@ -99,10 +106,6 @@ public class AvatarActions : MonoBehaviour
     {
         avatarAnimator.SetTrigger("spawn");
         transform.position = spawnPoint.position;
-    }
-
-    public void OpenCharacterPanel()
-    {
     }
 
     public bool IsInPickupRange()
