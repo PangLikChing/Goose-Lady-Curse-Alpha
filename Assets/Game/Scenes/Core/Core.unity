@@ -506,6 +506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1adb1210f568045bbdcb7f9ac84e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentActiveScene: 
   delayTime: 1
 --- !u!1 &927156866
 GameObject:
