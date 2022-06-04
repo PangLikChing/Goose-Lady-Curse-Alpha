@@ -227,7 +227,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!224 &1120983089 stripped
 RectTransform:
@@ -468,11 +468,17 @@ PrefabInstance:
     - {fileID: 2324949205029129453, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
     - {fileID: 3996965298150718198, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
---- !u!1 &682956384810003985 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7921819322792046115, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
+--- !u!114 &682956384810003985 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3068057658115374274, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
   m_PrefabInstance: {fileID: 682956384810003984}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d9d1e1266366314d8b2bb4605ed7f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &682956384810003986 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8285005674380935180, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
@@ -639,13 +645,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7794209087839551640, guid: 7086bf9d162418e4783c1e966b828e0f, type: 3}
-      propertyPath: characterMenu
-      value: 
-      objectReference: {fileID: 682956384810003985}
     - target: {fileID: 7794209087839551641, guid: 7086bf9d162418e4783c1e966b828e0f, type: 3}
       propertyPath: m_Name
-      value: Gameplay UI Hot Key Handlers
+      value: Gameplay UI Controller
       objectReference: {fileID: 0}
     - target: {fileID: 7794209087839551642, guid: 7086bf9d162418e4783c1e966b828e0f, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -703,5 +705,9 @@ PrefabInstance:
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1120983093}
+    - target: {fileID: 7794209089116494275, guid: 7086bf9d162418e4783c1e966b828e0f, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 682956384810003985}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7086bf9d162418e4783c1e966b828e0f, type: 3}
