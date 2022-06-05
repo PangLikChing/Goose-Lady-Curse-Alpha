@@ -65,4 +65,9 @@ public class Item : ScriptableObject
         // Throw a debug message
         Debug.Log("Item Use, do nothing");
     }
+
+    public string GetitemDisplayName()
+    {
+        return itemDisplayName;
+    }
 }

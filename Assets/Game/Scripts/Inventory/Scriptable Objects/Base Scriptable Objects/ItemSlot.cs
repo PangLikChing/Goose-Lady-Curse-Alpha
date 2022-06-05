@@ -13,4 +13,9 @@ public class ItemSlot
 
     // stackNumber is the number of items that is currently in the stack
     public int stackNumber = 0;
+
+    public Item GetItem()
+    {
+        return slottedItem;
+    }
 }
