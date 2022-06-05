@@ -1,0 +1,23 @@
+    for puzzle to work, add the "Puzzle" prefab, the "MysteriousNote" prefab, the "SpawnerKey" prefab,
+    the "NoteMessageFlowChart" prefab, the "UnlockGatePointSpawner" prefab, and add the following code to each script
+
+    in the Item class add the following
+
+    public string GetitemDisplayName()
+    {
+        return itemDisplayName;
+    }
+
+    In the ItemSlot class add the following
+
+    public Item GetItem()
+    {
+        return slottedItem;
+    }
+
+    In the Inventory script add the following
+
+    public List<ItemSlot[]> GetInventory()
+    {
+        return itemList;
+    }
