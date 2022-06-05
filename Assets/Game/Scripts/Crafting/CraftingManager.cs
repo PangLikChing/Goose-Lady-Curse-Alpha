@@ -21,18 +21,6 @@ public class CraftingManager : Singleton<CraftingManager>
 
     [SerializeField] CraftButton craftButton;
 
-    //temp
-    //void FixedUpdate()
-    //{
-    //    // If there is a recipe
-    //    if (craftingRecipe != null)
-    //    {
-    //        // Check if I can craft it
-    //        CheckCraftable(craftingRecipe);
-    //    }
-    //}
-    //temp
-
     public void CheckReagents()
     {
         // If there is a recipe
@@ -80,9 +68,6 @@ public class CraftingManager : Singleton<CraftingManager>
         }
     }
 
-
-    //new 
-
     // If the player can pick up items during crafting, change this to fixed update
     public void CheckCraftable(CraftingRecipe recipe)
     {
@@ -103,7 +88,7 @@ public class CraftingManager : Singleton<CraftingManager>
         for (int i = 0; i < recipe.reagents.Length; i++)
         {
             // Check the amount of that reagent in the inventory
-            reagentMenuContent.GetChild(i).GetChild(1).GetComponent<TMP_Text>().text = SearchItem(recipe.reagents[i].item).ToString();
+            reagentMenuContent.GetChild(i).GetChild(1).GetComponent<TMP_Text>().text = playerInventory.SearchItem(recipe.reagents[i].item).ToString();
         }
 
         // If there is no item seclected or the input stack number is less than or equals to 0, or not all reagents are presented
@@ -148,30 +133,5 @@ public class CraftingManager : Singleton<CraftingManager>
 
         // Return true
         return true;
-    }
-
-    // Method to search item in the player inventory
-    int SearchItem(Item item)
-    {
-        // Initialize a temp int
-        int count = 0;
-
-        // For every bag
-        for (int i = 0; i < playerInventory.itemList.Count; i++)
-        {
-            // For every slot
-            for (int j = 0; j < playerInventory.itemList[i].Length; j++)
-            {
-                // If the slotted item in that slot is the same with the targeted item
-                if (playerInventory.itemList[i][j].slottedItem == item)
-                {
-                    // Add the stack number to the temp int
-                    count += playerInventory.itemList[i][j].stackNumber;
-                }
-            }
-        }
-
-        // Return the temp int
-        return count;
     }
 }

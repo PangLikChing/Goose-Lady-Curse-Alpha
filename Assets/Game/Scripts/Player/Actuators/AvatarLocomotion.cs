@@ -15,8 +15,11 @@ public class AvatarLocomotion : MonoBehaviour
     public float angularDampeningTime = 5.0f;
     [Tooltip("Angle Interpolation Threshold")]
     public float angularDeadZone = 10.0f;
-    [ReadOnly,Tooltip("Avatar's current target")]
+    [ReadOnly, Tooltip("Avatar's current target")]
     public Transform target;
+    [ReadOnly, Tooltip("Avatar's current destination point")]
+    public Vector3 destinationPoint;
+
     public event UnityAction PathCompleted = delegate { };
 #if UNITY_EDITOR
     [ReadOnly, Tooltip("Avatar's current speed")]
@@ -28,6 +31,21 @@ public class AvatarLocomotion : MonoBehaviour
     protected bool hasAnimator;
     protected bool facingTarget;
     protected Vector3 targetDirection;
+
+
+    public void ResetState()
+    {
+        target = null;
+        destinationPoint = transform.position;     
+        facingTarget = false;
+        
+        //agent.ResetPath();
+    }
+
+    public void Halt()
+    {
+        agent.isStopped = true;
+    }
 
     /// <summary>
     /// initalize references
@@ -52,6 +70,7 @@ public class AvatarLocomotion : MonoBehaviour
 
         if (agent.remainingDistance == 0 && agent.pathStatus == NavMeshPathStatus.PathComplete)
         {
+            agent.isStopped = true;
             PathCompleted.Invoke();
         }
 
@@ -90,11 +109,13 @@ public class AvatarLocomotion : MonoBehaviour
     /// This method is called when the player clicks the ground
     /// </summary>
     /// <param name="point">The point being clicked</param>
-    public virtual void MoveToPoint(Vector3 point)
+    public virtual void MoveToPoint()
     {
+        agent.isStopped = false;
         facingTarget = false;
-        agent.SetDestination(point);
+        agent.SetDestination(destinationPoint);
     }
+
     /// <summary>
     /// Order avatar to track its target instead of facing the direction give by the navmesh agent
     /// </summary>
@@ -102,6 +123,7 @@ public class AvatarLocomotion : MonoBehaviour
     {
         facingTarget = true;
     }
+
     /// <summary>
     /// Order the avatar to approach its target(enemy/item), and arrive at an offset location. 
     /// </summary>
@@ -110,6 +132,7 @@ public class AvatarLocomotion : MonoBehaviour
     {
         Vector3 directionVector = (transform.position - target.position).normalized;
         Vector3 destination = directionVector * (offsetDistance + target.GetComponent<Interactable>().radius + agent.radius) + target.position; //Interactable is a place holder class
+        agent.isStopped = false;
         facingTarget = false;
         agent.SetDestination(destination);
     }
@@ -141,6 +164,8 @@ public class AvatarLocomotion : MonoBehaviour
             Gizmos.DrawLine(transform.position, agent.desiredVelocity + transform.position);
             Gizmos.color = Color.red;
             Gizmos.DrawLine(transform.position, targetDirection + transform.position);
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(destinationPoint,1);
         }
     }
 }

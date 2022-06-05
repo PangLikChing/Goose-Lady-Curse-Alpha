@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 /// <summary>
 /// This script is responsible for handling the drag and drop of an item in the inventory
@@ -12,9 +14,14 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 {
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
-    [SerializeField] private Canvas canvas;
+
+    [SerializeField] Canvas canvas;
+
+    [SerializeField] int itemDropDistance = 5;
     
     [HideInInspector] public InventorySlot originalInventorySlot;
+
+    public UnityEvent<Item, int> DropItem;
 
     void Start()
     {
@@ -68,6 +75,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
                 {
                     // Reset item's parent
                     transform.SetParent(originalInventorySlot.transform);
+
+
+
+                    // Drop Item on Ground
+                    DropItemOnGround();
                 }
 
                 // Reset item's position
@@ -81,5 +93,22 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     public void OnPointerDown(PointerEventData eventData)
     {
+    }
+
+    void DropItemOnGround()
+    {
+        //// Assign the item and stack number to the item on the ground
+        //item.GetComponent<ItemWrapper>().item = originalInventorySlot.slottedItem;
+        //item.GetComponent<ItemWrapper>().stackNumber = originalInventorySlot.stackNumber;
+
+        // Invoke an event for the player to drop off the item
+        DropItem.Invoke(originalInventorySlot.slottedItem, originalInventorySlot.stackNumber);
+
+        // Reset the original inventory slot
+        originalInventorySlot.myInventory.itemList[originalInventorySlot.myBagIndex][originalInventorySlot.mySlotIndex].slottedItem = null;
+        originalInventorySlot.myInventory.itemList[originalInventorySlot.myBagIndex][originalInventorySlot.mySlotIndex].stackNumber = 0;
+
+        // Refresh that inventory slot
+        originalInventorySlot.RefreshInventorySlot();
     }
 }

@@ -10,12 +10,18 @@ public class AvatarActions : MonoBehaviour
 {
     [Tooltip("Avatar can pickup item under this range")]
     public float pickUpRange = 1.5f;
+    [Tooltip("Avatar will drop item at this distance in front of him")]
+    public float dropOffRange = 2f;
+    [Tooltip("Avatar will drop item at this height in front of him")]
+    public float dropOffHeight = 1f;
     [Tooltip("Avatar can attack enemy under this range")]
     public float attackRange = 1.5f;
     [Tooltip("A margin to off the inaccuracy of avatar movement")]
     public float rangeMargin = 0.1f;
     [Tooltip("Refence to avatar motion  script")]
     public AvatarLocomotion motion;
+    [Tooltip("Avatar's spawn location")]
+    public Transform spawnPoint;
     [Tooltip("This channel send item pickup event to inventory")]
     public UnityEvent<Item,int> ItemPickupEvent;
     private Animator avatarAnimator;
@@ -28,6 +34,11 @@ public class AvatarActions : MonoBehaviour
     private void OnDisable()
     {
 
+    }
+
+    public void ResetState()
+    {
+        
     }
 
     // Start is called before the first frame update
@@ -49,7 +60,7 @@ public class AvatarActions : MonoBehaviour
     {
         if (item.TryGetComponent<ItemWrapper>(out ItemWrapper itemWrapper))
         {
-            ItemPickupEvent.Invoke(itemWrapper.item,1);
+            ItemPickupEvent.Invoke(itemWrapper.item,itemWrapper.stackNumber); 
             Destroy(item.gameObject,0.1f);
         }
     }
@@ -57,6 +68,13 @@ public class AvatarActions : MonoBehaviour
     public void CancelPickup()
     {
         //target = null;
+    }
+
+    public void DropOff(Item item, int stack)
+    {
+        Transform itemPrefab = item.item3DModelPrefeb;
+        GameObject spawnedItem = Instantiate(itemPrefab.gameObject,transform.position+transform.forward*dropOffRange+transform.up* dropOffHeight, transform.rotation);
+        spawnedItem.GetComponent<ItemWrapper>().stackNumber = stack;
     }
 
     /// <summary>
@@ -79,8 +97,15 @@ public class AvatarActions : MonoBehaviour
     {
     }
 
-    public void OpenCharacterPanel()
+    public void Die()
     {
+        avatarAnimator.SetTrigger("die");
+    }
+
+    public void Spawn()
+    {
+        avatarAnimator.SetTrigger("spawn");
+        transform.position = spawnPoint.position;
     }
 
     public bool IsInPickupRange()

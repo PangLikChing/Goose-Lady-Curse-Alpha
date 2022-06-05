@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 2634749908260080954}
   - component: {fileID: 9026674174953491040}
   - component: {fileID: -2722817664056750230}
-  m_Layer: 0
+  - component: {fileID: 2706078443666399785}
+  - component: {fileID: -2324935828401489242}
+  m_Layer: 7
   m_Name: Berry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,3 +112,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1
   item: {fileID: 11400000, guid: 70511f017d414c9479b4d6b42739d365, type: 2}
+  stackNumber: 1
+--- !u!114 &2706078443666399785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4779952988848247287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7991c03fe3c46ab458786d2491bbd729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: berry
+  targetFlowChart: {fileID: 0}
+--- !u!54 &-2324935828401489242
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4779952988848247287}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

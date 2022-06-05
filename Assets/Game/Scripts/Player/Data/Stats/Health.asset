@@ -15,7 +15,7 @@ MonoBehaviour:
   baseValue: 100
   finalValue: 100
   minValue: 0
-  initialValue: 50
-  baseChangeRate: -1
-  actualChangeRate: 2
-  currentValue: 66.61099
+  initialValue: 100
+  baseChangeRate: -5
+  actualChangeRate: -5
+  currentValue: 55.99795

@@ -226,7 +226,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+  itemToDrop: {fileID: 2472476894332919521, guid: 0606a9ed4b4da97439a45cd269db7658, type: 3}
+  itemDropDistance: 5
   originalInventorySlot: {fileID: 0}
+  DropItem:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 6c25a850810d33d4b8fb720c9290b127, type: 2}
+        m_TargetAssemblyTypeName: ItemIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!225 &1855826093293431655
 CanvasGroup:
   m_ObjectHideFlags: 0

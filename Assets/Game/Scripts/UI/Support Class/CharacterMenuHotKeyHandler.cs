@@ -6,7 +6,7 @@ public class CharacterMenuHotKeyHandler : MonoBehaviour
 {
     [Tooltip("Reference to input reader")]
     public InputReader inputReader;
-    public GameObject characterMenu;
+    public MenuClassifier characterMenu;
     private void OnEnable()
     {
         inputReader.OpenCharacterPanelEvent += OpenCharacterMenu;
@@ -20,14 +20,14 @@ public class CharacterMenuHotKeyHandler : MonoBehaviour
 
     public void OpenCharacterMenu()
     {
-        characterMenu.SetActive(true);
+        MenuManager.Instance.GetMenu<CharacterMenu>(characterMenu).OnShowMenu();
         inputReader.OpenCharacterPanelEvent += CloseCharacterMenu;
         inputReader.OpenCharacterPanelEvent -= OpenCharacterMenu;
     }
 
     public void CloseCharacterMenu()
     {
-        characterMenu.SetActive(false);
+        MenuManager.Instance.GetMenu<CharacterMenu>(characterMenu).OnHideMenu();
         inputReader.OpenCharacterPanelEvent += OpenCharacterMenu;
         inputReader.OpenCharacterPanelEvent -= CloseCharacterMenu;
     }
