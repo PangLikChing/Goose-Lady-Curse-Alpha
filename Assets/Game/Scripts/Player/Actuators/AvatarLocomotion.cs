@@ -145,6 +145,10 @@ public class AvatarLocomotion : MonoBehaviour
     public virtual bool IsInInteractionRange(float interactionRange)
     {
         float distance = Vector3.Distance(transform.position, target.transform.position);
+        if (target.GetComponent<Interactable>() == null)
+        {
+            return false;
+        }
         if (distance < target.GetComponent<Interactable>().radius + interactionRange + agent.radius) //Interactable is a place holder class
         {
             return true;

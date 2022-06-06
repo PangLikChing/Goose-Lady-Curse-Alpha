@@ -15,7 +15,7 @@ MonoBehaviour:
   itemID: 1
   itemDisplayName: Apple
   itemIcon: {fileID: 21300000, guid: 5d9ba4e7d0964044ea54abe409d81dfd, type: 3}
-  item3DModelPrefeb: {fileID: 0}
+  item3DModelPrefeb: {fileID: 4345202200806741799, guid: fbf655a92c21bfe468f8e2ce7aa9df3a, type: 3}
   maxStackNumber: 99
   modifier:
   - {fileID: 11400000, guid: 8ae99e277b1677145b7f1e01cadc620d, type: 2}
