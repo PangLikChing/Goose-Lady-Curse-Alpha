@@ -16,7 +16,7 @@ public class Consumable : Item
     // heldItem is the item in the inventory that the player used
     // If the player used the item with a hotkey, we use the first stack found in the inventory.
     // If the player used the item with right-click use, we use the stack the player chose.
-    [HideInInspector] public ItemSlot heldItem = null;
+    //[HideInInspector] public ItemSlot heldItem = null;
 
     public override void Add(ItemSlot heldItem, int stackNumber)
     {
