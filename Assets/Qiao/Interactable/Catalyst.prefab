@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2152574824090055388}
   - component: {fileID: 6673940242075871787}
   - component: {fileID: -160470087488955862}
-  - component: {fileID: 1295029005556474080}
   m_Layer: 7
   m_Name: Catalyst
   m_TagString: Untagged
@@ -112,17 +111,3 @@ MonoBehaviour:
   radius: 1
   item: {fileID: 11400000, guid: 6b588737ec7a7ff40b803ae4b641ff2a, type: 2}
   stackNumber: 1
---- !u!114 &1295029005556474080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3709588128251914423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7991c03fe3c46ab458786d2491bbd729, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: catalyst
-  targetFlowChart: {fileID: 0}

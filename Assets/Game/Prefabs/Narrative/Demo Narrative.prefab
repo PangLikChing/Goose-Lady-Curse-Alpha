@@ -51,6 +51,11 @@ GameObject:
   - component: {fileID: 8406403305975948761}
   - component: {fileID: 8406403305975948778}
   - component: {fileID: 8406403305975948754}
+  - component: {fileID: 3996000868537368113}
+  - component: {fileID: 2030711144282185540}
+  - component: {fileID: 5735632436260198320}
+  - component: {fileID: 4375244901494068497}
+  - component: {fileID: 6588074642168989497}
   m_Layer: 0
   m_Name: Demo Quest
   m_TagString: Untagged
@@ -97,9 +102,8 @@ MonoBehaviour:
     width: 1114
     height: 859
   selectedBlocks:
-  - {fileID: 8406403305975948760}
-  selectedCommands:
-  - {fileID: 8406403305975948757}
+  - {fileID: 8406403305975948779}
+  selectedCommands: []
   variables:
   - {fileID: 8406403305975948777}
   description: 
@@ -126,8 +130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 266
-    y: 66
+    x: 294
+    y: 53
     width: 75
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -643,7 +647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 8406403305975948767}
   suppressBlockAutoSelect: 0
-  message: berry
+  message: Berry
 --- !u!114 &8406403305975948764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -882,7 +886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 8406403305975948779}
   suppressBlockAutoSelect: 0
-  message: catalyst
+  message: Catalyst
 --- !u!114 &8406403305975948772
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2180,6 +2184,155 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &3996000868537368113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406403305975948799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7991c03fe3c46ab458786d2491bbd729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetFlowChart: {fileID: 8406403305975948795}
+  objective: {fileID: 11400000, guid: 70511f017d414c9479b4d6b42739d365, type: 2}
+  targetCount: 1
+--- !u!114 &2030711144282185540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406403305975948799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7991c03fe3c46ab458786d2491bbd729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetFlowChart: {fileID: 8406403305975948795}
+  objective: {fileID: 11400000, guid: 6b588737ec7a7ff40b803ae4b641ff2a, type: 2}
+  targetCount: 1
+--- !u!114 &5735632436260198320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406403305975948799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7991c03fe3c46ab458786d2491bbd729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetFlowChart: {fileID: 8406403305975948795}
+  objective: {fileID: 11400000, guid: bf9d0d311923e6347916bb8705895791, type: 2}
+  targetCount: 1
+--- !u!114 &4375244901494068497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406403305975948799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7bd2812d0ae4c04099619019bfa637d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 92487ede83be93a4780f8a85995787ee, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3996000868537368113}
+        m_TargetAssemblyTypeName: ObjectiveTracker, Assembly-CSharp
+        m_MethodName: PickupObjective
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2030711144282185540}
+        m_TargetAssemblyTypeName: ObjectiveTracker, Assembly-CSharp
+        m_MethodName: PickupObjective
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5735632436260198320}
+        m_TargetAssemblyTypeName: ObjectiveTracker, Assembly-CSharp
+        m_MethodName: PickupObjective
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6588074642168989497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406403305975948799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7bd2812d0ae4c04099619019bfa637d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 6c25a850810d33d4b8fb720c9290b127, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3996000868537368113}
+        m_TargetAssemblyTypeName: ObjectiveTracker, Assembly-CSharp
+        m_MethodName: DropoffObjective
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2030711144282185540}
+        m_TargetAssemblyTypeName: ObjectiveTracker, Assembly-CSharp
+        m_MethodName: DropoffObjective
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5735632436260198320}
+        m_TargetAssemblyTypeName: ObjectiveTracker, Assembly-CSharp
+        m_MethodName: DropoffObjective
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8406403306594580197
 GameObject:
   m_ObjectHideFlags: 0
@@ -2195,7 +2348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8406403306594580198
 Transform:
   m_ObjectHideFlags: 0
