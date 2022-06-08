@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
 
 /// <summary>
 /// This script is responsible for handling the drag and drop of an item in the inventory
@@ -19,7 +18,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     [SerializeField] int itemDropDistance = 5;
     
-    [HideInInspector] public InventorySlot originalInventorySlot;
+    /*[HideInInspector] */public InventorySlot originalInventorySlot;
 
     public UnityEvent<Item, int> DropItem;
 
@@ -64,26 +63,34 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         // If I am dropping with a left mouse button
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            // Reset blockRaycasts
-            canvasGroup.blocksRaycasts = true;
+            //// Reset blockRaycasts to allow player to drag the item again
+            //canvasGroup.blocksRaycasts = true;
 
-            // If the item's parent is not an inventory slot at the end of drag
+            // If the item's parent is not an inventory slot at the end of drag, aka out of the inventory
             if (transform.parent.GetComponent<InventorySlot>() == null)
             {
+                Debug.Log(transform.parent.name);
+
                 // If the slotted item was moved
                 if (originalInventorySlot != null)
                 {
                     // Reset item's parent
                     transform.SetParent(originalInventorySlot.transform);
 
-
-
-                    // Drop Item on Ground
+                    // Drop the item on Ground
                     DropItemOnGround();
+
+                    // Updates the inventory slot
+                    originalInventorySlot.RefreshInventorySlot();
                 }
 
-                // Reset item's position
+                // Reset item's position to the centre of the original inventory slot
                 transform.localPosition = new Vector2(0, 0);
+            }
+            else
+            {
+                // Reset blockRaycasts to allow player to drag the item again
+                canvasGroup.blocksRaycasts = true;
             }
 
             // Reset originalInventorySlot
@@ -97,10 +104,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     void DropItemOnGround()
     {
-        //// Assign the item and stack number to the item on the ground
-        //item.GetComponent<ItemWrapper>().item = originalInventorySlot.slottedItem;
-        //item.GetComponent<ItemWrapper>().stackNumber = originalInventorySlot.stackNumber;
-
         // Invoke an event for the player to drop off the item
         DropItem.Invoke(originalInventorySlot.slottedItem, originalInventorySlot.stackNumber);
 

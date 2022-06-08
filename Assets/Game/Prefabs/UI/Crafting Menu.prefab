@@ -4139,7 +4139,7 @@ MonoBehaviour:
   menuClassifier: {fileID: 11400000, guid: 2dc6b28377bfb6341b5c64e01688a931, type: 2}
   menuRoot: {fileID: 3039129447258189678}
   startingMenuState: 1
-  resetPosition: 0
+  resetPosition: 1
   OnRefreshMenu:
     m_PersistentCalls:
       m_Calls: []
