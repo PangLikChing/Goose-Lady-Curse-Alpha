@@ -253,9 +253,4 @@ public class Inventory : MonoBehaviour
         // Refresh Inventory slots
         RefreshInventorySlots.Invoke();
     }
-
-    public List<ItemSlot[]> GetInventory()
-    {
-        return itemList;
-    }
 }
