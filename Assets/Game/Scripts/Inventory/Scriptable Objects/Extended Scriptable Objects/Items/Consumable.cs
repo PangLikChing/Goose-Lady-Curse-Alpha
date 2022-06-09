@@ -13,11 +13,6 @@ public class Consumable : Item
     // A list of item effects for that consumable
     public List<Modifier> modifier = new List<Modifier>();
 
-    // heldItem is the item in the inventory that the player used
-    // If the player used the item with a hotkey, we use the first stack found in the inventory.
-    // If the player used the item with right-click use, we use the stack the player chose.
-    [HideInInspector] public ItemSlot heldItem = null;
-
     public override void Add(ItemSlot heldItem, int stackNumber)
     {
         // Throw a debug message

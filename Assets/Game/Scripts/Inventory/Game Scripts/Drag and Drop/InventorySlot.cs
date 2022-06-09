@@ -55,11 +55,20 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             // Cache the dropped transform
             Transform droppedTransform = eventData.pointerDrag.transform;
 
+            // Cache the original item image in this inventory slot
+            Transform myItemImage = transform.GetChild(0).transform;
+
             // If dropped transform's parent is not its original inventory slot
             if (droppedTransform.parent != droppedTransform.GetComponent<DragDrop>().originalInventorySlot)
             {
                 // Throw a debug message
                 Debug.Log("Dropped");
+
+                // Set the dropped item's parent back to the original inventory slot
+                droppedTransform.parent = droppedTransform.GetComponent<DragDrop>().originalInventorySlot.transform;
+
+                // Snap the droppedTransform to the centre of the the original inventory slot
+                droppedTransform.localPosition = new Vector2(0, 0);
 
                 // Cache the inventory slot of the dropped item
                 InventorySlot originalInventorySlot = droppedTransform.GetComponent<DragDrop>().originalInventorySlot;

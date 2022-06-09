@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+/// <summary>
+/// This is the inventory Manager
+/// </summary>
+
 public class Inventory : MonoBehaviour
 {
     // This is the bag scriptable objects that the player is currently holding. Should not change the data here
@@ -10,8 +14,6 @@ public class Inventory : MonoBehaviour
 
     // This is the items that the player is holding and its location
     public List<ItemSlot[]> itemList = new List<ItemSlot[]>();
-
-    //public InventoryGrouper inventoryGrouper;
 
     // RefreshInventorySlots is an event to refresh all Inventory slots
     // Assign the responsible InventoryGrouper to this event and call RefreshInventorySlots()
@@ -254,8 +256,16 @@ public class Inventory : MonoBehaviour
         RefreshInventorySlots.Invoke();
     }
 
-    public List<ItemSlot[]> GetInventory()
+    public void SwapBag(int firstBag, int secondBag)
     {
-        return itemList;
+        // Swap the item array in the data
+        ItemSlot[] tempBag = itemList[firstBag];
+        itemList[firstBag] = itemList[secondBag];
+        itemList[secondBag] = tempBag;
+
+        // Swap the bag
+        Container tempContainer = bags[firstBag];
+        bags[firstBag] = bags[secondBag];
+        bags[secondBag] = tempContainer;
     }
 }
