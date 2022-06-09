@@ -521,7 +521,7 @@ GameObject:
   - component: {fileID: 8654819556939235428}
   - component: {fileID: 8654819556939235430}
   m_Layer: 5
-  m_Name: Hud  Menu
+  m_Name: Hud Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -780,7 +780,7 @@ GameObject:
   - component: {fileID: 8654819557726438960}
   - component: {fileID: 8654819557726438967}
   m_Layer: 5
-  m_Name: Open Close Crafting Menu Button
+  m_Name: Crafting Menu Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -912,7 +912,7 @@ GameObject:
   - component: {fileID: 8654819558205096127}
   - component: {fileID: 8654819558205096126}
   m_Layer: 5
-  m_Name: Open Close Inventory Button
+  m_Name: Inventory Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
