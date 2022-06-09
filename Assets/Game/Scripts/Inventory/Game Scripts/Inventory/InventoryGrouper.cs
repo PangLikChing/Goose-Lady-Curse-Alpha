@@ -49,11 +49,8 @@ public class InventoryGrouper : MonoBehaviour
                 // For every element in the bag
                 for (int j = 0; j < myInventory.bags[i].volume; j++)
                 {
-                    // Instantiate a new inventory slot transform
-                    Transform inventorySlot = Instantiate(inventorySlotTransform, newBag).transform;
-
-                    //// Turn off the block raycast
-                    //inventorySlot.GetChild(0).GetComponent<CanvasGroup>().blocksRaycasts = false;
+                    // Instantiate a new inventory slot gameObject
+                    Instantiate(inventorySlotTransform, newBag);
                 }
 
                 // If the bag's size is larger than the largestBagSize temp int
@@ -68,7 +65,10 @@ public class InventoryGrouper : MonoBehaviour
             if (myInventory.itemList[i].Length == 0)
             {
                 // Hide that bag on the screen
-                newBag.gameObject.SetActive(false);
+                newBag.GetComponent<CanvasGroup>().alpha = 0;
+
+                // Change the layer of the bag to the default layer
+                newBag.gameObject.layer = 0;
             }
         }
 
@@ -143,7 +143,7 @@ public class InventoryGrouper : MonoBehaviour
         rectTransform.sizeDelta = new Vector2(newSizeDeltaX, newSizeDeltaY);
 
         // Change the position of the grid
-        rectTransform.anchoredPosition = new Vector3(-newSizeDeltaX, newSizeDeltaY * numberOfBagActive, 0);
+        rectTransform.anchoredPosition = new Vector3(-newSizeDeltaX - bagGridLayoutGroup.cellSize.x, newSizeDeltaY * numberOfBagActive + bagGridLayoutGroup.cellSize.y, 0);
     }
 
     // This is a method to refresh all inventory slots

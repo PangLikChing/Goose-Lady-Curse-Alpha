@@ -41,6 +41,5 @@ public class BagUIScaler : MonoBehaviour
 
         // Change the rect transform's sizeDelta
         rectTransform.sizeDelta = new Vector2(newSizeDeltaX, newSizeDeltaY);
-
     }
 }

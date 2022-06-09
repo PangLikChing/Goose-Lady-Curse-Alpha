@@ -675,7 +675,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bags:
   - {fileID: 11400000, guid: 899d1b01a36f97f49be48db58de9f8d4, type: 2}
-  - {fileID: 11400000, guid: 899d1b01a36f97f49be48db58de9f8d4, type: 2}
+  - {fileID: 0}
   - {fileID: 11400000, guid: 400c3ba663c81f24d9758cf64141474c, type: 2}
   RefreshInventorySlots:
     m_PersistentCalls:
@@ -3465,6 +3465,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1102571122}
     m_Modifications:
+    - target: {fileID: 1181576020, guid: d756b87e52756214895f749aa8868266, type: 3}
+      propertyPath: playerInventory
+      value: 
+      objectReference: {fileID: 674721511}
     - target: {fileID: 1662930229063520683, guid: d756b87e52756214895f749aa8868266, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
