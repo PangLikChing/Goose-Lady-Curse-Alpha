@@ -17,7 +17,7 @@ public class ObjectiveTracker : MonoBehaviour
 
     public void PickupObjective(Item item, int stack)
     {
-
+        Debug.Log(objective.name);
         if (objective.name == item.name)
         {
             currentCount += stack;
@@ -25,7 +25,7 @@ public class ObjectiveTracker : MonoBehaviour
 
         if (currentCount >= targetCount && !completed)
         {
-            targetFlowChart.SendFungusMessage(objective.itemDisplayName);// display a dialog box object complete return to base
+            targetFlowChart.SendFungusMessage(objective.name);// display a dialog box object complete return to base
             completed = true;
         }
     }

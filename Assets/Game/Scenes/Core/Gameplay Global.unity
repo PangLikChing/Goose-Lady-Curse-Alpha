@@ -956,6 +956,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1102571122}
     m_Modifications:
+    - target: {fileID: 2860578155043968756, guid: 9466b42329aee8c40baa4d55cf3ea755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: cd151536fc88e024999f73c6e44ef237, type: 2}
+    - target: {fileID: 2860578155043968756, guid: 9466b42329aee8c40baa4d55cf3ea755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860578155043968756, guid: 9466b42329aee8c40baa4d55cf3ea755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VoidEventChannel, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860578155505848445, guid: 9466b42329aee8c40baa4d55cf3ea755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 11400000, guid: c9024a02a7e756a48884f96d5f800127, type: 2}
+    - target: {fileID: 2860578155505848445, guid: 9466b42329aee8c40baa4d55cf3ea755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 2860578155505848445, guid: 9466b42329aee8c40baa4d55cf3ea755, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VoidEventChannel, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 2860578156262184464, guid: 9466b42329aee8c40baa4d55cf3ea755, type: 3}
       propertyPath: m_Name
       value: Hud  Menu
@@ -1080,7 +1104,9 @@ PrefabInstance:
       propertyPath: inventoryGrouper
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4909217940353018299, guid: 9466b42329aee8c40baa4d55cf3ea755, type: 3}
+    - {fileID: 7141105112551456180, guid: 9466b42329aee8c40baa4d55cf3ea755, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9466b42329aee8c40baa4d55cf3ea755, type: 3}
 --- !u!224 &735344744 stripped
 RectTransform:
