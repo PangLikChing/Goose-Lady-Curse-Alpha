@@ -278,30 +278,42 @@ public class Inventory : MonoBehaviour
             // If there is a bag slot that is empty
             if (bags[i] == null)
             {
-                // Add the bag to the bag slot
-                bags[i] = (Container)itemSlot.slottedItem;
-
-                // Throw a debug message
-                Debug.Log($"Adding {itemSlot.slottedItem.itemDisplayName} to the inventory");
-
-                // Assign an array for that new bag
-                itemList[i] = new ItemSlot[bags[i].volume];
-
-                // Create a number of itemslots in the array equals to the volume of the new bag
-                for (int j = 0; j < bags[i].volume; j++)
+                // Try and see if that item is a container
+                try
                 {
-                    // Initialize a temp ItemSlot
-                    ItemSlot tempItemSlot = new ItemSlot();
+                    // Add the bag to the bag slot
+                    bags[i] = (Container)itemSlot.slottedItem;
 
-                    // Assign the temp ItemSlot to the itemSlots list
-                    itemList[i][j] = tempItemSlot;
+                    // Throw a debug message
+                    Debug.Log($"Adding {itemSlot.slottedItem.itemDisplayName} to the inventory");
+
+                    // Assign an array for that new bag
+                    itemList[i] = new ItemSlot[bags[i].volume];
+
+                    // Create a number of itemslots in the array equals to the volume of the new bag
+                    for (int j = 0; j < bags[i].volume; j++)
+                    {
+                        // Initialize a temp ItemSlot
+                        ItemSlot tempItemSlot = new ItemSlot();
+
+                        // Assign the temp ItemSlot to the itemSlots list
+                        itemList[i][j] = tempItemSlot;
+                    }
+
+                    // Remove that bag from the inventory
+                    itemSlot.slottedItem.Consume(itemSlot, 1);
+
+                    // Throw a debug message
+                    Debug.Log("This is a container");
+
+                    // Stop the search
+                    break;
                 }
-
-                // Remove that bag from the inventory
-                itemSlot.slottedItem.Consume(itemSlot, 1);
-
-                // Stop the search
-                break;
+                catch
+                {
+                    // Throw a debug message
+                    Debug.Log("This is not a container");
+                }
             }
         }
     }

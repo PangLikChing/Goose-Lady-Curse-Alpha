@@ -32,11 +32,20 @@ public class BagSlot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        // if the dropped item is a bag slot image
+        // If the dropped item is a bag slot image
         if (eventData.pointerDrag.GetComponent<BagSlotDragDrop>() != null)
         {
-            // Swap bag
-            swapBag.Invoke(eventData.pointerDrag.GetComponent<BagSlotDragDrop>().bagIndex, bagIndex);
+            // If that dropped bag slot image is not representing the same bag as this bag slot
+            if (eventData.pointerDrag.GetComponent<BagSlotDragDrop>().bagIndex != bagIndex)
+            {
+                // Swap bag
+                swapBag.Invoke(eventData.pointerDrag.GetComponent<BagSlotDragDrop>().bagIndex, bagIndex);
+            }
+        }
+        // If the dropped item is an inventory slot image
+        else if (eventData.pointerDrag.GetComponent<DragDrop>() != null)
+        {
+                playerInventory.AddBag(playerInventory.itemList[eventData.pointerDrag.GetComponent<DragDrop>().originalInventorySlot.myBagIndex][eventData.pointerDrag.GetComponent<DragDrop>().originalInventorySlot.mySlotIndex]);
         }
     }
 }
