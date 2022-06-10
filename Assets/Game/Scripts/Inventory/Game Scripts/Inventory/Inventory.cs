@@ -297,8 +297,6 @@ public class Inventory : MonoBehaviour
                     itemList[i][j] = tempItemSlot;
                 }
 
-                Debug.Log(itemList[i].Length);
-
                 // Remove that bag from the inventory
                 itemSlot.slottedItem.Consume(itemSlot, 1);
             }

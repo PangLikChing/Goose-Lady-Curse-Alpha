@@ -12,10 +12,6 @@ public class BagSlotsUI : MonoBehaviour
 
     public Canvas canvas;
 
-    //temp
-    [SerializeField] Sprite bagSprite;
-    //temp
-
     [SerializeField] InventoryGrouper inventoryGrouper;
 
     [SerializeField] Transform bagSlotPrefeb;
@@ -40,11 +36,6 @@ public class BagSlotsUI : MonoBehaviour
         {
             // Get the reference of the image component of that instantiated bag slot
             Transform slotTransform = Instantiate(bagSlotPrefeb, transform).transform;
-
-            ////temp
-            //// Set the slotted image's sprite to the bag image
-            //slotTransform.GetChild(0).GetComponent<Image>().sprite = bagSprite;
-            ////temp
 
             // Assign which bag theat bag slot is responsible for
             slotTransform.GetComponent<BagSlot>().bagIndex = i;
