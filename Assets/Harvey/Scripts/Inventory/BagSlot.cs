@@ -15,6 +15,8 @@ public class BagSlot : MonoBehaviour, IDropHandler
 
     public UnityEvent<int, int> swapBag;
 
+    public UnityEvent<InventorySlot, int> addBagToSpecificSlot;
+
     public void AssignBagImage()
     {
         // If there is a bag in that slot
@@ -45,7 +47,8 @@ public class BagSlot : MonoBehaviour, IDropHandler
         // If the dropped item is an inventory slot image
         else if (eventData.pointerDrag.GetComponent<DragDrop>() != null)
         {
-                playerInventory.AddBag(playerInventory.itemList[eventData.pointerDrag.GetComponent<DragDrop>().originalInventorySlot.myBagIndex][eventData.pointerDrag.GetComponent<DragDrop>().originalInventorySlot.mySlotIndex]);
+            // Try to add that bag to this bag slot
+            addBagToSpecificSlot.Invoke(eventData.pointerDrag.GetComponent<DragDrop>().originalInventorySlot, bagIndex);
         }
     }
 }

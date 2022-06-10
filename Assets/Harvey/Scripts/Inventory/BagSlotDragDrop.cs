@@ -14,7 +14,7 @@ public class BagSlotDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHan
     int UILayer;
     RectTransform rectTransform;
     CanvasGroup canvasGroup;
-    Transform originalParentTransform;
+    public Transform originalParentTransform;
 
     public int bagIndex = 0;
 

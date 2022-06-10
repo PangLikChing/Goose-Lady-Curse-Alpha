@@ -269,7 +269,7 @@ public class Inventory : MonoBehaviour
         bags[secondBag] = tempContainer;
     }
 
-    // Function to add a bag. Here assumes the slottedItem in the itemSlot must be a contanier type
+    // Function to add a bag
     public void AddBag(ItemSlot itemSlot)
     {
         // Loop through all the bags
@@ -314,6 +314,51 @@ public class Inventory : MonoBehaviour
                     // Throw a debug message
                     Debug.Log("This is not a container");
                 }
+            }
+        }
+    }
+
+    // Function to add a bag to a specific bag slot
+    public void AddBagToSpecificBagSlot(InventorySlot inventorySlot, int bagSlotIndex)
+    {
+        // If there is a bag slot that is empty
+        if (bags[bagSlotIndex] == null)
+        {
+            // Try and see if that item is a container
+            try
+            {
+                // Cache that item slot
+                ItemSlot itemSlot = itemList[inventorySlot.myBagIndex][inventorySlot.mySlotIndex];
+
+                // Add the bag to the bag slot
+                bags[bagSlotIndex] = (Container)itemSlot.slottedItem;
+
+                // Throw a debug message
+                Debug.Log($"Adding {itemSlot.slottedItem.itemDisplayName} to the inventory");
+
+                // Assign an array for that new bag
+                itemList[bagSlotIndex] = new ItemSlot[bags[bagSlotIndex].volume];
+
+                // Create a number of itemslots in the array equals to the volume of the new bag
+                for (int j = 0; j < bags[bagSlotIndex].volume; j++)
+                {
+                    // Initialize a temp ItemSlot
+                    ItemSlot tempItemSlot = new ItemSlot();
+
+                    // Assign the temp ItemSlot to the itemSlots list
+                    itemList[bagSlotIndex][j] = tempItemSlot;
+                }
+
+                // Remove that bag from the inventory
+                itemSlot.slottedItem.Consume(itemSlot, 1);
+
+                // Throw a debug message
+                Debug.Log("This is a container");
+            }
+            catch
+            {
+                // Throw a debug message
+                Debug.Log("This is not a container");
             }
         }
     }
