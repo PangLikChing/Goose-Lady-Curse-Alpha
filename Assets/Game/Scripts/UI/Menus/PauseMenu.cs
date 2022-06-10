@@ -14,7 +14,6 @@ public class PauseMenu : Menu
     public InputReader inputReader;
 
     private List<string> sceneToBeUnloaded = new List<string>();
-    private string currentGameScene;
     private void OnEnable()
     {
         inputReader.EnableSystemMenuInput();
@@ -33,9 +32,8 @@ public class PauseMenu : Menu
     public void ReturnToMainMenu()
     {
         OnHideMenu();
-        currentGameScene = SceneLoader.Instance.currentActiveScene;
         sceneToBeUnloaded.Add(gameplayGlobalScene.ScenePath);
-        sceneToBeUnloaded.Add(currentGameScene);
+        sceneToBeUnloaded.Add(SceneLoader.Instance.currentActiveScene);
         SceneLoader.Instance.OnSceneUnloadedEvent += OnReturnToMainMenu;
         SceneLoader.Instance.UnloadScenes(sceneToBeUnloaded);
     }
@@ -63,7 +61,6 @@ public class PauseMenu : Menu
     {
         Time.timeScale = 0;
         base.OnShowMenu(options);
-        
     }
 
     public override void OnHideMenu(string options = "")

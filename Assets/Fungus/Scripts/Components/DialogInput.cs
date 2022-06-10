@@ -3,7 +3,8 @@
 
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 namespace Fungus
 {
     /// <summary>
@@ -44,7 +45,7 @@ namespace Fungus
 
         protected float ignoreClickTimer;
 
-        protected StandaloneInputModule currentStandaloneInputModule;
+        protected InputSystemUIInputModule currentUIInputModule;
 
         protected Writer writer;
 
@@ -63,13 +64,13 @@ namespace Fungus
             if (eventSystem == null)
             {
                 Debug.LogError("Event System missing");
-                // Auto spawn an Event System from the prefab
-                //GameObject prefab = Resources.Load<GameObject>("Prefabs/EventSystem");
-                //if (prefab != null)
-                //{
-                //    GameObject go = Instantiate(prefab) as GameObject;
-                //    go.name = "EventSystem";
-                //}
+                //Auto spawn an Event System from the prefab
+                GameObject prefab = Resources.Load<GameObject>("Prefabs/EventSystem");
+                if (prefab != null)
+                {
+                    GameObject go = Instantiate(prefab) as GameObject;
+                    go.name = "EventSystem";
+                }
             }
         }
             
@@ -80,31 +81,32 @@ namespace Fungus
                 return;
             }
 
-            //if (currentStandaloneInputModule == null)
-            //{
-            //    currentStandaloneInputModule = EventSystem.current.GetComponent<StandaloneInputModule>();
-            //}
+            if (currentUIInputModule == null)
+            {
+                currentUIInputModule = EventSystem.current.GetComponent<InputSystemUIInputModule>();
+            }
 
-            //if (writer != null && writer.IsWriting)
-            //{
-            //    if (Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
-            //        (cancelEnabled && Input.GetButton(currentStandaloneInputModule.cancelButton)))
-            //    {
-            //        SetNextLineFlag();
-            //    }
-            //}
+            if (writer != null && writer.IsWriting)
+            {
+                
+                if (currentUIInputModule.submit.action.triggered ||
+                    (cancelEnabled && currentUIInputModule.cancel.action.triggered))
+                {
+                    SetNextLineFlag();
+                }
+            }
 
             switch (clickMode)
             {
             case ClickMode.Disabled:
                 break;
-            //case ClickMode.ClickAnywhere:
-            //    if (Input.GetMouseButtonDown(0))
-            //    {
-            //        SetNextLineFlag();
-            //    }
-            //    break;
-            case ClickMode.ClickOnDialog:
+                case ClickMode.ClickAnywhere:
+                    if (currentUIInputModule.leftClick.action.triggered)
+                    {
+                        SetNextLineFlag();
+                    }
+                    break;
+                case ClickMode.ClickOnDialog:
                 if (dialogClickedFlag)
                 {
                     SetNextLineFlag();

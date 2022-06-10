@@ -15,6 +15,7 @@ MonoBehaviour:
   itemID: -1
   itemDisplayName: Meat
   itemIcon: {fileID: 21300000, guid: 4a39cb4b272639541b7bd5ac0649acf7, type: 3}
-  item3DModelPrefeb: {fileID: 0}
+  item3DModelPrefeb: {fileID: 7667541176608186643, guid: de7b7c6618c85714bae022c872019e3c, type: 3}
   maxStackNumber: 99
-  itemEffect: []
+  modifier:
+  - {fileID: 11400000, guid: 192705eb8325a504d80d0c0b420392af, type: 2}
