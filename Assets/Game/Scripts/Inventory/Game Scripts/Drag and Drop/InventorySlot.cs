@@ -121,11 +121,18 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             // Else if that dropped item is a bag slot image instead
             else if (eventData.pointerDrag.GetComponent<BagSlotDragDrop>() != null)
             {
-                // Remove that bag from the bag slot
-                //temp
-                //myInventory.RemoveBag(this, eventData.pointerDrag.GetComponent<BagSlotDragDrop>().bagIndex);
-                removeBag.Invoke(this, eventData.pointerDrag.GetComponent<BagSlotDragDrop>().bagIndex);
-                //temp
+                // If that bag which the bag image is representing is empty
+                if (myInventory.IsBagEmpty(eventData.pointerDrag.GetComponent<BagSlotDragDrop>().bagIndex))
+                {
+                    // Remove that bag from the bag slot
+                    removeBag.Invoke(this, eventData.pointerDrag.GetComponent<BagSlotDragDrop>().bagIndex);
+                }
+                // If there is something in that bag
+                else
+                {
+                    // Throw a warning message
+                    Debug.Log("There is something in this bag");
+                }
             }
         }
     }

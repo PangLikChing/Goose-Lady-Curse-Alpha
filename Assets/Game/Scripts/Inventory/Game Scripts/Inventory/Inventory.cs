@@ -318,4 +318,23 @@ public class Inventory : MonoBehaviour
         bags[bagSlotIndex] = null;
         itemList[bagSlotIndex] = new ItemSlot[0];
     }
+
+    // Function to see if a bag is empty
+    // Returns true if a bag is empty
+    public bool IsBagEmpty(int bagIndex)
+    {
+        // Loop though all the item slots in that bagIndex
+        for (int i = 0; i < itemList[bagIndex].Length; i++)
+        {
+            // If there is an item in an item slot
+            if (itemList[bagIndex][i].slottedItem != null)
+            {
+                // Return false
+                return false;
+            }
+        }
+
+        // Return true
+        return true;
+    }
 }
