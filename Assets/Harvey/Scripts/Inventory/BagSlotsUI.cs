@@ -41,10 +41,20 @@ public class BagSlotsUI : MonoBehaviour
             // Get the reference of the image component of that instantiated bag slot
             Transform slotTransform = Instantiate(bagSlotPrefeb, transform).transform;
 
-            //temp
+            ////temp
+            //// Set the slotted image's sprite to the bag image
+            //slotTransform.GetChild(0).GetComponent<Image>().sprite = bagSprite;
+            ////temp
+
+            // Assign which bag theat bag slot is responsible for
+            slotTransform.GetComponent<BagSlot>().bagIndex = i;
+            slotTransform.GetChild(0).GetComponent<BagSlotDragDrop>().bagIndex = i;
+
+            // Assign which inventory theat bag slot is responsible for
+            slotTransform.GetComponent<BagSlot>().playerInventory = playerInventory;
+
             // Set the slotted image's sprite to the bag image
-            slotTransform.GetChild(0).GetComponent<Image>().sprite = bagSprite;
-            //temp
+            slotTransform.GetComponent<BagSlot>().AssignBagImage();
         }
     }
 

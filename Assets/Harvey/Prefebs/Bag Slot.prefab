@@ -101,6 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f618c6152533e0449ce7dddad013864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bagIndex: 0
+  canvas: {fileID: 0}
 --- !u!1 &6071404125616626206
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,6 +114,7 @@ GameObject:
   - component: {fileID: 6071404125616626207}
   - component: {fileID: 6071404125616626193}
   - component: {fileID: 6071404125616626192}
+  - component: {fileID: 6603422900478369036}
   m_Layer: 5
   m_Name: Bag Slot
   m_TagString: Untagged
@@ -177,3 +180,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6603422900478369036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6071404125616626206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a201ef60b8b6acc4a9b0f240e5954727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bagIndex: 0
+  playerInventory: {fileID: 0}
+  swapBag:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 9505b2d82810f3a43b590102bc75ff7e, type: 2}
+        m_TargetAssemblyTypeName: IntIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

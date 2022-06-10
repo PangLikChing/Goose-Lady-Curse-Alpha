@@ -2,18 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 /// <summary>
 /// This script is responsible for handling the drag and drop of a bag in the bag slot
 /// </summary>
 
-[RequireComponent(typeof(CanvasGroup))]
+[RequireComponent(typeof(CanvasGroup), typeof(Image))]
 public class BagSlotDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     int UILayer;
     RectTransform rectTransform;
     CanvasGroup canvasGroup;
     Transform originalParentTransform;
+
+    public int bagIndex = 0;
 
     [SerializeField] Canvas canvas;
 
@@ -57,8 +60,6 @@ public class BagSlotDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHan
         // If I am dropping with a left mouse button
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            Debug.Log("End Drag");
-
             // Reset blockRaycasts to allow player to drag the bag icon again
             canvasGroup.blocksRaycasts = true;
 
