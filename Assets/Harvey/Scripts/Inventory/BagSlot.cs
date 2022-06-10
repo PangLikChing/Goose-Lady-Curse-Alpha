@@ -47,6 +47,10 @@ public class BagSlot : MonoBehaviour, IDropHandler
         // If the dropped item is an inventory slot image
         else if (eventData.pointerDrag.GetComponent<DragDrop>() != null)
         {
+            //temp
+            eventData.pointerDrag.GetComponent<DragDrop>().shouldNotDrop = true;
+            //temp
+
             // Try to add that bag to this bag slot
             addBagToSpecificSlot.Invoke(eventData.pointerDrag.GetComponent<DragDrop>().originalInventorySlot, bagIndex);
         }
