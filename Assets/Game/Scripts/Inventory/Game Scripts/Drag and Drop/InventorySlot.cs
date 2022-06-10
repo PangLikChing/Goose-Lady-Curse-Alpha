@@ -52,62 +52,66 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         // If the left mouse button is responsible for the drop
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            // Cache the dropped transform
-            Transform droppedTransform = eventData.pointerDrag.transform;
-
-            // If dropped inventory slot is not its original inventory slot
-            if (droppedTransform != droppedTransform.GetComponent<DragDrop>().originalInventorySlot)
+            // If the dropped item is an inventory item image
+            if (eventData.pointerDrag.GetComponent<DragDrop>() != null)
             {
-                // Throw a debug message
-                Debug.Log("Dropped");
+                // Cache the dropped transform
+                Transform droppedTransform = eventData.pointerDrag.transform;
 
-                // Set the dropped item's parent back to the original inventory slot
-                droppedTransform.parent = droppedTransform.GetComponent<DragDrop>().originalInventorySlot.transform;
-
-                // Snap the droppedTransform to the centre of the the original inventory slot
-                droppedTransform.localPosition = new Vector2(0, 0);
-
-                // Cache the inventory slot of the dropped item
-                InventorySlot originalInventorySlot = droppedTransform.GetComponent<DragDrop>().originalInventorySlot;
-
-                // Cache the Item slot of the dropped item in the inventory
-                ItemSlot originalItemSlot = myInventory.itemList[originalInventorySlot.myBagIndex][originalInventorySlot.mySlotIndex];
-
-                // Cache my own Item slot in the inventory
-                ItemSlot myItemSlot = myInventory.itemList[myBagIndex][mySlotIndex];
-
-                // If they are responsible to 2 different item slots
-                if (originalItemSlot != myItemSlot)
+                // If dropped inventory slot is not its original inventory slot
+                if (droppedTransform != droppedTransform.GetComponent<DragDrop>().originalInventorySlot)
                 {
-                    // If they are the same item and adding them up will not exceed the item's max stack number
-                    if (originalItemSlot.slottedItem == myItemSlot.slottedItem
-                        && myItemSlot.stackNumber + originalItemSlot.stackNumber <= myItemSlot.slottedItem.maxStackNumber)
+                    // Throw a debug message
+                    Debug.Log("Dropped");
+
+                    // Set the dropped item's parent back to the original inventory slot
+                    droppedTransform.parent = droppedTransform.GetComponent<DragDrop>().originalInventorySlot.transform;
+
+                    // Snap the droppedTransform to the centre of the the original inventory slot
+                    droppedTransform.localPosition = new Vector2(0, 0);
+
+                    // Cache the inventory slot of the dropped item
+                    InventorySlot originalInventorySlot = droppedTransform.GetComponent<DragDrop>().originalInventorySlot;
+
+                    // Cache the Item slot of the dropped item in the inventory
+                    ItemSlot originalItemSlot = myInventory.itemList[originalInventorySlot.myBagIndex][originalInventorySlot.mySlotIndex];
+
+                    // Cache my own Item slot in the inventory
+                    ItemSlot myItemSlot = myInventory.itemList[myBagIndex][mySlotIndex];
+
+                    // If they are responsible to 2 different item slots
+                    if (originalItemSlot != myItemSlot)
                     {
-                        // Carry out the add event for that item
-                        slottedItem.Add(myItemSlot, originalItemSlot.stackNumber);
+                        // If they are the same item and adding them up will not exceed the item's max stack number
+                        if (originalItemSlot.slottedItem == myItemSlot.slottedItem
+                            && myItemSlot.stackNumber + originalItemSlot.stackNumber <= myItemSlot.slottedItem.maxStackNumber)
+                        {
+                            // Carry out the add event for that item
+                            slottedItem.Add(myItemSlot, originalItemSlot.stackNumber);
 
-                        // Reset originalItemSlot's inventory data
-                        originalItemSlot.slottedItem = null;
-                        originalItemSlot.stackNumber = 0;
-                    }
-                    // If they are not same item or adding the 2 same item up will not exceed the item's max stack number
-                    else
-                    {
-                        // Swap the data in the inventory
-                        // Initialize a temp ItemSlot
-                        ItemSlot tempItemSlot = new ItemSlot();
+                            // Reset originalItemSlot's inventory data
+                            originalItemSlot.slottedItem = null;
+                            originalItemSlot.stackNumber = 0;
+                        }
+                        // If they are not same item or adding the 2 same item up will not exceed the item's max stack number
+                        else
+                        {
+                            // Swap the data in the inventory
+                            // Initialize a temp ItemSlot
+                            ItemSlot tempItemSlot = new ItemSlot();
 
-                        // Swap
-                        tempItemSlot.slottedItem = originalItemSlot.slottedItem;
-                        tempItemSlot.stackNumber = originalItemSlot.stackNumber;
-                        originalItemSlot.slottedItem = slottedItem;
-                        originalItemSlot.stackNumber = stackNumber;
-                        myItemSlot.slottedItem = tempItemSlot.slottedItem;
-                        myItemSlot.stackNumber = tempItemSlot.stackNumber;
+                            // Swap
+                            tempItemSlot.slottedItem = originalItemSlot.slottedItem;
+                            tempItemSlot.stackNumber = originalItemSlot.stackNumber;
+                            originalItemSlot.slottedItem = slottedItem;
+                            originalItemSlot.stackNumber = stackNumber;
+                            myItemSlot.slottedItem = tempItemSlot.slottedItem;
+                            myItemSlot.stackNumber = tempItemSlot.stackNumber;
 
-                        // Refresh the inventory slots invovled in the swap / stack
-                        originalInventorySlot.RefreshInventorySlot();
-                        RefreshInventorySlot();
+                            // Refresh the inventory slots invovled in the swap / stack
+                            originalInventorySlot.RefreshInventorySlot();
+                            RefreshInventorySlot();
+                        }
                     }
                 }
             }

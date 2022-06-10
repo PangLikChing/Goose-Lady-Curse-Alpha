@@ -3466,6 +3466,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1102571122}
     m_Modifications:
     - target: {fileID: 1181576020, guid: d756b87e52756214895f749aa8868266, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1102571125}
+    - target: {fileID: 1181576020, guid: d756b87e52756214895f749aa8868266, type: 3}
+      propertyPath: bagSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: fe025e83f69d0b54f8a4fe3c7c128fd7, type: 3}
+    - target: {fileID: 1181576020, guid: d756b87e52756214895f749aa8868266, type: 3}
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 674721511}

@@ -4,11 +4,17 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(GridLayoutGroup))]
-public class BagSlotsUIScaler : MonoBehaviour
+public class BagSlotsUI : MonoBehaviour
 {
     GridLayoutGroup gridLayoutGroup;
 
     RectTransform rectTransform;
+
+    public Canvas canvas;
+
+    //temp
+    [SerializeField] Sprite bagSprite;
+    //temp
 
     [SerializeField] InventoryGrouper inventoryGrouper;
 
@@ -32,7 +38,13 @@ public class BagSlotsUIScaler : MonoBehaviour
         // Instantiate a bag slot gameObject for every bag slot
         for (int i = 0; i < playerInventory.bags.Count; i++)
         {
-            Instantiate(bagSlotPrefeb, transform);
+            // Get the reference of the image component of that instantiated bag slot
+            Transform slotTransform = Instantiate(bagSlotPrefeb, transform).transform;
+
+            //temp
+            // Set the slotted image's sprite to the bag image
+            slotTransform.GetChild(0).GetComponent<Image>().sprite = bagSprite;
+            //temp
         }
     }
 
