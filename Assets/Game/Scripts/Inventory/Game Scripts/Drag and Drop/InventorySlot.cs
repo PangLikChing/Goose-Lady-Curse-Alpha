@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -19,6 +20,8 @@ public class InventorySlot : MonoBehaviour, IDropHandler
     public Image slottedItemImage;
 
     public TMP_Text stackNumberText;
+
+    public UnityEvent<InventorySlot, int> removeBag;
 
     void Start()
     {
@@ -114,6 +117,15 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                         }
                     }
                 }
+            }
+            // Else if that dropped item is a bag slot image instead
+            else if (eventData.pointerDrag.GetComponent<BagSlotDragDrop>() != null)
+            {
+                // Remove that bag from the bag slot
+                //temp
+                //myInventory.RemoveBag(this, eventData.pointerDrag.GetComponent<BagSlotDragDrop>().bagIndex);
+                removeBag.Invoke(this, eventData.pointerDrag.GetComponent<BagSlotDragDrop>().bagIndex);
+                //temp
             }
         }
     }

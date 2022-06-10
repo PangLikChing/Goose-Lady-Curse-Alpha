@@ -299,7 +299,23 @@ public class Inventory : MonoBehaviour
 
                 // Remove that bag from the inventory
                 itemSlot.slottedItem.Consume(itemSlot, 1);
+
+                // Stop the search
+                break;
             }
         }
+    }
+
+    // Function to remove a bag from a bag slot to a specific inventory slot
+    // Here assumes the max stack number of a container must be 1
+    public void RemoveBag(InventorySlot inventorySlot, int bagSlotIndex)
+    {
+        // Assign that bag to the item slot
+        itemList[inventorySlot.myBagIndex][inventorySlot.mySlotIndex].slottedItem = bags[bagSlotIndex];
+        itemList[inventorySlot.myBagIndex][inventorySlot.mySlotIndex].stackNumber = bags[bagSlotIndex].maxStackNumber;
+
+        // Remove the bag from the inventory
+        bags[bagSlotIndex] = null;
+        itemList[bagSlotIndex] = new ItemSlot[0];
     }
 }

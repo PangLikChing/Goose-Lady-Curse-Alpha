@@ -32,9 +32,11 @@ public class BagSlot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("Yo");
-
-        // Swap bag
-        swapBag.Invoke(eventData.pointerDrag.GetComponent<BagSlotDragDrop>().bagIndex, bagIndex);
+        // if the dropped item is a bag slot image
+        if (eventData.pointerDrag.GetComponent<BagSlotDragDrop>() != null)
+        {
+            // Swap bag
+            swapBag.Invoke(eventData.pointerDrag.GetComponent<BagSlotDragDrop>().bagIndex, bagIndex);
+        }
     }
 }
