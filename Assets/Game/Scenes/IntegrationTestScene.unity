@@ -1470,6 +1470,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4440252352026558275, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
+      propertyPath: m_Speed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4962337652546002406, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
       propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 0
@@ -1888,7 +1892,7 @@ Light:
     serializedVersion: 2
     m_Bits: 4294967295
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -2074,6 +2078,10 @@ PrefabInstance:
     - target: {fileID: 352584465598647520, guid: 2e5ef36ae540cb643986d73eca7cacac, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 352584465598647521, guid: 2e5ef36ae540cb643986d73eca7cacac, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 352584465598647521, guid: 2e5ef36ae540cb643986d73eca7cacac, type: 3}
       propertyPath: m_Shadows.m_Type
