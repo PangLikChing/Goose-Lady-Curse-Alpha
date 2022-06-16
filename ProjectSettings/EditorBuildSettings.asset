@@ -4,5 +4,27 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
-  m_configObjects: {}
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Game/Scenes/Core/Core.unity
+    guid: 1eccae4a0fc75374dbba81b4f953aa8f
+  - enabled: 1
+    path: Assets/Game/Scenes/Core/UI.unity
+    guid: 8296010c97b95384788f13e61bda59a5
+  - enabled: 1
+    path: Assets/Game/Scenes/Core/Gameplay Global.unity
+    guid: faca8793dd284384f9b086d70b0d73d3
+  - enabled: 1
+    path: Assets/Game/Scenes/IntegrationTestScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Qiao/CCC Test Scene.unity
+    guid: 16a8861ac3f1b1349a175ced31fd90c0
+  - enabled: 1
+    path: Assets/Connors Work/Connors Scenes/DemoOfAllFeatures.unity
+    guid: 915792f9c730ea94da2e8eabaa612473
+  - enabled: 1
+    path: Assets/Harvey/Scenes/HarveyTestScene.unity
+    guid: ce32164dd3d5e37438fa29c8b8fc0dff
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 4fcb3763c9a63204c9f01432bd0b49b0, type: 2}
