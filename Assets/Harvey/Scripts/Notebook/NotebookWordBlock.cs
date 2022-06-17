@@ -8,16 +8,13 @@ public class NotebookWordBlock : MonoBehaviour, IPointerDownHandler, IBeginDragH
     RectTransform rectTransform;
     CanvasGroup canvasGroup;
 
-    [SerializeField] Canvas canvas;
+    [HideInInspector] public Canvas canvas;
 
     void Start()
     {
         // Initialize
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-
-        //// Hard code this one, fix later
-        //canvas = transform.parent.parent.parent.GetComponent<InventoryGrouper>().canvas;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
