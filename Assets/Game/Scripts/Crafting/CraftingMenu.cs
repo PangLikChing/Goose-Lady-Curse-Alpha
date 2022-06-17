@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CraftingMenu : Menu
 {
+    [SerializeField] CraftingMenuHotKeyHandler craftingMenuHotKeyHandler;
+
     [SerializeField] GameObject craftingUI;
 
     public void MenuToggle()
@@ -12,13 +14,13 @@ public class CraftingMenu : Menu
         if (craftingUI.activeSelf == false)
         {
             // Activate the menu
-            craftingUI.SetActive(true);
+            craftingMenuHotKeyHandler.OpenInventory();
         }
         // If the menu is currently activated
         else
         {
             // Deactivate the menu
-            craftingUI.SetActive(false);
+            craftingMenuHotKeyHandler.CloseInventory();
         }
     }
 }

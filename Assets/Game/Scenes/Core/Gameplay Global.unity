@@ -1206,6 +1206,7 @@ GameObject:
   - component: {fileID: 748543345}
   - component: {fileID: 748543346}
   - component: {fileID: 748543347}
+  - component: {fileID: 748543348}
   m_Layer: 5
   m_Name: Crafting Manager
   m_TagString: Untagged
@@ -1285,6 +1286,34 @@ MonoBehaviour:
       - m_Target: {fileID: 748543345}
         m_TargetAssemblyTypeName: CraftingManager, Assembly-CSharp
         m_MethodName: CheckReagents
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &748543348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748543343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38824944b90ae82479b3c7d6a76dc6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: c9024a02a7e756a48884f96d5f800127, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3039129447751897071}
+        m_TargetAssemblyTypeName: CraftingMenu, Assembly-CSharp
+        m_MethodName: MenuToggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4021,12 +4050,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3039129447783315383, guid: 06249530526eabe4eb1789499c503035, type: 3}
+      propertyPath: craftingMenuHotKeyHandler
+      value: 
+      objectReference: {fileID: 748543346}
     - target: {fileID: 3039129447783315385, guid: 06249530526eabe4eb1789499c503035, type: 3}
       propertyPath: m_Name
       value: Crafting Menu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06249530526eabe4eb1789499c503035, type: 3}
+--- !u!114 &3039129447751897071 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3039129447783315383, guid: 06249530526eabe4eb1789499c503035, type: 3}
+  m_PrefabInstance: {fileID: 3039129447751897070}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0c9c6bca6dc0284faf8538f02bd4ede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5424102413916240329
 PrefabInstance:
   m_ObjectHideFlags: 0
