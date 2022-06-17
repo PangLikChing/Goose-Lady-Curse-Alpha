@@ -49,10 +49,6 @@ public class BagSlot : MonoBehaviour, IDropHandler
         // If the dropped item is an inventory slot image
         else if (eventData.pointerDrag.GetComponent<DragDrop>() != null)
         {
-            //temp
-            //eventData.pointerDrag.GetComponent<DragDrop>().shouldNotDrop = true;
-            //temp
-
             // Cache that dropped originalInventorySlot
             InventorySlot originalInventorySlot = eventData.pointerDrag.GetComponent<DragDrop>().originalInventorySlot;
 

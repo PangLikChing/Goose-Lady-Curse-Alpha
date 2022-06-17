@@ -6,8 +6,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(GridLayoutGroup))]
 public class BagSlotsUI : MonoBehaviour
 {
-    GridLayoutGroup gridLayoutGroup;
-
     RectTransform rectTransform;
 
     public Canvas canvas;
@@ -21,8 +19,6 @@ public class BagSlotsUI : MonoBehaviour
     void Awake()
     {
         // Initialize
-        gridLayoutGroup = GetComponent<GridLayoutGroup>();
-
         rectTransform = GetComponent<RectTransform>();
     }
 

@@ -18,10 +18,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
     [SerializeField] Canvas canvas;
 
-    //temp
-    [HideInInspector] public bool shouldNotDrop = false;
-    //temp
-
     [HideInInspector] public InventorySlot originalInventorySlot;
 
     public UnityEvent<Item, int> DropItem;
@@ -121,19 +117,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
                     // Reset item's parent
                     transform.SetParent(originalInventorySlot.transform);
 
-                    // temp if statement
-                    if (shouldNotDrop == false)
-                    {
-                        // Drop the item on Ground
-                        DropItemOnGround();
-                    }
+                    // Drop the item on Ground
+                    DropItemOnGround();
 
                     // Updates the inventory slot
                     originalInventorySlot.RefreshInventorySlot();
-
-                    //temp
-                    shouldNotDrop = false;
-                    //temp
                 }
 
                 // Reset item's position to the centre of the original inventory slot
