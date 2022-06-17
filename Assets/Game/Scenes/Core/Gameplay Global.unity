@@ -4004,6 +4004,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5424102413916240331, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: beachDay
+      value: 
+      objectReference: {fileID: 11400000, guid: 5e829141eb023b449a994b8d81d45665, type: 2}
+    - target: {fileID: 5424102413916240331, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: forestDay
+      value: 
+      objectReference: {fileID: 11400000, guid: 90f03cc5a09ca4c41a74165055d7858c, type: 2}
+    - target: {fileID: 5424102413916240331, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: forestRainyDay
+      value: 
+      objectReference: {fileID: 11400000, guid: acd2cf8004fce0e44a30abb5187a3226, type: 2}
+    - target: {fileID: 5424102413916240331, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: mountainSnowyDay
+      value: 
+      objectReference: {fileID: 11400000, guid: d9a550d6f59088f4db0ae7f1d45b1b31, type: 2}
+    - target: {fileID: 5424102413916240331, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: beachDayMinimalTemperature
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424102413916240331, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: forestRainyDayMinimalTemperature
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424102413916240331, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: mountainSnowyDayMinimalTemperature
+      value: -10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
 --- !u!1001 &6183676674533854739

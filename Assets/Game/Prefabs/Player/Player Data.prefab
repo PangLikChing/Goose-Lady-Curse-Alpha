@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 4475260114938031994}
   - component: {fileID: 8589688179327183685}
   - component: {fileID: 1933046838879210087}
+  - component: {fileID: 5424102413916240331}
   m_Layer: 0
   m_Name: Temperature Element
   m_TagString: Untagged
@@ -330,6 +331,39 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5424102413916240331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902410545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc1fd5851195c7a45a8a309b64eca971, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  temperatureStat: {fileID: 11400000, guid: 9726e81e1cc4f0a4ab24da40ecbee038, type: 2}
+  forestDay: {fileID: 0}
+  forestDayMinimalTemperature: 0
+  forestNight: {fileID: 0}
+  forestNightMinimalTemperature: 0
+  forestRainyDay: {fileID: 0}
+  forestRainyDayMinimalTemperature: 0
+  forestRainyNight: {fileID: 0}
+  forestRainyNightMinimalTemperature: 0
+  beachDay: {fileID: 0}
+  beachDayMinimalTemperature: 0
+  beachNight: {fileID: 0}
+  beachNightMinimalTemperature: 0
+  mountainDay: {fileID: 0}
+  mountainDayMinimalTemperature: 0
+  mountainNight: {fileID: 0}
+  mountainNightMinimalTemperature: 0
+  mountainSnowyDay: {fileID: 0}
+  mountainSnowyDayMinimalTemperature: 0
+  mountainSnowyNight: {fileID: 0}
+  mountainSnowyNightMinimalTemperature: 0
 --- !u!1 &5424102413032636372
 GameObject:
   m_ObjectHideFlags: 0
