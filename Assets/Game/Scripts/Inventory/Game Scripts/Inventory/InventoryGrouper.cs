@@ -86,6 +86,25 @@ public class InventoryGrouper : MonoBehaviour
         }
     }
 
+    public void OpenBag(int bagIndex)
+    {
+        // Cache the targeted bag
+        GameObject bag = transform.GetChild(bagIndex).gameObject;
+
+        // Show that bag on the screen
+        bag.GetComponent<CanvasGroup>().alpha = 1;
+
+        // Change the layer of the bag to the UI layer
+        bag.gameObject.layer = LayerMask.NameToLayer("UI");
+
+        // For every element in the bag
+        for (int i = 0; i < myInventory.bags[bagIndex].volume; i++)
+        {
+            // Instantiate a new inventory slot gameObject as a child of the bag display
+            Instantiate(inventorySlotTransform, bag.transform);
+        }
+    }
+
     // Method to scale this gameObject
     // This assume every bag has the same size in terms of UI
     private void ScaleInventoryGrouper()

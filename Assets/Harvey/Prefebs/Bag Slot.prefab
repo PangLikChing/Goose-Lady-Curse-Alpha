@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f618c6152533e0449ce7dddad013864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalParentTransform: {fileID: 0}
   bagIndex: 0
   canvas: {fileID: 0}
 --- !u!1 &6071404125616626206
@@ -194,6 +195,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bagIndex: 0
   playerInventory: {fileID: 0}
+  refreshBag:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: b7c8b42ad9807b8428c7803ec8727128, type: 2}
+        m_TargetAssemblyTypeName: IntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   swapBag:
     m_PersistentCalls:
       m_Calls:

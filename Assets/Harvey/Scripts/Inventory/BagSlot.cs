@@ -13,6 +13,8 @@ public class BagSlot : MonoBehaviour, IDropHandler
     // Which inventory I am responsible for, assigned when instantiated by BagSlotsUI
     public Inventory playerInventory;
 
+    public UnityEvent<int> refreshBag;
+
     public UnityEvent<int, int> swapBag;
 
     public UnityEvent<InventorySlot, int> addBagToSpecificSlot;
@@ -48,11 +50,26 @@ public class BagSlot : MonoBehaviour, IDropHandler
         else if (eventData.pointerDrag.GetComponent<DragDrop>() != null)
         {
             //temp
-            eventData.pointerDrag.GetComponent<DragDrop>().shouldNotDrop = true;
+            //eventData.pointerDrag.GetComponent<DragDrop>().shouldNotDrop = true;
             //temp
 
+            // Cache that dropped originalInventorySlot
+            InventorySlot originalInventorySlot = eventData.pointerDrag.GetComponent<DragDrop>().originalInventorySlot;
+
             // Try to add that bag to this bag slot
-            addBagToSpecificSlot.Invoke(eventData.pointerDrag.GetComponent<DragDrop>().originalInventorySlot, bagIndex);
+            addBagToSpecificSlot.Invoke(originalInventorySlot, bagIndex);
+
+            // Refresh that inventory slot
+            originalInventorySlot.RefreshInventorySlot();
+
+            // Assign bag image to match that in player's bag
+            AssignBagImage();
+
+            // Turn on block raycast for that bag
+            transform.GetChild(0).GetComponent<CanvasGroup>().blocksRaycasts = true;
+
+            // Open the bag in that bag index
+            refreshBag.Invoke(bagIndex);
         }
     }
 }
