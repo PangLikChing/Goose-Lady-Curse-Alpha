@@ -39,10 +39,11 @@ public class TemperatureController : MonoBehaviour
 
     public void ApplyForestDay()
     {
+        Debug.Log("FE");
         ApplyDecreasingModifier(forestDay, forestDayMinimalTemperature);
     }
 
-    public void ApplyForestNight()
+    private void ApplyForestNight()
     {
 
         ApplyDecreasingModifier(forestNight,forestNightMinimalTemperature);
@@ -53,27 +54,28 @@ public class TemperatureController : MonoBehaviour
         ApplyDecreasingModifier(forestRainyDay,forestRainyDayMinimalTemperature);
     }
 
-    public void ApplyForestRainyNight()
+    private void ApplyForestRainyNight()
     {
         ApplyDecreasingModifier(forestRainyNight,forestRainyNightMinimalTemperature);
     }
 
     public void ApplyBeachDay()
     {
+        Debug.Log("BE");
         ApplyDecreasingModifier(beachDay, beachDayMinimalTemperature);
     }
 
-    public void ApplyBeachNight()
+    private void ApplyBeachNight()
     {
         ApplyDecreasingModifier(beachNight,beachNightMinimalTemperature);
     }
 
-    public void ApplyMountainDay()
+    private void ApplyMountainDay()
     {
         ApplyDecreasingModifier(mountainDay,mountainDayMinimalTemperature);
     }
 
-    public void ApplyMountainNight()
+    private void ApplyMountainNight()
     {
         ApplyDecreasingModifier(mountainNight,mountainNightMinimalTemperature);
     }
@@ -83,7 +85,7 @@ public class TemperatureController : MonoBehaviour
         ApplyDecreasingModifier(mountainSnowyDay,mountainSnowyDayMinimalTemperature);
     }
 
-    public void ApplyMountainSnowyNight()
+    private void ApplyMountainSnowyNight()
     {
         ApplyDecreasingModifier(mountainSnowyNight,mountainSnowyNightMinimalTemperature);
     }

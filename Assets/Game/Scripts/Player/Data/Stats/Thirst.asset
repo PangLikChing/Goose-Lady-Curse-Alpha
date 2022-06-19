@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Thirst
   m_EditorClassIdentifier: 
   baseValue: 100
-  finalValue: 0
+  finalValue: 100
   minValue: 0
   initialValue: 100
-  baseChangeRate: -0.2
-  actualChangeRate: 1
+  baseChangeRate: -2
+  actualChangeRate: -2
   currentValue: 0

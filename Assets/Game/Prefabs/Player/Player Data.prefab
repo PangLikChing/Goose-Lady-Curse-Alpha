@@ -194,6 +194,10 @@ GameObject:
   - component: {fileID: 8589688179327183685}
   - component: {fileID: 1933046838879210087}
   - component: {fileID: 5424102413916240331}
+  - component: {fileID: 5899555281281982039}
+  - component: {fileID: 95751658721561771}
+  - component: {fileID: 9135320054055268761}
+  - component: {fileID: 823701860460875816}
   m_Layer: 0
   m_Name: Temperature Element
   m_TagString: Untagged
@@ -344,26 +348,126 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   temperatureStat: {fileID: 11400000, guid: 9726e81e1cc4f0a4ab24da40ecbee038, type: 2}
-  forestDay: {fileID: 0}
+  forestDay: {fileID: 11400000, guid: 90f03cc5a09ca4c41a74165055d7858c, type: 2}
   forestDayMinimalTemperature: 0
-  forestNight: {fileID: 0}
-  forestNightMinimalTemperature: 0
-  forestRainyDay: {fileID: 0}
-  forestRainyDayMinimalTemperature: 0
-  forestRainyNight: {fileID: 0}
-  forestRainyNightMinimalTemperature: 0
-  beachDay: {fileID: 0}
-  beachDayMinimalTemperature: 0
-  beachNight: {fileID: 0}
-  beachNightMinimalTemperature: 0
-  mountainDay: {fileID: 0}
-  mountainDayMinimalTemperature: 0
-  mountainNight: {fileID: 0}
-  mountainNightMinimalTemperature: 0
-  mountainSnowyDay: {fileID: 0}
-  mountainSnowyDayMinimalTemperature: 0
-  mountainSnowyNight: {fileID: 0}
-  mountainSnowyNightMinimalTemperature: 0
+  forestRainyDay: {fileID: 11400000, guid: acd2cf8004fce0e44a30abb5187a3226, type: 2}
+  forestRainyDayMinimalTemperature: -10
+  beachDay: {fileID: 11400000, guid: 5e829141eb023b449a994b8d81d45665, type: 2}
+  beachDayMinimalTemperature: 10
+  mountainSnowyDay: {fileID: 11400000, guid: d9a550d6f59088f4db0ae7f1d45b1b31, type: 2}
+  mountainSnowyDayMinimalTemperature: -10
+--- !u!114 &5899555281281982039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902410545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38824944b90ae82479b3c7d6a76dc6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: dbe5f24e90a362a4da1196a08e2dae22, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5424102413916240331}
+        m_TargetAssemblyTypeName: TemperatureController, Assembly-CSharp
+        m_MethodName: ApplyBeachDay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &95751658721561771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902410545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38824944b90ae82479b3c7d6a76dc6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 4b9d3317834ce9f4fbf01e594e5539f5, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5424102413916240331}
+        m_TargetAssemblyTypeName: TemperatureController, Assembly-CSharp
+        m_MethodName: ApplyForestDay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &9135320054055268761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902410545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38824944b90ae82479b3c7d6a76dc6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 79c1288c0fa345346b8e4ce7a25a9e27, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5424102413916240331}
+        m_TargetAssemblyTypeName: TemperatureController, Assembly-CSharp
+        m_MethodName: ApplyMountainSnowyDay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &823701860460875816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902410545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38824944b90ae82479b3c7d6a76dc6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 1481b288ce87d9e47a125017e52be632, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5424102413916240331}
+        m_TargetAssemblyTypeName: TemperatureController, Assembly-CSharp
+        m_MethodName: ApplyForestRainyDay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &5424102413032636372
 GameObject:
   m_ObjectHideFlags: 0

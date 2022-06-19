@@ -6,14 +6,14 @@ public class BarControl : MonoBehaviour
     public Slider bar;
     public SurvivalStat stat;
 
-    private void Start()
+    protected virtual void Start()
     {
         bar.maxValue = stat.finalValue;
         bar.value = stat.currentValue;
         bar.minValue = stat.minValue;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         if (this.enabled)
         {
@@ -23,14 +23,14 @@ public class BarControl : MonoBehaviour
         }
     }
 
-    public void SetMaxValue(float value)
-    {
-        bar.maxValue = value;
-        bar.value = value;
-    }
+    //public void SetMaxValue(float value)
+    //{
+    //    bar.maxValue = value;
+    //    bar.value = value;
+    //}
 
-    public void SetCurrentValue(float value)
-    {
-        bar.value = value;
-    }
+    //public void SetCurrentValue(float value)
+    //{
+    //    bar.value = value;
+    //}
 }

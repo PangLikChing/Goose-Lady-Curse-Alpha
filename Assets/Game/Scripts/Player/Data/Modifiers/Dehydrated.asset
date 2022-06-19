@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99801bf7714de8446997a07e26c7079f, type: 3}
   m_Name: Dehydrated
   m_EditorClassIdentifier: 
-  magnitude: -1
+  magnitude: -6
   duration: 0
   isPersistent: 1
   targetStat: {fileID: 11400000, guid: 8bdeda9a5c8d1ff4a92c19cd3da7b1fa, type: 2}
