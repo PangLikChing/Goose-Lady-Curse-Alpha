@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 719125821}
   - component: {fileID: 719125823}
   - component: {fileID: 719125822}
+  - component: {fileID: 5424102413916240343}
   m_Layer: 0
   m_Name: Hunger Element
   m_TagString: Untagged
@@ -90,6 +91,46 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5424102413916240343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719125820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38824944b90ae82479b3c7d6a76dc6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 04e3ee0ebc20c2b4bb77fa3d79110618, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 719125823}
+        m_TargetAssemblyTypeName: SurvivalElement, Assembly-CSharp
+        m_MethodName: Initailize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 719125822}
+        m_TargetAssemblyTypeName: SurvivalElement, Assembly-CSharp
+        m_MethodName: Initailize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &819164249
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,6 +142,7 @@ GameObject:
   - component: {fileID: 819164250}
   - component: {fileID: 6553044702666325369}
   - component: {fileID: 9070449613503344695}
+  - component: {fileID: 5424102413916240342}
   m_Layer: 0
   m_Name: Thirst Element
   m_TagString: Untagged
@@ -180,6 +222,46 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5424102413916240342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819164249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38824944b90ae82479b3c7d6a76dc6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 04e3ee0ebc20c2b4bb77fa3d79110618, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6553044702666325369}
+        m_TargetAssemblyTypeName: SurvivalElement, Assembly-CSharp
+        m_MethodName: Initailize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 9070449613503344695}
+        m_TargetAssemblyTypeName: SurvivalElement, Assembly-CSharp
+        m_MethodName: Initailize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1902410545
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +280,7 @@ GameObject:
   - component: {fileID: 95751658721561771}
   - component: {fileID: 9135320054055268761}
   - component: {fileID: 823701860460875816}
+  - component: {fileID: 5424102413916240341}
   m_Layer: 0
   m_Name: Temperature Element
   m_TagString: Untagged
@@ -459,6 +542,70 @@ MonoBehaviour:
       - m_Target: {fileID: 5424102413916240331}
         m_TargetAssemblyTypeName: TemperatureController, Assembly-CSharp
         m_MethodName: ApplyForestRainyDay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5424102413916240341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902410545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38824944b90ae82479b3c7d6a76dc6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 04e3ee0ebc20c2b4bb77fa3d79110618, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8971367352721201426}
+        m_TargetAssemblyTypeName: SurvivalElement, Assembly-CSharp
+        m_MethodName: Initailize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4475260114938031994}
+        m_TargetAssemblyTypeName: SurvivalElement, Assembly-CSharp
+        m_MethodName: Initailize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8589688179327183685}
+        m_TargetAssemblyTypeName: SurvivalElement, Assembly-CSharp
+        m_MethodName: Initailize
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1933046838879210087}
+        m_TargetAssemblyTypeName: SurvivalElement, Assembly-CSharp
+        m_MethodName: Initailize
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

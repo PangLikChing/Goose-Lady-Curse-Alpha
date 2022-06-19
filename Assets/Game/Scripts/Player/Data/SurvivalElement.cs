@@ -10,6 +10,11 @@ public class SurvivalElement : MonoBehaviour
     public UnityEvent<bool> Warning;
     private bool isActive;
 
+    public void Initailize()
+    {
+        isActive = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
