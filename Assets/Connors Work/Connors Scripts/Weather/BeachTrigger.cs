@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class BeachTrigger : MonoBehaviour
 {
+    //variable declaration
     public bool OnBeach;
     public UnityEvent beachEvent;
 
@@ -15,6 +16,7 @@ public class BeachTrigger : MonoBehaviour
         Debug.Log("On Beach is " + OnBeach);
     }
 
+    //if the beach trigger is touched by the player, send out a event
     void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.parent != null && collision.transform.parent.tag == "Player")
@@ -23,12 +25,14 @@ public class BeachTrigger : MonoBehaviour
         }
     }
 
+    //set the beach trigger flag to be true.
     public void IsOnBeach()
     {
         OnBeach = true;
         Debug.Log("On Beach is " + OnBeach);
     }
 
+    //set the beach trigger flag to be false.
     public void NotOnBeach()
     {
         OnBeach = false;

@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class ForestTrigger : MonoBehaviour
 {
+    //variable declaration
     public bool OnForest;
     public UnityEvent forestEvent;
 
@@ -16,6 +17,7 @@ public class ForestTrigger : MonoBehaviour
         Debug.Log("In Forest is " + OnForest);
     }
 
+    //if the forest trigger is touched by the player, send out a event
     void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.parent != null && collision.transform.parent.tag == "Player")
@@ -24,12 +26,14 @@ public class ForestTrigger : MonoBehaviour
         }
     }
 
+    //set the forest trigger flag to be true.
     public void IsInForest()
     {
         OnForest = true;
         Debug.Log("In Forest is " + OnForest);
     }
 
+    //set the forest trigger flag to be false.
     public void NotInForest()
     {
         OnForest = false;

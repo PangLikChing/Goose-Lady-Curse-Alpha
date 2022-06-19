@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Invisibility : MonoBehaviour
 {
+    //variable declaration
     private MeshRenderer mesh;
-    //public GameObject objectToTurnInvisible;
     // Start is called before the first frame update
     void Start()
     {
+        //makes the selected object turn invisible
         mesh = gameObject.GetComponent<MeshRenderer>();
         mesh.enabled = false;
     }
