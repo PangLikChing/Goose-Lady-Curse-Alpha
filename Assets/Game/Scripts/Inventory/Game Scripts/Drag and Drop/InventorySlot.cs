@@ -175,8 +175,12 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                 stackNumberText.gameObject.SetActive(true);
             }
 
-            // Turn on the block raycast
-            transform.GetChild(0).GetComponent<CanvasGroup>().blocksRaycasts = true;
+            // If the transform has child / children, aka there is a item iamge there
+            if (transform.childCount > 0)
+            {
+                // Turn on the block raycast
+                transform.GetChild(0).GetComponent<CanvasGroup>().blocksRaycasts = true;
+            }
         }
         // If there is no item in the slot that I am responsible to display
         else

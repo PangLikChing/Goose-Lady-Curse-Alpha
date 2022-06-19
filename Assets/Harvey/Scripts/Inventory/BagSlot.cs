@@ -15,7 +15,7 @@ public class BagSlot : MonoBehaviour, IDropHandler
 
     public UnityEvent<int> refreshBag;
 
-    public UnityEvent<int, int> swapBag;
+    public UnityEvent<int, int> swapBag, increaseInventorySlots;
 
     public UnityEvent<InventorySlot, int> addBagToSpecificSlot;
 
@@ -84,12 +84,36 @@ public class BagSlot : MonoBehaviour, IDropHandler
                     // If the new bag's volume is larger than the player's current bag
                     if (newBag.volume >= playerInventory.bags[bagIndex].volume)
                     {
+                        // Get the difference between the 2 bags
+                        int difference = newBag.volume - playerInventory.bags[bagIndex].volume;
+
                         // Throw a debug message
                         Debug.Log("Should Swap bag here");
+
+                        // Cache the original inventory slot for the dropped item
+                        InventorySlot droppedOriginalInventorySlot = eventData.pointerDrag.GetComponent<DragDrop>().originalInventorySlot;
+
+                        // Reference the old bag
+                        Container oldBag = playerInventory.bags[bagIndex];
+
+                        // Add the new bag to the bag slot
+                        addBagToSpecificSlot.Invoke(droppedOriginalInventorySlot, bagIndex);
+
+                        // Assign bag image to match that in player's bag
+                        AssignBagImage();
+
+                        // Put the old bag to the original bag slot that the dropped item was at
+                        playerInventory.itemList[droppedOriginalInventorySlot.myBagIndex][droppedOriginalInventorySlot.mySlotIndex].slottedItem = oldBag;
+
+                        // Refresh that inventory slot
+                        droppedOriginalInventorySlot.RefreshInventorySlot();
+
+                        // Instantiate new inventory slots for every new inventory slot
+                        increaseInventorySlots.Invoke(bagIndex, difference);
                     }
                 }
-                // If it is not a container
-                catch
+                    // If it is not a container
+                    catch
                 {
                     // Throw a debug message
                     Debug.Log("That is not a container!");

@@ -3520,11 +3520,55 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d756b87e52756214895f749aa8868266, type: 3}
+--- !u!114 &1662930229646283601 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1662930229941437477, guid: d756b87e52756214895f749aa8868266, type: 3}
+  m_PrefabInstance: {fileID: 1662930229646283600}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662930229646283602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e038a1006605b47b07c8bf26d35377, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1662930229646283602 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1662930229416265338, guid: d756b87e52756214895f749aa8868266, type: 3}
+  m_PrefabInstance: {fileID: 1662930229646283600}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1662930229646283603 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1603569329435053290, guid: d756b87e52756214895f749aa8868266, type: 3}
   m_PrefabInstance: {fileID: 1662930229646283600}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1662930229646283604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662930229646283602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d64510f4bd570934ba5e973b51dff989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 90a59d1f01964c9419b5bf23de6f1426, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1662930229646283601}
+        m_TargetAssemblyTypeName: InventoryGrouper, Assembly-CSharp
+        m_MethodName: IncreaseInventorySlots
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &3039129447751897070
 PrefabInstance:
   m_ObjectHideFlags: 0

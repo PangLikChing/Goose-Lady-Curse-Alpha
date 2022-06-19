@@ -361,6 +361,62 @@ public class Inventory : MonoBehaviour
                 Debug.Log("This is not a container");
             }
         }
+        // If that bag slot already has a bag
+        else
+        {
+            // Try and see if that item is a container
+            try
+            {
+                // Cache that item slot
+                ItemSlot itemSlot = itemList[inventorySlot.myBagIndex][inventorySlot.mySlotIndex];
+
+                // Cache the new bag
+                Container newBag = (Container)itemSlot.slottedItem;
+
+                // If the new bag's volume is larger than or equal to the current bag's volume
+                if (newBag.volume >= bags[bagSlotIndex].volume)
+                {
+                    // Get the difference between the 2 bags
+                    int difference = newBag.volume - bags[bagSlotIndex].volume;
+
+                    // Add the bag to the bag slot
+                    bags[bagSlotIndex] = (Container)itemSlot.slottedItem;
+
+                    // Throw a debug message
+                    Debug.Log($"Adding {itemSlot.slottedItem.itemDisplayName} to the inventory");
+
+                    // Create a new array for the new bag
+                    ItemSlot[] newItemArray = new ItemSlot[newBag.volume];
+
+                    // Copy the old data to the array for that new bag
+                    for (int i = 0; i < itemList[bagSlotIndex].Length; i++)
+                    {
+                        newItemArray[i] = itemList[bagSlotIndex][i];
+                    }
+
+                    // Create a number of itemslots in the array equals to the volume of the new bag
+                    for (int j = 0; j < difference; j++)
+                    {
+                        // Initialize a temp ItemSlot
+                        ItemSlot tempItemSlot = new ItemSlot();
+
+                        // Assign the temp ItemSlot to the itemSlots list
+                        newItemArray[itemList[bagSlotIndex].Length + j] = tempItemSlot;
+                    }
+
+                    // Replace the old array with the new array
+                    itemList[bagSlotIndex] = newItemArray;
+                }
+
+                // Throw a debug message
+                Debug.Log("This is a container");
+            }
+                catch
+            {
+                // Throw a debug message
+                Debug.Log("This is not a container");
+            }
+        }
     }
 
     // Function to remove a bag from a bag slot to a specific inventory slot

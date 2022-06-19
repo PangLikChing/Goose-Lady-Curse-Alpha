@@ -86,6 +86,19 @@ public class InventoryGrouper : MonoBehaviour
         }
     }
 
+    public void IncreaseInventorySlots(int bagIndex, int numberOfNewSlots)
+    {
+        // Cache the targeted bag
+        Transform bag = transform.GetChild(bagIndex);
+
+        // For every element in the bag
+        for (int i = 0; i < numberOfNewSlots; i++)
+        {
+            // Instantiate a new inventory slot gameObject as a child of the bag display
+            Instantiate(inventorySlotTransform, bag);
+        }
+    }
+
     public void OpenBag(int bagIndex)
     {
         // Cache the targeted bag
