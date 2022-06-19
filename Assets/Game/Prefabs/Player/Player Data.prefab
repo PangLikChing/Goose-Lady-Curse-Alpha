@@ -260,12 +260,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 579e5d195585f404c8559ce48af719e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  condition: {fileID: 11400000, guid: a45bcb19c7d6c23419a6689f75a46b3b, type: 2}
+  condition: {fileID: 11400000, guid: 1cd96c837d2792b44af42b7f4702694d, type: 2}
   modifier: {fileID: 11400000, guid: cc909d27dcf5da74dadcacbe91dd0a47, type: 2}
   Warning:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: d5345a8585b88b741b70996a79030082, type: 2}
+      - m_Target: {fileID: 11400000, guid: dadf9949a19af964ebf2b2224c1cd075, type: 2}
         m_TargetAssemblyTypeName: BoolEventChannel, Assembly-CSharp
         m_MethodName: Raise
         m_Mode: 0

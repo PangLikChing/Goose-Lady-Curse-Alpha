@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 99801bf7714de8446997a07e26c7079f, type: 3}
-  m_Name: OverHeat
+  m_Name: Hot
   m_EditorClassIdentifier: 
   magnitude: -1
   duration: 0
