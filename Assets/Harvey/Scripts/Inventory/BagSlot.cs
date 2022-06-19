@@ -49,23 +49,52 @@ public class BagSlot : MonoBehaviour, IDropHandler
         // If the dropped item is an inventory slot image
         else if (eventData.pointerDrag.GetComponent<DragDrop>() != null)
         {
-            // Cache that dropped originalInventorySlot
-            InventorySlot originalInventorySlot = eventData.pointerDrag.GetComponent<DragDrop>().originalInventorySlot;
+            // If my child has an image, aka there is a bag in the bag slot
+            if (transform.GetChild(0).GetComponent<Image>().sprite == null)
+            {
+                // Cache that dropped originalInventorySlot
+                InventorySlot originalInventorySlot = eventData.pointerDrag.GetComponent<DragDrop>().originalInventorySlot;
 
-            // Try to add that bag to this bag slot
-            addBagToSpecificSlot.Invoke(originalInventorySlot, bagIndex);
+                // Try to add that bag to this bag slot
+                addBagToSpecificSlot.Invoke(originalInventorySlot, bagIndex);
 
-            // Refresh that inventory slot
-            originalInventorySlot.RefreshInventorySlot();
+                // Refresh that inventory slot
+                originalInventorySlot.RefreshInventorySlot();
 
-            // Assign bag image to match that in player's bag
-            AssignBagImage();
+                // Assign bag image to match that in player's bag
+                AssignBagImage();
 
-            // Turn on block raycast for that bag
-            transform.GetChild(0).GetComponent<CanvasGroup>().blocksRaycasts = true;
+                // Turn on block raycast for that bag
+                transform.GetChild(0).GetComponent<CanvasGroup>().blocksRaycasts = true;
 
-            // Open the bag in that bag index
-            refreshBag.Invoke(bagIndex);
+                // Open the bag in that bag index
+                refreshBag.Invoke(bagIndex);
+            }
+            else
+            {
+                // Throw a debug message
+                Debug.Log("There is a bag in the slot");
+
+                // Try to cast the dropped item as a container
+                try
+                {
+                    // Cache the container
+                    Container newBag = (Container)eventData.pointerDrag.GetComponent<DragDrop>().originalInventorySlot.slottedItem;
+
+                    // If the new bag's volume is larger than the player's current bag
+                    if (newBag.volume >= playerInventory.bags[bagIndex].volume)
+                    {
+                        // Throw a debug message
+                        Debug.Log("Should Swap bag here");
+                    }
+                }
+                // If it is not a container
+                catch
+                {
+                    // Throw a debug message
+                    Debug.Log("That is not a container!");
+                }
+            }
         }
     }
 }

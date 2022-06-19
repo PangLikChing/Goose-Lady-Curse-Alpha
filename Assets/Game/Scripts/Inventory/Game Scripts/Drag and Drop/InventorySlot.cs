@@ -121,24 +121,34 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             // Else if that dropped item is a bag slot image instead
             else if (eventData.pointerDrag.GetComponent<BagSlotDragDrop>() != null)
             {
-                // Cache the BagSlotDragDrop of that dropped item
-                BagSlotDragDrop bagSlotDragDrop = eventData.pointerDrag.GetComponent<BagSlotDragDrop>();
-
-                // If that bag which the bag image is representing is empty
-                if (myInventory.IsBagEmpty(bagSlotDragDrop.bagIndex))
+                // If there is no item currently in the inventory slot
+                if (slottedItem == null)
                 {
-                    // If that bag isn't the bag it is representing
-                    if (bagSlotDragDrop.bagIndex != myBagIndex)
+                    // Cache the BagSlotDragDrop of that dropped item
+                    BagSlotDragDrop bagSlotDragDrop = eventData.pointerDrag.GetComponent<BagSlotDragDrop>();
+
+                    // If that bag which the bag image is representing is empty
+                    if (myInventory.IsBagEmpty(bagSlotDragDrop.bagIndex))
                     {
-                        // Remove that bag from the bag slot
-                        removeBag.Invoke(this, bagSlotDragDrop.bagIndex);
+                        // If that bag isn't the bag it is representing
+                        if (bagSlotDragDrop.bagIndex != myBagIndex)
+                        {
+                            // Remove that bag from the bag slot
+                            removeBag.Invoke(this, bagSlotDragDrop.bagIndex);
+                        }
+                    }
+                    // If there is something in that bag
+                    else
+                    {
+                        // Throw a warning message
+                        Debug.Log("There is something in this bag");
                     }
                 }
-                // If there is something in that bag
+                // If there is something currently in this inventory slot
                 else
                 {
-                    // Throw a warning message
-                    Debug.Log("There is something in this bag");
+                    // Throw a debug message
+                    Debug.Log("There is something in this inventory slot");
                 }
             }
         }
