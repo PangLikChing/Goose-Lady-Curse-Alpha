@@ -309,6 +309,9 @@ GameObject:
   - component: {fileID: 674721513}
   - component: {fileID: 674721512}
   - component: {fileID: 674721514}
+  - component: {fileID: 674721516}
+  - component: {fileID: 674721515}
+  - component: {fileID: 674721517}
   m_Layer: 0
   m_Name: Player Inventory
   m_TagString: Untagged
@@ -472,6 +475,102 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &674721515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674721509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ad931fa6aa183428df29d3ddb5b6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 9f3c3c78b5495a54e8e8e071fb342b89, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 674721511}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: AddBagToSpecificBagSlot
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &674721516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674721509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1ad931fa6aa183428df29d3ddb5b6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 6864aabd62846764eb93d39a7a969a97, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 674721511}
+        m_TargetAssemblyTypeName: Inventory, Assembly-CSharp
+        m_MethodName: RemoveBag
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1662930229646283601}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &674721517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674721509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d64510f4bd570934ba5e973b51dff989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 90a59d1f01964c9419b5bf23de6f1426, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 674721509}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &735344743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -613,6 +712,7 @@ GameObject:
   - component: {fileID: 748543345}
   - component: {fileID: 748543346}
   - component: {fileID: 748543347}
+  - component: {fileID: 748543348}
   m_Layer: 5
   m_Name: Crafting Manager
   m_TagString: Untagged
@@ -692,6 +792,34 @@ MonoBehaviour:
       - m_Target: {fileID: 748543345}
         m_TargetAssemblyTypeName: CraftingManager, Assembly-CSharp
         m_MethodName: CheckReagents
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &748543348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748543343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38824944b90ae82479b3c7d6a76dc6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: c9024a02a7e756a48884f96d5f800127, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3039129447751897071}
+        m_TargetAssemblyTypeName: CraftingMenu, Assembly-CSharp
+        m_MethodName: MenuToggle
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1517,6 +1645,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d756b87e52756214895f749aa8868266, type: 3}
+--- !u!1 &1662930229646283601 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1603569329435053290, guid: d756b87e52756214895f749aa8868266, type: 3}
+  m_PrefabInstance: {fileID: 1662930229646283600}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1662930229646283602 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1662930229416265338, guid: d756b87e52756214895f749aa8868266, type: 3}
@@ -1613,12 +1746,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3039129447783315383, guid: 06249530526eabe4eb1789499c503035, type: 3}
+      propertyPath: craftingMenuHotKeyHandler
+      value: 
+      objectReference: {fileID: 748543346}
     - target: {fileID: 3039129447783315385, guid: 06249530526eabe4eb1789499c503035, type: 3}
       propertyPath: m_Name
       value: Crafting Menu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06249530526eabe4eb1789499c503035, type: 3}
+--- !u!114 &3039129447751897071 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3039129447783315383, guid: 06249530526eabe4eb1789499c503035, type: 3}
+  m_PrefabInstance: {fileID: 3039129447751897070}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0c9c6bca6dc0284faf8538f02bd4ede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5424102413916240329
 PrefabInstance:
   m_ObjectHideFlags: 0
