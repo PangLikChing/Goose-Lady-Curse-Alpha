@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: Temperature
   m_EditorClassIdentifier: 
   baseValue: 55
-  actualValue: 0
-  initialValue: 35
+  finalValue: 55
+  minValue: -30
+  initialValue: 0
   baseChangeRate: 0
   actualChangeRate: 0
-  minValue: 15
-  currentValue: 35
+  currentValue: 0
+  changeRateModifiers: []
+  changeRateModifierRemainingTimes: []

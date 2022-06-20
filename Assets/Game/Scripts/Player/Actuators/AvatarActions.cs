@@ -6,6 +6,7 @@ using UnityEngine.Events;
 /// This class is a library of actions the avatar can perform.
 /// The controller will invoke methods from this class to perform an action
 /// </summary>
+[RequireComponent(typeof(AvatarLocomotion))]
 public class AvatarActions : MonoBehaviour
 {
     [Tooltip("Avatar can pickup item under this range")]
@@ -23,9 +24,9 @@ public class AvatarActions : MonoBehaviour
     [Tooltip("Avatar's spawn location")]
     public Transform spawnPoint;
     [Tooltip("This channel send item pickup event to inventory")]
-    public UnityEvent<Item,int> ItemPickupEvent;
+    public UnityEvent<Item, int> ItemPickupEvent;
     private Animator avatarAnimator;
-
+    private bool hasAnimator;
     private void OnEnable()
     {
 
@@ -38,13 +39,13 @@ public class AvatarActions : MonoBehaviour
 
     public void ResetState()
     {
-        
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        avatarAnimator = GetComponent<Animator>();
+        hasAnimator = TryGetComponent<Animator>(out avatarAnimator);
     }
 
     // Update is called once per frame
@@ -58,10 +59,20 @@ public class AvatarActions : MonoBehaviour
     /// <param name="item">Item.</param>
     public void PickUp(Transform item)
     {
+        if (item == null)
+        {
+            Debug.LogError("item is null");
+            return;
+        }
         if (item.TryGetComponent<ItemWrapper>(out ItemWrapper itemWrapper))
         {
-            ItemPickupEvent.Invoke(itemWrapper.item,itemWrapper.stackNumber); 
-            Destroy(item.gameObject,0.1f);
+            ItemPickupEvent.Invoke(itemWrapper.item, itemWrapper.stackNumber);
+            Destroy(item.gameObject, 0.1f);
+        }
+        else
+        {
+            Debug.LogWarning("ItemWrapper is null");
+            return;
         }
     }
 
@@ -72,9 +83,25 @@ public class AvatarActions : MonoBehaviour
 
     public void DropOff(Item item, int stack)
     {
+        if (item == null)
+        {
+            Debug.LogError("item is null");
+            return;
+        }
         Transform itemPrefab = item.item3DModelPrefeb;
-        GameObject spawnedItem = Instantiate(itemPrefab.gameObject,transform.position+transform.forward*dropOffRange+transform.up* dropOffHeight, transform.rotation);
-        spawnedItem.GetComponent<ItemWrapper>().stackNumber = stack;
+        if (itemPrefab == null)
+        {
+            Debug.LogError("itemPrefab is null");
+            return;
+        }
+        GameObject spawnedItem = Instantiate(itemPrefab.gameObject, transform.position + transform.forward * dropOffRange + transform.up * dropOffHeight, transform.rotation);
+        if (!spawnedItem.TryGetComponent<ItemWrapper>(out ItemWrapper itemWrapper))
+        {
+            Debug.LogWarning("ItemWrapper is null");
+            return;
+        }
+        itemWrapper.stackNumber = stack;
+
     }
 
     /// <summary>
@@ -84,13 +111,18 @@ public class AvatarActions : MonoBehaviour
     /// <param name="enemy">Enemy</param>
     public void Attack(Transform enemy)
     {
-        //Debug.Log($"Attack {enemy}");
-        avatarAnimator.SetBool("attack", true);
+        if (hasAnimator)
+        {
+            avatarAnimator.SetBool("attack", true);
+        }
     }
 
     public void CancelAttack()
     {
-        avatarAnimator.SetBool("attack", false);
+        if (hasAnimator)
+        {
+            avatarAnimator.SetBool("attack", false);
+        }
     }
 
     public void Interact()
@@ -99,13 +131,19 @@ public class AvatarActions : MonoBehaviour
 
     public void Die()
     {
-        avatarAnimator.SetTrigger("die");
+        if (hasAnimator)
+        {
+            avatarAnimator.SetTrigger("die");
+        }
     }
 
     public void Spawn()
     {
-        avatarAnimator.SetTrigger("spawn");
-        transform.position = spawnPoint.position;
+        if (hasAnimator)
+        {
+            avatarAnimator.SetTrigger("spawn");
+            transform.position = spawnPoint.position;
+        }
     }
 
     public bool IsInPickupRange()

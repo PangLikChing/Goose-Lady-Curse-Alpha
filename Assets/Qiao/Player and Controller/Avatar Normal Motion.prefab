@@ -1076,7 +1076,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2.2
+  m_Speed: 1
   m_Acceleration: 15
   avoidancePriority: 50
   m_AngularSpeed: 0
@@ -1118,6 +1118,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUpRange: 0.5
+  dropOffRange: 2
+  dropOffHeight: 1
   attackRange: 0.5
   rangeMargin: 0.5
   motion: {fileID: 4440252352026558274}
