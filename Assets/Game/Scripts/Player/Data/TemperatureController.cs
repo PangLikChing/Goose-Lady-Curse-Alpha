@@ -32,14 +32,14 @@ public class TemperatureController : MonoBehaviour
 
     private Modifier currentModifier;
 
-    private void Start()
+    public void Initialize()
     {
-        
+        currentModifier = null;
+        ApplyForestDay();//need to vary depending on the respawn locations
     }
 
     public void ApplyForestDay()
     {
-        Debug.Log("FE");
         ApplyDecreasingModifier(forestDay, forestDayMinimalTemperature);
     }
 
