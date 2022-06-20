@@ -9,4 +9,6 @@ public class NotebookManager : MonoBehaviour
     public string[] words;
 
     public Canvas canvas;
+
+    public NotebookReturnDroppingField returnDroppingField;
 }

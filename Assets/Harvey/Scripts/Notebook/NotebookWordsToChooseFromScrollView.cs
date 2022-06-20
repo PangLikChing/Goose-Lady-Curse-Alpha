@@ -30,6 +30,9 @@ public class NotebookWordsToChooseFromScrollView : MonoBehaviour
                 // Assign the canvas for the word suggestion block instantiated
                 wordBlock.canvas = notebookManager.canvas;
 
+                // Assign the return dropping field for the word suggestion block instantiated
+                wordBlock.returnDroppingField = notebookManager.returnDroppingField;
+
                 // Cache the text component
                 TMP_Text wordText = wordBlock.transform.GetChild(0).GetComponent<TMP_Text>();
 

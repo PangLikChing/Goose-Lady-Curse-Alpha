@@ -7,21 +7,20 @@ using UnityEngine.UI;
 
 public class NotebookWordBlock : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    CanvasGroup canvasGroup;
+
     public Transform DraggableClonePrefeb;
-    public NotebookDraggableWordBlock myClone;
 
     [SerializeField] Image myImage;
     [SerializeField] TMP_Text myTextField;
 
-    RectTransform rectTransform;
-    CanvasGroup canvasGroup;
-
+    [HideInInspector] public NotebookDraggableWordBlock myClone;
+    [HideInInspector] public NotebookReturnDroppingField returnDroppingField;
     [HideInInspector] public Canvas canvas;
 
     void Start()
     {
         // Initialize
-        rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
@@ -35,25 +34,28 @@ public class NotebookWordBlock : MonoBehaviour, IPointerDownHandler, IBeginDragH
             // Make it so that it is not interactable with raycast when dragging
             canvasGroup.blocksRaycasts = false;
 
-            //test
-
             // Instantiate a dragable word block
             myClone = Instantiate(DraggableClonePrefeb, canvas.transform).GetComponent<NotebookDraggableWordBlock>();
 
             // Snap myCLone's position to this transform's position to create the illusion of they are the same object
             myClone.transform.position = transform.position;
 
-            // Assign sprite and word for the clone
+            // Ask the clone to remember this word block
+            myClone.myOriginalGameObject = gameObject;
+
+            // Assign canvas, sprite and word for the clone
+            myClone.canvas = canvas;
             myClone.myImage.sprite = myImage.sprite;
             myClone.myTextField.text = myTextField.text;
+
+            // Assign the return dropping field for the clone
+            myClone.returnDroppingField = returnDroppingField;
 
             // Hide this gameObject
             canvasGroup.alpha = 0;
 
             // Disable the drag-ability of this word block
             canvasGroup.blocksRaycasts = false;
-
-            //test
         }
     }
 
@@ -81,6 +83,9 @@ public class NotebookWordBlock : MonoBehaviour, IPointerDownHandler, IBeginDragH
             {
                 // Destroy the clone's gameObject
                 Destroy(myClone.gameObject);
+
+                // Dereference myClone
+                myClone = null;
 
                 // Show the word block again
                 canvasGroup.alpha = 1;
