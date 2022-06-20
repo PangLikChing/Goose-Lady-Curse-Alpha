@@ -311,7 +311,6 @@ GameObject:
   - component: {fileID: 674721514}
   - component: {fileID: 674721516}
   - component: {fileID: 674721515}
-  - component: {fileID: 674721517}
   m_Layer: 0
   m_Name: Player Inventory
   m_TagString: Untagged
@@ -463,7 +462,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1662930229646283602}
+      - m_Target: {fileID: 1662930229646283601}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -538,34 +537,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &674721517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 674721509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d64510f4bd570934ba5e973b51dff989, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  channel: {fileID: 11400000, guid: 90a59d1f01964c9419b5bf23de6f1426, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 674721509}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1648,11 +1619,6 @@ PrefabInstance:
 --- !u!1 &1662930229646283601 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1603569329435053290, guid: d756b87e52756214895f749aa8868266, type: 3}
-  m_PrefabInstance: {fileID: 1662930229646283600}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1662930229646283602 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1662930229416265338, guid: d756b87e52756214895f749aa8868266, type: 3}
   m_PrefabInstance: {fileID: 1662930229646283600}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3039129447751897070
