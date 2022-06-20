@@ -60,4 +60,10 @@ public class Equipment : Item
         // Throw a debug message
         Debug.Log($"{this.name}'s current stack number: {heldItem.stackNumber}");
     }
+
+    public override void Use(ItemSlot itemSlot)
+    {
+        // Throw a debug message
+        Debug.Log("Equipment Use, player equips the item");
+    }
 }

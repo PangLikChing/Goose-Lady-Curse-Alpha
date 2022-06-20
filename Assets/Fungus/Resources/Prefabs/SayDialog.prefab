@@ -671,9 +671,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 1
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &11488906
 MonoBehaviour:
@@ -805,7 +805,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickMode: 3
-  nextClickDelay: 0
+  nextClickDelay: 0.5
   cancelEnabled: 1
   ignoreMenuClicks: 1
 --- !u!82 &8294266

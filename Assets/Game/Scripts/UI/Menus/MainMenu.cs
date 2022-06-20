@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 /// <summary>
 /// Main menu controller
 /// </summary>
@@ -11,28 +12,28 @@ public class MainMenu : Menu
     [Tooltip("Reference to hud menu")]
     public MenuClassifier hudMenu;
     [Tooltip("Reference to the scene that storges gameplay persistance data")]
-    public string gameplayGlobalScene;
+    public SceneReference gameplayGlobalScene;
+    [Tooltip("Reference to world scene in game")]
+    public SceneReference gameWorldScene;
     [Tooltip("Reference to input reader")]
     public InputReader inputReader;
     private List<string> sceneToBeLoaded = new List<string>();
 
     private void OnEnable()
     {
-        inputReader.EnableMenuInput();
+        inputReader.EnableSystemMenuInput();
     }
     /// <summary>
     /// Callback for start button, load the first gameplay scene, player data scene and hide main menu
     /// </summary>
     /// <param name="sceneName">The name of the first gameplay scene</param>
-    public void LoadGameScene(string sceneName)
+    public void LoadGameScene()
     {
-        sceneToBeLoaded.Add(gameplayGlobalScene);
-        sceneToBeLoaded.Add(sceneName);
+        sceneToBeLoaded.Add(gameplayGlobalScene.ScenePath); //Stay uniform with  startup script
+        sceneToBeLoaded.Add(gameWorldScene.ScenePath);
         SceneLoader.Instance.OnSceneLoadedEvent += OnGameSceneLoaded;
         SceneLoader.Instance.LoadScenes(sceneToBeLoaded);
         this.OnHideMenu();
-        MenuManager.Instance.GetMenu<PauseMenu>(pauseMenu).currentGameScene = sceneName;
-        
     }
 
     /// <summary>

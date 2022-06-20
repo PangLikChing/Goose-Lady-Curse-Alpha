@@ -24,7 +24,7 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
     ""name"": ""InputMap"",
     ""maps"": [
         {
-            ""name"": ""Gameplay"",
+            ""name"": ""CharacterControls"",
             ""id"": ""e55c5bde-0eda-4408-8f85-f15cde7656ae"",
             ""actions"": [
                 {
@@ -71,60 +71,6 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Open Inventory"",
-                    ""type"": ""Button"",
-                    ""id"": ""15762a5b-5275-4cab-ad07-aa8297e9adca"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Open Character Panel"",
-                    ""type"": ""Button"",
-                    ""id"": ""c2c8750c-0c2f-421e-b4e3-ed5b2a4f3a4d"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Open Crafting Menu"",
-                    ""type"": ""Button"",
-                    ""id"": ""7fcb4593-5501-41c3-b9b1-5204c1348be3"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Open Build Menu"",
-                    ""type"": ""Button"",
-                    ""id"": ""3c26e87f-31a6-47ab-a07c-f4c1a4a12c47"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Open Help Menu"",
-                    ""type"": ""Button"",
-                    ""id"": ""dbf4e4ed-bf02-4aa7-a0cc-fbf510f20eb8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Open Pause Menu"",
-                    ""type"": ""Button"",
-                    ""id"": ""4e4c6f9c-6707-4c17-b8de-cafd6721e9f0"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -182,10 +128,92 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                     ""action"": ""Zoom Camera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""GameplayMenus"",
+            ""id"": ""ea0b755a-bbf3-44d5-b638-bb2ffb120b5d"",
+            ""actions"": [
+                {
+                    ""name"": ""Close All Menus"",
+                    ""type"": ""Button"",
+                    ""id"": ""3c9ff53b-abff-474f-8978-ab19d008d999"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Open Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""11f909ad-af5f-4289-9123-e3bf2a57c69e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Open Character Panel"",
+                    ""type"": ""Button"",
+                    ""id"": ""dd29ca27-dbbd-4e28-9a9b-a74178c24f79"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Open Crafting Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""30cf5245-9f1a-4624-8d51-1f70b6c38558"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Open Build Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""0054a390-db32-4213-b691-10526f1a97bb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Open Help Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""3078781a-9c8f-49f8-9379-252ec39363bc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Open Pause Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""dcf37114-5fe8-4a7d-ad74-0e56c8f9839d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""29ebcdec-880c-45f0-962a-ed65ce685971"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Close All Menus"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c4eb085d-29da-4980-ba92-2a6f750907b5"",
+                    ""id"": ""6d401d6b-b35b-4279-b455-0aeab7029cf6"",
                     ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -196,7 +224,7 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b76b91c1-a8cd-4c42-a10a-f2bc532fbda4"",
+                    ""id"": ""262e0a90-8472-4fbb-a9a0-15d213f255ca"",
                     ""path"": ""<Keyboard>/c"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -207,7 +235,7 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""796a7226-06ce-482a-b064-8ff986cf2db7"",
+                    ""id"": ""bc43228a-7bed-452e-89d7-27c5d4b5f139"",
                     ""path"": ""<Keyboard>/n"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -218,7 +246,18 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""804a755a-4a34-4257-9d37-60dbd5fc25bc"",
+                    ""id"": ""f537512f-fa8e-410b-8acc-ed5bdc0d6ab6"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Open Build Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dc767295-f58d-41c3-89ad-ea10ca690ea1"",
                     ""path"": ""<Keyboard>/h"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -229,7 +268,7 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""010cf02a-354d-475c-b5c6-6bc3021ed39e"",
+                    ""id"": ""6a296228-f82d-4278-8584-7bb20979e8ca"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -237,22 +276,11 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                     ""action"": ""Open Pause Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4f3790c7-106b-4dd3-aa47-ce42fcf33e9a"",
-                    ""path"": ""<Keyboard>/b"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Open Build Menu"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
         {
-            ""name"": ""Menus"",
+            ""name"": ""SystemMenus"",
             ""id"": ""96b8b93d-0c59-407e-b167-af9cad8e6792"",
             ""actions"": [
                 {
@@ -305,22 +333,25 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Gameplay
-        m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-        m_Gameplay_Movements = m_Gameplay.FindAction("Movements", throwIfNotFound: true);
-        m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
-        m_Gameplay_Pickup = m_Gameplay.FindAction("Pickup", throwIfNotFound: true);
-        m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
-        m_Gameplay_ZoomCamera = m_Gameplay.FindAction("Zoom Camera", throwIfNotFound: true);
-        m_Gameplay_OpenInventory = m_Gameplay.FindAction("Open Inventory", throwIfNotFound: true);
-        m_Gameplay_OpenCharacterPanel = m_Gameplay.FindAction("Open Character Panel", throwIfNotFound: true);
-        m_Gameplay_OpenCraftingMenu = m_Gameplay.FindAction("Open Crafting Menu", throwIfNotFound: true);
-        m_Gameplay_OpenBuildMenu = m_Gameplay.FindAction("Open Build Menu", throwIfNotFound: true);
-        m_Gameplay_OpenHelpMenu = m_Gameplay.FindAction("Open Help Menu", throwIfNotFound: true);
-        m_Gameplay_OpenPauseMenu = m_Gameplay.FindAction("Open Pause Menu", throwIfNotFound: true);
-        // Menus
-        m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
-        m_Menus_ClosePauseMenu = m_Menus.FindAction("Close Pause Menu", throwIfNotFound: true);
+        // CharacterControls
+        m_CharacterControls = asset.FindActionMap("CharacterControls", throwIfNotFound: true);
+        m_CharacterControls_Movements = m_CharacterControls.FindAction("Movements", throwIfNotFound: true);
+        m_CharacterControls_Attack = m_CharacterControls.FindAction("Attack", throwIfNotFound: true);
+        m_CharacterControls_Pickup = m_CharacterControls.FindAction("Pickup", throwIfNotFound: true);
+        m_CharacterControls_Interact = m_CharacterControls.FindAction("Interact", throwIfNotFound: true);
+        m_CharacterControls_ZoomCamera = m_CharacterControls.FindAction("Zoom Camera", throwIfNotFound: true);
+        // GameplayMenus
+        m_GameplayMenus = asset.FindActionMap("GameplayMenus", throwIfNotFound: true);
+        m_GameplayMenus_CloseAllMenus = m_GameplayMenus.FindAction("Close All Menus", throwIfNotFound: true);
+        m_GameplayMenus_OpenInventory = m_GameplayMenus.FindAction("Open Inventory", throwIfNotFound: true);
+        m_GameplayMenus_OpenCharacterPanel = m_GameplayMenus.FindAction("Open Character Panel", throwIfNotFound: true);
+        m_GameplayMenus_OpenCraftingMenu = m_GameplayMenus.FindAction("Open Crafting Menu", throwIfNotFound: true);
+        m_GameplayMenus_OpenBuildMenu = m_GameplayMenus.FindAction("Open Build Menu", throwIfNotFound: true);
+        m_GameplayMenus_OpenHelpMenu = m_GameplayMenus.FindAction("Open Help Menu", throwIfNotFound: true);
+        m_GameplayMenus_OpenPauseMenu = m_GameplayMenus.FindAction("Open Pause Menu", throwIfNotFound: true);
+        // SystemMenus
+        m_SystemMenus = asset.FindActionMap("SystemMenus", throwIfNotFound: true);
+        m_SystemMenus_ClosePauseMenu = m_SystemMenus.FindAction("Close Pause Menu", throwIfNotFound: true);
         // Dialogues
         m_Dialogues = asset.FindActionMap("Dialogues", throwIfNotFound: true);
     }
@@ -379,79 +410,49 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Gameplay
-    private readonly InputActionMap m_Gameplay;
-    private IGameplayActions m_GameplayActionsCallbackInterface;
-    private readonly InputAction m_Gameplay_Movements;
-    private readonly InputAction m_Gameplay_Attack;
-    private readonly InputAction m_Gameplay_Pickup;
-    private readonly InputAction m_Gameplay_Interact;
-    private readonly InputAction m_Gameplay_ZoomCamera;
-    private readonly InputAction m_Gameplay_OpenInventory;
-    private readonly InputAction m_Gameplay_OpenCharacterPanel;
-    private readonly InputAction m_Gameplay_OpenCraftingMenu;
-    private readonly InputAction m_Gameplay_OpenBuildMenu;
-    private readonly InputAction m_Gameplay_OpenHelpMenu;
-    private readonly InputAction m_Gameplay_OpenPauseMenu;
-    public struct GameplayActions
+    // CharacterControls
+    private readonly InputActionMap m_CharacterControls;
+    private ICharacterControlsActions m_CharacterControlsActionsCallbackInterface;
+    private readonly InputAction m_CharacterControls_Movements;
+    private readonly InputAction m_CharacterControls_Attack;
+    private readonly InputAction m_CharacterControls_Pickup;
+    private readonly InputAction m_CharacterControls_Interact;
+    private readonly InputAction m_CharacterControls_ZoomCamera;
+    public struct CharacterControlsActions
     {
         private @InputMap m_Wrapper;
-        public GameplayActions(@InputMap wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movements => m_Wrapper.m_Gameplay_Movements;
-        public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
-        public InputAction @Pickup => m_Wrapper.m_Gameplay_Pickup;
-        public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
-        public InputAction @ZoomCamera => m_Wrapper.m_Gameplay_ZoomCamera;
-        public InputAction @OpenInventory => m_Wrapper.m_Gameplay_OpenInventory;
-        public InputAction @OpenCharacterPanel => m_Wrapper.m_Gameplay_OpenCharacterPanel;
-        public InputAction @OpenCraftingMenu => m_Wrapper.m_Gameplay_OpenCraftingMenu;
-        public InputAction @OpenBuildMenu => m_Wrapper.m_Gameplay_OpenBuildMenu;
-        public InputAction @OpenHelpMenu => m_Wrapper.m_Gameplay_OpenHelpMenu;
-        public InputAction @OpenPauseMenu => m_Wrapper.m_Gameplay_OpenPauseMenu;
-        public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
+        public CharacterControlsActions(@InputMap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movements => m_Wrapper.m_CharacterControls_Movements;
+        public InputAction @Attack => m_Wrapper.m_CharacterControls_Attack;
+        public InputAction @Pickup => m_Wrapper.m_CharacterControls_Pickup;
+        public InputAction @Interact => m_Wrapper.m_CharacterControls_Interact;
+        public InputAction @ZoomCamera => m_Wrapper.m_CharacterControls_ZoomCamera;
+        public InputActionMap Get() { return m_Wrapper.m_CharacterControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
-        public void SetCallbacks(IGameplayActions instance)
+        public static implicit operator InputActionMap(CharacterControlsActions set) { return set.Get(); }
+        public void SetCallbacks(ICharacterControlsActions instance)
         {
-            if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
+            if (m_Wrapper.m_CharacterControlsActionsCallbackInterface != null)
             {
-                @Movements.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovements;
-                @Movements.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovements;
-                @Movements.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovements;
-                @Attack.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
-                @Attack.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
-                @Attack.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
-                @Pickup.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPickup;
-                @Pickup.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPickup;
-                @Pickup.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPickup;
-                @Interact.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
-                @Interact.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
-                @Interact.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnInteract;
-                @ZoomCamera.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnZoomCamera;
-                @ZoomCamera.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnZoomCamera;
-                @ZoomCamera.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnZoomCamera;
-                @OpenInventory.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenInventory;
-                @OpenInventory.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenInventory;
-                @OpenInventory.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenInventory;
-                @OpenCharacterPanel.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenCharacterPanel;
-                @OpenCharacterPanel.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenCharacterPanel;
-                @OpenCharacterPanel.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenCharacterPanel;
-                @OpenCraftingMenu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenCraftingMenu;
-                @OpenCraftingMenu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenCraftingMenu;
-                @OpenCraftingMenu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenCraftingMenu;
-                @OpenBuildMenu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenBuildMenu;
-                @OpenBuildMenu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenBuildMenu;
-                @OpenBuildMenu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenBuildMenu;
-                @OpenHelpMenu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenHelpMenu;
-                @OpenHelpMenu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenHelpMenu;
-                @OpenHelpMenu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenHelpMenu;
-                @OpenPauseMenu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenPauseMenu;
-                @OpenPauseMenu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenPauseMenu;
-                @OpenPauseMenu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnOpenPauseMenu;
+                @Movements.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMovements;
+                @Movements.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMovements;
+                @Movements.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnMovements;
+                @Attack.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnAttack;
+                @Pickup.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnPickup;
+                @Pickup.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnPickup;
+                @Pickup.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnPickup;
+                @Interact.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnInteract;
+                @Interact.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnInteract;
+                @Interact.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnInteract;
+                @ZoomCamera.started -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnZoomCamera;
+                @ZoomCamera.performed -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnZoomCamera;
+                @ZoomCamera.canceled -= m_Wrapper.m_CharacterControlsActionsCallbackInterface.OnZoomCamera;
             }
-            m_Wrapper.m_GameplayActionsCallbackInterface = instance;
+            m_Wrapper.m_CharacterControlsActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Movements.started += instance.OnMovements;
@@ -469,6 +470,69 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                 @ZoomCamera.started += instance.OnZoomCamera;
                 @ZoomCamera.performed += instance.OnZoomCamera;
                 @ZoomCamera.canceled += instance.OnZoomCamera;
+            }
+        }
+    }
+    public CharacterControlsActions @CharacterControls => new CharacterControlsActions(this);
+
+    // GameplayMenus
+    private readonly InputActionMap m_GameplayMenus;
+    private IGameplayMenusActions m_GameplayMenusActionsCallbackInterface;
+    private readonly InputAction m_GameplayMenus_CloseAllMenus;
+    private readonly InputAction m_GameplayMenus_OpenInventory;
+    private readonly InputAction m_GameplayMenus_OpenCharacterPanel;
+    private readonly InputAction m_GameplayMenus_OpenCraftingMenu;
+    private readonly InputAction m_GameplayMenus_OpenBuildMenu;
+    private readonly InputAction m_GameplayMenus_OpenHelpMenu;
+    private readonly InputAction m_GameplayMenus_OpenPauseMenu;
+    public struct GameplayMenusActions
+    {
+        private @InputMap m_Wrapper;
+        public GameplayMenusActions(@InputMap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @CloseAllMenus => m_Wrapper.m_GameplayMenus_CloseAllMenus;
+        public InputAction @OpenInventory => m_Wrapper.m_GameplayMenus_OpenInventory;
+        public InputAction @OpenCharacterPanel => m_Wrapper.m_GameplayMenus_OpenCharacterPanel;
+        public InputAction @OpenCraftingMenu => m_Wrapper.m_GameplayMenus_OpenCraftingMenu;
+        public InputAction @OpenBuildMenu => m_Wrapper.m_GameplayMenus_OpenBuildMenu;
+        public InputAction @OpenHelpMenu => m_Wrapper.m_GameplayMenus_OpenHelpMenu;
+        public InputAction @OpenPauseMenu => m_Wrapper.m_GameplayMenus_OpenPauseMenu;
+        public InputActionMap Get() { return m_Wrapper.m_GameplayMenus; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GameplayMenusActions set) { return set.Get(); }
+        public void SetCallbacks(IGameplayMenusActions instance)
+        {
+            if (m_Wrapper.m_GameplayMenusActionsCallbackInterface != null)
+            {
+                @CloseAllMenus.started -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnCloseAllMenus;
+                @CloseAllMenus.performed -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnCloseAllMenus;
+                @CloseAllMenus.canceled -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnCloseAllMenus;
+                @OpenInventory.started -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenInventory;
+                @OpenInventory.performed -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenInventory;
+                @OpenInventory.canceled -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenInventory;
+                @OpenCharacterPanel.started -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenCharacterPanel;
+                @OpenCharacterPanel.performed -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenCharacterPanel;
+                @OpenCharacterPanel.canceled -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenCharacterPanel;
+                @OpenCraftingMenu.started -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenCraftingMenu;
+                @OpenCraftingMenu.performed -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenCraftingMenu;
+                @OpenCraftingMenu.canceled -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenCraftingMenu;
+                @OpenBuildMenu.started -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenBuildMenu;
+                @OpenBuildMenu.performed -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenBuildMenu;
+                @OpenBuildMenu.canceled -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenBuildMenu;
+                @OpenHelpMenu.started -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenHelpMenu;
+                @OpenHelpMenu.performed -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenHelpMenu;
+                @OpenHelpMenu.canceled -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenHelpMenu;
+                @OpenPauseMenu.started -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenPauseMenu;
+                @OpenPauseMenu.performed -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenPauseMenu;
+                @OpenPauseMenu.canceled -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenPauseMenu;
+            }
+            m_Wrapper.m_GameplayMenusActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @CloseAllMenus.started += instance.OnCloseAllMenus;
+                @CloseAllMenus.performed += instance.OnCloseAllMenus;
+                @CloseAllMenus.canceled += instance.OnCloseAllMenus;
                 @OpenInventory.started += instance.OnOpenInventory;
                 @OpenInventory.performed += instance.OnOpenInventory;
                 @OpenInventory.canceled += instance.OnOpenInventory;
@@ -490,31 +554,31 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
             }
         }
     }
-    public GameplayActions @Gameplay => new GameplayActions(this);
+    public GameplayMenusActions @GameplayMenus => new GameplayMenusActions(this);
 
-    // Menus
-    private readonly InputActionMap m_Menus;
-    private IMenusActions m_MenusActionsCallbackInterface;
-    private readonly InputAction m_Menus_ClosePauseMenu;
-    public struct MenusActions
+    // SystemMenus
+    private readonly InputActionMap m_SystemMenus;
+    private ISystemMenusActions m_SystemMenusActionsCallbackInterface;
+    private readonly InputAction m_SystemMenus_ClosePauseMenu;
+    public struct SystemMenusActions
     {
         private @InputMap m_Wrapper;
-        public MenusActions(@InputMap wrapper) { m_Wrapper = wrapper; }
-        public InputAction @ClosePauseMenu => m_Wrapper.m_Menus_ClosePauseMenu;
-        public InputActionMap Get() { return m_Wrapper.m_Menus; }
+        public SystemMenusActions(@InputMap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @ClosePauseMenu => m_Wrapper.m_SystemMenus_ClosePauseMenu;
+        public InputActionMap Get() { return m_Wrapper.m_SystemMenus; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(MenusActions set) { return set.Get(); }
-        public void SetCallbacks(IMenusActions instance)
+        public static implicit operator InputActionMap(SystemMenusActions set) { return set.Get(); }
+        public void SetCallbacks(ISystemMenusActions instance)
         {
-            if (m_Wrapper.m_MenusActionsCallbackInterface != null)
+            if (m_Wrapper.m_SystemMenusActionsCallbackInterface != null)
             {
-                @ClosePauseMenu.started -= m_Wrapper.m_MenusActionsCallbackInterface.OnClosePauseMenu;
-                @ClosePauseMenu.performed -= m_Wrapper.m_MenusActionsCallbackInterface.OnClosePauseMenu;
-                @ClosePauseMenu.canceled -= m_Wrapper.m_MenusActionsCallbackInterface.OnClosePauseMenu;
+                @ClosePauseMenu.started -= m_Wrapper.m_SystemMenusActionsCallbackInterface.OnClosePauseMenu;
+                @ClosePauseMenu.performed -= m_Wrapper.m_SystemMenusActionsCallbackInterface.OnClosePauseMenu;
+                @ClosePauseMenu.canceled -= m_Wrapper.m_SystemMenusActionsCallbackInterface.OnClosePauseMenu;
             }
-            m_Wrapper.m_MenusActionsCallbackInterface = instance;
+            m_Wrapper.m_SystemMenusActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @ClosePauseMenu.started += instance.OnClosePauseMenu;
@@ -523,7 +587,7 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
             }
         }
     }
-    public MenusActions @Menus => new MenusActions(this);
+    public SystemMenusActions @SystemMenus => new SystemMenusActions(this);
 
     // Dialogues
     private readonly InputActionMap m_Dialogues;
@@ -558,13 +622,17 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_MouseandKeyboardSchemeIndex];
         }
     }
-    public interface IGameplayActions
+    public interface ICharacterControlsActions
     {
         void OnMovements(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnPickup(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnZoomCamera(InputAction.CallbackContext context);
+    }
+    public interface IGameplayMenusActions
+    {
+        void OnCloseAllMenus(InputAction.CallbackContext context);
         void OnOpenInventory(InputAction.CallbackContext context);
         void OnOpenCharacterPanel(InputAction.CallbackContext context);
         void OnOpenCraftingMenu(InputAction.CallbackContext context);
@@ -572,7 +640,7 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         void OnOpenHelpMenu(InputAction.CallbackContext context);
         void OnOpenPauseMenu(InputAction.CallbackContext context);
     }
-    public interface IMenusActions
+    public interface ISystemMenusActions
     {
         void OnClosePauseMenu(InputAction.CallbackContext context);
     }

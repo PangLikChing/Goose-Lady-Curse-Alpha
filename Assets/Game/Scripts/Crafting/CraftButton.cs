@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
 public class CraftButton : MonoBehaviour
 {
+    public UnityEvent<Item, int> craftEvent, consumeReagentEvent;
+
     void Start()
     {
         // Initialize
@@ -26,22 +29,26 @@ public class CraftButton : MonoBehaviour
         // If there is an item seclected, and the input stack number is greater than 0
         if (recipe != null && stackNumber > 0)
         {
-            // Consume reagent
-            // For every reagent
-            for (int i = 0; i < recipe.reagents.Length; i++)
-            {
-                // Consume that reagent
-                CraftingManager.Instance.playerInventory.ConsumeItem(recipe.reagents[i].item, recipe.reagents[i].requiredAmount * stackNumber);
-            }
-
             // temp
             // For the amount of item that the player want to craft
             for (int i = 0; i < stackNumber; i++)
             {
                 // Add that 1 of that item to the inventory
-                CraftingManager.Instance.playerInventory.AddItem(recipe.item, 1);
+                craftEvent.Invoke(recipe.item, 1);
+
+                // Consume reagent
+                // For every reagent
+                for (int j = 0; j < recipe.reagents.Length; j++)
+                {
+                    // Consume that reagent
+                    //CraftingManager.Instance.playerInventory.ConsumeItem(recipe.reagents[j].item, recipe.reagents[j].requiredAmount * stackNumber);
+                    consumeReagentEvent.Invoke(recipe.reagents[j].item, recipe.reagents[j].requiredAmount);
+                }
             }
             // temp
+
+            // Updates the reagents
+            CraftingManager.Instance.CheckReagents();
         }
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2152574824090055388}
   - component: {fileID: 6673940242075871787}
   - component: {fileID: -160470087488955862}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Catalyst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,3 +110,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1
   item: {fileID: 11400000, guid: 6b588737ec7a7ff40b803ae4b641ff2a, type: 2}
+  stackNumber: 1

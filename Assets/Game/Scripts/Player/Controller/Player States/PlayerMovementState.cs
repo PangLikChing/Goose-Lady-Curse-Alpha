@@ -12,7 +12,7 @@ public class PlayerMovementState : PlayerBaseState
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         SceneLoader.Instance.OnSceneUnloadedEvent += UnRegisterCallbacks;
-        fsm.motion.MoveToPoint(fsm.destinationPoint);
+        fsm.motion.MoveToPoint();
         fsm.motion.PathCompleted += IdleState;
         fsm.inputReader.EnableGameplayInput();
     }

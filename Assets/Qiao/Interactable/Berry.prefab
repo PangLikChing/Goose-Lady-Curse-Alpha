@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2634749908260080954}
   - component: {fileID: 9026674174953491040}
   - component: {fileID: -2722817664056750230}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Berry
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,3 +110,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1
   item: {fileID: 11400000, guid: 70511f017d414c9479b4d6b42739d365, type: 2}
+  stackNumber: 1

@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &761158252135094647
 Transform:
   m_ObjectHideFlags: 0
@@ -85,12 +85,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   angularDampeningTime: 5
   angularDeadZone: 10
+  target: {fileID: 0}
+  destinationPoint: {x: 0, y: 0, z: 0}
   agentSpeed: 0
-  speedDampeningTime: 5
+  speedDampeningTime: 10
   speedDeadZone: 0.05
   speedMultiplier: 1
   brakingDistance: 0.5
-  brakingCoefficient: 0.6
+  brakingCoefficient: 0.5
+  turningCoefficient: 1.2
+  baseAngularDampingTime: 4
 --- !u!195 &944229906149121803
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -105,7 +109,7 @@ NavMeshAgent:
   m_Acceleration: 0
   avoidancePriority: 50
   m_AngularSpeed: 0
-  m_StoppingDistance: 0.5
+  m_StoppingDistance: 0.2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 0
   m_AutoRepath: 1
@@ -125,10 +129,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63efa3fc7b837b44ba4ce4ff97a07897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickUpRange: 0.5
-  attackRange: 0.5
-  rangeMargin: 0.8
-  target: {fileID: 0}
+  pickUpRange: 0.25
+  attackRange: 0.25
+  rangeMargin: 0.5
+  motion: {fileID: 944229906149121804}
+  spawnPoint: {fileID: 0}
+  ItemPickupEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: b593013012e00224a896307a0fd8adfe, type: 2}
+        m_TargetAssemblyTypeName: ItemIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &153004207053414550
 GameObject:
   m_ObjectHideFlags: 0

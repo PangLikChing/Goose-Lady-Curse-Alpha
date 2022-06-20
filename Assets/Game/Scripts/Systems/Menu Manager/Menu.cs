@@ -76,7 +76,7 @@ public abstract class Menu : MonoBehaviour
             menuRoot.localPosition = Vector3.zero;
         }
     }
-
+    
     protected virtual void Start()
     {
         animator = GetComponent<Animator>();
@@ -95,5 +95,11 @@ public abstract class Menu : MonoBehaviour
                 gameObject.SetActive(false);
                 break;
         }
+    }
+
+    protected virtual void OnDestroy()
+    {
+        if(MenuManager.IsValidSingleton())
+            MenuManager.Instance.RemoveMenu(this);
     }
 }
