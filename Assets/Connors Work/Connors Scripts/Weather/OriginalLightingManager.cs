@@ -15,23 +15,11 @@ public class OriginalLightingManager : MonoBehaviour
 
     private void Update()
     {
-
-        //if (TimeOfDay >= 6 && TimeOfDay <= 17)
-        //{
-        //    Debug.Log("morning");
-        //}
-        //else if (TimeOfDay >= 17 && TimeOfDay <= 19)
-        //{
-        //    Debug.Log("evening");
-        //}
-        //else
-        //{
-        //    Debug.Log("night");
-        //}
-
         if (Preset == null)
             return;
 
+        //if the application is running, change the time of day slowly based on how the user wants it to. either by 
+        //a default demo run, or by specific settings.
         if (Application.isPlaying)
         {
             if(DemoRun == true)
@@ -63,7 +51,7 @@ public class OriginalLightingManager : MonoBehaviour
         }
     }
 
-
+    //Change the time of day of the lighting
     private void UpdateLighting(float timePercent)
     {
         //Set ambient and fog
@@ -108,6 +96,7 @@ public class OriginalLightingManager : MonoBehaviour
         }
     }
 
+    //Get the time of day based on where the sun is in the sky.
     public string GetAdvancedCycle()
     {
         if (TimeOfDay >= 6 && TimeOfDay <= 17)

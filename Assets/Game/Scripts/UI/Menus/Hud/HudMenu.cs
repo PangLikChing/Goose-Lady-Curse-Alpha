@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 /// <summary>
 /// The hud menu controller
 /// </summary>
@@ -10,6 +11,7 @@ public class HudMenu : Menu
     public MenuClassifier pauseMenu;
     [Tooltip("Reference to input reader")]
     public InputReader inputReader;
+
     private void OnEnable()
     {
         inputReader.EnableGameplayInput();
