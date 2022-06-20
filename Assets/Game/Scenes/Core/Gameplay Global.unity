@@ -1412,6 +1412,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1102571122}
     m_Modifications:
     - target: {fileID: 1181576020, guid: d756b87e52756214895f749aa8868266, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1102571125}
+    - target: {fileID: 1181576020, guid: d756b87e52756214895f749aa8868266, type: 3}
       propertyPath: playerInventory
       value: 
       objectReference: {fileID: 674721511}
@@ -1815,11 +1819,7 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1102571122}
     m_Modifications:
-    - target: {fileID: 2683742786671713717, guid: 35dc888aac3890b4d9200332af737da4, type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 1102571125}
-    - target: {fileID: 2683742786949223211, guid: 35dc888aac3890b4d9200332af737da4, type: 3}
+    - target: {fileID: 744863653779341806, guid: 35dc888aac3890b4d9200332af737da4, type: 3}
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1102571125}
@@ -1911,9 +1911,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8137517393561268364, guid: 35dc888aac3890b4d9200332af737da4, type: 3}
-      propertyPath: canvas
-      value: 
-      objectReference: {fileID: 1102571125}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35dc888aac3890b4d9200332af737da4, type: 3}
