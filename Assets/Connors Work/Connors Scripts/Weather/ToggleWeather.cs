@@ -4,14 +4,12 @@ using UnityEngine;
 
 public class ToggleWeather : MonoBehaviour
 {
-    //variable declaration
    public GameObject NormalLight;
    public GameObject BasicDayNightCycle;
    public GameObject AdvancedDayNightCycle;
    public GameObject Snow;
    public GameObject Rain;
 
-    //toggles the basic day night cycle between on and off
     public void ToggleBasicDayNightCycle()
     {
         if(BasicDayNightCycle.active == false)
@@ -26,7 +24,6 @@ public class ToggleWeather : MonoBehaviour
         }
     }
 
-    //toggles the advanced day night cycle between on and off
     public void ToggleAdvancedDayNightCycle()
     {
         if (AdvancedDayNightCycle.active == false)
@@ -41,7 +38,6 @@ public class ToggleWeather : MonoBehaviour
         }
     }
 
-    //toggles the rain between on and off
     public void ToggleRain()
     {
         if (Rain.active == false)
@@ -54,7 +50,6 @@ public class ToggleWeather : MonoBehaviour
         }
     }
 
-    //toggles the snow between on and off
     public void ToggleSnow()
     {
         if (Snow.active == false)
@@ -66,4 +61,18 @@ public class ToggleWeather : MonoBehaviour
             Snow.SetActive(false);
         }
     }
+
+
+
+    //// Start is called before the first frame update
+    //void Start()
+    //{
+
+    //}
+
+    //// Update is called once per frame
+    //void Update()
+    //{
+
+    //}
 }

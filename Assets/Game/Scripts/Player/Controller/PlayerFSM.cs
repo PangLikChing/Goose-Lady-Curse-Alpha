@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
-
+using UnityEngine.Events;
 /// <summary>
 /// The state machine is where the actual control takes place
 /// Each state corresponds to a player command which are

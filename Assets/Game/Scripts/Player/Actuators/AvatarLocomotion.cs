@@ -36,9 +36,9 @@ public class AvatarLocomotion : MonoBehaviour
     public void ResetState()
     {
         target = null;
-        destinationPoint = transform.position;
+        destinationPoint = transform.position;     
         facingTarget = false;
-
+        
         //agent.ResetPath();
     }
 
@@ -130,27 +130,11 @@ public class AvatarLocomotion : MonoBehaviour
     /// <param name="interactionRange">The offset distance</param>
     public virtual void MoveToTarget(float offsetDistance)
     {
-        if (target != null)
-        {
-            Vector3 destination;
-            Vector3 directionVector = (transform.position - target.position).normalized;
-            if (target.TryGetComponent<Interactable>(out Interactable targetInteractable))
-            {
-                destination = directionVector * (offsetDistance + targetInteractable.radius + agent.radius) + target.position;
-            }
-            else
-            {
-                destination = directionVector * (offsetDistance + agent.radius) + target.position;
-                Debug.LogWarning($"Target {target} has no interactable attached");
-            }
-            agent.isStopped = false;
-            facingTarget = false;
-            agent.SetDestination(destination);
-        }
-        else
-        {
-            Debug.LogError($"Target is null");
-        }
+        Vector3 directionVector = (transform.position - target.position).normalized;
+        Vector3 destination = directionVector * (offsetDistance + target.GetComponent<Interactable>().radius + agent.radius) + target.position; //Interactable is a place holder class
+        agent.isStopped = false;
+        facingTarget = false;
+        agent.SetDestination(destination);
     }
 
     /// <summary>
@@ -161,11 +145,11 @@ public class AvatarLocomotion : MonoBehaviour
     public virtual bool IsInInteractionRange(float interactionRange)
     {
         float distance = Vector3.Distance(transform.position, target.transform.position);
-        if (target == null || target.GetComponent<Interactable>() == null)
+        if (target.GetComponent<Interactable>() == null)
         {
             return false;
         }
-        if (distance < target.GetComponent<Interactable>().radius + interactionRange + agent.radius)
+        if (distance < target.GetComponent<Interactable>().radius + interactionRange + agent.radius) //Interactable is a place holder class
         {
             return true;
         }
@@ -185,7 +169,7 @@ public class AvatarLocomotion : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawLine(transform.position, targetDirection + transform.position);
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(destinationPoint, 1);
+            Gizmos.DrawWireSphere(destinationPoint,1);
         }
     }
 }

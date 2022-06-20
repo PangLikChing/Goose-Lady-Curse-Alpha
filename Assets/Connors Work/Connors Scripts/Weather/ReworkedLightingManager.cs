@@ -21,11 +21,22 @@ public class ReworkedLightingManager : MonoBehaviour
 
     private void Update()
     {
+        //if (TimeOfDay == evening)
+        //{
+        //    Debug.Log("morning");
+        //}
+        //else if (TimeOfDay == night)
+        //{
+        //    Debug.Log("evening");
+        //}
+        //else if (TimeOfDay == morning)
+        //{
+        //    Debug.Log("night");
+        //}
+
         if (Preset == null)
             return;
 
-        //if the application is playing, change the the time of day between day, evening and night, 
-        //at a speed set by the user. 
         if (Application.isPlaying)
         {   
             if(Timer >= WaitTimeBeforeChangeLight)
@@ -65,7 +76,6 @@ public class ReworkedLightingManager : MonoBehaviour
     }
 
 
-    //updates the lighting to ve set to a new time
     private void UpdateLighting(float timePercent)
     {
         //Set ambient and fog
@@ -110,7 +120,6 @@ public class ReworkedLightingManager : MonoBehaviour
         }
     }
 
-    //gets the time of day of the simple night and day cycle and returns it.
     public string GetSimpleCycle()
     {
         if(TimeOfDay == morning)

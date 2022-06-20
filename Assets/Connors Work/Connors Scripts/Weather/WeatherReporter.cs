@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WeatherReporter : MonoBehaviour
 {
-    //variable declaration
     public GameObject AdvancedDayNightCycle;
     public GameObject SimpleDayNightCycle;
     public GameObject Snow;
@@ -12,7 +11,6 @@ public class WeatherReporter : MonoBehaviour
     public bool IsSnowing;
     public bool IsRaining;
 
-    //checks the weather to see if its snowing
     public bool GetIsSnowing()
     {
         if(Snow.active == true)
@@ -27,7 +25,6 @@ public class WeatherReporter : MonoBehaviour
         }
     }
 
-    //checks the weather to see if its raining
     public bool GetIsRaining()
     {
         if (Rain.active == true)
@@ -42,14 +39,12 @@ public class WeatherReporter : MonoBehaviour
         }
     }
 
-    //returns an instncae of the simple day night cycle
     public string GetSimpleDayNightCycle()
     {
         string result = SimpleDayNightCycle.GetComponent<ReworkedLightingManager>().GetSimpleCycle();
         return result;
     }
 
-    //retruns an instance of the advanced day nighr cycle 
     public string GetAdvancedDayNightCycle()
     {
         string result = AdvancedDayNightCycle.GetComponent<OriginalLightingManager>().GetAdvancedCycle();

@@ -11,18 +11,14 @@ public class SurvivalStat : Stat
     public float initialValue = 0;
     public float baseChangeRate = 0;
     [ReadOnly] public float actualChangeRate = 0;
-    //[ReadOnly]
-    public float currentValue = 0;
-    [SerializeField,ReadOnly]
+    [ReadOnly] public float currentValue = 0;
     private List<Modifier> changeRateModifiers = new List<Modifier>();
-    [SerializeField, ReadOnly]
     private List<float> changeRateModifierRemainingTimes = new List<float>();
 
     public override void Initialize()
     {
         base.Initialize();
         changeRateModifiers.Clear();
-        changeRateModifierRemainingTimes.Clear();
         currentValue = initialValue;
         actualChangeRate = baseChangeRate;
     }
@@ -52,6 +48,7 @@ public class SurvivalStat : Stat
     public override void StatUpdate()
     {
         base.StatUpdate();
+
         for (int i = changeRateModifiers.Count-1; i >= 0; i--)
         {
             if (!changeRateModifiers[i].isPersistent)

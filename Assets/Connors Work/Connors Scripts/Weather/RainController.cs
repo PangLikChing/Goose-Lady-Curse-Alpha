@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class RainController : MonoBehaviour
 {
-    //variable declaration
     public GameObject Rain;
     public float TimeBetweenChecks;
     public float ChanceOfRain;
@@ -16,9 +15,6 @@ public class RainController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //regulates how often the chance for it to rain is checked, as well as how big the chance is.
-        //Chance of rain and time between checks are both set by the user in the unity viewer.
-        //if the chance is true, make it rain for a set period of time. 
         if(timer >= TimeBetweenChecks && Rain.active == false)
         {
             randomNum = Random.Range(1, ChanceOfRain);
@@ -55,7 +51,6 @@ public class RainController : MonoBehaviour
         }
     }
     
-    //turns the rain off
     IEnumerator TurnRainOff()
     {
         Rain.GetComponent<ParticleSystem>().Stop();
@@ -63,7 +58,6 @@ public class RainController : MonoBehaviour
         Rain.SetActive(false);
     }
 
-    //slowly fades the rain sound off as the rain slowly stops
     IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
     {
         float startVolume = audioSource.volume;
