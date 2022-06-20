@@ -224,6 +224,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8073a74a8cea1da43aa6b62dd853518e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DraggableClonePrefeb: {fileID: 7036800571944764881, guid: 03f1ab40ce721304fac87a2cc1f2e64f, type: 3}
+  myClone: {fileID: 0}
+  myImage: {fileID: 6183676674496706234}
+  myTextField: {fileID: 6183676673903917044}
+  originalParent: {fileID: 0}
+  canvas: {fileID: 0}
 --- !u!225 &6633783604170485155
 CanvasGroup:
   m_ObjectHideFlags: 0

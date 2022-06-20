@@ -88,3 +88,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bb03446656f670459cbe3fdd29c235a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myImage: {fileID: 0}
+  myTextField: {fileID: 0}
