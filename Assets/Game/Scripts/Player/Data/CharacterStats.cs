@@ -9,7 +9,7 @@ public class CharacterStats : MonoBehaviour
     [Header("Health Tracking")]
     public SurvivalStat health;
     public UnityEvent playerDied;
-
+    private bool notDialogPause;
     private bool isDead;
     private void Start()
     {
@@ -27,17 +27,25 @@ public class CharacterStats : MonoBehaviour
 
     private void Update()
     {
-        if (health.currentValue <= 0 && !isDead)
+        if (notDialogPause)
         {
-            playerDied.Invoke();
-            isDead = true;
-        }
-        if (!isDead)
-        {
-            foreach (Stat stat in statList)
+            if (health.currentValue <= 0 && !isDead)
             {
-                stat.StatUpdate();
+                playerDied.Invoke();
+                isDead = true;
+            }
+            if (!isDead)
+            {
+                foreach (Stat stat in statList)
+                {
+                    stat.StatUpdate();
+                }
             }
         }
+    }
+
+    public void SetDialogPause(bool notDialogPause)
+    {
+        this.notDialogPause = notDialogPause;
     }
 }

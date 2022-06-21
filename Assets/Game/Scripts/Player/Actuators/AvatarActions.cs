@@ -129,7 +129,10 @@ public class AvatarActions : MonoBehaviour
 
     public void Interact()
     {
-        interactionTarget.Interact();
+        if (interactionTarget != null)
+        {
+            interactionTarget.Interact();
+        }
     }
 
     public void Die()
