@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -10,6 +11,8 @@ public class EquipmentDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragH
     int UILayer;
     RectTransform rectTransform;
     CanvasGroup canvasGroup;
+
+    public UnityEvent<Item, int> unequipByRightClick;
 
     [HideInInspector] public Transform originalParentTransform;
 
@@ -85,6 +88,18 @@ public class EquipmentDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragH
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        // If that is a right-click
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            // If there is an equipment in the slot
+            if (GetComponent<EquipmentSlotController>().targetSlot.isOccupied == true)
+            {
+                // Throw a debug message
+                Debug.Log("Should do something");
 
+                // Unequip the equipment
+                unequipByRightClick.Invoke(GetComponent<EquipmentSlotController>().targetSlot.equipment, 1);
+            }
+        }
     }
 }

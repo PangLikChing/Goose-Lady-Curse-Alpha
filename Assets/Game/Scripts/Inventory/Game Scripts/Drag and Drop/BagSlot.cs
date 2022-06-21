@@ -58,9 +58,6 @@ public class BagSlot : MonoBehaviour, IDropHandler
                 // Try to add that bag to this bag slot
                 addBagToSpecificSlot.Invoke(originalInventorySlot, bagIndex);
 
-                // Refresh that inventory slot
-                originalInventorySlot.RefreshInventorySlot();
-
                 // Assign bag image to match that in player's bag
                 AssignBagImage();
 
@@ -104,9 +101,6 @@ public class BagSlot : MonoBehaviour, IDropHandler
 
                         // Put the old bag to the original bag slot that the dropped item was at
                         playerInventory.itemList[droppedOriginalInventorySlot.myBagIndex][droppedOriginalInventorySlot.mySlotIndex].slottedItem = oldBag;
-
-                        // Refresh that inventory slot
-                        droppedOriginalInventorySlot.RefreshInventorySlot();
 
                         // Instantiate new inventory slots for every new inventory slot
                         increaseInventorySlots.Invoke(bagIndex, difference);

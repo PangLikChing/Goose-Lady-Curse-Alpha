@@ -237,7 +237,7 @@ public class InventoryGrouper : MonoBehaviour
                     if (currentInventorySlot.slottedItem == null)
                     {
                         // If I have at least a item UI as a child
-                        if (transform.childCount != 0)
+                        if (currentInventorySlot.transform.childCount != 0)
                         {
                             // Disable the raycast for the slotted item so that the player cannot drag it
                             currentInventorySlot.transform.GetChild(0).GetComponent<CanvasGroup>().blocksRaycasts = false;
@@ -247,7 +247,7 @@ public class InventoryGrouper : MonoBehaviour
                     else
                     {
                         // If I have at least a item UI as a child
-                        if (transform.childCount != 0)
+                        if (currentInventorySlot.transform.childCount != 0)
                         {
                             // Enable the raycast for the slotted item so that the player can drag it
                             currentInventorySlot.transform.GetChild(0).GetComponent<CanvasGroup>().blocksRaycasts = true;

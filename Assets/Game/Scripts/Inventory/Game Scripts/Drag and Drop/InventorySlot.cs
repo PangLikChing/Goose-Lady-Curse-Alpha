@@ -111,8 +111,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                             myItemSlot.slottedItem = tempItemSlot.slottedItem;
                             myItemSlot.stackNumber = tempItemSlot.stackNumber;
 
-                            // Refresh the inventory slots invovled in the swap / stack
-                            originalInventorySlot.RefreshInventorySlot();
+                            // Refresh this inventory slot
                             RefreshInventorySlot();
                         }
                     }
@@ -149,6 +148,36 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                 {
                     // Throw a debug message
                     Debug.Log("There is something in this inventory slot");
+                }
+            }
+            // Else if the dropped item is from the equipment menu
+            else if (eventData.pointerDrag.GetComponent<EquipmentDragDrop>() != null)
+            {
+                Debug.Log("Equipment dropped");
+
+                // If the slot is empty
+                if (slottedItem == null)
+                {
+                    // Try to cache the equipment slot
+                    try
+                    {
+                        // Cache the equipment slot
+                        EquipmentSlot droppedEquipment = eventData.pointerDrag.GetComponent<EquipmentSlotController>().targetSlot;
+
+                        // Add that item to the inventory
+                        myInventory.AddItemToSpecificSlot(this, droppedEquipment.equipment, 1);
+
+                        // Refresh the inventory slot
+                        RefreshInventorySlot();
+
+                        // Unequip the equipment in the equipment menu
+                        droppedEquipment.UnEquip();
+                    }
+                    catch
+                    {
+                        // Throw a debug message
+                        Debug.Log("There is no equipment slot");
+                    }
                 }
             }
         }

@@ -1093,6 +1093,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d9347c2891044399abed3e03b2ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  removeFromInventory:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 716830eaae710f9438ca3e6c38c2529b, type: 2}
+        m_TargetAssemblyTypeName: InventorySlotIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  unequipEquipment:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 7ec07a7026a09d0468581603c8a54603, type: 2}
+        m_TargetAssemblyTypeName: InventorySlotItemIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1374332452645978411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,7 +1439,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSlot: {fileID: 11400000, guid: d0267caa4b5f2df4a833074656ae43dc, type: 2}
-  itemIcon: {fileID: 0}
 --- !u!225 &8086719250074926123
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1434,6 +1463,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b845bf2b4388749ae2c326cf621806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unequipByRightClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: b593013012e00224a896307a0fd8adfe, type: 2}
+        m_TargetAssemblyTypeName: ItemIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: d0267caa4b5f2df4a833074656ae43dc, type: 2}
+        m_TargetAssemblyTypeName: EquipmentSlot, Assembly-CSharp
+        m_MethodName: UnEquip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   originalParentTransform: {fileID: 0}
   bagIndex: 0
   canvas: {fileID: 0}
@@ -1678,7 +1734,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSlot: {fileID: 11400000, guid: 4e85378141c83f2408a5c88ffe20dc07, type: 2}
-  itemIcon: {fileID: 0}
 --- !u!225 &901393770230694791
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1703,6 +1758,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b845bf2b4388749ae2c326cf621806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unequipByRightClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: b593013012e00224a896307a0fd8adfe, type: 2}
+        m_TargetAssemblyTypeName: ItemIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 4e85378141c83f2408a5c88ffe20dc07, type: 2}
+        m_TargetAssemblyTypeName: EquipmentSlot, Assembly-CSharp
+        m_MethodName: UnEquip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   originalParentTransform: {fileID: 0}
   bagIndex: 0
   canvas: {fileID: 0}
@@ -1795,6 +1877,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d9347c2891044399abed3e03b2ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  removeFromInventory:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 716830eaae710f9438ca3e6c38c2529b, type: 2}
+        m_TargetAssemblyTypeName: InventorySlotIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  unequipEquipment:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 7ec07a7026a09d0468581603c8a54603, type: 2}
+        m_TargetAssemblyTypeName: InventorySlotItemIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2791357780030932126
 GameObject:
   m_ObjectHideFlags: 0
@@ -2034,6 +2146,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d9347c2891044399abed3e03b2ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  removeFromInventory:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 716830eaae710f9438ca3e6c38c2529b, type: 2}
+        m_TargetAssemblyTypeName: InventorySlotIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  unequipEquipment:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 7ec07a7026a09d0468581603c8a54603, type: 2}
+        m_TargetAssemblyTypeName: InventorySlotItemIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3407582500518797893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2179,7 +2321,6 @@ GameObject:
   - component: {fileID: 7158008467936114576}
   - component: {fileID: 6240819551474723180}
   - component: {fileID: 5271253211495994141}
-  - component: {fileID: 1191792639001395107}
   - component: {fileID: 8128719708184965808}
   - component: {fileID: 682956384810003998}
   - component: {fileID: 682956384810003997}
@@ -2247,50 +2388,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1191792639001395107
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3780664845744400566}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 5271253211495994141}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &8128719708184965808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2304,7 +2401,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSlot: {fileID: 11400000, guid: 91ee6a11e50e11f44bdfb92a8a7743ac, type: 2}
-  itemIcon: {fileID: 0}
 --- !u!225 &682956384810003998
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2329,6 +2425,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b845bf2b4388749ae2c326cf621806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unequipByRightClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: b593013012e00224a896307a0fd8adfe, type: 2}
+        m_TargetAssemblyTypeName: ItemIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 91ee6a11e50e11f44bdfb92a8a7743ac, type: 2}
+        m_TargetAssemblyTypeName: EquipmentSlot, Assembly-CSharp
+        m_MethodName: UnEquip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   originalParentTransform: {fileID: 0}
   bagIndex: 0
   canvas: {fileID: 0}
@@ -3199,7 +3322,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSlot: {fileID: 11400000, guid: 78634d36d4ef30246abc486644a1319d, type: 2}
-  itemIcon: {fileID: 0}
 --- !u!225 &682956384810003996
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3224,6 +3346,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b845bf2b4388749ae2c326cf621806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unequipByRightClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: b593013012e00224a896307a0fd8adfe, type: 2}
+        m_TargetAssemblyTypeName: ItemIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: 78634d36d4ef30246abc486644a1319d, type: 2}
+        m_TargetAssemblyTypeName: EquipmentSlot, Assembly-CSharp
+        m_MethodName: UnEquip
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   originalParentTransform: {fileID: 0}
   bagIndex: 0
   canvas: {fileID: 0}
@@ -3525,6 +3674,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce3d9347c2891044399abed3e03b2ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  removeFromInventory:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 716830eaae710f9438ca3e6c38c2529b, type: 2}
+        m_TargetAssemblyTypeName: InventorySlotIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  unequipEquipment:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 7ec07a7026a09d0468581603c8a54603, type: 2}
+        m_TargetAssemblyTypeName: InventorySlotItemIntEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7220769826079637138
 GameObject:
   m_ObjectHideFlags: 0

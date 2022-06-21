@@ -7,8 +7,8 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "Equipment Slot", menuName = "Character/Equipment Slot")]
 public class EquipmentSlot : ScriptableObject
 {
-    [ReadOnly]public Equipment equipment;
-    [ReadOnly]public bool isOccupied;
+    [ReadOnly]public Equipment equipment = null;
+    [ReadOnly]public bool isOccupied = false;
     public UnityEvent OnEquip;
     public UnityEvent<Item,int> OnUnequip;
 

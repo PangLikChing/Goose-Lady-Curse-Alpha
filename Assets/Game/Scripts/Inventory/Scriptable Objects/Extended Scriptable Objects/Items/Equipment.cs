@@ -2,14 +2,16 @@ using Project.Build.Commands;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// This scriptable object stores the data of an equipment
 /// </summary>
 
+[CreateAssetMenu(menuName = "Item/Equipment/Gear")]
 public class Equipment : Item
 {
-    [ReadOnly] public int slotNumber = 0;
+    public EquipmentSlot equipmentSlot;
 
     // When this scriptable object is created
     void Awake()
@@ -68,5 +70,22 @@ public class Equipment : Item
     {
         // Throw a debug message
         Debug.Log("Equipment Use, player equips the item");
+
+        // If there is a piece of equipment in the equipment slot
+        if (equipmentSlot.isOccupied == true)
+        {
+            // Unequip the current equipment in the equipment slot
+            itemSlot.slottedItem = equipmentSlot.equipment;
+            itemSlot.stackNumber = 1;
+        }
+        else
+        {
+            // Remove it from the inventory
+            itemSlot.slottedItem = null;
+            itemSlot.stackNumber = 0;
+        }
+
+        // Equip the equipment
+        equipmentSlot.Equip(this);
     }
 }

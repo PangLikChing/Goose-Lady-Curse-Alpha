@@ -9,14 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e13a84221f6b3434a825d4fee7c470ae, type: 3}
-  m_Name: Hand Slot
+  m_Script: {fileID: 11500000, guid: af51f503b3912864d9ce512c9313b00b, type: 3}
+  m_Name: Remove Item From Specific Slot
   m_EditorClassIdentifier: 
-  equipment: {fileID: 0}
-  isOccupied: 0
-  OnEquip:
-    m_PersistentCalls:
-      m_Calls: []
-  OnUnequip:
-    m_PersistentCalls:
-      m_Calls: []
