@@ -22,6 +22,8 @@ public class InputReader : ScriptableObject, InputMap.ICharacterControlsActions,
     public event UnityAction ClosePauseMenuEvent = delegate { };
     public event UnityAction OpenBuildMenuEvent = delegate { };
     public event UnityAction CloseAllMenusEvent = delegate { };
+    public event UnityAction SkipDialogEvent = delegate { };
+    public event UnityAction OpenNoteBookEvent = delegate { };
 
     private InputMap gameInput;
     private Ray ray;
@@ -170,11 +172,28 @@ public class InputReader : ScriptableObject, InputMap.ICharacterControlsActions,
         }
     }
 
+    public void OnSkipDialog(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            SkipDialogEvent.Invoke();
+        }
+    }
+
+    public void OnOpenNoteBook(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            OpenNoteBookEvent.Invoke();
+        }
+    }
+
     public void EnableGameplayInput()
     {
         gameInput.CharacterControls.Enable();
         gameInput.GameplayMenus.Enable();
         gameInput.SystemMenus.Disable();
+        gameInput.Dialogues.Disable();
     }
 
     public void EnableSystemMenuInput()
@@ -182,6 +201,15 @@ public class InputReader : ScriptableObject, InputMap.ICharacterControlsActions,
         gameInput.SystemMenus.Enable();
         gameInput.CharacterControls.Disable();
         gameInput.GameplayMenus.Disable();
+        gameInput.Dialogues.Disable();
+    }
+
+    public void EnableDialogMenuInput()
+    {
+        gameInput.SystemMenus.Disable();
+        gameInput.CharacterControls.Disable();
+        gameInput.GameplayMenus.Disable();
+        gameInput.Dialogues.Enable();
     }
 
     public void EnableCharacterControl()
@@ -199,5 +227,6 @@ public class InputReader : ScriptableObject, InputMap.ICharacterControlsActions,
         gameInput.SystemMenus.Disable();
         gameInput.CharacterControls.Disable();
         gameInput.GameplayMenus.Disable();
+        gameInput.Dialogues.Disable();
     }
 }

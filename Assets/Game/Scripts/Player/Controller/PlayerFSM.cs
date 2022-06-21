@@ -46,6 +46,7 @@ public class PlayerFSM: FSM
         inputReader.MovementEvent += MovementState;
         inputReader.PickupEvent += PickupState;
         inputReader.AttackEvent += AttackState;
+        inputReader.InteractEvent += actions.Interact;
     }
 
     private void OnDisable()
@@ -53,6 +54,7 @@ public class PlayerFSM: FSM
         inputReader.MovementEvent -= MovementState;
         inputReader.PickupEvent -= PickupState;
         inputReader.AttackEvent -= AttackState;
+        inputReader.InteractEvent -= actions.Interact;
     }
 
     public void ResetState()

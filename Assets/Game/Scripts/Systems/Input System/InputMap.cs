@@ -197,6 +197,15 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Open Note Book"",
+                    ""type"": ""Button"",
+                    ""id"": ""a3b59eef-8dae-4b50-b85f-43b1306f3ecc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -236,7 +245,7 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bc43228a-7bed-452e-89d7-27c5d4b5f139"",
-                    ""path"": ""<Keyboard>/n"",
+                    ""path"": ""<Keyboard>/b"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -276,6 +285,17 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                     ""action"": ""Open Pause Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b9319185-b467-4255-b2f0-76bd34789829"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Open Note Book"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -310,8 +330,30 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         {
             ""name"": ""Dialogues"",
             ""id"": ""d4484669-ab58-4396-9000-f6ebb7a206cb"",
-            ""actions"": [],
-            ""bindings"": []
+            ""actions"": [
+                {
+                    ""name"": ""Skip Dialog"",
+                    ""type"": ""Button"",
+                    ""id"": ""6bebee07-61d2-4781-862e-bfbce6a3bef6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""42f3015e-f612-4b15-b89d-560b5992c28a"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip Dialog"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -349,11 +391,13 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         m_GameplayMenus_OpenBuildMenu = m_GameplayMenus.FindAction("Open Build Menu", throwIfNotFound: true);
         m_GameplayMenus_OpenHelpMenu = m_GameplayMenus.FindAction("Open Help Menu", throwIfNotFound: true);
         m_GameplayMenus_OpenPauseMenu = m_GameplayMenus.FindAction("Open Pause Menu", throwIfNotFound: true);
+        m_GameplayMenus_OpenNoteBook = m_GameplayMenus.FindAction("Open Note Book", throwIfNotFound: true);
         // SystemMenus
         m_SystemMenus = asset.FindActionMap("SystemMenus", throwIfNotFound: true);
         m_SystemMenus_ClosePauseMenu = m_SystemMenus.FindAction("Close Pause Menu", throwIfNotFound: true);
         // Dialogues
         m_Dialogues = asset.FindActionMap("Dialogues", throwIfNotFound: true);
+        m_Dialogues_SkipDialog = m_Dialogues.FindAction("Skip Dialog", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -485,6 +529,7 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
     private readonly InputAction m_GameplayMenus_OpenBuildMenu;
     private readonly InputAction m_GameplayMenus_OpenHelpMenu;
     private readonly InputAction m_GameplayMenus_OpenPauseMenu;
+    private readonly InputAction m_GameplayMenus_OpenNoteBook;
     public struct GameplayMenusActions
     {
         private @InputMap m_Wrapper;
@@ -496,6 +541,7 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         public InputAction @OpenBuildMenu => m_Wrapper.m_GameplayMenus_OpenBuildMenu;
         public InputAction @OpenHelpMenu => m_Wrapper.m_GameplayMenus_OpenHelpMenu;
         public InputAction @OpenPauseMenu => m_Wrapper.m_GameplayMenus_OpenPauseMenu;
+        public InputAction @OpenNoteBook => m_Wrapper.m_GameplayMenus_OpenNoteBook;
         public InputActionMap Get() { return m_Wrapper.m_GameplayMenus; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -526,6 +572,9 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                 @OpenPauseMenu.started -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenPauseMenu;
                 @OpenPauseMenu.performed -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenPauseMenu;
                 @OpenPauseMenu.canceled -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenPauseMenu;
+                @OpenNoteBook.started -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenNoteBook;
+                @OpenNoteBook.performed -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenNoteBook;
+                @OpenNoteBook.canceled -= m_Wrapper.m_GameplayMenusActionsCallbackInterface.OnOpenNoteBook;
             }
             m_Wrapper.m_GameplayMenusActionsCallbackInterface = instance;
             if (instance != null)
@@ -551,6 +600,9 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
                 @OpenPauseMenu.started += instance.OnOpenPauseMenu;
                 @OpenPauseMenu.performed += instance.OnOpenPauseMenu;
                 @OpenPauseMenu.canceled += instance.OnOpenPauseMenu;
+                @OpenNoteBook.started += instance.OnOpenNoteBook;
+                @OpenNoteBook.performed += instance.OnOpenNoteBook;
+                @OpenNoteBook.canceled += instance.OnOpenNoteBook;
             }
         }
     }
@@ -592,10 +644,12 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
     // Dialogues
     private readonly InputActionMap m_Dialogues;
     private IDialoguesActions m_DialoguesActionsCallbackInterface;
+    private readonly InputAction m_Dialogues_SkipDialog;
     public struct DialoguesActions
     {
         private @InputMap m_Wrapper;
         public DialoguesActions(@InputMap wrapper) { m_Wrapper = wrapper; }
+        public InputAction @SkipDialog => m_Wrapper.m_Dialogues_SkipDialog;
         public InputActionMap Get() { return m_Wrapper.m_Dialogues; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -605,10 +659,16 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_DialoguesActionsCallbackInterface != null)
             {
+                @SkipDialog.started -= m_Wrapper.m_DialoguesActionsCallbackInterface.OnSkipDialog;
+                @SkipDialog.performed -= m_Wrapper.m_DialoguesActionsCallbackInterface.OnSkipDialog;
+                @SkipDialog.canceled -= m_Wrapper.m_DialoguesActionsCallbackInterface.OnSkipDialog;
             }
             m_Wrapper.m_DialoguesActionsCallbackInterface = instance;
             if (instance != null)
             {
+                @SkipDialog.started += instance.OnSkipDialog;
+                @SkipDialog.performed += instance.OnSkipDialog;
+                @SkipDialog.canceled += instance.OnSkipDialog;
             }
         }
     }
@@ -639,6 +699,7 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
         void OnOpenBuildMenu(InputAction.CallbackContext context);
         void OnOpenHelpMenu(InputAction.CallbackContext context);
         void OnOpenPauseMenu(InputAction.CallbackContext context);
+        void OnOpenNoteBook(InputAction.CallbackContext context);
     }
     public interface ISystemMenusActions
     {
@@ -646,5 +707,6 @@ public partial class @InputMap : IInputActionCollection2, IDisposable
     }
     public interface IDialoguesActions
     {
+        void OnSkipDialog(InputAction.CallbackContext context);
     }
 }
