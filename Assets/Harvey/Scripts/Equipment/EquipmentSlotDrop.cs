@@ -18,6 +18,10 @@ public class EquipmentSlotDrop : MonoBehaviour, IDropHandler
                     // Try to cast the slotted item as an equipment and see if that is actually an equipment or not
                     Equipment droppedEquipment = (Equipment)eventData.pointerDrag.GetComponent<DragDrop>().originalInventorySlot.slottedItem;
 
+                    // Compare the slotNumber between the slot and the equipment
+
+                    // Equip it if they are the same
+
                     // Throw a debug message
                     Debug.Log("This is an equipment");
                 }
