@@ -17,7 +17,7 @@ public class PlayerPickupState : PlayerBaseState
         {
             fsm.motion.MoveToTarget(fsm.actions.pickUpRange);
         }
-        fsm.inputReader.EnableGameplayInput();
+        //fsm.inputReader.EnableGameplayInput();
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

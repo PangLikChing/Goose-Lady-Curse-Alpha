@@ -13,7 +13,7 @@ public class PlayerAttackState : PlayerBaseState
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         SceneLoader.Instance.OnSceneUnloadedEvent += UnRegisterCallbacks;
-        fsm.inputReader.EnableGameplayInput();
+        //fsm.inputReader.EnableGameplayInput();
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

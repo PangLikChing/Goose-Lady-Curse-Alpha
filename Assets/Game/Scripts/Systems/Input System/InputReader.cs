@@ -204,7 +204,7 @@ public class InputReader : ScriptableObject, InputMap.ICharacterControlsActions,
         gameInput.Dialogues.Disable();
     }
 
-    public void EnableDialogMenuInput()
+    public void EnableDialogInput()
     {
         gameInput.SystemMenus.Disable();
         gameInput.CharacterControls.Disable();
