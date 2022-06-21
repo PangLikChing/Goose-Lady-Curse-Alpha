@@ -1015,6 +1015,7 @@ GameObject:
   - component: {fileID: 8142988484205268621}
   - component: {fileID: 235363901307560414}
   - component: {fileID: 6789519298576959544}
+  - component: {fileID: 682956384810003991}
   m_Layer: 5
   m_Name: Feet Equipment Slot
   m_TagString: Untagged
@@ -1080,6 +1081,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &682956384810003991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770215981943271687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce3d9347c2891044399abed3e03b2ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1374332452645978411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,6 +1330,8 @@ GameObject:
   - component: {fileID: 6107560274562115813}
   - component: {fileID: 1970255493400425617}
   - component: {fileID: 3781123921884256371}
+  - component: {fileID: 8086719250074926123}
+  - component: {fileID: 6756908985241107058}
   m_Layer: 5
   m_Name: Feet Slot
   m_TagString: Untagged
@@ -1395,6 +1410,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSlot: {fileID: 11400000, guid: d0267caa4b5f2df4a833074656ae43dc, type: 2}
   itemIcon: {fileID: 0}
+--- !u!225 &8086719250074926123
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2188118033889868587}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &6756908985241107058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2188118033889868587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b845bf2b4388749ae2c326cf621806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalParentTransform: {fileID: 0}
+  bagIndex: 0
+  canvas: {fileID: 0}
 --- !u!1 &2227499242473485016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1557,6 +1599,8 @@ GameObject:
   - component: {fileID: 4743637454110767889}
   - component: {fileID: 7558783669350400534}
   - component: {fileID: 1068213127982146104}
+  - component: {fileID: 901393770230694791}
+  - component: {fileID: 4016125728818125255}
   m_Layer: 5
   m_Name: Hand Slot
   m_TagString: Untagged
@@ -1635,6 +1679,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSlot: {fileID: 11400000, guid: 4e85378141c83f2408a5c88ffe20dc07, type: 2}
   itemIcon: {fileID: 0}
+--- !u!225 &901393770230694791
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533476571203137092}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &4016125728818125255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533476571203137092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b845bf2b4388749ae2c326cf621806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalParentTransform: {fileID: 0}
+  bagIndex: 0
+  canvas: {fileID: 0}
 --- !u!1 &2745161434233956525
 GameObject:
   m_ObjectHideFlags: 0
@@ -1646,6 +1717,7 @@ GameObject:
   - component: {fileID: 7617883930074683557}
   - component: {fileID: 6346913930334013368}
   - component: {fileID: 3878124444647845005}
+  - component: {fileID: 682956384810003994}
   m_Layer: 5
   m_Name: Head Equipment Slot
   m_TagString: Untagged
@@ -1711,6 +1783,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &682956384810003994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2745161434233956525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce3d9347c2891044399abed3e03b2ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2791357780030932126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,6 +1956,7 @@ GameObject:
   - component: {fileID: 4376183707897573641}
   - component: {fileID: 712442749319820525}
   - component: {fileID: 198431009985401051}
+  - component: {fileID: 682956384810003993}
   m_Layer: 5
   m_Name: Chest Equipment Slot
   m_TagString: Untagged
@@ -1937,6 +2022,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &682956384810003993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3272476873511410437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce3d9347c2891044399abed3e03b2ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3407582500518797893
 GameObject:
   m_ObjectHideFlags: 0
@@ -2084,6 +2181,8 @@ GameObject:
   - component: {fileID: 5271253211495994141}
   - component: {fileID: 1191792639001395107}
   - component: {fileID: 8128719708184965808}
+  - component: {fileID: 682956384810003998}
+  - component: {fileID: 682956384810003997}
   m_Layer: 5
   m_Name: Head Slot
   m_TagString: Untagged
@@ -2206,6 +2305,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSlot: {fileID: 11400000, guid: 91ee6a11e50e11f44bdfb92a8a7743ac, type: 2}
   itemIcon: {fileID: 0}
+--- !u!225 &682956384810003998
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3780664845744400566}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &682956384810003997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3780664845744400566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b845bf2b4388749ae2c326cf621806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalParentTransform: {fileID: 0}
+  bagIndex: 0
+  canvas: {fileID: 0}
 --- !u!1 &3856780672722576511
 GameObject:
   m_ObjectHideFlags: 0
@@ -2994,6 +3120,8 @@ GameObject:
   - component: {fileID: 2975381116519932388}
   - component: {fileID: 9118712423572095339}
   - component: {fileID: 9043295812680433149}
+  - component: {fileID: 682956384810003996}
+  - component: {fileID: 682956384810003995}
   m_Layer: 5
   m_Name: Chest Slot
   m_TagString: Untagged
@@ -3072,6 +3200,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targetSlot: {fileID: 11400000, guid: 78634d36d4ef30246abc486644a1319d, type: 2}
   itemIcon: {fileID: 0}
+--- !u!225 &682956384810003996
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5677044060071385153}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &682956384810003995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5677044060071385153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99b845bf2b4388749ae2c326cf621806, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalParentTransform: {fileID: 0}
+  bagIndex: 0
+  canvas: {fileID: 0}
 --- !u!1 &6088492466841214179
 GameObject:
   m_ObjectHideFlags: 0
@@ -3292,6 +3447,7 @@ GameObject:
   - component: {fileID: 5599178280245992822}
   - component: {fileID: 9190901329826663099}
   - component: {fileID: 1015513237772153329}
+  - component: {fileID: 682956384810003992}
   m_Layer: 5
   m_Name: Hand Equipment Slot
   m_TagString: Untagged
@@ -3357,6 +3513,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &682956384810003992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6397783817816086610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce3d9347c2891044399abed3e03b2ee9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7220769826079637138
 GameObject:
   m_ObjectHideFlags: 0

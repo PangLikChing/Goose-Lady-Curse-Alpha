@@ -1,3 +1,4 @@
+using Project.Build.Commands;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,8 @@ using UnityEngine;
 
 public class Equipment : Item
 {
+    [ReadOnly] public int slotNumber = 0;
+
     // When this scriptable object is created
     void Awake()
     {
