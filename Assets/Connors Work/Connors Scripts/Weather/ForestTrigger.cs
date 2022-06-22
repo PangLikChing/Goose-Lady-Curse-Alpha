@@ -18,9 +18,9 @@ public class ForestTrigger : MonoBehaviour
     }
 
     //if the forest trigger is touched by the player, send out a event
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.transform.parent != null && collision.transform.parent.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             forestEvent.Invoke();
         }
