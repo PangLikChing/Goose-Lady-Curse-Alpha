@@ -880,18 +880,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emojis:
-  - {fileID: 21300000, guid: 2f1eaeeaad36ee5469eff7ff158f37ba, type: 3}
-  - {fileID: 21300000, guid: 172774604c1bee84185a69041576525b, type: 3}
-  - {fileID: 21300000, guid: 5d7061fc7da05ce44add317708ec7215, type: 3}
-  - {fileID: 21300000, guid: 5d7061fc7da05ce44add317708ec7215, type: 3}
-  - {fileID: 21300000, guid: 5d7061fc7da05ce44add317708ec7215, type: 3}
+  - {fileID: 21300000, guid: d524c1199e8203e43889e47c984b593b, type: 3}
+  - {fileID: 21300000, guid: 3163b7459e5f45e4ea5be1d3dfc42e98, type: 3}
+  - {fileID: 21300000, guid: 957cde5667b378c4b969746d88e7ad68, type: 3}
+  - {fileID: 21300000, guid: 00788a754b14c5a448f776818bb3b211, type: 3}
+  - {fileID: 21300000, guid: 5f40429e02dc643419a12fb0e3d3748f, type: 3}
   words:
-  - A
-  - B
-  - C
-  - D
-  - E
-  - F
+  - Key
+  - Shadow
+  - Beach
+  - Rock
+  - Tree
   canvas: {fileID: 0}
   returnDroppingField: {fileID: 8472913821500036418}
 --- !u!114 &7980730655715583098

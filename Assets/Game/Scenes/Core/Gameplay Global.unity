@@ -651,6 +651,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1102571122}
     m_Modifications:
+    - target: {fileID: 424908668, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 424908668, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126237762, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2126237762, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 682956384810003995, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
       propertyPath: canvas
       value: 
@@ -659,6 +675,14 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1102571125}
+    - target: {fileID: 2963584726197924297, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2963584726197924297, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4016125728818125255, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
       propertyPath: canvas
       value: 
@@ -667,6 +691,14 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1102571125}
+    - target: {fileID: 7848838253394569862, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848838253394569862, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7921819322792046115, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
       propertyPath: m_Name
       value: Character Menu
@@ -753,6 +785,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8285005674380935180, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916148894506910090, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8916148894506910090, guid: 023aa68cb5e7e984e8ee5287b2b0974e, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
