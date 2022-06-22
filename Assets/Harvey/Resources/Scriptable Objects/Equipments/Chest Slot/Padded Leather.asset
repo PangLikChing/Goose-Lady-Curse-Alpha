@@ -15,6 +15,6 @@ MonoBehaviour:
   itemID: 14
   itemDisplayName: Padded Leather
   itemIcon: {fileID: 21300000, guid: 3f7035d4263aa1a4b968754d4753d5b5, type: 3}
-  item3DModelPrefeb: {fileID: 0}
+  item3DModelPrefeb: {fileID: 6269551660663507217, guid: 0ad9ada479f53264f9c5e5c67a8ea0bf, type: 3}
   maxStackNumber: 1
   equipmentSlot: {fileID: 11400000, guid: 78634d36d4ef30246abc486644a1319d, type: 2}

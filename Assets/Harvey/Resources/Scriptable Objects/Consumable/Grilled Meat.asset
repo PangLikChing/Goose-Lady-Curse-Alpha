@@ -15,7 +15,7 @@ MonoBehaviour:
   itemID: 9
   itemDisplayName: Grilled Meat
   itemIcon: {fileID: 21300000, guid: d2d2231d9ea122c4a945d3e5b76718b3, type: 3}
-  item3DModelPrefeb: {fileID: 0}
+  item3DModelPrefeb: {fileID: 6269551660663507217, guid: 0ad9ada479f53264f9c5e5c67a8ea0bf, type: 3}
   maxStackNumber: 99
   modifier:
   - {fileID: 11400000, guid: c1aa361588545de42a19e09fcd94621a, type: 2}

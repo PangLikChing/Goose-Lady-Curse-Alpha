@@ -15,5 +15,5 @@ MonoBehaviour:
   itemID: 31
   itemDisplayName: Iron Bar
   itemIcon: {fileID: 21300000, guid: b2352df64abcd62489bcc3094ec726e7, type: 3}
-  item3DModelPrefeb: {fileID: 0}
+  item3DModelPrefeb: {fileID: 6269551660663507217, guid: 0ad9ada479f53264f9c5e5c67a8ea0bf, type: 3}
   maxStackNumber: 99

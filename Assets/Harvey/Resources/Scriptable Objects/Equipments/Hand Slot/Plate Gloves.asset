@@ -15,6 +15,6 @@ MonoBehaviour:
   itemID: 18
   itemDisplayName: Plate Gloves
   itemIcon: {fileID: 21300000, guid: b7e5b4072d83c234ab6819bf4fa504ed, type: 3}
-  item3DModelPrefeb: {fileID: 0}
+  item3DModelPrefeb: {fileID: 6269551660663507217, guid: 0ad9ada479f53264f9c5e5c67a8ea0bf, type: 3}
   maxStackNumber: 1
   equipmentSlot: {fileID: 11400000, guid: 4e85378141c83f2408a5c88ffe20dc07, type: 2}

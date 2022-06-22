@@ -15,6 +15,6 @@ MonoBehaviour:
   itemID: 20
   itemDisplayName: Leather Boots
   itemIcon: {fileID: 21300000, guid: dd4c354c8a170e94581c1c7bec1516f1, type: 3}
-  item3DModelPrefeb: {fileID: 0}
+  item3DModelPrefeb: {fileID: 6269551660663507217, guid: 0ad9ada479f53264f9c5e5c67a8ea0bf, type: 3}
   maxStackNumber: 1
   equipmentSlot: {fileID: 11400000, guid: d0267caa4b5f2df4a833074656ae43dc, type: 2}
