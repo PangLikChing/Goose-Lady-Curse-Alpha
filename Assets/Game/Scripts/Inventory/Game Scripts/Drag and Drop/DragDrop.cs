@@ -119,9 +119,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
 
                     // Drop the item on Ground
                     DropItemOnGround();
-
-                    // Updates the inventory slot
-                    originalInventorySlot.RefreshInventorySlot();
                 }
 
                 // Reset item's position to the centre of the original inventory slot
@@ -143,6 +140,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
                 }
             }
 
+            // Updates the inventory slot
+            originalInventorySlot.RefreshInventorySlot();
+
             // Reset originalInventorySlot
             originalInventorySlot = null;
         }
@@ -160,8 +160,5 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, I
         // Reset the original inventory slot
         originalInventorySlot.myInventory.itemList[originalInventorySlot.myBagIndex][originalInventorySlot.mySlotIndex].slottedItem = null;
         originalInventorySlot.myInventory.itemList[originalInventorySlot.myBagIndex][originalInventorySlot.mySlotIndex].stackNumber = 0;
-
-        // Refresh that inventory slot
-        originalInventorySlot.RefreshInventorySlot();
     }
 }
