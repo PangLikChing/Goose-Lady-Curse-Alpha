@@ -12,6 +12,7 @@ public class Quest : MonoBehaviour
     public bool objectiveComplete;
     public Quest nextQuest;
     public UnityEvent<string> UpdateQuestHint;
+    public List<Sprite> emojiHint;
     public enum Stage
     {
         intro,

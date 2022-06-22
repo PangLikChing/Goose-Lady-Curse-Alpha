@@ -14,6 +14,7 @@ public class CharacterStats : MonoBehaviour
     private void Start()
     {
         InitializeCharacterStats();
+        notDialogPause = true;
     }
 
     public void InitializeCharacterStats()

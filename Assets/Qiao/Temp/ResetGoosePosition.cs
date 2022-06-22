@@ -8,6 +8,6 @@ public class ResetGoosePosition : MonoBehaviour
     public Vector3 offset;
     public void ResetPosition()
     {
-        transform.position = playerAvatar.position + offset;
+        transform.position = playerAvatar.GetComponent<AvatarActions>().spawnPoint.position + offset;
     }
 }
