@@ -2210,7 +2210,6 @@ GameObject:
   - component: {fileID: 5473813946502432515}
   - component: {fileID: 6489147538470110168}
   - component: {fileID: 6462932678360323181}
-  - component: {fileID: 1772244005021397698}
   m_Layer: 5
   m_Name: Quest Hint
   m_TagString: Untagged
@@ -2334,18 +2333,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1772244005021397698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8671881194652584103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 680d9194f57891d41a4ba4621baa3bcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8871711380490344843
 GameObject:
   m_ObjectHideFlags: 0
