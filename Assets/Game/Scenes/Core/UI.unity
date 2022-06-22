@@ -287,16 +287,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5362840237342282112, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
       propertyPath: gameWorldScene.sceneName
-      value: GameWorld
+      value: IntegrationTestScene
       objectReference: {fileID: 0}
     - target: {fileID: 5362840237342282112, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
       propertyPath: gameWorldScene.scenePath
-      value: Assets/Game/Scenes/GameWorld.unity
+      value: Assets/Game/Scenes/IntegrationTestScene.unity
       objectReference: {fileID: 0}
     - target: {fileID: 5362840237342282112, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
       propertyPath: gameWorldScene.sceneAsset
       value: 
-      objectReference: {fileID: 102900000, guid: b04a400c7f33e80489cca3cdc884b61f, type: 3}
+      objectReference: {fileID: 102900000, guid: 9fc0d4010bbf28b4594072e72b8655ab, type: 3}
     - target: {fileID: 5362840237342282140, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
       propertyPath: m_Name
       value: Main Menu

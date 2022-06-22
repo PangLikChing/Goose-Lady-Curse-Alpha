@@ -5,13 +5,10 @@ using Fungus;
 using System;
 using Project.Build.Commands;
 
-public class ObjectiveTracker : MonoBehaviour
-{
-    public Flowchart targetFlowChart;
+public class ItemQuest : Quest
+{ 
     public Item objective;
     public int targetCount;
-    [SerializeField, ReadOnly]
-    private bool completed;
     [SerializeField, ReadOnly]
     private float currentCount;
 
@@ -23,10 +20,9 @@ public class ObjectiveTracker : MonoBehaviour
             currentCount += stack;
         }
 
-        if (currentCount >= targetCount && !completed)
+        if (currentCount >= targetCount && !objectiveComplete)
         {
-            targetFlowChart.SendFungusMessage(objective.name);// display a dialog box object complete return to base
-            completed = true;
+            OnQuestComplete();
         }
     }
 
@@ -37,10 +33,10 @@ public class ObjectiveTracker : MonoBehaviour
         {
             currentCount -= stack;
         }
-        if (currentCount < targetCount && completed)
+        if (currentCount < targetCount && objectiveComplete)
         {
             // display a dialog box telling player to pick up the objective
-            completed = false;
+            OnQuestIncomplete();
         }
     }
 }

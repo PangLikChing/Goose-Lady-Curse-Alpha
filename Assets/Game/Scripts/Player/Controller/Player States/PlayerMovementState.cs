@@ -14,7 +14,7 @@ public class PlayerMovementState : PlayerBaseState
         SceneLoader.Instance.OnSceneUnloadedEvent += UnRegisterCallbacks;
         fsm.motion.MoveToPoint();
         fsm.motion.PathCompleted += IdleState;
-        fsm.inputReader.EnableGameplayInput();
+        //fsm.inputReader.EnableGameplayInput();
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

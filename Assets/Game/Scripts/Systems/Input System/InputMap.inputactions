@@ -88,7 +88,7 @@
                 {
                     "name": "",
                     "id": "ee98d194-6a0a-4859-b9ca-e358023ed41f",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/f",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -175,6 +175,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Open Note Book",
+                    "type": "Button",
+                    "id": "a3b59eef-8dae-4b50-b85f-43b1306f3ecc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -214,7 +223,7 @@
                 {
                     "name": "",
                     "id": "bc43228a-7bed-452e-89d7-27c5d4b5f139",
-                    "path": "<Keyboard>/n",
+                    "path": "<Keyboard>/b",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -254,6 +263,17 @@
                     "action": "Open Pause Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b9319185-b467-4255-b2f0-76bd34789829",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Open Note Book",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -288,8 +308,30 @@
         {
             "name": "Dialogues",
             "id": "d4484669-ab58-4396-9000-f6ebb7a206cb",
-            "actions": [],
-            "bindings": []
+            "actions": [
+                {
+                    "name": "Skip Dialog",
+                    "type": "Button",
+                    "id": "6bebee07-61d2-4781-862e-bfbce6a3bef6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "42f3015e-f612-4b15-b89d-560b5992c28a",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Skip Dialog",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

@@ -25,11 +25,13 @@ public class AvatarActions : MonoBehaviour
     public Transform spawnPoint;
     [Tooltip("This channel send item pickup event to inventory")]
     public UnityEvent<Item, int> ItemPickupEvent;
+
+    public Structure interactionTarget;
     private Animator avatarAnimator;
     private bool hasAnimator;
     private void OnEnable()
     {
-
+        
     }
 
     private void OnDisable()
@@ -127,6 +129,10 @@ public class AvatarActions : MonoBehaviour
 
     public void Interact()
     {
+        if (interactionTarget != null)
+        {
+            interactionTarget.Interact();
+        }
     }
 
     public void Die()
