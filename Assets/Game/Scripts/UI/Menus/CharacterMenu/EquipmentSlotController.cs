@@ -3,10 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(Image))]
 public class EquipmentSlotController : MonoBehaviour
 {
     public EquipmentSlot targetSlot;
-    public Image itemIcon;
+    Image itemIcon;
+
+    void Start()
+    {
+        // Initialize
+        itemIcon = GetComponent<Image>();
+    }
+
     private void OnEnable()
     {
         targetSlot.OnEquip.AddListener(ChangeIcon);

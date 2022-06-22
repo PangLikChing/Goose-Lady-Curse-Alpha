@@ -256,6 +256,67 @@ public class Inventory : MonoBehaviour
         RefreshInventorySlots.Invoke();
     }
 
+    public void AddItemToSpecificSlot(InventorySlot inventorySlot, Item item, int stackNumber)
+    {
+        // Cache the targeted ItemSlot
+        ItemSlot targetedItemSlot = itemList[inventorySlot.myBagIndex][inventorySlot.mySlotIndex];
+
+        // If that slot does not have an item yet
+        if (targetedItemSlot.slottedItem == null)
+        {
+            // Add the item to that slot
+            targetedItemSlot.slottedItem = item;
+            targetedItemSlot.stackNumber = stackNumber;
+        }
+        // Else if the slotted item is the same as the item specified
+        else if (targetedItemSlot.slottedItem == item)
+        {
+            // If the stack combined will not exceed the max stack size
+            if (targetedItemSlot.stackNumber + stackNumber <= targetedItemSlot.slottedItem.maxStackNumber)
+            {
+                // Add the 2 stacks
+                targetedItemSlot.stackNumber += stackNumber;
+            }
+            // If the stack combined will exceed the max stack size
+            else
+            {
+                // Do nothing
+                return;
+            }
+        }
+        // Else if the slotted item is not the sam as the item
+        else
+        {
+            // Do nothing
+            return;
+        }
+    }
+
+    public void RemoveItemFromSpecificSlot(InventorySlot inventorySlot, int stackNumber)
+    {
+        // Cache the targeted ItemSlot
+        ItemSlot targetedItemSlot = itemList[inventorySlot.myBagIndex][inventorySlot.mySlotIndex];
+        
+        // If there are still item left in the stack after removal
+        if (targetedItemSlot.stackNumber - stackNumber > 0)
+        {
+            // Only reduce the stack number
+            targetedItemSlot.stackNumber = targetedItemSlot.stackNumber - stackNumber;
+        }
+        // If there is nothing left in the stack after removal
+        else
+        {
+            // Remove the slotted item
+            targetedItemSlot.slottedItem = null;
+
+            // Reset the stack number
+            targetedItemSlot.stackNumber = 0;
+        }
+
+        // Refresh that inventory slot
+        inventorySlot.RefreshInventorySlot();
+    }
+
     public void SwapBag(int firstBag, int secondBag)
     {
         // Swap the item array in the data
