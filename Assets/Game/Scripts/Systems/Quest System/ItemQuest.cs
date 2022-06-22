@@ -22,8 +22,7 @@ public class ItemQuest : Quest
 
         if (currentCount >= targetCount && !objectiveComplete)
         {
-            stage = Stage.outro;
-            objectiveComplete = true;
+            OnQuestComplete();
         }
     }
 
@@ -37,8 +36,7 @@ public class ItemQuest : Quest
         if (currentCount < targetCount && objectiveComplete)
         {
             // display a dialog box telling player to pick up the objective
-            stage = Stage.ongoing;
-            objectiveComplete = false;
+            OnQuestIncomplete();
         }
     }
 }

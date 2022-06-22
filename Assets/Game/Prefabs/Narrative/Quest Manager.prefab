@@ -19,6 +19,9 @@ GameObject:
   - component: {fileID: 6478959366945309560}
   - component: {fileID: 5607886972881718514}
   - component: {fileID: 9186853735445555516}
+  - component: {fileID: 3421969912127171278}
+  - component: {fileID: 6099324466040779364}
+  - component: {fileID: 5469510497013740279}
   m_Layer: 0
   m_Name: Quest0
   m_TagString: Untagged
@@ -64,10 +67,8 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks:
-  - {fileID: 4632869049214854832}
-  selectedCommands:
-  - {fileID: 9186853735445555516}
+  selectedBlocks: []
+  selectedCommands: []
   variables: []
   description: 'Tutorial
 
@@ -93,9 +94,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7991c03fe3c46ab458786d2491bbd729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: find the key
   objectiveComplete: 0
-  nextQuest: {fileID: 0}
+  nextQuest: {fileID: 2060556769151682770}
+  UpdateQuestHint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 2e56fec1a16ace347bd1182793e8cba6, type: 2}
+        m_TargetAssemblyTypeName: StringEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   stage: 0
   objective: {fileID: 11400000, guid: bf9d0d311923e6347916bb8705895791, type: 2}
   targetCount: 1
@@ -126,6 +142,9 @@ MonoBehaviour:
   eventHandler: {fileID: 3050780815927428951}
   commandList:
   - {fileID: 8935784264709379528}
+  - {fileID: 3421969912127171278}
+  - {fileID: 6099324466040779364}
+  - {fileID: 5469510497013740279}
   suppressAllAutoSelections: 0
 --- !u!114 &4632869049214854832
 MonoBehaviour:
@@ -168,7 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 5576937104920183452}
   suppressBlockAutoSelect: 0
-  message: 
+  message: intro
 --- !u!114 &5257534391388389474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 4632869049214854832}
   suppressBlockAutoSelect: 0
-  message: 
+  message: ongoing
 --- !u!114 &8935784264709379528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +315,87 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &3421969912127171278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3407252572550297379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 4
+  indentLevel: 0
+  storyText: asdfdsas
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &6099324466040779364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3407252572550297379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 5
+  indentLevel: 0
+  storyText: asfdfasdasf
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &5469510497013740279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3407252572550297379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 6
+  indentLevel: 0
+  storyText: sdaffasd
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!1 &4133967064926911169
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,7 +416,7 @@ GameObject:
   - component: {fileID: 8307160922990601448}
   - component: {fileID: 4609026255832922754}
   - component: {fileID: 3385375640071788708}
-  - component: {fileID: 6679430036025741544}
+  - component: {fileID: 8406403306851092417}
   m_Layer: 0
   m_Name: Quest1
   m_TagString: Untagged
@@ -363,7 +463,7 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 2474020981048050502}
+  - {fileID: 63900420162183858}
   selectedCommands: []
   variables: []
   description: 
@@ -388,9 +488,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7991c03fe3c46ab458786d2491bbd729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 
+  description: 65464
   objectiveComplete: 0
   nextQuest: {fileID: 0}
+  UpdateQuestHint:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 2e56fec1a16ace347bd1182793e8cba6, type: 2}
+        m_TargetAssemblyTypeName: StringEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   stage: 0
   objective: {fileID: 11400000, guid: 6b588737ec7a7ff40b803ae4b641ff2a, type: 2}
   targetCount: 1
@@ -420,8 +535,8 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 4440862180604509756}
   commandList:
-  - {fileID: 7780303692449944775}
   - {fileID: 225971880476952193}
+  - {fileID: 7780303692449944775}
   - {fileID: 8307160922990601448}
   suppressAllAutoSelections: 0
 --- !u!114 &2474020981048050502
@@ -449,7 +564,7 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 6932174165789986330}
   commandList:
-  - {fileID: 6679430036025741544}
+  - {fileID: 8406403306851092417}
   suppressAllAutoSelections: 0
 --- !u!114 &4440862180604509756
 MonoBehaviour:
@@ -465,7 +580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 63900420162183858}
   suppressBlockAutoSelect: 0
-  message: 
+  message: intro
 --- !u!114 &6932174165789986330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,7 +595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentBlock: {fileID: 2474020981048050502}
   suppressBlockAutoSelect: 0
-  message: 
+  message: ongoing
 --- !u!114 &7780303692449944775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -612,7 +727,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &6679430036025741544
+--- !u!114 &8406403306851092417
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -624,12 +739,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 5
+  itemId: 6
   indentLevel: 0
-  storyText: Go do something else
+  storyText: Go find something to do.
   description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
+  character: {fileID: 8406403307675228253}
+  portrait: {fileID: 21300000, guid: ccbb6ce1f10d10441bcf218f6f10c62d, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -687,6 +802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentQuest: {fileID: 1289127312410829313}
+  inputReader: {fileID: 11400000, guid: 4fd610bd80c60024e89dee3ebc384516, type: 2}
 --- !u!1 &8406403307615056775
 GameObject:
   m_ObjectHideFlags: 0

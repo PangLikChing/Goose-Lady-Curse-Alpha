@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
+using UnityEngine.Events;
+
 [RequireComponent(typeof(Flowchart))]
 public class Quest : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class Quest : MonoBehaviour
     public string description;
     public bool objectiveComplete;
     public Quest nextQuest;
+    public UnityEvent<string> UpdateQuestHint;
     public enum Stage
     {
         intro,
@@ -30,7 +33,7 @@ public class Quest : MonoBehaviour
         {
             case Stage.intro:
                 dialog.SendFungusMessage("intro");
-                stage++;
+                OnQuestIncomplete();
                 break;
             case Stage.ongoing:
                 dialog.SendFungusMessage("ongoing");
@@ -40,5 +43,28 @@ public class Quest : MonoBehaviour
                 break;
 
         }
+    }
+
+    public void SkipDialog()
+    {
+        dialog.StopAllBlocks();
+        if (stage == Stage.intro)
+        {
+            OnQuestIncomplete();
+        }
+    }
+
+    public void OnQuestComplete()
+    {
+        stage = Stage.outro;
+        objectiveComplete = true;
+        UpdateQuestHint.Invoke("Return to statue");//TODO: change the hard coded message later
+    }
+
+    public void OnQuestIncomplete()
+    {
+        stage = Stage.ongoing;
+        objectiveComplete = false;
+        UpdateQuestHint.Invoke(description);
     }
 }

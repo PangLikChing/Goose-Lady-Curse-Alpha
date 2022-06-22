@@ -89,8 +89,9 @@ namespace Fungus
             if (writer != null && writer.IsWriting)
             {
                 
-                if (currentUIInputModule.submit.action.triggered ||
-                    (cancelEnabled && currentUIInputModule.cancel.action.triggered))
+                if (currentUIInputModule.submit.action.triggered )
+                    //||
+                    //(cancelEnabled && currentUIInputModule.cancel.action.triggered))
                 {
                     SetNextLineFlag();
                 }
