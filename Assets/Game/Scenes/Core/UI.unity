@@ -285,6 +285,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 940526359}
     m_Modifications:
+    - target: {fileID: 5362840237342282112, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
+      propertyPath: gameWorldScene.sceneName
+      value: GameWorld
+      objectReference: {fileID: 0}
+    - target: {fileID: 5362840237342282112, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
+      propertyPath: gameWorldScene.scenePath
+      value: Assets/Game/Scenes/GameWorld.unity
+      objectReference: {fileID: 0}
+    - target: {fileID: 5362840237342282112, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
+      propertyPath: gameWorldScene.sceneAsset
+      value: 
+      objectReference: {fileID: 102900000, guid: b04a400c7f33e80489cca3cdc884b61f, type: 3}
     - target: {fileID: 5362840237342282140, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
       propertyPath: m_Name
       value: Main Menu
@@ -299,7 +311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5362840237342282141, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5362840237342282141, guid: b7d03420c96370c44acd99d15ec11c9a, type: 3}
       propertyPath: m_AnchorMax.x
