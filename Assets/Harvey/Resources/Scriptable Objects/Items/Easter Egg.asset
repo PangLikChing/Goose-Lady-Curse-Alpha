@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: -1
   itemDisplayName: Easter Egg
-  itemIcon: {fileID: 21300000, guid: 6ab0ea14bbb26494f97887f02ce93581, type: 3}
+  itemIcon: {fileID: 21300000, guid: eaff3c245c2e7d74db070a05c8e52477, type: 3}
   item3DModelPrefeb: {fileID: 7969001914794838314, guid: e8f161527f50c144dae5829314a56961, type: 3}
   maxStackNumber: 99
