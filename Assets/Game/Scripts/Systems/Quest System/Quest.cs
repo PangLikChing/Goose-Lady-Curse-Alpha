@@ -12,7 +12,10 @@ public class Quest : MonoBehaviour
     public bool objectiveComplete;
     public Quest nextQuest;
     public UnityEvent<string> UpdateQuestHint;
-    public List<Sprite> emojiHint;
+    public List<GameObject> emojiHint;
+    public UnityEvent<List<GameObject>> ShowEmojiEvent;
+    public UnityEvent HideEmojiEvent;
+    public GooseLadyEmojis ladyEmojis;
     public enum Stage
     {
         intro,
@@ -49,9 +52,10 @@ public class Quest : MonoBehaviour
     public void SkipDialog()
     {
         dialog.StopAllBlocks();
-        if (stage == Stage.intro)
+        if (stage == Stage.ongoing)
         {
-            OnQuestIncomplete();
+            //OnQuestIncomplete();
+            ShowEmojiEvent.Invoke(emojiHint);
         }
     }
 
@@ -59,6 +63,7 @@ public class Quest : MonoBehaviour
     {
         stage = Stage.outro;
         objectiveComplete = true;
+        HideEmojiEvent.Invoke();
         UpdateQuestHint.Invoke("Return to statue");//TODO: change the hard coded message later
     }
 
@@ -67,5 +72,10 @@ public class Quest : MonoBehaviour
         stage = Stage.ongoing;
         objectiveComplete = false;
         UpdateQuestHint.Invoke(description);
+    }
+
+    public void ShowEmoji()
+    {
+        ShowEmojiEvent.Invoke(emojiHint);
     }
 }

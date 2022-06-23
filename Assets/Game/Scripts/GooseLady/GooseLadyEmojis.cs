@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Emojis : ScriptableObject
+[CreateAssetMenu(fileName = "GooseLadyEmojis", menuName = "Goose Lady/Goose Lady Emojis")]
+public class GooseLadyEmojis : ScriptableObject
 {
     public List<Sprite> emojis;
-
-
 }

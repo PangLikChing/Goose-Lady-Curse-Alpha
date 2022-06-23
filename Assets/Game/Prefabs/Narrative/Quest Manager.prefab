@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 3421969912127171278}
   - component: {fileID: 6099324466040779364}
   - component: {fileID: 5469510497013740279}
+  - component: {fileID: 6724934468056167463}
   m_Layer: 0
   m_Name: Quest0
   m_TagString: Untagged
@@ -67,8 +68,10 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 5576937104920183452}
+  selectedCommands:
+  - {fileID: 6724934468056167463}
   variables: []
   description: 'Tutorial
 
@@ -112,6 +115,41 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  emojiHint:
+  - {fileID: 8160972069625782107, guid: 4c75e6b8bbc8f114db1fd274953bb4c1, type: 3}
+  - {fileID: 4358689951098246008, guid: 4a5d18c16372bfb4cafc1f790ea980b8, type: 3}
+  - {fileID: 3768455697274741083, guid: 3c04bf7eb53f70d4390dba3526f3cd92, type: 3}
+  ShowEmojiEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 0aed965de62488247b85cd8b18b50bce, type: 2}
+        m_TargetAssemblyTypeName: GOListEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  HideEmojiEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: a6ee105d4d5d82241ac959b4225b8ab9, type: 2}
+        m_TargetAssemblyTypeName: VoidEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  ladyEmojis: {fileID: 11400000, guid: de2dd31d517ad5a41a84054695a29bad, type: 2}
   stage: 0
   objective: {fileID: 11400000, guid: bf9d0d311923e6347916bb8705895791, type: 2}
   targetCount: 1
@@ -132,7 +170,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 381
     y: 151
-    width: 75
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -145,6 +183,7 @@ MonoBehaviour:
   - {fileID: 3421969912127171278}
   - {fileID: 6099324466040779364}
   - {fileID: 5469510497013740279}
+  - {fileID: 6724934468056167463}
   suppressAllAutoSelections: 0
 --- !u!114 &4632869049214854832
 MonoBehaviour:
@@ -162,7 +201,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 373
     y: 220
-    width: 95
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -396,6 +435,62 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &6724934468056167463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3407252572550297379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d9ff288f3904c05ada7ac9c9a075bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 7
+  indentLevel: 0
+  description: 
+  delay: 0
+  invokeType: 0
+  staticEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1289127312410829313}
+        m_TargetAssemblyTypeName: Quest, Assembly-CSharp
+        m_MethodName: ShowEmoji
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  booleanParameter:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  booleanEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  integerParameter:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  integerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  floatParameter:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  stringParameter:
+    stringRef: {fileID: 0}
+    stringVal: 
+  stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4133967064926911169
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,6 +512,7 @@ GameObject:
   - component: {fileID: 4609026255832922754}
   - component: {fileID: 3385375640071788708}
   - component: {fileID: 8406403306851092417}
+  - component: {fileID: 6917250459993848096}
   m_Layer: 0
   m_Name: Quest1
   m_TagString: Untagged
@@ -464,7 +560,8 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 63900420162183858}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 6917250459993848096}
   variables: []
   description: 
   stepPause: 0
@@ -506,6 +603,41 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  emojiHint:
+  - {fileID: 4358689951098246008, guid: 4a5d18c16372bfb4cafc1f790ea980b8, type: 3}
+  - {fileID: 8160972069625782107, guid: 4c75e6b8bbc8f114db1fd274953bb4c1, type: 3}
+  - {fileID: 3768455697274741083, guid: 3c04bf7eb53f70d4390dba3526f3cd92, type: 3}
+  ShowEmojiEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 0aed965de62488247b85cd8b18b50bce, type: 2}
+        m_TargetAssemblyTypeName: GOListEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  HideEmojiEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: a6ee105d4d5d82241ac959b4225b8ab9, type: 2}
+        m_TargetAssemblyTypeName: VoidEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  ladyEmojis: {fileID: 11400000, guid: de2dd31d517ad5a41a84054695a29bad, type: 2}
   stage: 0
   objective: {fileID: 11400000, guid: 6b588737ec7a7ff40b803ae4b641ff2a, type: 2}
   targetCount: 1
@@ -526,7 +658,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 246
     y: 112
-    width: 75
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -538,6 +670,7 @@ MonoBehaviour:
   - {fileID: 225971880476952193}
   - {fileID: 7780303692449944775}
   - {fileID: 8307160922990601448}
+  - {fileID: 6917250459993848096}
   suppressAllAutoSelections: 0
 --- !u!114 &2474020981048050502
 MonoBehaviour:
@@ -555,7 +688,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 244
     y: 197
-    width: 95
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -754,6 +887,62 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &6917250459993848096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4133967064926911169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d9ff288f3904c05ada7ac9c9a075bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 7
+  indentLevel: 0
+  description: 
+  delay: 0
+  invokeType: 0
+  staticEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2060556769151682770}
+        m_TargetAssemblyTypeName: Quest, Assembly-CSharp
+        m_MethodName: ShowEmoji
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  booleanParameter:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  booleanEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  integerParameter:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  integerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  floatParameter:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  stringParameter:
+    stringRef: {fileID: 0}
+    stringVal: 
+  stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8406403306594580197
 GameObject:
   m_ObjectHideFlags: 0
