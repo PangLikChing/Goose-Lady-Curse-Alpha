@@ -47,7 +47,7 @@ public class PredatorPatrollingState : PredatorBaseState
 
         if (distPosition <= 5f)
         {
-            Debug.Log("Range");
+            //Debug.Log("Range");
             RangeCheck(predator);
         }
             
