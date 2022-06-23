@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: DummySpawner
   m_EditorClassIdentifier: 
   SpawnableItems:
-  - {fileID: 6269551660663507229, guid: 0ad9ada479f53264f9c5e5c67a8ea0bf, type: 3}
+  - {fileID: 5246139557648152314, guid: 22a9d95f03dd2cc49b1c20539f412445, type: 3}
