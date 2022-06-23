@@ -12,11 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e13a84221f6b3434a825d4fee7c470ae, type: 3}
   m_Name: Head Slot
   m_EditorClassIdentifier: 
-  equipment: {fileID: 11400000, guid: 67893014e7702db4083574bcf8e74dc5, type: 2}
-  isOccupied: 1
+  equipment: {fileID: 0}
+  isOccupied: 0
   OnEquip:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: da6de33f4cbb76d41b7ce287393b9782, type: 2}
+        m_TargetAssemblyTypeName: EquipmentSlotEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000}
+          m_ObjectArgumentAssemblyTypeName: EquipmentSlot, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnUnequip:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 954e8c045ed505c47a3e4a46ec57394a, type: 2}
+        m_TargetAssemblyTypeName: EquipmentSlotEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 11400000}
+          m_ObjectArgumentAssemblyTypeName: EquipmentSlot, Assembly-CSharp
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

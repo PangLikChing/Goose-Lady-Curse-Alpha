@@ -1362,6 +1362,8 @@ GameObject:
   - component: {fileID: 3781123921884256371}
   - component: {fileID: 8086719250074926123}
   - component: {fileID: 6756908985241107058}
+  - component: {fileID: 5209833954303467038}
+  - component: {fileID: 4321070994110266921}
   m_Layer: 5
   m_Name: Feet Slot
   m_TagString: Untagged
@@ -1493,6 +1495,62 @@ MonoBehaviour:
   originalParentTransform: {fileID: 0}
   bagIndex: 0
   canvas: {fileID: 0}
+--- !u!114 &5209833954303467038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2188118033889868587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f8b68cd04ba1e4f99ba47f0f8dec8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: da6de33f4cbb76d41b7ce287393b9782, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6756908985241107058}
+        m_TargetAssemblyTypeName: EquipmentDragDrop, Assembly-CSharp
+        m_MethodName: EnableDragDrop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4321070994110266921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2188118033889868587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f8b68cd04ba1e4f99ba47f0f8dec8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 954e8c045ed505c47a3e4a46ec57394a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6756908985241107058}
+        m_TargetAssemblyTypeName: EquipmentDragDrop, Assembly-CSharp
+        m_MethodName: DisableDragDrop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2227499242473485016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,6 +1715,8 @@ GameObject:
   - component: {fileID: 1068213127982146104}
   - component: {fileID: 901393770230694791}
   - component: {fileID: 4016125728818125255}
+  - component: {fileID: 1776210541457441094}
+  - component: {fileID: 3520776926185750755}
   m_Layer: 5
   m_Name: Hand Slot
   m_TagString: Untagged
@@ -1788,6 +1848,62 @@ MonoBehaviour:
   originalParentTransform: {fileID: 0}
   bagIndex: 0
   canvas: {fileID: 0}
+--- !u!114 &1776210541457441094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533476571203137092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f8b68cd04ba1e4f99ba47f0f8dec8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: da6de33f4cbb76d41b7ce287393b9782, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4016125728818125255}
+        m_TargetAssemblyTypeName: EquipmentDragDrop, Assembly-CSharp
+        m_MethodName: EnableDragDrop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3520776926185750755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2533476571203137092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f8b68cd04ba1e4f99ba47f0f8dec8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 954e8c045ed505c47a3e4a46ec57394a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4016125728818125255}
+        m_TargetAssemblyTypeName: EquipmentDragDrop, Assembly-CSharp
+        m_MethodName: DisableDragDrop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2745161434233956525
 GameObject:
   m_ObjectHideFlags: 0
@@ -2324,6 +2440,8 @@ GameObject:
   - component: {fileID: 8128719708184965808}
   - component: {fileID: 682956384810003998}
   - component: {fileID: 682956384810003997}
+  - component: {fileID: 6668228909184972385}
+  - component: {fileID: 3775566248453822545}
   m_Layer: 5
   m_Name: Head Slot
   m_TagString: Untagged
@@ -2455,6 +2573,62 @@ MonoBehaviour:
   originalParentTransform: {fileID: 0}
   bagIndex: 0
   canvas: {fileID: 0}
+--- !u!114 &6668228909184972385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3780664845744400566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f8b68cd04ba1e4f99ba47f0f8dec8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: da6de33f4cbb76d41b7ce287393b9782, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 682956384810003997}
+        m_TargetAssemblyTypeName: EquipmentDragDrop, Assembly-CSharp
+        m_MethodName: EnableDragDrop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3775566248453822545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3780664845744400566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f8b68cd04ba1e4f99ba47f0f8dec8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 954e8c045ed505c47a3e4a46ec57394a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 682956384810003997}
+        m_TargetAssemblyTypeName: EquipmentDragDrop, Assembly-CSharp
+        m_MethodName: DisableDragDrop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3856780672722576511
 GameObject:
   m_ObjectHideFlags: 0
@@ -3245,6 +3419,8 @@ GameObject:
   - component: {fileID: 9043295812680433149}
   - component: {fileID: 682956384810003996}
   - component: {fileID: 682956384810003995}
+  - component: {fileID: 5150168548662092658}
+  - component: {fileID: 329527998930271979}
   m_Layer: 5
   m_Name: Chest Slot
   m_TagString: Untagged
@@ -3376,6 +3552,62 @@ MonoBehaviour:
   originalParentTransform: {fileID: 0}
   bagIndex: 0
   canvas: {fileID: 0}
+--- !u!114 &5150168548662092658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5677044060071385153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f8b68cd04ba1e4f99ba47f0f8dec8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: da6de33f4cbb76d41b7ce287393b9782, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 682956384810003995}
+        m_TargetAssemblyTypeName: EquipmentDragDrop, Assembly-CSharp
+        m_MethodName: EnableDragDrop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &329527998930271979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5677044060071385153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0f8b68cd04ba1e4f99ba47f0f8dec8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 954e8c045ed505c47a3e4a46ec57394a, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 682956384810003995}
+        m_TargetAssemblyTypeName: EquipmentDragDrop, Assembly-CSharp
+        m_MethodName: DisableDragDrop
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6088492466841214179
 GameObject:
   m_ObjectHideFlags: 0
