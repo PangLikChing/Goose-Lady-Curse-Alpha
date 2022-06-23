@@ -148,7 +148,7 @@ public class AvatarActions : MonoBehaviour
         if (hasAnimator)
         {
             avatarAnimator.SetTrigger("spawn");
-            transform.position = spawnPoint.position;
+            motion.Warp(spawnPoint.position);
         }
     }
 

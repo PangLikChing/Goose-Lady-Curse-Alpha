@@ -65,12 +65,12 @@ namespace Fungus
             {
                 Debug.LogError("Event System missing");
                 //Auto spawn an Event System from the prefab
-                GameObject prefab = Resources.Load<GameObject>("Prefabs/EventSystem");
-                if (prefab != null)
-                {
-                    GameObject go = Instantiate(prefab) as GameObject;
-                    go.name = "EventSystem";
-                }
+                //GameObject prefab = Resources.Load<GameObject>("Prefabs/EventSystem");
+                //if (prefab != null)
+                //{
+                //    GameObject go = Instantiate(prefab) as GameObject;
+                //    go.name = "EventSystem";
+                //}
             }
         }
             

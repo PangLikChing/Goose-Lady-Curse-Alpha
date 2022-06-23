@@ -153,6 +153,11 @@ public class AvatarLocomotion : MonoBehaviour
         }
     }
 
+    public void Warp(Vector3 point)
+    {
+        agent.Warp(point);
+    }
+
     /// <summary>
     /// Check if avatar's target is within interaction range.
     /// </summary>
