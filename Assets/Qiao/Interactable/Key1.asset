@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 251fd1c925c456f4f97447f396eca472, type: 3}
-  m_Name: Key
+  m_Name: Key1
   m_EditorClassIdentifier: 
   itemID: -1
-  itemDisplayName: Key
-  itemIcon: {fileID: 21300000, guid: 1eef36d1305e37b46a9377c8d12cdac6, type: 3}
-  item3DModelPrefeb: {fileID: 70226585929108080, guid: 059e2f58ed893844995583daec0120a5, type: 3}
+  itemDisplayName: Key1
+  itemIcon: {fileID: 21300000, guid: fb37aadefd49b6f4e959f63e2afb5920, type: 3}
+  item3DModelPrefeb: {fileID: 6331191771001077911, guid: afd1a9f582c842f4885aa55c8b261bf6, type: 3}
   maxStackNumber: 99

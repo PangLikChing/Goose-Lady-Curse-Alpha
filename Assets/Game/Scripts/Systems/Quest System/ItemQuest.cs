@@ -14,29 +14,34 @@ public class ItemQuest : Quest
 
     public void PickupObjective(Item item, int stack)
     {
-        Debug.Log(objective.name);
-        if (objective.name == item.name)
+        if (objective != null)
         {
-            currentCount += stack;
-        }
+            if (objective.name == item.name)
+            {
+                currentCount += stack;
+            }
 
-        if (currentCount >= targetCount && !objectiveComplete)
-        {
-            OnQuestComplete();
+            if (currentCount >= targetCount && !objectiveComplete)
+            {
+                OnQuestComplete();
+            }
         }
+        
     }
 
     public void DropoffObjective(Item item, int stack)
     {
-
-        if (objective.name == item.name)
+        if (objective != null)
         {
-            currentCount -= stack;
-        }
-        if (currentCount < targetCount && objectiveComplete)
-        {
-            // display a dialog box telling player to pick up the objective
-            OnQuestIncomplete();
+            if (objective.name == item.name)
+            {
+                currentCount -= stack;
+            }
+            if (currentCount < targetCount && objectiveComplete)
+            {
+                // display a dialog box telling player to pick up the objective
+                OnQuestIncomplete();
+            }
         }
     }
 }

@@ -6,14 +6,13 @@ public class ChangeRateModifier : Modifier
 {
     public SurvivalStat targetStat;
 
-    private int index;
     public override void Apply()
     {
-        index = targetStat.AddChangeRateModifier(this);
+        targetStat.AddChangeRateModifier(this);
     }
 
     public override void Remove()
     {
-        targetStat.RemoveChangeRateModifier(index);
+        targetStat.RemoveChangeRateModifier(this);
     }
 }

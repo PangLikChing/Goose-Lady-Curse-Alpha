@@ -35,10 +35,11 @@ public class SurvivalStat : Stat
         return changeRateModifiers.Count - 1;
     }
 
-    public void RemoveChangeRateModifier(int modifierIndex)
+    public void RemoveChangeRateModifier(Modifier modifier)
     {
-        changeRateModifiers.RemoveAt(modifierIndex);
-        changeRateModifierRemainingTimes.RemoveAt(modifierIndex);
+        int index = changeRateModifiers.IndexOf(modifier);
+        changeRateModifiers.RemoveAt(index);
+        changeRateModifierRemainingTimes.RemoveAt(index);
         CalculateChangeRate();
     }
 
@@ -59,7 +60,7 @@ public class SurvivalStat : Stat
                 changeRateModifierRemainingTimes[i] -= Time.deltaTime;
                 if (changeRateModifierRemainingTimes[i] <= 0)
                 {
-                    RemoveChangeRateModifier(i);
+                    RemoveChangeRateModifier(changeRateModifiers[i]);
                 }
             }
         }
