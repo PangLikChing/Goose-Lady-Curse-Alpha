@@ -527,7 +527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7991c03fe3c46ab458786d2491bbd729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 65464
+  description: Explore the island
   objectiveComplete: 0
   nextQuest: {fileID: 0}
   UpdateQuestHint:
@@ -545,10 +545,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  emojiHint:
-  - {fileID: 4358689951098246008, guid: 4a5d18c16372bfb4cafc1f790ea980b8, type: 3}
-  - {fileID: 8160972069625782107, guid: 4c75e6b8bbc8f114db1fd274953bb4c1, type: 3}
-  - {fileID: 3768455697274741083, guid: 3c04bf7eb53f70d4390dba3526f3cd92, type: 3}
+  emojiHint: []
   ShowEmojiEvent:
     m_PersistentCalls:
       m_Calls:

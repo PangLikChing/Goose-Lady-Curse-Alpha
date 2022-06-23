@@ -26,20 +26,23 @@ public class EmojiBubble : MonoBehaviour
 
     public void ShowEmojis(List<GameObject> emojis)
     {
-        Debug.Log("asas");
-        bubble.SetActive(true);
-        bubble.transform.DetachChildren();
-        float emojiWidth = emojis[0].GetComponent<RectTransform>().sizeDelta.x;
-        float emojiHeight = emojis[0].GetComponent<RectTransform>().sizeDelta.y;
-        rectTransform.sizeDelta = new Vector2(2 * panelMarginWidth + emojis.Count * emojiWidth, 2 * panelMarginHeight + emojiHeight);
-        foreach (GameObject emoji in emojis)
+        if (emojis.Count > 0)
         {
-            GameObject icon = Instantiate(emoji);
-            icon.transform.SetParent(bubble.transform);
-            icon.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(emojis.IndexOf(emoji) * emojiWidth + panelMarginWidth+emojiWidth/2, 0,0);
-            icon.GetComponent<RectTransform>().localRotation = Quaternion.identity;
-            icon.GetComponent<RectTransform>().localScale = Vector3.one;
+            bubble.SetActive(true);
+            bubble.transform.DetachChildren();
+            float emojiWidth = emojis[0].GetComponent<RectTransform>().sizeDelta.x;
+            float emojiHeight = emojis[0].GetComponent<RectTransform>().sizeDelta.y;
+            rectTransform.sizeDelta = new Vector2(2 * panelMarginWidth + emojis.Count * emojiWidth, 2 * panelMarginHeight + emojiHeight);
+            foreach (GameObject emoji in emojis)
+            {
+                GameObject icon = Instantiate(emoji);
+                icon.transform.SetParent(bubble.transform);
+                icon.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(emojis.IndexOf(emoji) * emojiWidth + panelMarginWidth + emojiWidth / 2, 0, 0);
+                icon.GetComponent<RectTransform>().localRotation = Quaternion.identity;
+                icon.GetComponent<RectTransform>().localScale = Vector3.one;
+            }
         }
+        
     }
 
     public void HideEmoji()
