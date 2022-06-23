@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ed4a558f30bfac4cb8ae38300ac2c14, type: 3}
   m_Name: Health Potion
   m_EditorClassIdentifier: 
-  recipeID: 2
+  recipeID: 1
   recipeName: Health Potion
   item: {fileID: 11400000, guid: 91f1771fcc175554691134df644abb7e, type: 2}
   reagents:
-  - item: {fileID: 11400000, guid: 2ded4a62c24ba414088e88f93553eedb, type: 2}
-    requiredAmount: 1
-  - item: {fileID: 11400000, guid: 7d3bcc37e7236b347ae2ca02ac20074e, type: 2}
-    requiredAmount: 2
-  description: This is a health potion.
+  - item: {fileID: 11400000, guid: bf29373522d53d346995104e0514e3e7, type: 2}
+    requiredAmount: 3
+  description: This is an Item that significantly restores health.
