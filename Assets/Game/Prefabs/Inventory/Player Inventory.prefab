@@ -54,7 +54,7 @@ MonoBehaviour:
   bags:
   - {fileID: 11400000, guid: 899d1b01a36f97f49be48db58de9f8d4, type: 2}
   - {fileID: 0}
-  - {fileID: 11400000, guid: 400c3ba663c81f24d9758cf64141474c, type: 2}
+  - {fileID: 0}
   RefreshInventorySlots:
     m_PersistentCalls:
       m_Calls:
