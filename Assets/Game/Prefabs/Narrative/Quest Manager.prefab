@@ -67,8 +67,7 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 5576937104920183452}
-  selectedCommands:
-  - {fileID: 5146772468166486908}
+  selectedCommands: []
   variables: []
   description: 'Tutorial
 
@@ -424,8 +423,8 @@ GameObject:
   - component: {fileID: 4609026255832922754}
   - component: {fileID: 3385375640071788708}
   - component: {fileID: 8406403306851092417}
-  - component: {fileID: 2634578853407056267}
-  - component: {fileID: 4536647913327894120}
+  - component: {fileID: 603640136393962113}
+  - component: {fileID: 2511179494732649320}
   m_Layer: 0
   m_Name: Quest1
   m_TagString: Untagged
@@ -474,7 +473,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 63900420162183858}
   selectedCommands:
-  - {fileID: 4536647913327894120}
+  - {fileID: 2511179494732649320}
   variables: []
   description: 
   stepPause: 0
@@ -498,7 +497,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7991c03fe3c46ab458786d2491bbd729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: Find the second key
+  description: Explore the rest of the island
   objectiveComplete: 0
   nextQuest: {fileID: 3682269817804152895}
   UpdateQuestHint:
@@ -569,7 +568,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 247
+    x: 246
     y: 113
     width: 60
     height: 40
@@ -583,8 +582,8 @@ MonoBehaviour:
   - {fileID: 225971880476952193}
   - {fileID: 7780303692449944775}
   - {fileID: 8307160922990601448}
-  - {fileID: 2634578853407056267}
-  - {fileID: 4536647913327894120}
+  - {fileID: 2511179494732649320}
+  - {fileID: 603640136393962113}
   suppressAllAutoSelections: 0
 --- !u!114 &2474020981048050502
 MonoBehaviour:
@@ -801,34 +800,7 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
---- !u!114 &2634578853407056267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4133967064926911169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 7
-  indentLevel: 0
-  storyText: You will need to find the key in the next area to unlock the next gate.
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
---- !u!114 &4536647913327894120
+--- !u!114 &603640136393962113
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -840,7 +812,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95d9ff288f3904c05ada7ac9c9a075bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 8
+  itemId: 7
   indentLevel: 0
   description: 
   delay: 0
@@ -884,6 +856,33 @@ MonoBehaviour:
   stringEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2511179494732649320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4133967064926911169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 8
+  indentLevel: 0
+  storyText: Theres a key in the forest use it to unlock the next gate
+  description: 
+  character: {fileID: 8406403307675228253}
+  portrait: {fileID: 21300000, guid: ccbb6ce1f10d10441bcf218f6f10c62d, type: 3}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!1 &8406403306594580197
 GameObject:
   m_ObjectHideFlags: 0
