@@ -14,7 +14,9 @@ public class AvatarCombat : MonoBehaviour
 
     [SerializeField, ReadOnly]
     private float intervalCounter;
+    [SerializeField, ReadOnly]
     private Animator avatarAnimator;
+    [SerializeField, ReadOnly]
     private bool attacking = false;
     private void Start()
     {

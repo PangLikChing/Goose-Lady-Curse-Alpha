@@ -3,18 +3,21 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Attackable
+  - Item
+  - Terrain
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Terrain
+  - Interactable
   - Water
   - UI
-  - Attackable
-  - Item
   - Obstacle
   - Structure
+  - 
+  - 
   - 
   - 
   - 

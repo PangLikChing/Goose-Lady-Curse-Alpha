@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2625721359694018029}
   - component: {fileID: 8715060916377512265}
   - component: {fileID: 3205036498394751353}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: HealingPotion
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

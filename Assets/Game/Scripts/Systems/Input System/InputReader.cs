@@ -28,9 +28,7 @@ public class InputReader : ScriptableObject, InputMap.ICharacterControlsActions,
     private InputMap gameInput;
     private Ray ray;
     private RaycastHit hit;
-    private LayerMask TerrainLayerMask;
-    private LayerMask AttackableLayerMask;
-    private LayerMask ItemLayerMask;
+    private LayerMask ClickInteractionLayerMask;
     private void OnEnable()
     {
         if (gameInput == null)
@@ -41,9 +39,7 @@ public class InputReader : ScriptableObject, InputMap.ICharacterControlsActions,
             gameInput.SystemMenus.SetCallbacks(this);
             gameInput.Dialogues.SetCallbacks(this);
         }
-        TerrainLayerMask = LayerMask.GetMask("Terrain");
-        AttackableLayerMask = LayerMask.GetMask("Attackable");
-        ItemLayerMask = LayerMask.GetMask("Item");
+        ClickInteractionLayerMask = LayerMask.GetMask("Interactable");
     }
 
     private void OnDisable()
@@ -58,23 +54,10 @@ public class InputReader : ScriptableObject, InputMap.ICharacterControlsActions,
             return;
 
         ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-        if (context.phase == InputActionPhase.Performed && Physics.Raycast(ray, out hit, 500f, TerrainLayerMask))
+        if (context.phase == InputActionPhase.Performed && Physics.Raycast(ray, out hit, 500f, ClickInteractionLayerMask))
         {
-            MovementEvent.Invoke(hit.point);
-        }
-    }
-
-    public void OnAttack(InputAction.CallbackContext context)
-    {
-        //dont click through UI
-        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-            return;
-
-        ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-        if (context.phase == InputActionPhase.Performed && Physics.Raycast(ray, out hit, 500f, AttackableLayerMask))
-        {
-            AttackEvent.Invoke(hit.collider.transform);
-
+            if (hit.collider.CompareTag("Terrain"))
+                MovementEvent.Invoke(hit.point);
         }
     }
 
@@ -85,10 +68,24 @@ public class InputReader : ScriptableObject, InputMap.ICharacterControlsActions,
             return;
 
         ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-        if (context.phase == InputActionPhase.Performed && Physics.Raycast(ray, out hit, 500f, ItemLayerMask))
+        if (context.phase == InputActionPhase.Performed && Physics.Raycast(ray, out hit, 500f, ClickInteractionLayerMask))
         {
-            PickupEvent.Invoke(hit.collider.transform);
+            if (hit.collider.CompareTag("Item"))
+                PickupEvent.Invoke(hit.collider.transform);
+        }
+    }
 
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        //dont click through UI
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            return;
+
+        ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        if (context.phase == InputActionPhase.Performed && Physics.Raycast(ray, out hit, 500f, ClickInteractionLayerMask))
+        {
+            if (hit.collider.CompareTag("Attackable"))
+                AttackEvent.Invoke(hit.collider.transform);
         }
     }
 

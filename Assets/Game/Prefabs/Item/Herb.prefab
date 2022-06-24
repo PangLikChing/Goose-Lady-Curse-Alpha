@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 3209849361517829347}
   - component: {fileID: 3209849361517829344}
   - component: {fileID: 6361955049265066931}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: Herb
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

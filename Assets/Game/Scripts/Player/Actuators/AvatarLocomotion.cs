@@ -44,8 +44,9 @@ public class AvatarLocomotion : MonoBehaviour
 
     public void Halt()
     {
-        agent.velocity = Vector3.zero;
         agent.isStopped = true;
+        agent.velocity = Vector3.zero;
+        agent.ResetPath();
     }
 
     /// <summary>
