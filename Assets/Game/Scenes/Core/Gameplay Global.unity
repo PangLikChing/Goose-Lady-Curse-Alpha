@@ -1315,26 +1315,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Data
       objectReference: {fileID: 0}
-    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
-      propertyPath: statList.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
-      propertyPath: statList.Array.data[6]
-      value: 
-      objectReference: {fileID: 11400000, guid: 7ee1e2cae82da464d94d3087fd30d593, type: 2}
-    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
-      propertyPath: statList.Array.data[7]
-      value: 
-      objectReference: {fileID: 11400000, guid: 264e64f6a43415048b502a78d357442b, type: 2}
-    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
-      propertyPath: statList.Array.data[8]
-      value: 
-      objectReference: {fileID: 11400000, guid: 7fa6aed232293ae489ebcdc996f22ec9, type: 2}
-    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
-      propertyPath: statList.Array.data[9]
-      value: 
-      objectReference: {fileID: 11400000, guid: 3cba3d12b0814474c90a2a5923ccfe2b, type: 2}
     - target: {fileID: 5424102413032636375, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1379,47 +1359,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5424102413916240341, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5424102413916240341, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[4].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5424102413916240341, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[4].m_Target
-      value: 
-      objectReference: {fileID: 5424102413916240330}
-    - target: {fileID: 5424102413916240341, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5424102413916240341, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: Initialize
-      objectReference: {fileID: 0}
-    - target: {fileID: 5424102413916240341, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
-      value: TemperatureController, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5424102413916240341, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
-      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
---- !u!114 &5424102413916240330 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5424102413916240331, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
-  m_PrefabInstance: {fileID: 5424102413916240329}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc1fd5851195c7a45a8a309b64eca971, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6809860463035873618
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -8201,10 +8201,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 361083448597756373, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3557729547639708624, guid: 766953c97f1552c45ab3ce9cb0c27ecf, type: 3}
       propertyPath: m_Name
       value: 'Avatar Normal Motion '

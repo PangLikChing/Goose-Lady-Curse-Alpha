@@ -1204,6 +1204,7 @@ MonoBehaviour:
   attackInterval: {fileID: 11400000, guid: 7ee1e2cae82da464d94d3087fd30d593, type: 2}
   defence: {fileID: 11400000, guid: 7fa6aed232293ae489ebcdc996f22ec9, type: 2}
   health: {fileID: 11400000, guid: 8bdeda9a5c8d1ff4a92c19cd3da7b1fa, type: 2}
+  intervalCounter: 0
 --- !u!1 &3646773725851302027
 GameObject:
   m_ObjectHideFlags: 0
