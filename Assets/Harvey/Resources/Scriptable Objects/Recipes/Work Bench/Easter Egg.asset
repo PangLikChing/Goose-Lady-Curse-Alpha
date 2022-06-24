@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeID: 999
   recipeName: Easter Egg
-  item: {fileID: 11400000, guid: 1eb6957627371574f89f17978fe32590, type: 2}
+  item: {fileID: 11400000, guid: f4bf5336e4d5e7146a84a52fcc8b3ec9, type: 2}
   reagents: []
   description: You've Found the Easter Egg.

@@ -30,6 +30,33 @@ public class NotebookDroppingField : MonoBehaviour, IDropHandler
                 // Enable the drag-ability of that dropped block clone
                 clone.GetComponent<NotebookDraggableWordBlock>().canvasGroup.blocksRaycasts = true;
             }
+            // If the dropped transform is a notebook cloned word block
+            else if (eventData.pointerDrag.GetComponent<NotebookDraggableWordBlock>() != null)
+            {
+                // Cache the clone word block
+                NotebookDraggableWordBlock clone = eventData.pointerDrag.GetComponent<NotebookDraggableWordBlock>();
+
+                // If I have a word block on me already
+                if (transform.childCount > 0)
+                {
+                    // Swap the 2 blocks' parent
+                    transform.GetChild(0).parent = clone.originalParent;
+                    clone.transform.parent = transform;
+
+                    // Snap them both into centre of their parents
+                    clone.originalParent.GetChild(0).localPosition = new Vector2(0, 0);
+                    clone.transform.localPosition = new Vector2(0, 0);
+                }
+                // If I do not have a word block on me
+                else
+                {
+                    // Set the clone's parent to this dropping field
+                    clone.transform.parent = transform;
+
+                    // Snap the clone into the centre of this dropping field
+                    clone.transform.localPosition = new Vector2(0, 0);
+                }
+            }
         }
     }
 }

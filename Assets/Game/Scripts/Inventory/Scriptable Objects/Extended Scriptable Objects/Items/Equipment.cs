@@ -13,6 +13,8 @@ public class Equipment : Item
 {
     public EquipmentSlot equipmentSlot;
 
+    public Modifier[] modifiers;
+
     // When this scriptable object is created
     void Awake()
     {
@@ -74,7 +76,7 @@ public class Equipment : Item
         // If there is a piece of equipment in the equipment slot
         if (equipmentSlot.isOccupied == true)
         {
-            // Unequip the current equipment in the equipment slot
+            // Put the current equipment in the inventory slot
             itemSlot.slottedItem = equipmentSlot.equipment;
             itemSlot.stackNumber = 1;
         }

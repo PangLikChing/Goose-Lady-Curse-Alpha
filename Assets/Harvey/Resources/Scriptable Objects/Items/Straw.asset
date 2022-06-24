@@ -15,5 +15,5 @@ MonoBehaviour:
   itemID: 4
   itemDisplayName: Straw
   itemIcon: {fileID: 21300000, guid: 93ca872733f279e4e91d932bb70d138a, type: 3}
-  item3DModelPrefeb: {fileID: 6269551660663507217, guid: 0ad9ada479f53264f9c5e5c67a8ea0bf, type: 3}
+  item3DModelPrefeb: {fileID: 7715855586901890738, guid: d47d1d3ace15ec64696278f483c15164, type: 3}
   maxStackNumber: 99

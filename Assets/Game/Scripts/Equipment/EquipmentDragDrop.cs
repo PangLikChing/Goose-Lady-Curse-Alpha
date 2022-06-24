@@ -5,12 +5,12 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(CanvasGroup), typeof(Image))]
+[RequireComponent(typeof(CanvasGroup), typeof(Image), typeof(EquipmentSlotController))]
 public class EquipmentDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
-    int UILayer;
     RectTransform rectTransform;
     CanvasGroup canvasGroup;
+    EquipmentSlotController equipmentSlotController;
 
     public UnityEvent<Item, int> unequipByRightClick;
 
@@ -25,26 +25,52 @@ public class EquipmentDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragH
         // Initialize
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
-        UILayer = LayerMask.NameToLayer("UI");
+        equipmentSlotController = GetComponent<EquipmentSlotController>();
         originalParentTransform = transform.parent;
+
+        // If the equipment slot that I am responsible for is occupied
+        if (equipmentSlotController.targetSlot.isOccupied == true)
+        {
+            // Enable the drag-ability
+            EnableDragDrop(equipmentSlotController.targetSlot);
+        }
+        else
+        {
+            // Disable the drag-ability
+            DisableDragDrop(equipmentSlotController.targetSlot);
+        }
     }
 
-    public void EnableDragDrop()
+    public void EnableDragDrop(EquipmentSlot equipmentSlot)
     {
-        // Enable the drag-ability
-        canvasGroup.blocksRaycasts = true;
+        // If the equipment slot sent by the event is the same as the equipment slot I am responsible for
+        if (equipmentSlot == equipmentSlotController.targetSlot)
+        {
+            // Throw a debug message
+            Debug.Log($"Enabling drag-drop on {transform.name}");
 
-        // Show the equipment item
-        canvasGroup.alpha = 1;
+            // Enable the drag-ability
+            canvasGroup.blocksRaycasts = true;
+
+            // Show the equipment item
+            canvasGroup.alpha = 1;
+        }
     }
 
-    public void DisableDragDrop()
+    public void DisableDragDrop(EquipmentSlot equipmentSlot)
     {
-        // Disable the drag-ability
-        canvasGroup.blocksRaycasts = false;
+        // If the equipment slot sent by the event is the same as the equipment slot I am responsible for
+        if (equipmentSlot == equipmentSlotController.targetSlot)
+        {
+            // Throw a debug message
+            Debug.Log($"Disabling drag-drop on {transform.name}");
 
-        // Hide the equipment item
-        canvasGroup.alpha = 0;
+            // Disable the drag-ability
+            canvasGroup.blocksRaycasts = false;
+
+            // Hide the equipment item
+            canvasGroup.alpha = 0;
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -52,6 +78,9 @@ public class EquipmentDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragH
         // If I am dragging with my left mouse button down
         if (eventData.button == PointerEventData.InputButton.Left)
         {
+            // Throw a debug message
+            Debug.Log($"Started dragging on {transform.name}");
+
             // Make it so that it is not interactable with raycast when dragging
             canvasGroup.blocksRaycasts = false;
 
@@ -75,6 +104,9 @@ public class EquipmentDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragH
         // If I am dropping with a left mouse button
         if (eventData.button == PointerEventData.InputButton.Left)
         {
+            // Throw a debug message
+            Debug.Log($"End dragging on {transform.name}");
+
             // Reset blockRaycasts to allow player to drag the bag icon again
             canvasGroup.blocksRaycasts = true;
 
@@ -95,7 +127,7 @@ public class EquipmentDragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragH
             if (GetComponent<EquipmentSlotController>().targetSlot.isOccupied == true)
             {
                 // Throw a debug message
-                Debug.Log("Should do something");
+                Debug.Log($"Clicked on {transform.name}");
 
                 // Unequip the equipment
                 unequipByRightClick.Invoke(GetComponent<EquipmentSlotController>().targetSlot.equipment, 1);

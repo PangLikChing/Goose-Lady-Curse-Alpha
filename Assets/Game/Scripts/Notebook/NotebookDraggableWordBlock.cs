@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Project.Build.Commands;
 
 /// <summary>
 /// Behaviour script for draggable clone block for the notebook menu
@@ -14,8 +15,8 @@ public class NotebookDraggableWordBlock : MonoBehaviour, IPointerDownHandler, IB
 {
     public Image myImage;
     public TMP_Text myTextField;
-    Transform originalParent;
 
+    [HideInInspector][ReadOnly] public Transform originalParent;
     [HideInInspector] public GameObject myOriginalGameObject;
     [HideInInspector] public NotebookReturnDroppingField returnDroppingField;
     [HideInInspector] public Canvas canvas;

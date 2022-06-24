@@ -18,4 +18,10 @@ MonoBehaviour:
   reagents:
   - item: {fileID: 11400000, guid: 4dab1a999c6701f4fa193732228759af, type: 2}
     requiredAmount: 1
-  description: This is a Cloth Hood for the head slot.
+  description: 'Head Amour
+
+    Defense + 1
+
+    Health + 10
+
+    Warmth + 1'
