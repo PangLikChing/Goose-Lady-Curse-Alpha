@@ -16,8 +16,8 @@ MonoBehaviour:
   finalValue: 100
   minValue: 0
   initialValue: 100
-  baseChangeRate: 0
-  actualChangeRate: 0
-  currentValue: 100
+  baseChangeRate: -2
+  actualChangeRate: -20
+  currentValue: 0
   changeRateModifiers: []
   changeRateModifierRemainingTimes: []
