@@ -675,6 +675,7 @@ GameObject:
   - component: {fileID: 3039129446442546315}
   - component: {fileID: 3039129446442546314}
   - component: {fileID: 3039129446442546317}
+  - component: {fileID: 3039129447751897074}
   m_Layer: 5
   m_Name: Recipe Scroll View
   m_TagString: Untagged
@@ -785,7 +786,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipeButton: {fileID: 972960000374252899, guid: f0db0d41dd8f088498d9312c90c9cdd1, type: 3}
   recipeDisplayContent: {fileID: 3039129447552216093}
-  recipesFolderPath: 
+--- !u!114 &3039129447751897074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039129446442546319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c935cb4a9c0274bac1bdb68dbc67a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 169f9d36421f3aa4b81cbd2d6a0bbc08, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3039129446442546317}
+        m_TargetAssemblyTypeName: RecipeScrollView, Assembly-CSharp
+        m_MethodName: DisplayRecipes
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3039129446483758151
 GameObject:
   m_ObjectHideFlags: 0
@@ -999,7 +1027,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3039129446497306023}
         m_TargetAssemblyTypeName: CraftingLocation, Assembly-CSharp
-        m_MethodName: OnClick
+        m_MethodName: DisplayRecipes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1021,8 +1049,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2bcbfd446e13349a3d791fa06da320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayRecipes:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 169f9d36421f3aa4b81cbd2d6a0bbc08, type: 2}
+        m_TargetAssemblyTypeName: StringEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   path: Scriptable Objects/Recipes/Player
-  recipeScrollView: {fileID: 3039129446442546317}
 --- !u!1 &3039129446561870937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,7 +1871,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3039129446837829576}
         m_TargetAssemblyTypeName: CraftingLocation, Assembly-CSharp
-        m_MethodName: OnClick
+        m_MethodName: DisplayRecipes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1851,8 +1893,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2bcbfd446e13349a3d791fa06da320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayRecipes:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 169f9d36421f3aa4b81cbd2d6a0bbc08, type: 2}
+        m_TargetAssemblyTypeName: StringEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   path: Scriptable Objects/Recipes/Forge
-  recipeScrollView: {fileID: 3039129446442546317}
 --- !u!1 &3039129446853336329
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,7 +2187,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3039129446857970469}
         m_TargetAssemblyTypeName: CraftingLocation, Assembly-CSharp
-        m_MethodName: OnClick
+        m_MethodName: DisplayRecipes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2153,8 +2209,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2bcbfd446e13349a3d791fa06da320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayRecipes:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 169f9d36421f3aa4b81cbd2d6a0bbc08, type: 2}
+        m_TargetAssemblyTypeName: StringEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   path: Scriptable Objects/Recipes/Metal Work Bench
-  recipeScrollView: {fileID: 3039129446442546317}
 --- !u!1 &3039129446879859679
 GameObject:
   m_ObjectHideFlags: 0
@@ -3037,7 +3107,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3039129447405664323}
         m_TargetAssemblyTypeName: CraftingLocation, Assembly-CSharp
-        m_MethodName: OnClick
+        m_MethodName: DisplayRecipes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3059,8 +3129,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2bcbfd446e13349a3d791fa06da320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayRecipes:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 169f9d36421f3aa4b81cbd2d6a0bbc08, type: 2}
+        m_TargetAssemblyTypeName: StringEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   path: Scriptable Objects/Recipes/Oven
-  recipeScrollView: {fileID: 3039129446442546317}
 --- !u!1 &3039129447552216092
 GameObject:
   m_ObjectHideFlags: 0
@@ -3246,7 +3330,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3039129447575745252}
         m_TargetAssemblyTypeName: CraftingLocation, Assembly-CSharp
-        m_MethodName: OnClick
+        m_MethodName: DisplayRecipes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3268,8 +3352,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2bcbfd446e13349a3d791fa06da320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayRecipes:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 169f9d36421f3aa4b81cbd2d6a0bbc08, type: 2}
+        m_TargetAssemblyTypeName: StringEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   path: Scriptable Objects/Recipes/Work Bench
-  recipeScrollView: {fileID: 3039129446442546317}
 --- !u!1 &3039129447660156319
 GameObject:
   m_ObjectHideFlags: 0
@@ -3569,7 +3667,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3039129447688606233}
         m_TargetAssemblyTypeName: CraftingLocation, Assembly-CSharp
-        m_MethodName: OnClick
+        m_MethodName: DisplayRecipes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3591,8 +3689,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2bcbfd446e13349a3d791fa06da320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayRecipes:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 169f9d36421f3aa4b81cbd2d6a0bbc08, type: 2}
+        m_TargetAssemblyTypeName: StringEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   path: Scriptable Objects/Recipes/Campfire
-  recipeScrollView: {fileID: 3039129446442546317}
 --- !u!1 &3039129447689072798
 GameObject:
   m_ObjectHideFlags: 0
@@ -3928,7 +4040,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3039129447715091563}
         m_TargetAssemblyTypeName: CraftingLocation, Assembly-CSharp
-        m_MethodName: OnClick
+        m_MethodName: DisplayRecipes
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3950,8 +4062,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2bcbfd446e13349a3d791fa06da320, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayRecipes:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 169f9d36421f3aa4b81cbd2d6a0bbc08, type: 2}
+        m_TargetAssemblyTypeName: StringEventChannel, Assembly-CSharp
+        m_MethodName: Raise
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   path: Scriptable Objects/Recipes/Alchemy Set
-  recipeScrollView: {fileID: 3039129446442546317}
 --- !u!1 &3039129447771596090
 GameObject:
   m_ObjectHideFlags: 0
