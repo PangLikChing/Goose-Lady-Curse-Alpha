@@ -158,7 +158,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                 // If the slot is empty
                 if (slottedItem == null)
                 {
-                    // Try to cache the equipment slot
+                    //// Try to cache the equipment slot
                     try
                     {
                         // Cache the equipment slot
@@ -173,7 +173,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                         // Unequip the equipment in the equipment menu
                         droppedEquipment.UnEquip();
                     }
-                    catch
+                        catch
                     {
                         // Throw a debug message
                         Debug.Log("There is no equipment slot");

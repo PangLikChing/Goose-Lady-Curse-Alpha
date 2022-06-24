@@ -18,3 +18,8 @@ MonoBehaviour:
   item3DModelPrefeb: {fileID: 6269551660663507217, guid: 0ad9ada479f53264f9c5e5c67a8ea0bf, type: 3}
   maxStackNumber: 1
   equipmentSlot: {fileID: 11400000, guid: 78634d36d4ef30246abc486644a1319d, type: 2}
+  modifiers:
+  - {fileID: 11400000, guid: e29c49643dd897048b30996226a83d79, type: 2}
+  - {fileID: 11400000, guid: 76319bffb9915c248ab1d737b1e15f5b, type: 2}
+  - {fileID: 11400000, guid: a404f8474143e66489bfd439cdd3828f, type: 2}
+  - {fileID: 11400000, guid: f23882f925c6dc742b391261106ca89c, type: 2}

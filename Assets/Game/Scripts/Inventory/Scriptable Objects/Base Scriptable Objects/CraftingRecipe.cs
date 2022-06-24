@@ -20,5 +20,5 @@ public class CraftingRecipe : ScriptableObject
 
     public Reagents[] reagents;
 
-    [TextArea(15, 20)] public string description = "";
+    [TextArea(5, 20)] public string description = "";
 }

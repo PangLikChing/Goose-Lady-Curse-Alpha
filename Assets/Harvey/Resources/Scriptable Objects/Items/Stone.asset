@@ -15,5 +15,5 @@ MonoBehaviour:
   itemID: 7
   itemDisplayName: Stone
   itemIcon: {fileID: 21300000, guid: 1ba4a79a868e4ef43a8e3bf9f781c4c7, type: 3}
-  item3DModelPrefeb: {fileID: 6269551660663507217, guid: 0ad9ada479f53264f9c5e5c67a8ea0bf, type: 3}
+  item3DModelPrefeb: {fileID: 5246139557648152310, guid: 22a9d95f03dd2cc49b1c20539f412445, type: 3}
   maxStackNumber: 99

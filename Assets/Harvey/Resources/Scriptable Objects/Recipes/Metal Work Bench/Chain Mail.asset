@@ -18,4 +18,13 @@ MonoBehaviour:
   reagents:
   - item: {fileID: 11400000, guid: a9de61a01db56af4d85347c18e7aa666, type: 2}
     requiredAmount: 8
-  description: This is a Plate Chest for the chest slot.
+  description: 'Chest Amour
+
+    Attack + 5
+
+    Defense + 5
+
+    Health + 60
+
+    Warmth
+    + 3'

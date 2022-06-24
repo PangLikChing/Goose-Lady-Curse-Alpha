@@ -18,4 +18,10 @@ MonoBehaviour:
   reagents:
   - item: {fileID: 11400000, guid: 4dab1a999c6701f4fa193732228759af, type: 2}
     requiredAmount: 2
-  description: This is a pair of Cloth Gloves for the hand slot.
+  description: 'Hand Amour
+
+    Attack + 1
+
+    Health + 5
+
+    Warmth + 1'

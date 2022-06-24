@@ -20,4 +20,10 @@ MonoBehaviour:
     requiredAmount: 3
   - item: {fileID: 11400000, guid: 95701e24b3887144992a311eaeb89db9, type: 2}
     requiredAmount: 1
-  description: This is a Leather Helm for the head slot.
+  description: 'Head Amour
+
+    Defense + 2
+
+    Health + 15
+
+    Warmth + 2'
