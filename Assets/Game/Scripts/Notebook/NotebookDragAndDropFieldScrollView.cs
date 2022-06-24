@@ -27,5 +27,23 @@ public class NotebookDragAndDropFieldScrollView : MonoBehaviour
                 Instantiate(dragAndDropFieldTransformPrefeb, content);
             }
         }
+
+        // Try to cache the vertical layout group of the content
+        try
+        {
+            VerticalLayoutGroup contentVerticalLayoutGroup = content.GetComponent<VerticalLayoutGroup>();
+
+            // Calculate the height of the content depends on the amount of child it has
+            content.sizeDelta = new Vector2(0,
+                (dragAndDropFieldTransformPrefeb.GetComponent<RectTransform>().rect.height
+                + contentVerticalLayoutGroup.spacing) * content.transform.childCount
+                + contentVerticalLayoutGroup.padding.top
+                + contentVerticalLayoutGroup.padding.bottom);
+        }
+        catch
+        {
+            // Throw a debug message
+            Debug.Log("There is no vertical layout group in the content");
+        }
     }
 }

@@ -498,7 +498,7 @@ MonoBehaviour:
     m_Left: 0
     m_Right: 0
     m_Top: 5
-    m_Bottom: 0
+    m_Bottom: 5
   m_ChildAlignment: 1
   m_Spacing: 5
   m_ChildForceExpandWidth: 1
@@ -633,7 +633,19 @@ MonoBehaviour:
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8137517393561268369}
+        m_TargetAssemblyTypeName: NotebookSymbolsScrollView, Assembly-CSharp
+        m_MethodName: ChangeValue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8137517391770251254
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,7 +815,7 @@ MonoBehaviour:
   m_Content: {fileID: 8137517393003917483}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 2
+  m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 0
   m_DecelerationRate: 0.135
@@ -832,6 +844,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notebookManager: {fileID: 744863653779341806}
   emojiTransformPrefeb: {fileID: 7975019960545242945, guid: 594da655230ac9445b1455d373c5c77d, type: 3}
+  myScrollbar: {fileID: 8137517392522595388}
+  dropFieldScrollbar: {fileID: 8137517391699220572}
 --- !u!1 &8137517391925416884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,6 +1215,7 @@ GameObject:
   - component: {fileID: 8137517392522595378}
   - component: {fileID: 8137517392522595389}
   - component: {fileID: 8137517392522595388}
+  - component: {fileID: 8137517393561268364}
   m_Layer: 5
   m_Name: Scrollbar Vertical
   m_TagString: Untagged
@@ -1315,6 +1330,18 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!225 &8137517393561268364
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8137517392522595390}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &8137517392561697784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1484,7 +1511,7 @@ MonoBehaviour:
   m_Content: {fileID: 8137517391665707129}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 2
+  m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 0
   m_DecelerationRate: 0.135
@@ -1655,7 +1682,7 @@ MonoBehaviour:
     m_Left: 0
     m_Right: 0
     m_Top: 5
-    m_Bottom: 0
+    m_Bottom: 5
   m_ChildAlignment: 1
   m_Spacing: 5
   m_ChildForceExpandWidth: 1
@@ -1958,7 +1985,7 @@ MonoBehaviour:
   m_Content: {fileID: 8137517393544358303}
   m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 2
+  m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 0
   m_DecelerationRate: 0.135
@@ -2075,7 +2102,7 @@ MonoBehaviour:
     m_Left: 0
     m_Right: 0
     m_Top: 5
-    m_Bottom: 0
+    m_Bottom: 5
   m_ChildAlignment: 1
   m_Spacing: 5
   m_ChildForceExpandWidth: 1
