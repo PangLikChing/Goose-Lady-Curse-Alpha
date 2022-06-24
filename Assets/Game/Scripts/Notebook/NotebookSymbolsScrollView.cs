@@ -10,6 +10,8 @@ public class NotebookSymbolsScrollView : MonoBehaviour
 
     [SerializeField] Transform emojiTransformPrefeb;
 
+    [SerializeField] Scrollbar myScrollbar, dropFieldScrollbar;
+
     RectTransform content;
 
     void Awake()
@@ -30,5 +32,29 @@ public class NotebookSymbolsScrollView : MonoBehaviour
                 emojiImage.sprite = notebookManager.emojis[i];
             }
         }
+
+        // Try to cache the vertical layout group of the content
+        try
+        {
+            VerticalLayoutGroup contentVerticalLayoutGroup = content.GetComponent<VerticalLayoutGroup>();
+
+            // Calculate the height of the content depends on the amount of child it has
+            content.sizeDelta = new Vector2(0,
+                (emojiTransformPrefeb.GetComponent<RectTransform>().rect.height
+                + contentVerticalLayoutGroup.spacing) * content.transform.childCount
+                + contentVerticalLayoutGroup.padding.top
+                + contentVerticalLayoutGroup.padding.bottom);
+        }
+        catch
+        {
+            // Throw a debug message
+            Debug.Log("There is no vertical layout group in the content");
+        }
+    }
+
+    public void ChangeValue()
+    {
+        // Sync the value of the 2 scrollbars
+        myScrollbar.value = dropFieldScrollbar.value;
     }
 }
