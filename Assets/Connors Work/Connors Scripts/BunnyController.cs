@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class BunnyController : MonoBehaviour
 {
     //Variable declaration
-    public NavMeshAgent agent;
-    public Animator animator;
+    private NavMeshAgent agent;
+    private Animator animator;
     public Vector3 StartingPoint;
     public Vector3 pointToGoTo1;
     public Vector3 pointToGoTo2;
@@ -19,8 +19,8 @@ public class BunnyController : MonoBehaviour
     public int MaxRandNum;
     public int MinRandNum;
     public int NumTimmerWillStopAt;
-    public GameObject Player;
-    public GameObject Bunny;
+    private GameObject Player;
+    private GameObject Bunny;
     public float DistanceToStayAway;
 
 
@@ -29,6 +29,8 @@ public class BunnyController : MonoBehaviour
         //Get the starting point to go to, and get the components of the nav mesh and animator
         //Then get 4 random new points to go to. With the min and max set by the user in the 
         //view menu.
+        Bunny = this.gameObject;
+        Player = GameObject.FindGameObjectWithTag("Player");
         agent = this.GetComponent<NavMeshAgent>();
         animator = this.GetComponent<Animator>();
         agent.SetDestination(StartingPoint);
