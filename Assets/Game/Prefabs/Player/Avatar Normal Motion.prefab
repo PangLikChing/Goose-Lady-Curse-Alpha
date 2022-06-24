@@ -1011,6 +1011,8 @@ GameObject:
   - component: {fileID: 4962337652546002406}
   - component: {fileID: 361083448597756373}
   - component: {fileID: 278117313652567399}
+  - component: {fileID: 91291014655185985}
+  - component: {fileID: 5490717796137709045}
   m_Layer: 0
   m_Name: Avatar Normal Motion
   m_TagString: Player
@@ -1205,6 +1207,64 @@ MonoBehaviour:
   defence: {fileID: 11400000, guid: 7fa6aed232293ae489ebcdc996f22ec9, type: 2}
   health: {fileID: 11400000, guid: 8bdeda9a5c8d1ff4a92c19cd3da7b1fa, type: 2}
   intervalCounter: 0
+  avatarAnimator: {fileID: 0}
+  attacking: 0
+--- !u!114 &91291014655185985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3557729547639708624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38824944b90ae82479b3c7d6a76dc6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: 5e0f0094bd6329949acb432bfe2c6783, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8184302584847728780}
+        m_TargetAssemblyTypeName: AvatarActions, Assembly-CSharp
+        m_MethodName: set_inventoryIsFull
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &5490717796137709045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3557729547639708624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38824944b90ae82479b3c7d6a76dc6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  channel: {fileID: 11400000, guid: a6b77dd63f4922f468aedc79797b0a42, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8184302584847728780}
+        m_TargetAssemblyTypeName: AvatarActions, Assembly-CSharp
+        m_MethodName: set_inventoryIsFull
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3646773725851302027
 GameObject:
   m_ObjectHideFlags: 0

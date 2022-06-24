@@ -21,6 +21,9 @@ public class AvatarActions : MonoBehaviour
     public float attackRange = 1.5f;
     [Tooltip("A margin to off the inaccuracy of avatar movement")]
     public float rangeMargin = 0.1f;
+
+    public bool inventoryIsFull { get; set; }
+
     [Tooltip("Refence to avatar motion script")]
     public AvatarLocomotion motion;
     [Tooltip("Refence to avatar combat script")]
@@ -70,7 +73,7 @@ public class AvatarActions : MonoBehaviour
             Debug.LogError("item is null");
             return;
         }
-        if (item.TryGetComponent<ItemWrapper>(out ItemWrapper itemWrapper))
+        if (item.TryGetComponent<ItemWrapper>(out ItemWrapper itemWrapper)&&!inventoryIsFull)
         {
             ItemPickupEvent.Invoke(itemWrapper.item, itemWrapper.stackNumber);
             Destroy(item.gameObject, 0.1f);
