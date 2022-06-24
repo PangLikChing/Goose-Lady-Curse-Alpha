@@ -1010,6 +1010,7 @@ GameObject:
   - component: {fileID: 8184302584847728780}
   - component: {fileID: 4962337652546002406}
   - component: {fileID: 361083448597756373}
+  - component: {fileID: 278117313652567399}
   m_Layer: 0
   m_Name: Avatar Normal Motion
   m_TagString: Player
@@ -1124,6 +1125,7 @@ MonoBehaviour:
   attackRange: 0.5
   rangeMargin: 0.5
   motion: {fileID: 4440252352026558274}
+  combat: {fileID: 278117313652567399}
   spawnPoint: {fileID: 0}
   ItemPickupEvent:
     m_PersistentCalls:
@@ -1185,6 +1187,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &278117313652567399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3557729547639708624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41fe3c150f54ccb4399476f305d14738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackDamage: {fileID: 11400000, guid: 96795e426ecabda4989890b006020388, type: 2}
+  attackRange: {fileID: 11400000, guid: 264e64f6a43415048b502a78d357442b, type: 2}
+  attackInterval: {fileID: 11400000, guid: 7ee1e2cae82da464d94d3087fd30d593, type: 2}
+  defence: {fileID: 11400000, guid: 7fa6aed232293ae489ebcdc996f22ec9, type: 2}
+  health: {fileID: 11400000, guid: 8bdeda9a5c8d1ff4a92c19cd3da7b1fa, type: 2}
 --- !u!1 &3646773725851302027
 GameObject:
   m_ObjectHideFlags: 0

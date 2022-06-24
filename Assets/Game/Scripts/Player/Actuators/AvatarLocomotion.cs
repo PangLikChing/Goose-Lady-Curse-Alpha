@@ -44,6 +44,7 @@ public class AvatarLocomotion : MonoBehaviour
 
     public void Halt()
     {
+        agent.velocity = Vector3.zero;
         agent.isStopped = true;
     }
 
@@ -165,11 +166,12 @@ public class AvatarLocomotion : MonoBehaviour
     /// <returns>Return true if target is in range, false otherwise.</returns>
     public virtual bool IsInInteractionRange(float interactionRange)
     {
-        float distance = Vector3.Distance(transform.position, target.transform.position);
         if (target == null || target.GetComponent<Interactable>() == null)
         {
             return false;
         }
+        float distance = Vector3.Distance(transform.position, target.transform.position);
+        
         if (distance < target.GetComponent<Interactable>().radius + interactionRange + agent.radius)
         {
             return true;

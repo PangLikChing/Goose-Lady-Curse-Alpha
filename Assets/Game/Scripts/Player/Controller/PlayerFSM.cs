@@ -14,7 +14,7 @@ public class PlayerFSM: FSM
     public InputReader inputReader;
     [Tooltip("Reference to the avatar player will be controlling")]
     public GameObject avatar;
-    
+
     public readonly int MovementStateName = Animator.StringToHash("Movement");
     public readonly int IdleStateName = Animator.StringToHash("Idle");
     public readonly int PickupStateName = Animator.StringToHash("Pickup");

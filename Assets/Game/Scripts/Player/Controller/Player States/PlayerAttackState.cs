@@ -18,8 +18,13 @@ public class PlayerAttackState : PlayerBaseState
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (fsm.motion.target == null)
+        {
+            IdleState();
+        }
         if (fsm.actions.IsInAttackRange())
         {
+            fsm.motion.Halt();
             fsm.motion.FaceTarget();
             fsm.actions.Attack(fsm.motion.target);
         }
@@ -28,7 +33,7 @@ public class PlayerAttackState : PlayerBaseState
             fsm.actions.CancelAttack();
             fsm.motion.MoveToTarget(fsm.actions.attackRange);
         }
-        
+
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

@@ -20,7 +20,9 @@ public class EmojiBubble : MonoBehaviour
     {
         if (mainCamera != null)
         {
-            transform.LookAt(2*transform.position - mainCamera.transform.position);
+            //transform.LookAt(2*transform.position - mainCamera.transform.position);
+            transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward, Camera.main.transform.rotation * Vector3.up);
+
         }
     }
 
@@ -42,7 +44,7 @@ public class EmojiBubble : MonoBehaviour
                 icon.GetComponent<RectTransform>().localScale = Vector3.one;
             }
         }
-        
+
     }
 
     public void HideEmoji()

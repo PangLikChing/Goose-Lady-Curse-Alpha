@@ -1315,6 +1315,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Data
       objectReference: {fileID: 0}
+    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: statList.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: statList.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7ee1e2cae82da464d94d3087fd30d593, type: 2}
+    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: statList.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 264e64f6a43415048b502a78d357442b, type: 2}
+    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: statList.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7fa6aed232293ae489ebcdc996f22ec9, type: 2}
+    - target: {fileID: 5424102413032636374, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
+      propertyPath: statList.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3cba3d12b0814474c90a2a5923ccfe2b, type: 2}
     - target: {fileID: 5424102413032636375, guid: 5c8c74ed9ea43c64db583b7e92d3ad0c, type: 3}
       propertyPath: m_RootOrder
       value: 1

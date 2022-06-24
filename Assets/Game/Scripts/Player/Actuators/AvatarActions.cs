@@ -7,6 +7,8 @@ using UnityEngine.Events;
 /// The controller will invoke methods from this class to perform an action
 /// </summary>
 [RequireComponent(typeof(AvatarLocomotion))]
+[RequireComponent(typeof(AvatarCombat))]
+[RequireComponent(typeof(Animator))]
 public class AvatarActions : MonoBehaviour
 {
     [Tooltip("Avatar can pickup item under this range")]
@@ -19,8 +21,10 @@ public class AvatarActions : MonoBehaviour
     public float attackRange = 1.5f;
     [Tooltip("A margin to off the inaccuracy of avatar movement")]
     public float rangeMargin = 0.1f;
-    [Tooltip("Refence to avatar motion  script")]
+    [Tooltip("Refence to avatar motion script")]
     public AvatarLocomotion motion;
+    [Tooltip("Refence to avatar combat script")]
+    public AvatarCombat combat;
     [Tooltip("Avatar's spawn location")]
     public Transform spawnPoint;
     [Tooltip("This channel send item pickup event to inventory")]
@@ -113,18 +117,12 @@ public class AvatarActions : MonoBehaviour
     /// <param name="enemy">Enemy</param>
     public void Attack(Transform enemy)
     {
-        if (hasAnimator)
-        {
-            avatarAnimator.SetBool("attack", true);
-        }
+        combat.AttackTarget(enemy);
     }
 
     public void CancelAttack()
     {
-        if (hasAnimator)
-        {
-            avatarAnimator.SetBool("attack", false);
-        }
+        combat.AttackComplete();
     }
 
     public void Interact()
