@@ -15,13 +15,11 @@ public class RecipeScrollView : MonoBehaviour
 {
     CraftingRecipe[] recipes;
 
-    public Transform recipeButton;
+    [SerializeField] Transform recipeButton;
 
     [SerializeField] Transform recipeDisplayContent;
 
-    [HideInInspector] public string recipesFolderPath = "";
-
-    public void ShowRecipes()
+    public void DisplayRecipes(string path)
     {
         // For every child element currently in the content
         for (int i = 0; i < recipeDisplayContent.childCount; i++)
@@ -31,7 +29,7 @@ public class RecipeScrollView : MonoBehaviour
         }
 
         // Get all the recipes in that category
-        recipes = Resources.LoadAll<CraftingRecipe>(recipesFolderPath).ToArray();
+        recipes = Resources.LoadAll<CraftingRecipe>(path).ToArray();
 
         // For every recipe
         for (int i = 0; i < recipes.Length; i++)

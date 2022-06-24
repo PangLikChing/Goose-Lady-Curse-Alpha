@@ -15,7 +15,7 @@ MonoBehaviour:
   itemID: 22
   itemDisplayName: Stamina Potion
   itemIcon: {fileID: 21300000, guid: 0c52b44113e098941bd61a55af4745b1, type: 3}
-  item3DModelPrefeb: {fileID: 6269551660663507217, guid: 0ad9ada479f53264f9c5e5c67a8ea0bf, type: 3}
+  item3DModelPrefeb: {fileID: 3763676090227773058, guid: b60870c071b2658409380702fec66452, type: 3}
   maxStackNumber: 99
   modifier:
   - {fileID: 11400000, guid: 8255cc67b292e2e4d813ee61637dff2f, type: 2}

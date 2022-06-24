@@ -22,14 +22,21 @@ public class EquipmentSlot : ScriptableObject
         this.equipment = equipment;
         OnEquip.Invoke();
         //Apply item bounus
-
+        for (int i = 0; i < equipment.modifiers.Length; i++)
+        {
+            equipment.modifiers[i].Apply();
+        }
     }
 
     public void UnEquip()
     {
         isOccupied = false;
+        //Remove item bonus
+        for (int i = 0; i < equipment.modifiers.Length; i++)
+        {
+            equipment.modifiers[i].Remove();
+        }
         OnUnequip.Invoke(equipment, 1);
         equipment = null;
-        //Remove item bonus
     }
 }

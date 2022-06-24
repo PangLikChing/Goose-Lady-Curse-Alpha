@@ -103,6 +103,8 @@ public class AvatarActions : MonoBehaviour
             return;
         }
         itemWrapper.stackNumber = stack;
+        // Safety measure
+        itemWrapper.item = item;
 
     }
 
