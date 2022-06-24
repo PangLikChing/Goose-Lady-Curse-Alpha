@@ -91,6 +91,7 @@ public class CraftingManager : Singleton<CraftingManager>
             reagentMenuContent.GetChild(i).GetChild(1).GetComponent<TMP_Text>().text = playerInventory.SearchItem(recipe.reagents[i].item).ToString();
         }
 
+        // Should add if the inventory is full here
         // If there is no item seclected or the input stack number is less than or equals to 0, or not all reagents are presented
         if (recipe == null || int.Parse(craftingNumberInputField.text) <= 0 || !ReagentPresent(int.Parse(craftingNumberInputField.text)))
         {

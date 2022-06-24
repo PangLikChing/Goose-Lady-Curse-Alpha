@@ -33,6 +33,8 @@ public class CraftButton : MonoBehaviour
             // For the amount of item that the player want to craft
             for (int i = 0; i < stackNumber; i++)
             {
+                // Check if the inventory is full here
+
                 // Add that 1 of that item to the inventory
                 craftEvent.Invoke(recipe.item, 1);
 
@@ -41,7 +43,6 @@ public class CraftButton : MonoBehaviour
                 for (int j = 0; j < recipe.reagents.Length; j++)
                 {
                     // Consume that reagent
-                    //CraftingManager.Instance.playerInventory.ConsumeItem(recipe.reagents[j].item, recipe.reagents[j].requiredAmount * stackNumber);
                     consumeReagentEvent.Invoke(recipe.reagents[j].item, recipe.reagents[j].requiredAmount);
                 }
             }
