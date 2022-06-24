@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb70ddd5a25a76458d8643dd41efe54, type: 3}
+  m_Name: Hood
+  m_EditorClassIdentifier: 
+  itemID: 10
+  itemDisplayName: Hood
+  itemIcon: {fileID: 21300000, guid: 1e16518344dcc984a819375fb6a17d71, type: 3}
+  item3DModelPrefeb: {fileID: 6269551660663507217, guid: 0ad9ada479f53264f9c5e5c67a8ea0bf, type: 3}
+  maxStackNumber: 1
+  equipmentSlot: {fileID: 11400000, guid: 91ee6a11e50e11f44bdfb92a8a7743ac, type: 2}
+  modifiers:
+  - {fileID: 11400000, guid: 2b9f609cb36d47f42b9ceb2f1ed5abb9, type: 2}
+  - {fileID: 11400000, guid: 65a89019ce18d0347b9c2f474e052fdd, type: 2}
+  - {fileID: 11400000, guid: f40f986bdcc150742b3d55e99e9dd9c9, type: 2}

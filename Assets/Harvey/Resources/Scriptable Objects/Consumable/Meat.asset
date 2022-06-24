@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: def40cb91ce48ea40867b79898b1f82d, type: 3}
+  m_Name: Meat
+  m_EditorClassIdentifier: 
+  itemID: 3
+  itemDisplayName: Meat
+  itemIcon: {fileID: 21300000, guid: 4a39cb4b272639541b7bd5ac0649acf7, type: 3}
+  item3DModelPrefeb: {fileID: 7087513703501160610, guid: 3741f532395c1fa4489bc5aa772f8ea9, type: 3}
+  maxStackNumber: 99
+  modifier:
+  - {fileID: 11400000, guid: 5f412927291870c41a063ffac77e6060, type: 2}

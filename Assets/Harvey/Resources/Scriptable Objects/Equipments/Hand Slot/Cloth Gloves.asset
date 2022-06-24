@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb70ddd5a25a76458d8643dd41efe54, type: 3}
+  m_Name: Cloth Gloves
+  m_EditorClassIdentifier: 
+  itemID: 16
+  itemDisplayName: Cloth Gloves
+  itemIcon: {fileID: 21300000, guid: 266c6672eaea23248813e9fd4517aa5f, type: 3}
+  item3DModelPrefeb: {fileID: 6269551660663507217, guid: 0ad9ada479f53264f9c5e5c67a8ea0bf, type: 3}
+  maxStackNumber: 1
+  equipmentSlot: {fileID: 11400000, guid: 4e85378141c83f2408a5c88ffe20dc07, type: 2}
+  modifiers:
+  - {fileID: 11400000, guid: 55c71d7e3a793c04c8e50a46d93982b2, type: 2}
+  - {fileID: 11400000, guid: 8fbf98a5b58570b409a555bf7f7d06d6, type: 2}
+  - {fileID: 11400000, guid: f484a4b7d0f5c51468d701eb46867512, type: 2}

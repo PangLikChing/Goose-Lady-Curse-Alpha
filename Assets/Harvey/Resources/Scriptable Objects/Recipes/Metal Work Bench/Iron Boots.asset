@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed4a558f30bfac4cb8ae38300ac2c14, type: 3}
+  m_Name: Iron Boots
+  m_EditorClassIdentifier: 
+  recipeID: 16
+  recipeName: Iron Boots
+  item: {fileID: 11400000, guid: b1ac5101411d0b64aba37b1e2da0e388, type: 2}
+  reagents:
+  - item: {fileID: 11400000, guid: a9de61a01db56af4d85347c18e7aa666, type: 2}
+    requiredAmount: 5
+  description: 'Feet Amour
+
+    Defense + 3
+
+    Health + 25
+
+    Warmth + 1'

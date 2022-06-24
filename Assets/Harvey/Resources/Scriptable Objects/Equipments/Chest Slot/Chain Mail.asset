@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cb70ddd5a25a76458d8643dd41efe54, type: 3}
+  m_Name: Chain Mail
+  m_EditorClassIdentifier: 
+  itemID: 15
+  itemDisplayName: Chain Mail
+  itemIcon: {fileID: 21300000, guid: c720139856ac0f44d894498956e1b55f, type: 3}
+  item3DModelPrefeb: {fileID: 6269551660663507217, guid: 0ad9ada479f53264f9c5e5c67a8ea0bf, type: 3}
+  maxStackNumber: 1
+  equipmentSlot: {fileID: 11400000, guid: 78634d36d4ef30246abc486644a1319d, type: 2}
+  modifiers:
+  - {fileID: 11400000, guid: 61a7881b64db4b94891092d0704e7a02, type: 2}
+  - {fileID: 11400000, guid: ba30b8203f5adc6458afdea81197d9ee, type: 2}
+  - {fileID: 11400000, guid: b0a21405487e67f4b9fb1bf602df24ba, type: 2}
+  - {fileID: 11400000, guid: ddbac004068fe1344b7e9018c69df925, type: 2}
