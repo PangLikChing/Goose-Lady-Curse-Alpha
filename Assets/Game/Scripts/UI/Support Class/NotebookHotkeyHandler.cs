@@ -9,15 +9,15 @@ public class NotebookHotkeyHandler : MonoBehaviour
     public UnityEvent ToggleNotebook;
     private void OnEnable()
     {
-        reader.OpenNoteBookEvent += ToggleNoteBook;
+        reader.OpenNoteBookEvent += ToggleNotebookUI;
     }
 
     private void OnDisable()
     {
-        reader.OpenInventoryEvent -= ToggleNoteBook;
+        reader.OpenInventoryEvent -= ToggleNotebookUI;
     }
 
-    private void ToggleNoteBook()
+    private void ToggleNotebookUI()
     {
         ToggleNotebook.Invoke();
     }

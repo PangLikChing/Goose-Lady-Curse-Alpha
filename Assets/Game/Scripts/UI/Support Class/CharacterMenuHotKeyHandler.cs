@@ -1,34 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CharacterMenuHotKeyHandler : MonoBehaviour
 {
     [Tooltip("Reference to input reader")]
     public InputReader inputReader;
-    public MenuClassifier characterMenu;
+    public UnityEvent ToggleCharacterMenu;
     private void OnEnable()
     {
-        inputReader.OpenCharacterPanelEvent += OpenCharacterMenu;
+        inputReader.OpenCharacterPanelEvent += ToggleCharacterMenuUI;
     }
 
     private void OnDisable()
     {
-        inputReader.OpenCharacterPanelEvent -= OpenCharacterMenu;
-        inputReader.OpenCharacterPanelEvent -= CloseCharacterMenu;
+        inputReader.OpenCharacterPanelEvent -= ToggleCharacterMenuUI;
     }
 
-    public void OpenCharacterMenu()
+    public void ToggleCharacterMenuUI()
     {
-        MenuManager.Instance.GetMenu<CharacterMenu>(characterMenu).OnShowMenu();
-        inputReader.OpenCharacterPanelEvent += CloseCharacterMenu;
-        inputReader.OpenCharacterPanelEvent -= OpenCharacterMenu;
-    }
-
-    public void CloseCharacterMenu()
-    {
-        MenuManager.Instance.GetMenu<CharacterMenu>(characterMenu).OnHideMenu();
-        inputReader.OpenCharacterPanelEvent += OpenCharacterMenu;
-        inputReader.OpenCharacterPanelEvent -= CloseCharacterMenu;
+        ToggleCharacterMenu.Invoke();
     }
 }
