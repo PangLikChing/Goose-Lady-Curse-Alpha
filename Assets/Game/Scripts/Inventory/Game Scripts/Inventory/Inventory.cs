@@ -15,10 +15,13 @@ public class Inventory : MonoBehaviour
     // This is the items that the player is holding and its location
     public List<ItemSlot[]> itemList = new List<ItemSlot[]>();
 
+    // boolean to check if the inventory is full or not
+    bool isFull = false;
+
     // RefreshInventorySlots is an event to refresh all Inventory slots
     // Assign the responsible InventoryGrouper to this event and call RefreshInventorySlots()
     public UnityEvent RefreshInventorySlots;
-
+    public UnityEvent InventoryIsFull, InventoryIsNotFull;
     public UnityEvent CheckCraftable;
 
     // This should happen on start and on bag update, probaly should use an event for this
@@ -58,6 +61,18 @@ public class Inventory : MonoBehaviour
 
             // Throw a debug message
             Debug.Log($"Added a itemslot array with the size of {itemList[i].Length}");
+        }
+
+        // Check if the inventory is full
+        if (IsInventoryFull() == true)
+        {
+            // If so, set isFull to true
+            isFull = true;
+        }
+        else
+        {
+            // Else, set isFull to false
+            isFull = false;
         }
     }
 
@@ -178,6 +193,9 @@ public class Inventory : MonoBehaviour
 
         // Check if the item is craftable
         CheckCraftable.Invoke();
+
+        // Check inventory state and invoke event accordingly
+        CheckinventoryState();
     }
 
     public void ConsumeItem(Item item, int stackNumber)
@@ -254,6 +272,9 @@ public class Inventory : MonoBehaviour
 
         // Refresh Inventory slots
         RefreshInventorySlots.Invoke();
+
+        // Check inventory state and invoke event accordingly
+        CheckinventoryState();
     }
 
     public void AddItemToSpecificSlot(InventorySlot inventorySlot, Item item, int stackNumber)
@@ -290,6 +311,9 @@ public class Inventory : MonoBehaviour
             // Do nothing
             return;
         }
+
+        // Check inventory state and invoke event accordingly
+        CheckinventoryState();
     }
 
     public void RemoveItemFromSpecificSlot(InventorySlot inventorySlot, int stackNumber)
@@ -315,6 +339,9 @@ public class Inventory : MonoBehaviour
 
         // Refresh that inventory slot
         inventorySlot.RefreshInventorySlot();
+
+        // Check inventory state and invoke event accordingly
+        CheckinventoryState();
     }
 
     public void SwapBag(int firstBag, int secondBag)
@@ -510,5 +537,49 @@ public class Inventory : MonoBehaviour
 
         // Return true
         return true;
+    }
+
+    // Return true if the inventory is full
+    public bool IsInventoryFull()
+    {
+        // For every bag
+        for (int i = 0; i < itemList.Count; i++)
+        {
+            // For every item slot in the bag
+            for (int j = 0; j < itemList[i].Length; j++)
+            {
+                // If the item slot does not contain an item
+                if (itemList[i][j].slottedItem == null)
+                {
+                    // Return false as the bag is not full
+                    return false;
+                }
+            }
+        }
+        // Return true as the bag is full
+        return true;
+    }
+
+    // Method to check inventory state and invoke event accordingly
+    void CheckinventoryState()
+    {
+        // Check if the inventory is full
+        if (IsInventoryFull() == true && isFull == false)
+        {
+            // Invoke the event to tell other systems that the inventory is currently full
+            InventoryIsFull.Invoke();
+
+            // Notify the inventory that it is currently full
+            isFull = true;
+        }
+        // If the inventory is not full now is it was full previously
+        else if (IsInventoryFull() == false && isFull == true)
+        {
+            // Invoke the event to tell other systems that the inventory is currently not full
+            InventoryIsNotFull.Invoke();
+
+            // Notify the inventory that it is currently not full
+            isFull = false;
+        }
     }
 }
