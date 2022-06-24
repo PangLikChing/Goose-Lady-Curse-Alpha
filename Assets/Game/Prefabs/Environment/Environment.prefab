@@ -2319,7 +2319,7 @@ GameObject:
   - component: {fileID: 5061103645203496709}
   m_Layer: 3
   m_Name: MainTerrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2483,7 +2483,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5061103645234086830
 Transform:
   m_ObjectHideFlags: 0

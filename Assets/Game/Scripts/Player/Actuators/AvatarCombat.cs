@@ -52,4 +52,10 @@ public class AvatarCombat : MonoBehaviour
     {
         attacking = false;
     }
+
+    //public void CancelAttack()
+    //{
+    //    attacking = false;
+    //    avatarAnimator.SetTrigger("cancel attack");
+    //}
 }

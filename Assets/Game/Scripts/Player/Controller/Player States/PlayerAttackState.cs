@@ -24,8 +24,8 @@ public class PlayerAttackState : PlayerBaseState
         }
         if (fsm.actions.IsInAttackRange())
         {
-            fsm.motion.Halt();
             fsm.motion.FaceTarget();
+            fsm.motion.Halt();
             fsm.actions.Attack(fsm.motion.target);
         }
         else
