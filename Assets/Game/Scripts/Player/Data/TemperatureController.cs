@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TemperatureController : MonoBehaviour
 {
+    public Stat coldProtection;
     public SurvivalStat temperatureStat;
     [Header("Forest")]
     public Modifier forestDay;
@@ -32,10 +33,16 @@ public class TemperatureController : MonoBehaviour
 
     private Modifier currentModifier;
 
+
     public void Initialize()
     {
         currentModifier = null;
         ApplyForestDay();//need to vary depending on the respawn locations
+    }
+
+    private void Update()
+    {
+        //temperatureStat.actualChangeRate += coldProtection.finalValue;
     }
 
     public void ApplyForestDay()
