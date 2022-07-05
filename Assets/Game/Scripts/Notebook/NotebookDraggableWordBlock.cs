@@ -79,7 +79,7 @@ public class NotebookDraggableWordBlock : MonoBehaviour, IPointerDownHandler, IB
         if (transform.parent == canvas.transform)
         {
             // Reset parent to the original dropping field
-            transform.parent = originalParent;
+            transform.SetParent(originalParent);
 
             // Return to the centre of the original dropping field
             transform.localPosition = new Vector2(0, 0);

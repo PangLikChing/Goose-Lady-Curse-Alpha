@@ -29,38 +29,44 @@ public class NotebookReturnDroppingField : MonoBehaviour, IDropHandler
                 GameObject originalGameObject = eventData.pointerDrag.GetComponent<NotebookDraggableWordBlock>().myOriginalGameObject;
 
                 // Find the original gameObject
-                for (int i = 0; i < myContent.childCount; i++)
-                {
-                    // If the clone's saved object is the same as the one in the content
-                    if (originalGameObject == myContent.GetChild(i).gameObject)
-                    {
-                        try
-                        {
-                            // Cache that canvas group for the gameObject in the content
-                            CanvasGroup canvasGroup = myContent.GetChild(i).GetComponent<CanvasGroup>();
-
-                            // Enable that gameObject in the content
-                            canvasGroup.alpha = 1;
-                            canvasGroup.blocksRaycasts = true;
-
-                            // Dereference myClone for the word block
-                            canvasGroup.GetComponent<NotebookWordBlock>().myClone = null;
-
-                            // Stop the search
-                            break;
-                        }
-                        catch
-                        {
-                            Debug.Log("The gameobject in content does not have a canvas group");
-                        }
-                    }
-                }
+                ReturnBlock(originalGameObject);
 
                 // Destory that clone
                 Destroy(eventData.pointerDrag.gameObject);
 
                 // Disable this game object to allow dragging of words suggestion blocks again
                 gameObject.SetActive(false);
+            }
+        }
+    }
+
+    public void ReturnBlock(GameObject originalGameObject)
+    {
+        // Find the original gameObject
+        for (int i = 0; i < myContent.childCount; i++)
+        {
+            // If the clone's saved object is the same as the one in the content
+            if (originalGameObject == myContent.GetChild(i).gameObject)
+            {
+                try
+                {
+                    // Cache that canvas group for the gameObject in the content
+                    CanvasGroup canvasGroup = myContent.GetChild(i).GetComponent<CanvasGroup>();
+
+                    // Enable that gameObject in the content
+                    canvasGroup.alpha = 1;
+                    canvasGroup.blocksRaycasts = true;
+
+                    // Dereference myClone for the word block
+                    canvasGroup.GetComponent<NotebookWordBlock>().myClone = null;
+
+                    // Stop the search
+                    break;
+                }
+                catch
+                {
+                    Debug.Log("The gameobject in content does not have a canvas group");
+                }
             }
         }
     }

@@ -31,25 +31,11 @@ public class NotebookWordBlock : MonoBehaviour, IPointerDownHandler, IBeginDragH
         // If I am dragging with my left mouse button down
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            // Make it so that it is not interactable with raycast when dragging
-            canvasGroup.blocksRaycasts = false;
-
             // Instantiate a dragable word block
-            myClone = Instantiate(DraggableClonePrefeb, canvas.transform).GetComponent<NotebookDraggableWordBlock>();
+            myClone = InstantiateClone();
 
             // Snap myCLone's position to this transform's position to create the illusion of they are the same object
             myClone.transform.position = transform.position;
-
-            // Ask the clone to remember this word block
-            myClone.myOriginalGameObject = gameObject;
-
-            // Assign canvas, sprite and word for the clone
-            myClone.canvas = canvas;
-            myClone.myImage.sprite = myImage.sprite;
-            myClone.myTextField.text = myTextField.text;
-
-            // Assign the return dropping field for the clone
-            myClone.returnDroppingField = returnDroppingField;
 
             // Hide this gameObject
             canvasGroup.alpha = 0;
@@ -98,5 +84,25 @@ public class NotebookWordBlock : MonoBehaviour, IPointerDownHandler, IBeginDragH
 
     public void OnPointerDown(PointerEventData eventData)
     {
+    }
+
+    private NotebookDraggableWordBlock InstantiateClone()
+    {
+        // Instantiate a dragable word block
+        myClone = Instantiate(DraggableClonePrefeb, canvas.transform).GetComponent<NotebookDraggableWordBlock>();
+
+        // Ask the clone to remember this word block
+        myClone.myOriginalGameObject = gameObject;
+
+        // Assign canvas, sprite and word for the clone
+        myClone.canvas = canvas;
+        myClone.myImage.sprite = myImage.sprite;
+        myClone.myTextField.text = myTextField.text;
+
+        // Assign the return dropping field for the clone
+        myClone.returnDroppingField = returnDroppingField;
+
+        // Return the clone
+        return myClone;
     }
 }
