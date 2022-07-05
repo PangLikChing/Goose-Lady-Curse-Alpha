@@ -21,8 +21,8 @@ public class Inventory : MonoBehaviour
     // RefreshInventorySlots is an event to refresh all Inventory slots
     // Assign the responsible InventoryGrouper to this event and call RefreshInventorySlots()
     public UnityEvent RefreshInventorySlots;
-    public UnityEvent InventoryIsFull, InventoryIsNotFull;
     public UnityEvent CheckCraftable;
+    public UnityEvent<bool> InventoryIsFull;
 
     // This should happen on start and on bag update, probaly should use an event for this
     void Awake()
@@ -567,7 +567,7 @@ public class Inventory : MonoBehaviour
         if (IsInventoryFull() == true && isFull == false)
         {
             // Invoke the event to tell other systems that the inventory is currently full
-            InventoryIsFull.Invoke();
+            InventoryIsFull.Invoke(true);
 
             // Notify the inventory that it is currently full
             isFull = true;
@@ -576,7 +576,7 @@ public class Inventory : MonoBehaviour
         else if (IsInventoryFull() == false && isFull == true)
         {
             // Invoke the event to tell other systems that the inventory is currently not full
-            InventoryIsNotFull.Invoke();
+            InventoryIsFull.Invoke(false);
 
             // Notify the inventory that it is currently not full
             isFull = false;
